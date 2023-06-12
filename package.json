@@ -1,0 +1,35 @@
+{
+  "name": "everydaycalendar",
+  "version": "1.0.0",
+  "description": "build w/ Electronjs - cross-platform",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexEG/EveryDayCalendar.git"
+  },
+  "keywords": [
+    "electronjs"
+  ],
+  "author": "AlexEG",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexEG/EveryDayCalendar/issues"
+  },
+  "homepage": "https://github.com/AlexEG/EveryDayCalendar#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.1.1",
+    "@electron-forge/maker-deb": "^6.1.1",
+    "@electron-forge/maker-rpm": "^6.1.1",
+    "@electron-forge/maker-squirrel": "^6.1.1",
+    "@electron-forge/maker-zip": "^6.1.1",
+    "electron": "^25.1.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}
