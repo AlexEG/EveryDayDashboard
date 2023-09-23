@@ -10,7 +10,7 @@ export default function TitleBar() {
     <span class="text-xs" id="title-bar-session">AM</span>
     </div>
     
-    <p class="text-sm">DAY <span class="text-white/95">7095</span></p>
+    <div class="text-sm">DAY <span id="title-bar-how-old-am-i" class="text-white/95">0000</span></div>
     </div>
   </div>`;
 }

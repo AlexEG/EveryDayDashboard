@@ -1,4 +1,4 @@
-export default function TitleBarClock() {
+export default function TitleBarClock(): void {
   const date: Date = new Date();
 
   let h = date.getHours(); // 0 - 23
