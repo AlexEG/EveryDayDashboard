@@ -1,22 +1,9 @@
 export default function Headers() {
-  return `<header class="pl-14 bg-black">
-  <!-- calendar title && clock && how old you in days  -->
-  <div
-    class="h-7 flex justify-center items-center bg-gradient-to-l from-transparent bg-slate-950 relative"
-  >
-    <span class="text-slate-50 font-semibold"
-      >Solve one leetcode problem</span
-    >
-    <div class="absolute right-2 h-full flex items-center gap-3">
-      <time datetime="00:00" class="text-slate-300 font-medium text-xs"
-        >00:00 AM</time
-      >
-      <h3 class="text-slate-50 font-medium text-sm">DAY 0000</h3>
-    </div>
-  </div>
+  return `
+  <header class="w-[calc(100%-3.5rem)] ml-14 h-20 pt-2 bg-black overflow-hidden">
 
   <!-- Statistic -->
-  <section class="py-2 h-20 flex justify-around">
+  <section class="flex justify-around">
     <!--* Longest Streak && Current Streak  -->
 
     <div>
