@@ -18,6 +18,8 @@ main::-webkit-scrollbar {
 }
 main::-webkit-scrollbar-track {
   background: black;
+  margin-top: 35px;
+  margin-bottom: 50px;
 }
 main::-webkit-scrollbar-thumb {
   background: #ffffff77;

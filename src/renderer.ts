@@ -7,6 +7,7 @@ import TitleBarClock from "./components/TitleBar/TitleBarClock";
 import HowOldAmI from "./components/TitleBar/HowOldAmI";
 import CalendarMonthContainer from "./components/Calendar/CalendarMonthContainer";
 import CalendarMonth from "./components/Calendar/CalendarMonth";
+import AdditionalOptionsMenu from "./components/AdditionalOptionsMenu/AdditionalOptionsMenu";
 
 document.querySelector("div#root").innerHTML += TitleBar();
 document.querySelector("div#root").innerHTML += Sidebar();
@@ -39,3 +40,5 @@ monthNames.forEach((month) => {
   );
   CalendarMonth(month[0].toString(), +month[1]);
 });
+
+document.querySelector("div#root").innerHTML += AdditionalOptionsMenu();
