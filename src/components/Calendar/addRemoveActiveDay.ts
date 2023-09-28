@@ -6,11 +6,8 @@ export default function addRemoveActiveDay() {
         btn.classList.remove("opacity-50");
         btn.classList.remove("grayscale-[35%]");
         btn.classList.add("brightness-105");
-        // class have no styles
+
         btn.classList.add("marked");
-        // add/remove from local storage
-        console.log("Add to local storage");
-        localStorage.setItem(btn.id, "marked");
 
         btn
           .querySelector(" div > div > div > div > span")
@@ -20,10 +17,9 @@ export default function addRemoveActiveDay() {
         btn.classList.add("opacity-50");
         btn.classList.add("grayscale-[35%]");
         btn.classList.remove("brightness-105");
+
         btn.classList.remove("marked");
-        // add/remove from local storage
-        console.log("Remove from local storage");
-        localStorage.removeItem(btn.id);
+
         btn
           .querySelector(" div > div > div > div > span")
           .classList.remove("brightness-0");
