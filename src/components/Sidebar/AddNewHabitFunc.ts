@@ -1,13 +1,25 @@
-import HabitBtn from "./HabitBtn";
+// import HabitBtn from "./HabitBtn";
 
-export default function AddNewHabitFunc() {
-  const habitContainer = document.querySelector("#sidebar-habits-container");
-  const addNewHabitBtn = document.querySelector("#add-new-habit-btn");
+// export default function AddNewHabitFunc() {
+//   const [addNewHabitBtn,input, inputContainer, inputSaveBtn, sidebarHabitsContainer] = [
+//     document.querySelector("#add-new-habit-btn"),
+//     document.querySelector("section#add-calendar-input input"),
+//     document.querySelector("section#add-calendar-input"),
+//     document.querySelector("button#add-new-calendar-save-btn"),
+//     document.querySelector("div#sidebar-habits-container"),
+//   ];
 
-  let n = 0;
-  addNewHabitBtn.addEventListener("click", () => {
-    habitContainer.innerHTML += HabitBtn(n + 1, "Go Outside 15 mins");
-    n++;
-    console.log(n);
-  });
-}
+//   inputContainer.classList.remove("hidden");
+
+//   let TotalHabitNums = 1;
+
+//   inputSaveBtn.addEventListener("click", () => {
+//     sidebarHabitsContainer.innerHTML += HabitBtn(TotalHabitNums, input.value);
+
+//     inputContainer.classList.add("hidden");
+
+//     // changeCalendarTitle();
+//     input.value = "";
+//     TotalHabitNums++;
+//   });
+// }

@@ -8,8 +8,9 @@ import HowOldAmI from "./components/TitleBar/HowOldAmI";
 import CalendarMonthContainer from "./components/Calendar/CalendarMonthContainer";
 import CalendarMonth from "./components/Calendar/CalendarMonth";
 import AdditionalOptionsMenu from "./components/AdditionalOptionsMenu/AdditionalOptionsMenu";
-import AddNewHabitFunc from "./components/Sidebar/AddNewHabitFunc";
+// import AddNewHabitFunc from "./components/Sidebar/AddNewHabitFunc";
 import addRemoveActiveDay from "./components/Calendar/addRemoveActiveDay";
+import HabitBtnFunc from "./components/Sidebar/HabitBtnFunc";
 
 document.querySelector("div#root").innerHTML += TitleBar();
 document.querySelector("div#root").innerHTML += Sidebar();
@@ -46,5 +47,6 @@ document.querySelector("div#root").innerHTML += AdditionalOptionsMenu();
 TitleBarClock();
 setInterval(TitleBarClock, 60000);
 HowOldAmI(2004, 4, 20);
-AddNewHabitFunc();
+// AddNewHabitFunc();
 addRemoveActiveDay();
+HabitBtnFunc();
