@@ -198,9 +198,6 @@ function CalendarDaysJSON() {
         .getAttribute("data-file-path");
 
       editCalenderFileJSON(fileName, month, day, true);
-
-      // console.log(month, day);
-      // console.log(fileName);
     });
   });
 }
@@ -311,24 +308,30 @@ function unMarkAllCalender() {
  *
  */
 function openTheFirstHabitOnLoad() {
-  const FilePath = fs.readdirSync("./DATA/habits")[0];
-  const Title = FilePath.split("_").slice(2).join(" ").slice(0, -5);
+  if (fs.readdirSync("./DATA/habits").length > 0) {
+    const FilePath = fs.readdirSync("./DATA/habits")[0];
+    const Title = FilePath.split("_").slice(2).join(" ").slice(0, -5);
+    ChangeTitle(Title, FilePath);
 
-  ChangeTitle(Title, FilePath);
+    const firstHabt = document.querySelector("div.sidebar-habit");
+    firstHabt
+      .querySelector("span")
+      .classList.add("text-slate-950", "font-bold");
+    firstHabt.classList.add("bg-slate-200");
 
-  fs.readFile(`./DATA/habits/${FilePath}`, "utf-8", (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    const jsonData = JSON.parse(data);
-
-    for (const key in jsonData) {
-      for (const key2 in jsonData[key]) {
-        if (jsonData[key][key2]) {
-          markDay(`${key}-${key2}`);
+    fs.readFile(`./DATA/habits/${FilePath}`, "utf-8", (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      const jsonData = JSON.parse(data);
+      for (const key in jsonData) {
+        for (const key2 in jsonData[key]) {
+          if (jsonData[key][key2]) {
+            markDay(`${key}-${key2}`);
+          }
         }
       }
-    }
-  });
+    });
+  }
 }
