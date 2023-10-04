@@ -3,15 +3,31 @@
 
 import fs from "fs";
 import HabitBtn from "./components/Sidebar/HabitBtn";
-import HabitBtnFunc from "./components/Sidebar/HabitBtnFunc";
+import HabitBtnFuncChangeTitle from "./components/Sidebar/HabitBtnFunc";
+import ChangeTitle from "./components/TitleBar/ChangeTitle";
 
 Mkdir("./DATA");
 Mkdir("./DATA/habits");
+
+window.addEventListener("DOMContentLoaded", () => {
+  addHabitsToSidebarJSON();
+
+  addNewHabitInput();
+
+  CalendarDaysJSON();
+  habitFileToCalender();
+  openTheFirstHabitOnLoad();
+});
+
+// _________________________________________________________ //
+
 /**
+ *
  * ! emptyDataHabit
  * return object w/ all days default to false
+ * Done
+ *
  */
-
 function emptyDataHabit() {
   const monthNames = [
     ["January", 31],
@@ -31,7 +47,7 @@ function emptyDataHabit() {
   const year: any = {};
   monthNames.forEach((month) => {
     year[month[0]] = {};
-    for (let i = 0; i < +month[1]; i++) {
+    for (let i = 1; i <= +month[1]; i++) {
       year[month[0]][i] = false;
     }
   });
@@ -39,23 +55,23 @@ function emptyDataHabit() {
 }
 
 /**
+ *
  * ! createJSONHaFileHabit
  * create new json file w/ the emptyDataHabit() contnet
+ * Done
+ *
  */
-
 function createJSONHaFileHabit(FileName: string) {
   const habitsFiles = fs.readdirSync("./DATA/habits");
   //* checkIfTheNameAvailable
   habitsFiles.map((excitingFile) => {
     const fileTitle = excitingFile.split("_").slice(2).join(" ").slice(0, -5);
-
     if (FileName === fileTitle) {
       console.error(`There is already excitingFile with the Name ${FileName}`);
       return;
     }
   });
   //* get the next number for habit file
-
   const excitingFilesNumbersArr = habitsFiles.map(
     (file) =>
       +file
@@ -63,33 +79,24 @@ function createJSONHaFileHabit(FileName: string) {
         .slice(1, 2)
         .sort((a, b) => +a - +b)
   );
-  // console.log(excitingFilesNumbersArr);
-
   const bigestHabitNum =
     excitingFilesNumbersArr[excitingFilesNumbersArr.length - 1];
-
-  // console.log(bigestHabitNum);
-
   let availableFileNumber = 0;
-
   for (let i = 1; i <= bigestHabitNum; i++) {
-    // console.log(excitingFilesNumbersArr.includes(excitingFilesNumbersArr[i]));
     if (!excitingFilesNumbersArr.includes(i) && availableFileNumber === 0) {
-      console.log(i + " i'm taking this num");
       availableFileNumber = i;
     }
   }
   if (availableFileNumber === 0) {
     availableFileNumber = habitsFiles.length + 1;
   }
-  // console.log("||||" + availableFileNumber);
-
   FileName = FileName.split(" ").join("_");
-
   fs.writeFile(
     `./DATA/habits/habit_${availableFileNumber}_${FileName}.json`,
     JSON.stringify(emptyDataHabit()),
     function (err) {
+      createHabitBtn(`habit_${availableFileNumber}_${FileName}.json`);
+      HabitBtnFuncChangeTitle();
       if (err) {
         console.error(err);
         return;
@@ -98,13 +105,12 @@ function createJSONHaFileHabit(FileName: string) {
   );
 }
 
-// ----------------
-createJSONHaFileHabit("Test 6");
-
 /**
+ *
  * ! Mkdir
+ * Done
+ *
  */
-
 function Mkdir(path: string) {
   fs.access(path, (error) => {
     if (error) {
@@ -117,159 +123,216 @@ function Mkdir(path: string) {
   });
 }
 
-// ----------------------------------- //
-
-window.addEventListener("DOMContentLoaded", () => {
-  // const [
-  //   addNewHabitBtn,
-  //   input,
-  //   inputContainer,
-  //   inputSaveBtn,
-  //   sidebarHabitsContainer,
-  // ] = [
-  //   document.querySelector("#add-new-habit-btn"),
-  //   document.querySelector("section#add-calendar-input input"),
-  //   document.querySelector("section#add-calendar-input"),
-  //   document.querySelector("button#add-new-calendar-save-btn"),
-  //   document.querySelector("div#sidebar-habits-container"),
-  // ];
-
-  // addNewHabitBtn.addEventListener("click", () => {
-  //   inputContainer.classList.remove("hidden");
-  // });
-
-  // let TotalHabitNums = 1;
-  // inputSaveBtn.addEventListener("click", () => {
-  //   sidebarHabitsContainer.innerHTML += HabitBtn(TotalHabitNums, input.value);
-
-  //   inputContainer.classList.add("hidden");
-  //   createJSONFile(`./DATA/habits/habit_${input.value}.json`);
-
-  //   input.value = "";
-  //   TotalHabitNums++;
-  //   HabitBtnFunc();
-  // });
-
-  addHabitsToSidebarJSON();
-  // CalendarDaysJSON();
-  // habitFileToCalender();
-});
-
 /**
+ *
  * ! To Readner Habits in Sidebar
+ * Done
+ *
  */
 function addHabitsToSidebarJSON() {
   const fileNames = fs.readdirSync("./DATA/habits");
+
+  fileNames.map((habitName) => {
+    createHabitBtn(habitName);
+  });
+  HabitBtnFuncChangeTitle();
+}
+
+/**
+ *
+ * ! createHabitBtn
+ * used in => addHabitsToSidebarJSON() && createJSONHaFileHabit()
+ * after creating JSON file render habitbtn in Sidebar
+ * Done
+ *
+ */
+function createHabitBtn(habitName: string) {
   const sidebarHabitsContainer = document.querySelector(
     "div#sidebar-habits-container"
   );
-
-  fileNames.map((habitName) => {
-    const habitNum = +habitName.split("_")[1];
-    habitName = habitName.split("_").slice(2).join(" ").slice(0, -5);
-    sidebarHabitsContainer.innerHTML += HabitBtn(habitNum, habitName);
-  });
-  HabitBtnFunc();
+  const habitNum = +habitName.split("_")[1];
+  const habitTitle = habitName.split("_").slice(2).join(" ").slice(0, -5);
+  sidebarHabitsContainer.innerHTML += HabitBtn(habitNum, habitTitle, habitName);
 }
 
-// // -------------------- Edit Json file | Mark Unmark calender days
+/**
+ *
+ * ! addNewHabitInput
+ * Done
+ *
+ */
+function addNewHabitInput() {
+  const [addNewHabitBtn, input, inputContainer, inputSaveBtn, ,] = [
+    document.querySelector("#add-new-habit-btn"),
+    document.querySelector("section#add-calendar-input input"),
+    document.querySelector("section#add-calendar-input"),
+    document.querySelector("button#add-new-calendar-save-btn"),
+  ];
 
-// function editCalenderFileJSON(
-//   filePath: string,
-//   month: string,
-//   day: string,
-//   value: boolean
-// ) {
-//   fs.readFile(`./DATA/habits/${filePath}`, "utf-8", (err, data) => {
-//     if (err) {
-//       console.error(err);
-//       return;
-//     }
-//     const jsonData = JSON.parse(data);
+  addNewHabitBtn.addEventListener("click", () => {
+    inputContainer.classList.remove("hidden");
+  });
 
-//     jsonData[month][day] = value;
+  inputSaveBtn.addEventListener("click", () => {
+    inputContainer.classList.add("hidden");
 
-//     fs.writeFile(
-//       `./DATA/habits/${filePath}`,
-//       JSON.stringify(jsonData),
-//       function (err) {
-//         if (err) throw err;
-//         console.log("File is edited successfully.");
-//       }
-//     );
-//   });
-// }
+    createJSONHaFileHabit(input.value);
+    input.value = "";
 
-// function CalendarDaysJSON() {
-//   document.querySelectorAll("button.hex").forEach((btn) => {
-//     btn.addEventListener("click", () => {
-//       const [month, day] = btn.getAttribute("id").split("-");
-//       const calendarTile = document.querySelector(
-//         "#title-bar-calendar-title"
-//       ).textContent;
+    HabitBtnFuncChangeTitle();
+  });
+}
 
-//       console.log(month, day);
-//       console.log(calendarTile);
+/**
+ *
+ * !CalendarDaysJSON
+ * Edit Json file | Mark Unmark calender days
+ * Done
+ *
+ */
+function CalendarDaysJSON() {
+  document.querySelectorAll("button.hex").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const [month, day] = btn.getAttribute("id").split("-");
+      const fileName = document
+        .querySelector("#title-bar-calendar-title")
+        .getAttribute("data-file-path");
 
-//       editCalenderFileJSON(calendarTile, month, day, true);
-//     });
-//   });
-// }
+      editCalenderFileJSON(fileName, month, day, true);
 
-// // ------------------------------- Read habit.json => Calender
+      // console.log(month, day);
+      // console.log(fileName);
+    });
+  });
+}
 
-// function habitFileToCalender() {
-//   document.querySelectorAll("div.sidebar-habit").forEach((btn) => {
-//     btn.addEventListener("click", () => {
-//       // -- Unmark All Days
-//       unMarkAllCalender();
-//       const title = btn.querySelector("span.cal-title").textContent;
+/**
+ *
+ * ! editCalenderFileJSON
+ * Done
+ *
+ */
+function editCalenderFileJSON(
+  fileName: string,
+  month: string,
+  day: string,
+  value: boolean
+) {
+  fs.readFile(`./DATA/habits/${fileName}`, "utf-8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    const jsonData = JSON.parse(data);
 
-//       fs.readFile(`./DATA/habits/${title}`, "utf-8", (err, data) => {
-//         if (err) {
-//           console.error(err);
-//           return;
-//         }
-//         const jsonData = JSON.parse(data);
+    jsonData[month][day] = value;
 
-//         for (const key in jsonData) {
-//           for (const key2 in jsonData[key]) {
-//             // console.log(key);
-//             // console.log(key2);
-//             // console.log(jsonData[key][key2]);
-//             if (jsonData[key][key2]) {
-//               markDay(`${key}-${key2}`);
-//             }
-//           }
-//         }
-//       });
-//     });
-//   });
-// }
+    fs.writeFile(
+      `./DATA/habits/${fileName}`,
+      JSON.stringify(jsonData),
+      function (err) {
+        if (err) throw err;
+      }
+    );
+  });
+}
 
-// function markDay(dayId: string) {
-//   const day = document.querySelector(`#${dayId} button`);
-//   day.classList.replace("opacity-50", "brightness-105");
-//   day.classList.replace("grayscale-[35%]", "marked");
-//   day
-//     .querySelector(" div > div > div > div > span")
-//     .classList.add("brightness-0");
-// }
+/**
+ *
+ * ! habitFileToCalender
+ * Read habit.json => Calender
+ * Done
+ *
+ */
+function habitFileToCalender() {
+  document.querySelectorAll("div.sidebar-habit").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // -- Unmark All Days
+      unMarkAllCalender();
+      const filePath = btn.getAttribute("data-file-path");
 
-// function unMarkAllCalender() {
-//   document.querySelectorAll("button.hex").forEach((btn) => {
-//     if (btn.classList.contains("brightness-105")) {
-//       btn.classList.add("opacity-50");
-//       btn.classList.add("grayscale-[35%]");
-//       btn.classList.remove("brightness-105");
+      fs.readFile(`./DATA/habits/${filePath}`, "utf-8", (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        const jsonData = JSON.parse(data);
 
-//       btn.classList.remove("marked");
+        for (const key in jsonData) {
+          for (const key2 in jsonData[key]) {
+            if (jsonData[key][key2]) {
+              markDay(`${key}-${key2}`);
+            }
+          }
+        }
+      });
+    });
+  });
+}
 
-//       btn
-//         .querySelector(" div > div > div > div > span")
-//         .classList.remove("brightness-0");
-//     }
-//   });
-// }
+/**
+ *
+ * ! markDay
+ * Done
+ *
+ */
+function markDay(dayId: string) {
+  const day = document.querySelector(`#${dayId} button`);
+  day.classList.replace("opacity-50", "brightness-105");
+  day.classList.replace("grayscale-[35%]", "marked");
+  day
+    .querySelector(" div > div > div > div > span")
+    .classList.add("brightness-0");
+}
 
-// ------- Open the fitst habit
+/**
+ *
+ * ! unMarkAllCalender
+ * Done
+ *
+ */
+function unMarkAllCalender() {
+  document.querySelectorAll("button.hex").forEach((btn) => {
+    if (btn.classList.contains("brightness-105")) {
+      btn.classList.add("opacity-50");
+      btn.classList.add("grayscale-[35%]");
+      btn.classList.remove("brightness-105");
+
+      btn.classList.remove("marked");
+
+      btn
+        .querySelector(" div > div > div > div > span")
+        .classList.remove("brightness-0");
+    }
+  });
+}
+
+/**
+ *
+ * ! openTheFirstHabitOnLoad
+ * Open the fitst habit
+ * Done
+ *
+ */
+function openTheFirstHabitOnLoad() {
+  const FilePath = fs.readdirSync("./DATA/habits")[0];
+  const Title = FilePath.split("_").slice(2).join(" ").slice(0, -5);
+
+  ChangeTitle(Title, FilePath);
+
+  fs.readFile(`./DATA/habits/${FilePath}`, "utf-8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    const jsonData = JSON.parse(data);
+
+    for (const key in jsonData) {
+      for (const key2 in jsonData[key]) {
+        if (jsonData[key][key2]) {
+          markDay(`${key}-${key2}`);
+        }
+      }
+    }
+  });
+}
