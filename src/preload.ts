@@ -67,7 +67,7 @@ function createJSONHaFileHabit(FileName: string) {
   habitsFiles.map((excitingFile) => {
     const fileTitle = excitingFile.split("_").slice(2).join(" ").slice(0, -5);
     if (FileName === fileTitle) {
-      console.error(`There is already excitingFile with the Name ${FileName}`);
+      console.error(`There is already exciting File with the Name ${FileName}`);
       return;
     }
   });
@@ -97,6 +97,7 @@ function createJSONHaFileHabit(FileName: string) {
     function (err) {
       createHabitBtn(`habit_${availableFileNumber}_${FileName}.json`);
       HabitBtnFuncChangeTitle();
+      habitFileToCalender();
       if (err) {
         console.error(err);
         return;
@@ -178,8 +179,6 @@ function addNewHabitInput() {
 
     createJSONHaFileHabit(input.value);
     input.value = "";
-
-    HabitBtnFuncChangeTitle();
   });
 }
 
@@ -294,11 +293,8 @@ function markDay(dayId: string) {
 function unMarkAllCalender() {
   document.querySelectorAll("button.hex").forEach((btn) => {
     if (btn.classList.contains("brightness-105")) {
-      btn.classList.add("opacity-50");
-      btn.classList.add("grayscale-[35%]");
-      btn.classList.remove("brightness-105");
-
-      btn.classList.remove("marked");
+      btn.classList.add("opacity-50", "grayscale-[35%]");
+      btn.classList.remove("brightness-105", "marked");
 
       btn
         .querySelector(" div > div > div > div > span")

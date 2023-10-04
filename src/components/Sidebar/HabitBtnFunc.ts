@@ -3,9 +3,18 @@ import ChangeTitle from "../TitleBar/ChangeTitle";
 export default function HabitBtnFunc() {
   document.querySelectorAll("div.sidebar-habit").forEach((btn) => {
     btn.addEventListener("click", () => {
+      document.querySelectorAll("div.sidebar-habit").forEach((btn) => {
+        btn
+          .querySelector("span")
+          .classList.remove("text-slate-950", "font-bold");
+        btn.classList.remove("bg-slate-200");
+      });
+
       const title = btn.querySelector("span.cal-title").textContent;
       const filePath = btn.getAttribute("data-file-path");
-      // console.log(title);
+
+      btn.querySelector("span").classList.add("text-slate-950", "font-bold");
+      btn.classList.add("bg-slate-200");
 
       ChangeTitle(title, filePath);
     });
