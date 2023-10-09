@@ -12,10 +12,12 @@ import AdditionalOptionsMenu from "./components/AdditionalOptionsMenu/Additional
 import addRemoveActiveDay from "./components/Calendar/addRemoveActiveDay";
 import HabitBtnFunc from "./components/Sidebar/HabitBtnFunc";
 
-document.querySelector("div#root").innerHTML += TitleBar();
-document.querySelector("div#root").innerHTML += Sidebar();
-document.querySelector("div#root").innerHTML += Header();
-document.querySelector("div#root").innerHTML += Calendar();
+const ROOT = document.querySelector("div#root");
+
+ROOT.innerHTML += TitleBar();
+ROOT.innerHTML += Sidebar();
+ROOT.innerHTML += Header();
+ROOT.innerHTML += Calendar();
 
 //**  RENDER CALENDER (One time only) **//
 const monthNames = [
@@ -40,7 +42,7 @@ monthNames.forEach((month) => {
 });
 //** **//
 
-document.querySelector("div#root").innerHTML += AdditionalOptionsMenu();
+ROOT.innerHTML += AdditionalOptionsMenu();
 
 //? FUNCTIONS ?//
 

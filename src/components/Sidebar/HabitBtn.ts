@@ -1,8 +1,10 @@
+import RightClickMenuUI from "./right-click-menu/RightClickMenuUI";
 export default function HabitBtn(
   calendarNum: number,
   calendarTitle: string,
   filePath: string
 ) {
+  const Title = filePath.split("_").slice(2).join(" ").slice(0, -5);
   return `
   <div class="sidebar-habit h-14 cursor-pointer items-center justify-center transition duration-300 hover:bg-slate-200 md:flex md:w-14 text-2xl relative group" data-file-path=${filePath}>
   <span class="group-hover:text-slate-950 group-hover:font-bold">${calendarNum}</span>
@@ -11,6 +13,8 @@ export default function HabitBtn(
   <span class="cal-title">${calendarTitle}</span>
   </div>
   </div>
+
+    ${RightClickMenuUI(Title)}
   </div>
   `;
 }

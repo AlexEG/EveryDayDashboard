@@ -5,6 +5,7 @@ import fs from "fs";
 import HabitBtn from "./components/Sidebar/HabitBtn";
 import HabitBtnFuncChangeTitle from "./components/Sidebar/HabitBtnFunc";
 import ChangeTitle from "./components/TitleBar/ChangeTitle";
+import TogglRightClickMenu from "./components/Sidebar/right-click-menu/TogglRightClickMenu";
 
 Mkdir("./DATA");
 Mkdir("./DATA/habits");
@@ -17,6 +18,11 @@ window.addEventListener("DOMContentLoaded", () => {
   CalendarDaysJSON();
   habitFileToCalender();
   openTheFirstHabitOnLoad();
+  TogglRightClickMenu();
+  // ---- Sidebar Right Click menu
+  sidebarDeleteHabitBtn();
+  sidebarRenameHabit();
+  sidebarChangeHabitOrder();
 });
 
 // _________________________________________________________ //
@@ -177,7 +183,7 @@ function addNewHabitInput() {
   inputSaveBtn.addEventListener("click", () => {
     inputContainer.classList.add("hidden");
 
-    createJSONHaFileHabit(input.value);
+    createJSONHaFileHabit(input.value.trim());
     input.value = "";
   });
 }
@@ -335,3 +341,114 @@ function openTheFirstHabitOnLoad() {
     });
   }
 }
+
+/**
+ * ? Habit Sidebar  Edit Title/Order DELETE
+ */
+
+/**
+ * ! sidebarDeleteHabitBtn
+ * TODO bug after deleting file
+ */
+function sidebarDeleteHabitBtn() {
+  document.querySelectorAll("button.sidebar-delete-habit").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const JsonFileName = btn
+        .closest("div.sidebar-habit")
+        .getAttribute("data-file-path");
+
+      const FilePath = `./DATA/habits/${JsonFileName}`;
+
+      fs.unlink(FilePath, (err) => {
+        if (err) {
+          throw err;
+        }
+        console.log("Delete File successfully.");
+      });
+    });
+  });
+}
+
+/**
+ *
+ * ! sidebarRenameHabit
+ *
+ */
+function sidebarRenameHabit() {
+  document
+    .querySelectorAll("button.sidebar-rename-habit-save-btn")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const JsonFileName = btn
+          .closest("div.sidebar-habit")
+          .getAttribute("data-file-path");
+
+        const renameInputValue =
+          btn.parentElement.parentElement.querySelector("input").value;
+
+        const oldFilePaht = `./DATA/habits/${JsonFileName}`;
+
+        const habitNum = JsonFileName.split("_")[1];
+        const newFileName = renameInputValue.split(" ").join("_");
+        const newFilePaht = `./DATA/habits/habit_${habitNum}_${newFileName}.json`;
+
+        // ---
+        fs.rename(oldFilePaht, newFilePaht, (err) => {
+          if (err) {
+            throw err;
+          }
+        });
+        // console.log(habitNum);
+        // console.log(JsonFileName, renameInputValue);
+      });
+    });
+}
+
+/**
+ *
+ * ! Habits Order in Sidebar
+ *
+ * TODO
+ * 1- make the select btn have options of the number of habits in sidebar
+ * 2- give each habit btn seleced in options based on the num of habit
+ * 3- when change the order from 3 -> 7 also change 7 -> 3
+ * 4- save all that when click on SAVE btn
+ */
+
+function sidebarChangeHabitOrder() {
+  addOptionsToSelect();
+
+  document
+    .querySelectorAll("select.sidebar-change-order")
+    .forEach((selectBtn) => {
+      selectBtn.addEventListener("change", () => {
+        selectBtn.setAttribute("value", selectBtn.value);
+      });
+    });
+}
+
+// Render options in Select element in each habit btn
+function addOptionsToSelect() {
+  const numberOfHabits = fs.readdirSync("./DATA/habits").length;
+
+  document.querySelectorAll("select.sidebar-change-order").forEach((select) => {
+    const habitNum = select
+      .closest("div.sidebar-habit")
+      .getAttribute("data-file-path")
+      .split("_")[1];
+
+    for (let i = 1; i <= numberOfHabits; i++) {
+      if (i === +habitNum) {
+        select.innerHTML += `<option value="${i}" selected>${i}</option>`;
+      } else {
+        select.innerHTML += `<option value="${i}">${i}</option>`;
+      }
+      select.setAttribute("value", habitNum);
+    }
+  });
+}
+
+// const selectedOptionValue = selectBtn
+// .querySelector("option[selected]")
+// .getAttribute("value");
+// console.log(selectedOptionValue);
