@@ -11,6 +11,7 @@ import AdditionalOptionsMenu from "./components/AdditionalOptionsMenu/Additional
 // import AddNewHabitFunc from "./components/Sidebar/AddNewHabitFunc";
 import addRemoveActiveDay from "./components/Calendar/addRemoveActiveDay";
 import HabitBtnFunc from "./components/Sidebar/HabitBtnFunc";
+import Settings from "./components/Settings/Settings";
 
 const ROOT = document.querySelector("div#root");
 
@@ -18,6 +19,7 @@ ROOT.innerHTML += TitleBar();
 ROOT.innerHTML += Sidebar();
 ROOT.innerHTML += Header();
 ROOT.innerHTML += Calendar();
+ROOT.innerHTML += Settings(); ///
 
 //**  RENDER CALENDER (One time only) **//
 const monthNames = [
@@ -52,3 +54,10 @@ HowOldAmI(2004, 4, 20);
 // AddNewHabitFunc();
 addRemoveActiveDay();
 HabitBtnFunc();
+
+document.querySelector("#settings-open-btn").addEventListener("click", () => {
+  document.querySelector("div#settings").classList.remove("hidden");
+});
+document.querySelector("#settings-close-btn").addEventListener("click", () => {
+  document.querySelector("div#settings").classList.add("hidden");
+});
