@@ -137,7 +137,9 @@ function Mkdir(path: string) {
  *
  */
 function addHabitsToSidebarJSON() {
-  const fileNames = fs.readdirSync("./DATA/habits");
+  const fileNames = fs
+    .readdirSync("./DATA/habits")
+    .sort((a, b) => +a.split("_").slice(1, 2) - +b.split("_").slice(1, 2));
 
   fileNames.map((habitName) => {
     createHabitBtn(habitName);
@@ -323,7 +325,7 @@ function openTheFirstHabitOnLoad() {
     firstHabt
       .querySelector("span")
       .classList.add("text-slate-950", "font-bold");
-    firstHabt.classList.add("bg-slate-200");
+    firstHabt.classList.replace("bg-slate-950", "bg-slate-200");
 
     fs.readFile(`./DATA/habits/${FilePath}`, "utf-8", (err, data) => {
       if (err) {

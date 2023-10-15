@@ -28,3 +28,7 @@ main::-webkit-scrollbar-thumb {
 main::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
 }
+
+/* #sidebar-habits-container::-webkit-scrollbar {
+  width: 0px;
+} */

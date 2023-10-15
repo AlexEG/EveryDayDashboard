@@ -17,7 +17,7 @@ export default function TitleBarClock(): void {
   h = h < 10 ? +"0" + h : h;
   m = m < 10 ? +"0" + m : m;
 
-  const time = `${h}:${m}`;
+  const time = m < 10 ? `${h}:0${m}` : `${h}:${m}`;
 
   document.querySelector("#title-bar-clock").textContent = time;
   document.querySelector("#title-bar-session").textContent = session;
