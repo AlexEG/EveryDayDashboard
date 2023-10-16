@@ -1,25 +1,22 @@
 import SettingsNavTab from "./SettingsNavTab";
 import CloseSettingBtn from "./CloseSettingBtn";
+import HTML from "../../HTML/HTML";
 
 export default function SettingsNavbar() {
-  return `
+  const container = HTML(
+    "div",
+    "relative flex h-9 w-full bg-slate-900 flex justify-between",
+    "settingsNavBar"
+  );
+  const tabsWrapper = HTML("div", "flex", "settings-box--tabs-wrapper");
+  tabsWrapper.append(
+    SettingsNavTab("Home"),
+    SettingsNavTab("TitleBar"),
+    SettingsNavTab("Sidebar"),
+    SettingsNavTab("Calendar"),
+    SettingsNavTab("Backup/Restore")
+  );
 
-  <div
-      id="settingsNavBar"
-      class="relative row-span-1 flex h-9 w-full bg-slate-900">
-
-
-     <div class="flex">
-     ${SettingsNavTab("Theme", true)}
-     ${SettingsNavTab("TitleBar", false)}
-     ${SettingsNavTab("Header status", false)}
-     ${SettingsNavTab("Plugins", false)}
-     ${SettingsNavTab("Backup/Restore", false)}
-
-     </div>
-
-
-    ${CloseSettingBtn()}
-    </div>
-  `;
+  container.append(tabsWrapper, CloseSettingBtn());
+  return container;
 }

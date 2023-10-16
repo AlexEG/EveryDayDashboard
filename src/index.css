@@ -32,3 +32,7 @@ main::-webkit-scrollbar-thumb:hover {
 /* #sidebar-habits-container::-webkit-scrollbar {
   width: 0px;
 } */
+
+div#title-bar {
+  -webkit-app-region: drag;
+}

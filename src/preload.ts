@@ -9,6 +9,7 @@ import TogglRightClickMenu from "./components/Sidebar/right-click-menu/TogglRigh
 
 Mkdir("./DATA");
 Mkdir("./DATA/habits");
+Mkdir("./DATA/Settings");
 
 window.addEventListener("DOMContentLoaded", () => {
   addHabitsToSidebarJSON();
@@ -23,6 +24,8 @@ window.addEventListener("DOMContentLoaded", () => {
   sidebarDeleteHabitBtn();
   sidebarRenameHabit();
   sidebarChangeHabitOrder();
+
+  readBirthdayFile();
 });
 
 // _________________________________________________________ //
@@ -454,3 +457,36 @@ function addOptionsToSelect() {
 // .querySelector("option[selected]")
 // .getAttribute("value");
 // console.log(selectedOptionValue);
+
+// import { contextBridge } from "electron";
+
+// contextBridge.exposeInMainWorld("versions", {
+//   node: () => process.versions.node,
+//   chrome: () => process.versions.chrome,
+//   electron: () => process.versions.electron,
+//   // we can also expose variables, not just functions
+// });
+
+// contextBridge.exposeInMainWorld("jsonFiles", {
+//   createFolder: (fileName: string) => Mkdir(`./DATA/${fileName}`),
+// });
+
+// --------
+// TitleBar get birthday from ./settings/birthday.json
+import HowOldAmI from "./components/TitleBar/HowOldAmI";
+
+function readBirthdayFile() {
+  fs.readFile(`./DATA/settings/birthday.json`, "utf-8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    const birthday = JSON.parse(data)["date"];
+    HowOldAmI(birthday[0], birthday[1], birthday[2]);
+  });
+}
+
+// contextBridge.exposeInMainWorld("AppSettings", {
+//   getBirthday: () => readBirthdayFile(),
+// });
