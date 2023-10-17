@@ -2,7 +2,7 @@ import HTML from "../../HTML/HTML";
 export default function CloseSettingBtn() {
   const closeBtn = HTML(
     "button",
-    "rounded-sm text-white transition-colors hover:bg-gray-200 hover:text-slate-950 px-2",
+    "rounded-sm text-white transition-colors hover:bg-gray-200 hover:text-slate-950",
     "settings-close-btn"
   );
 

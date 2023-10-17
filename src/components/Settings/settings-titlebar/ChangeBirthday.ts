@@ -1,13 +1,17 @@
 import HTML from "../../HTML/HTML";
+import SettingsFieldset from "../utils/SettingsFieldset";
 
 export default function ChangeBirthday() {
   const inputStyles =
     "bg-transparent border-indigo-600 border-2 rounded-md py-px px-1 focus-within:outline-none placeholder:opacity-30 focus-within:border-indigo-400 transition-colors text-indigo-50 duration-300 w-16 text-center text-base";
 
   const labelStyles = "text-indigo-300 pl-3 pr-1 first:pl-0";
-  const container = HTML(
-    "fieldset",
-    "flex m-2 p-2 border-2 border-indigo-950 justify-between"
+  const saveBtnStyles =
+    "text-indigo-100 text-center font-semibold px-3 py-px border-2 rounded-md border-indigo-600 hover:text-indigo-600 transition-colors duration-300 hover:border-indigo-100 hover:bg-indigo-100 active:opacity-90 bg-slate-950";
+
+  const container = SettingsFieldset(
+    "Change Birthday",
+    "settings--titlebar--change-birthday"
   );
 
   const inputYear = HTML("input", inputStyles, "birthday-input-year");
@@ -44,19 +48,12 @@ export default function ChangeBirthday() {
     inputDay
   );
 
-  const legend = HTML(
-    "legend",
-    "text-indigo-200 text-sm",
-    "",
-    "Change Birthday"
-  );
-
   const saveBtn = HTML(
     "button",
-    "text-indigo-100 text-center font-semibold px-3 py-px border-2 rounded-md border-indigo-600 hover:text-indigo-600 transition-colors duration-300 hover:border-indigo-100 hover:bg-indigo-100 active:opacity-90 bg-slate-950",
+    saveBtnStyles,
     "birthday-save-inputs-btn",
     "SAVE"
   );
-  container.append(legend, inputsWrapper, saveBtn);
+  container.append(inputsWrapper, saveBtn);
   return container;
 }
