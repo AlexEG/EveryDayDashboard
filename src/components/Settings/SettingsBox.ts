@@ -1,11 +1,12 @@
 import HTML from "../HTML/HTML";
 import SettingsNavbar from "./settings-navbar/SettingsNavbar";
+import SettingsTilebar from "./settings-titlebar/SettingsTilebar";
 
 export default function SettingsBox() {
   // const styles = "bg";
   const mainContainer = HTML(
     "div",
-    "fixed top-0 z-40 h-full w-full hidden",
+    "fixed top-0 z-40 h-full w-full",
     "settings-box"
   );
   const overlay = HTML(
@@ -18,7 +19,7 @@ export default function SettingsBox() {
   );
   mainContainer.append(overlay, box);
 
-  box.append(SettingsNavbar());
+  box.append(SettingsNavbar(), SettingsTilebar());
 
   // console.log(mainContainer);
   return mainContainer;
