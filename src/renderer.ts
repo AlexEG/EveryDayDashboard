@@ -11,14 +11,15 @@ import AdditionalOptionsMenu from "./components/AdditionalOptionsMenu/Additional
 import addRemoveActiveDay from "./components/Calendar/addRemoveActiveDay";
 import HabitBtnFunc from "./components/Sidebar/HabitBtnFunc";
 import SettingsBox from "./components/Settings/SettingsBox";
-
+import Home from "./components/Home/Home";
 const ROOT = document.querySelector("div#root");
 
 ROOT.append(TitleBar());
 ROOT.innerHTML += Sidebar();
-ROOT.innerHTML += Header();
-ROOT.innerHTML += Calendar();
+// ROOT.innerHTML += Header();
+// ROOT.innerHTML += Calendar();
 ROOT.append(SettingsBox()); ///
+ROOT.append(Home()); ///
 
 //**  RENDER CALENDER (One time only) **//
 const monthNames = [
@@ -35,15 +36,15 @@ const monthNames = [
   ["November", 30],
   ["December", 31],
 ];
-monthNames.forEach((month) => {
-  document.querySelector("main").innerHTML += CalendarMonthContainer(
-    month[0].toString()
-  );
-  CalendarMonth(month[0].toString(), +month[1]);
-});
+// monthNames.forEach((month) => {
+//   document.querySelector("main").innerHTML += CalendarMonthContainer(
+//     month[0].toString()
+//   );
+//   CalendarMonth(month[0].toString(), +month[1]);
+// });
 //** **//
 
-ROOT.innerHTML += AdditionalOptionsMenu();
+// ROOT.innerHTML += AdditionalOptionsMenu();
 
 //? FUNCTIONS ?//
 
@@ -51,8 +52,8 @@ TitleBarClock();
 setInterval(TitleBarClock, 60000);
 
 // AddNewHabitFunc();
-addRemoveActiveDay();
-HabitBtnFunc();
+// addRemoveActiveDay();
+// HabitBtnFunc();
 
 document.querySelector("#settings-open-btn").addEventListener("click", () => {
   document.querySelector("div#settings-box").classList.remove("hidden");

@@ -12,20 +12,17 @@ Mkdir("./DATA/habits");
 Mkdir("./DATA/Settings");
 
 window.addEventListener("DOMContentLoaded", () => {
-  addHabitsToSidebarJSON();
-
-  addNewHabitInput();
-
-  CalendarDaysJSON();
-  habitFileToCalender();
-  openTheFirstHabitOnLoad();
-  TogglRightClickMenu();
+  // addHabitsToSidebarJSON();
+  // addNewHabitInput();
+  // CalendarDaysJSON();
+  // habitFileToCalender();
+  // openTheFirstHabitOnLoad();
+  // TogglRightClickMenu();
   // ---- Sidebar Right Click menu
-  sidebarDeleteHabitBtn();
-  sidebarRenameHabit();
-  sidebarChangeHabitOrder();
-
-  readBirthdayFile();
+  // sidebarDeleteHabitBtn();
+  // sidebarRenameHabit();
+  // sidebarChangeHabitOrder();
+  // readBirthdayFile();
 });
 
 // _________________________________________________________ //
