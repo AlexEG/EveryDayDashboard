@@ -9,8 +9,8 @@ if (require("electron-squirrel-startup")) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    transparent: true,
-    frame: false,
+    // transparent: true,
+    // frame: false,
     titleBarStyle: "hidden",
     titleBarOverlay: {
       color: "#00000000",

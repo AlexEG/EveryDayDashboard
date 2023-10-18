@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // sidebarDeleteHabitBtn();
   // sidebarRenameHabit();
   // sidebarChangeHabitOrder();
-  // readBirthdayFile();
+  readBirthdayFile();
 });
 
 // _________________________________________________________ //
@@ -473,13 +473,13 @@ function addOptionsToSelect() {
 import HowOldAmI from "./components/TitleBar/HowOldAmI";
 
 function readBirthdayFile() {
-  fs.readFile(`./DATA/settings/birthday.json`, "utf-8", (err, data) => {
+  fs.readFile(`./DATA/settings/titlebar.json`, "utf-8", (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
 
-    const birthday = JSON.parse(data)["date"];
+    const birthday = JSON.parse(data)["birthday"];
     HowOldAmI(birthday[0], birthday[1], birthday[2]);
   });
 }

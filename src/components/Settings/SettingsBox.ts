@@ -6,7 +6,7 @@ export default function SettingsBox() {
   // const styles = "bg";
   const mainContainer = HTML(
     "div",
-    "fixed top-0 z-40 h-full w-full",
+    "fixed top-0 z-40 h-full w-full hidden",
     "settings-box"
   );
   const overlay = HTML(

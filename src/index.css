@@ -13,7 +13,30 @@
   );
   clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
 }
-main::-webkit-scrollbar {
+
+main section::-webkit-scrollbar {
+  /* width: 4px; */
+  height: 8px;
+}
+main section::-webkit-scrollbar-track {
+  background: black;
+  /* margin-top: 35px; */
+  /* margin-bottom: 50px; */
+  margin-inline: 50px;
+}
+main section::-webkit-scrollbar-thumb {
+  background: #ffffff77;
+  border-radius: 5px;
+}
+main section::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+div#title-bar {
+  -webkit-app-region: drag;
+}
+
+/* main::-webkit-scrollbar {
   width: 4px;
 }
 main::-webkit-scrollbar-track {
@@ -27,12 +50,4 @@ main::-webkit-scrollbar-thumb {
 }
 main::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
-}
-
-/* #sidebar-habits-container::-webkit-scrollbar {
-  width: 0px;
 } */
-
-div#title-bar {
-  -webkit-app-region: drag;
-}
