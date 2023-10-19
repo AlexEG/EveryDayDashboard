@@ -1,8 +1,8 @@
 import HTML from "../../HTML/HTML";
 
 export default function TableHead(columnsNum: number) {
-  const styles = "border p-10";
-  const thead = HTML("thead", styles, "");
+  const styles = "border";
+  const thead = HTML("thead", styles);
   const tableRow = HTML("tr");
 
   // days cell

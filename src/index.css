@@ -15,14 +15,15 @@
 }
 
 main section::-webkit-scrollbar {
-  /* width: 4px; */
+  width: 8px;
   height: 8px;
 }
 main section::-webkit-scrollbar-track {
-  background: black;
+  background: transparent;
   /* margin-top: 35px; */
   /* margin-bottom: 50px; */
-  margin-inline: 50px;
+  margin-inline: 10px;
+  margin-block: 10px;
 }
 main section::-webkit-scrollbar-thumb {
   background: #ffffff77;

@@ -455,7 +455,7 @@ function addOptionsToSelect() {
 // .getAttribute("value");
 // console.log(selectedOptionValue);
 
-// import { contextBridge } from "electron";
+import { contextBridge } from "electron";
 
 // contextBridge.exposeInMainWorld("versions", {
 //   node: () => process.versions.node,
@@ -467,6 +467,10 @@ function addOptionsToSelect() {
 // contextBridge.exposeInMainWorld("jsonFiles", {
 //   createFolder: (fileName: string) => Mkdir(`./DATA/${fileName}`),
 // });
+
+contextBridge.exposeInMainWorld("HabitsData", {
+  getFilesTitles: () => fs.readdirSync("./DATA/habits"),
+});
 
 // --------
 // TitleBar get birthday from ./settings/birthday.json
