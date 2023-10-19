@@ -1,7 +1,7 @@
 import HTML from "../../HTML/HTML";
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
-import HabitsNamesNums from "../habits-header/HabitsNamesNums";
+import HabitsNamesNums from "./titles-add-btn/HabitsNamesNums";
 
 export default function HabitsTable() {
   const tableContainer = HTML("section", "overflow-auto h-full flex");

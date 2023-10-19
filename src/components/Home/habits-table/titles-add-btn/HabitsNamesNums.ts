@@ -1,7 +1,8 @@
-import HTML from "../../HTML/HTML";
+import HTML from "../../../HTML/HTML";
+import AddNewHabitBtn from "./AddNewHabitBtn";
 
 export default function HabitsNamesNums() {
-  const styles = "flex flex-col text-neutral-200 w-fit h-fit pr-1";
+  const styles = "flex flex-col text-neutral-200 w-fit h-fit pr-2 text-sm";
   const container = HTML("section", styles);
 
   const fileNames = window.HabitsData.getFilesTitles().sort(
@@ -13,9 +14,7 @@ export default function HabitsNamesNums() {
     const habitNum = +fileNames[i].split("_")[1];
     const habitTitle = fileNames[i].split("_").slice(2).join(" ").slice(0, -5);
 
-    console.log(habitNum, habitTitle);
-
-    const habit = HTML("div");
+    const habit = HTML("div", "mb-0.5");
 
     const span1 = HTML(
       "span",
@@ -23,10 +22,10 @@ export default function HabitsNamesNums() {
       "",
       `${habitNum}`
     );
-    const span2 = HTML("span", "px-1 whitespace-nowrap", "", `${habitTitle}`);
+    const span2 = HTML("span", "pl-1 whitespace-nowrap", "", `${habitTitle}`);
     habit.append(span1, span2);
     container.append(habit);
   }
-
+  container.append(AddNewHabitBtn());
   return container;
 }
