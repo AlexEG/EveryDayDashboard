@@ -100,14 +100,8 @@ function createJSONHaFileHabit(FileName: string) {
   fs.writeFile(
     `./DATA/habits/habit_${availableFileNumber}_${FileName}.json`,
     JSON.stringify(emptyDataHabit()),
-    function (err) {
-      createHabitBtn(`habit_${availableFileNumber}_${FileName}.json`);
-      HabitBtnFuncChangeTitle();
-      habitFileToCalender();
-      if (err) {
-        console.error(err);
-        return;
-      }
+    (err) => {
+      if (err) console.error(err);
     }
   );
 }
@@ -136,33 +130,33 @@ function Mkdir(path: string) {
  * Done
  *
  */
-function addHabitsToSidebarJSON() {
-  const fileNames = fs
-    .readdirSync("./DATA/habits")
-    .sort((a, b) => +a.split("_").slice(1, 2) - +b.split("_").slice(1, 2));
+// function addHabitsToSidebarJSON() {
+//   const fileNames = fs
+//     .readdirSync("./DATA/habits")
+//     .sort((a, b) => +a.split("_").slice(1, 2) - +b.split("_").slice(1, 2));
 
-  fileNames.map((habitName) => {
-    createHabitBtn(habitName);
-  });
-  HabitBtnFuncChangeTitle();
-}
+//   fileNames.map((habitName) => {
+//     createHabitBtn(habitName);
+//   });
+//   HabitBtnFuncChangeTitle();
+// }
 
-/**
- *
- * ! createHabitBtn
- * used in => addHabitsToSidebarJSON() && createJSONHaFileHabit()
- * after creating JSON file render habitbtn in Sidebar
- * Done
- *
- */
-function createHabitBtn(habitName: string) {
-  const sidebarHabitsContainer = document.querySelector(
-    "div#sidebar-habits-container"
-  );
-  const habitNum = +habitName.split("_")[1];
-  const habitTitle = habitName.split("_").slice(2).join(" ").slice(0, -5);
-  sidebarHabitsContainer.innerHTML += HabitBtn(habitNum, habitTitle, habitName);
-}
+// /**
+//  *
+//  * ! createHabitBtn
+//  * used in => addHabitsToSidebarJSON() && createJSONHaFileHabit()
+//  * after creating JSON file render habitbtn in Sidebar
+//  * Done
+//  *
+//  */
+// function createHabitBtn(habitName: string) {
+//   const sidebarHabitsContainer = document.querySelector(
+//     "div#sidebar-habits-container"
+//   );
+//   const habitNum = +habitName.split("_")[1];
+//   const habitTitle = habitName.split("_").slice(2).join(" ").slice(0, -5);
+//   sidebarHabitsContainer.innerHTML += HabitBtn(habitNum, habitTitle, habitName);
+// }
 
 /**
  *
@@ -170,25 +164,25 @@ function createHabitBtn(habitName: string) {
  * Done
  *
  */
-function addNewHabitInput() {
-  const [addNewHabitBtn, input, inputContainer, inputSaveBtn, ,] = [
-    document.querySelector("#add-new-habit-btn"),
-    document.querySelector("section#add-calendar-input input"),
-    document.querySelector("section#add-calendar-input"),
-    document.querySelector("button#add-new-calendar-save-btn"),
-  ];
+// function addNewHabitInput() {
+//   const [addNewHabitBtn, input, inputContainer, inputSaveBtn, ,] = [
+//     document.querySelector("#add-new-habit-btn"),
+//     document.querySelector("section#add-calendar-input input"),
+//     document.querySelector("section#add-calendar-input"),
+//     document.querySelector("button#add-new-calendar-save-btn"),
+//   ];
 
-  addNewHabitBtn.addEventListener("click", () => {
-    inputContainer.classList.remove("hidden");
-  });
+//   addNewHabitBtn.addEventListener("click", () => {
+//     inputContainer.classList.remove("hidden");
+//   });
 
-  inputSaveBtn.addEventListener("click", () => {
-    inputContainer.classList.add("hidden");
+//   inputSaveBtn.addEventListener("click", () => {
+//     inputContainer.classList.add("hidden");
 
-    createJSONHaFileHabit(input.value.trim());
-    input.value = "";
-  });
-}
+//     createJSONHaFileHabit(input.value.trim());
+//     input.value = "";
+//   });
+// }
 
 /**
  *
@@ -197,18 +191,18 @@ function addNewHabitInput() {
  * Done
  *
  */
-function CalendarDaysJSON() {
-  document.querySelectorAll("button.hex").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const [month, day] = btn.getAttribute("id").split("-");
-      const fileName = document
-        .querySelector("#title-bar-calendar-title")
-        .getAttribute("data-file-path");
+// function CalendarDaysJSON() {
+//   document.querySelectorAll("button.hex").forEach((btn) => {
+//     btn.addEventListener("click", () => {
+//       const [month, day] = btn.getAttribute("id").split("-");
+//       const fileName = document
+//         .querySelector("#title-bar-calendar-title")
+//         .getAttribute("data-file-path");
 
-      editCalenderFileJSON(fileName, month, day, true);
-    });
-  });
-}
+//       editCalenderFileJSON(fileName, month, day, true);
+//     });
+//   });
+// }
 
 /**
  *
@@ -216,30 +210,30 @@ function CalendarDaysJSON() {
  * Done
  *
  */
-function editCalenderFileJSON(
-  fileName: string,
-  month: string,
-  day: string,
-  value: boolean
-) {
-  fs.readFile(`./DATA/habits/${fileName}`, "utf-8", (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    const jsonData = JSON.parse(data);
+// function editCalenderFileJSON(
+//   fileName: string,
+//   month: string,
+//   day: string,
+//   value: boolean
+// ) {
+//   fs.readFile(`./DATA/habits/${fileName}`, "utf-8", (err, data) => {
+//     if (err) {
+//       console.error(err);
+//       return;
+//     }
+//     const jsonData = JSON.parse(data);
 
-    jsonData[month][day] = value;
+//     jsonData[month][day] = value;
 
-    fs.writeFile(
-      `./DATA/habits/${fileName}`,
-      JSON.stringify(jsonData),
-      function (err) {
-        if (err) throw err;
-      }
-    );
-  });
-}
+//     fs.writeFile(
+//       `./DATA/habits/${fileName}`,
+//       JSON.stringify(jsonData),
+//       function (err) {
+//         if (err) throw err;
+//       }
+//     );
+//   });
+// }
 
 /**
  *
@@ -280,14 +274,14 @@ function habitFileToCalender() {
  * Done
  *
  */
-function markDay(dayId: string) {
-  const day = document.querySelector(`#${dayId} button`);
-  day.classList.replace("opacity-50", "brightness-105");
-  day.classList.replace("grayscale-[35%]", "marked");
-  day
-    .querySelector(" div > div > div > div > span")
-    .classList.add("brightness-0");
-}
+// function markDay(dayId: string) {
+//   const day = document.querySelector(`#${dayId} button`);
+//   day.classList.replace("opacity-50", "brightness-105");
+//   day.classList.replace("grayscale-[35%]", "marked");
+//   day
+//     .querySelector(" div > div > div > div > span")
+//     .classList.add("brightness-0");
+// }
 
 /**
  *
@@ -295,18 +289,18 @@ function markDay(dayId: string) {
  * Done
  *
  */
-function unMarkAllCalender() {
-  document.querySelectorAll("button.hex").forEach((btn) => {
-    if (btn.classList.contains("brightness-105")) {
-      btn.classList.add("opacity-50", "grayscale-[35%]");
-      btn.classList.remove("brightness-105", "marked");
+// function unMarkAllCalender() {
+//   document.querySelectorAll("button.hex").forEach((btn) => {
+//     if (btn.classList.contains("brightness-105")) {
+//       btn.classList.add("opacity-50", "grayscale-[35%]");
+//       btn.classList.remove("brightness-105", "marked");
 
-      btn
-        .querySelector(" div > div > div > div > span")
-        .classList.remove("brightness-0");
-    }
-  });
-}
+//       btn
+//         .querySelector(" div > div > div > div > span")
+//         .classList.remove("brightness-0");
+//     }
+//   });
+// }
 
 /**
  *
@@ -315,34 +309,34 @@ function unMarkAllCalender() {
  * Done
  *
  */
-function openTheFirstHabitOnLoad() {
-  if (fs.readdirSync("./DATA/habits").length > 0) {
-    const FilePath = fs.readdirSync("./DATA/habits")[0];
-    const Title = FilePath.split("_").slice(2).join(" ").slice(0, -5);
-    ChangeTitle(Title, FilePath);
+// function openTheFirstHabitOnLoad() {
+//   if (fs.readdirSync("./DATA/habits").length > 0) {
+//     const FilePath = fs.readdirSync("./DATA/habits")[0];
+//     const Title = FilePath.split("_").slice(2).join(" ").slice(0, -5);
+//     ChangeTitle(Title, FilePath);
 
-    const firstHabt = document.querySelector("div.sidebar-habit");
-    firstHabt
-      .querySelector("span")
-      .classList.add("text-slate-950", "font-bold");
-    firstHabt.classList.replace("bg-slate-950", "bg-slate-200");
+//     const firstHabt = document.querySelector("div.sidebar-habit");
+//     firstHabt
+//       .querySelector("span")
+//       .classList.add("text-slate-950", "font-bold");
+//     firstHabt.classList.replace("bg-slate-950", "bg-slate-200");
 
-    fs.readFile(`./DATA/habits/${FilePath}`, "utf-8", (err, data) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      const jsonData = JSON.parse(data);
-      for (const key in jsonData) {
-        for (const key2 in jsonData[key]) {
-          if (jsonData[key][key2]) {
-            markDay(`${key}-${key2}`);
-          }
-        }
-      }
-    });
-  }
-}
+//     fs.readFile(`./DATA/habits/${FilePath}`, "utf-8", (err, data) => {
+//       if (err) {
+//         console.error(err);
+//         return;
+//       }
+//       const jsonData = JSON.parse(data);
+//       for (const key in jsonData) {
+//         for (const key2 in jsonData[key]) {
+//           if (jsonData[key][key2]) {
+//             markDay(`${key}-${key2}`);
+//           }
+//         }
+//       }
+//     });
+//   }
+// }
 
 /**
  * ? Habit Sidebar  Edit Title/Order DELETE
@@ -352,59 +346,59 @@ function openTheFirstHabitOnLoad() {
  * ! sidebarDeleteHabitBtn
  * TODO bug after deleting file
  */
-function sidebarDeleteHabitBtn() {
-  document.querySelectorAll("button.sidebar-delete-habit").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const JsonFileName = btn
-        .closest("div.sidebar-habit")
-        .getAttribute("data-file-path");
+// function sidebarDeleteHabitBtn() {
+//   document.querySelectorAll("button.sidebar-delete-habit").forEach((btn) => {
+//     btn.addEventListener("click", () => {
+//       const JsonFileName = btn
+//         .closest("div.sidebar-habit")
+//         .getAttribute("data-file-path");
 
-      const FilePath = `./DATA/habits/${JsonFileName}`;
+//       const FilePath = `./DATA/habits/${JsonFileName}`;
 
-      fs.unlink(FilePath, (err) => {
-        if (err) {
-          throw err;
-        }
-        console.log("Delete File successfully.");
-      });
-    });
-  });
-}
+//       fs.unlink(FilePath, (err) => {
+//         if (err) {
+//           throw err;
+//         }
+//         console.log("Delete File successfully.");
+//       });
+//     });
+//   });
+// }
 
 /**
  *
  * ! sidebarRenameHabit
  *
  */
-function sidebarRenameHabit() {
-  document
-    .querySelectorAll("button.sidebar-rename-habit-save-btn")
-    .forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const JsonFileName = btn
-          .closest("div.sidebar-habit")
-          .getAttribute("data-file-path");
+// function sidebarRenameHabit() {
+//   document
+//     .querySelectorAll("button.sidebar-rename-habit-save-btn")
+//     .forEach((btn) => {
+//       btn.addEventListener("click", () => {
+//         const JsonFileName = btn
+//           .closest("div.sidebar-habit")
+//           .getAttribute("data-file-path");
 
-        const renameInputValue =
-          btn.parentElement.parentElement.querySelector("input").value;
+//         const renameInputValue =
+//           btn.parentElement.parentElement.querySelector("input").value;
 
-        const oldFilePaht = `./DATA/habits/${JsonFileName}`;
+//         const oldFilePaht = `./DATA/habits/${JsonFileName}`;
 
-        const habitNum = JsonFileName.split("_")[1];
-        const newFileName = renameInputValue.split(" ").join("_");
-        const newFilePaht = `./DATA/habits/habit_${habitNum}_${newFileName}.json`;
+//         const habitNum = JsonFileName.split("_")[1];
+//         const newFileName = renameInputValue.split(" ").join("_");
+//         const newFilePaht = `./DATA/habits/habit_${habitNum}_${newFileName}.json`;
 
-        // ---
-        fs.rename(oldFilePaht, newFilePaht, (err) => {
-          if (err) {
-            throw err;
-          }
-        });
-        // console.log(habitNum);
-        // console.log(JsonFileName, renameInputValue);
-      });
-    });
-}
+//         // ---
+//         fs.rename(oldFilePaht, newFilePaht, (err) => {
+//           if (err) {
+//             throw err;
+//           }
+//         });
+//         // console.log(habitNum);
+//         // console.log(JsonFileName, renameInputValue);
+//       });
+//     });
+// }
 
 /**
  *
@@ -417,59 +411,50 @@ function sidebarRenameHabit() {
  * 4- save all that when click on SAVE btn
  */
 
-function sidebarChangeHabitOrder() {
-  addOptionsToSelect();
+// function sidebarChangeHabitOrder() {
+//   addOptionsToSelect();
 
-  document
-    .querySelectorAll("select.sidebar-change-order")
-    .forEach((selectBtn) => {
-      selectBtn.addEventListener("change", () => {
-        selectBtn.setAttribute("value", selectBtn.value);
-      });
-    });
-}
+//   document
+//     .querySelectorAll("select.sidebar-change-order")
+//     .forEach((selectBtn) => {
+//       selectBtn.addEventListener("change", () => {
+//         selectBtn.setAttribute("value", selectBtn.value);
+//       });
+//     });
+// }
 
 // Render options in Select element in each habit btn
-function addOptionsToSelect() {
-  const numberOfHabits = fs.readdirSync("./DATA/habits").length;
+// function addOptionsToSelect() {
+//   const numberOfHabits = fs.readdirSync("./DATA/habits").length;
 
-  document.querySelectorAll("select.sidebar-change-order").forEach((select) => {
-    const habitNum = select
-      .closest("div.sidebar-habit")
-      .getAttribute("data-file-path")
-      .split("_")[1];
+//   document.querySelectorAll("select.sidebar-change-order").forEach((select) => {
+//     const habitNum = select
+//       .closest("div.sidebar-habit")
+//       .getAttribute("data-file-path")
+//       .split("_")[1];
 
-    for (let i = 1; i <= numberOfHabits; i++) {
-      if (i === +habitNum) {
-        select.innerHTML += `<option value="${i}" selected>${i}</option>`;
-      } else {
-        select.innerHTML += `<option value="${i}">${i}</option>`;
-      }
-      select.setAttribute("value", habitNum);
-    }
-  });
-}
+//     for (let i = 1; i <= numberOfHabits; i++) {
+//       if (i === +habitNum) {
+//         select.innerHTML += `<option value="${i}" selected>${i}</option>`;
+//       } else {
+//         select.innerHTML += `<option value="${i}">${i}</option>`;
+//       }
+//       select.setAttribute("value", habitNum);
+//     }
+//   });
+// }
 
-// const selectedOptionValue = selectBtn
-// .querySelector("option[selected]")
-// .getAttribute("value");
-// console.log(selectedOptionValue);
+// ------------------------------------------------
 
 import { contextBridge } from "electron";
 
-// contextBridge.exposeInMainWorld("versions", {
-//   node: () => process.versions.node,
-//   chrome: () => process.versions.chrome,
-//   electron: () => process.versions.electron,
-//   // we can also expose variables, not just functions
-// });
-
-// contextBridge.exposeInMainWorld("jsonFiles", {
-//   createFolder: (fileName: string) => Mkdir(`./DATA/${fileName}`),
-// });
+// let value = await getJSONFileData("habit_6_bbbbbb");
 
 contextBridge.exposeInMainWorld("HabitsData", {
   getFilesTitles: () => fs.readdirSync("./DATA/habits"),
+  createJSONHaFileHabit: (FileName: string) => createJSONHaFileHabit(FileName),
+  getJSONFileData: (filePath: string) =>
+    fs.readFileSync(`./DATA/habits/${filePath}.json`, "utf8"),
 });
 
 // --------
@@ -482,12 +467,9 @@ function readBirthdayFile() {
       console.error(err);
       return;
     }
-
     const birthday = JSON.parse(data)["birthday"];
     HowOldAmI(birthday[0], birthday[1], birthday[2]);
   });
 }
 
-// contextBridge.exposeInMainWorld("AppSettings", {
-//   getBirthday: () => readBirthdayFile(),
-// });
+// -----

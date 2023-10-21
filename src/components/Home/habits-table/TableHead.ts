@@ -1,6 +1,6 @@
 import HTML from "../../HTML/HTML";
 
-export default function TableHead(columnsNum: number) {
+export default function TableHead(habitsNames: string[]) {
   const styles = "border";
   const thead = HTML("thead", styles);
   const tableRow = HTML("tr");
@@ -9,8 +9,9 @@ export default function TableHead(columnsNum: number) {
   const headerCellDays = HTML("th", "text-white border", "", "Day");
   tableRow.append(headerCellDays);
 
-  for (let i = 0; i < columnsNum; i++) {
+  for (let i = 0; i < habitsNames.length; i++) {
     const headerCell = HTML("th", "text-white", "", `${i + 1}`);
+    headerCell.dataset.habitName = habitsNames[i];
     tableRow.append(headerCell);
   }
 

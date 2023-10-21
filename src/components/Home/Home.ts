@@ -1,5 +1,12 @@
 import HTML from "../HTML/HTML";
 import HabitsTable from "./habits-table/HabitsTable";
+import InputField from "./add-new-habit/InputField";
+// ---
+import closeInputBtn from "./add-new-habit/helpers/closeInputBtnEvent";
+import openInputBtnEvent from "./add-new-habit/helpers/openInputBtnEvent";
+import saveInputBtn from "./add-new-habit/helpers/saveInputBtn";
+// import highlightColRow from "./habits-table/helpers/highlightColRow";
+import habitsDATA from "./habits-table/AllHabitsDATA";
 
 export default function Home() {
   const styles =
@@ -7,6 +14,17 @@ export default function Home() {
 
   const homeContainer = HTML("main", styles);
 
-  homeContainer.append(HabitsTable());
+  homeContainer.append(HabitsTable(), InputField());
+  // ---
+  window.addEventListener("DOMContentLoaded", () => {
+    saveInputBtn();
+    openInputBtnEvent();
+    closeInputBtn();
+  });
+
+  // habitsDATA().then((data) => {
+  //   console.log(data);
+  // });
+
   return homeContainer;
 }

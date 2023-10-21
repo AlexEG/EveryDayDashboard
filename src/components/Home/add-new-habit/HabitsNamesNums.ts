@@ -1,4 +1,4 @@
-import HTML from "../../../HTML/HTML";
+import HTML from "../../HTML/HTML";
 import AddNewHabitBtn from "./AddNewHabitBtn";
 
 export default function HabitsNamesNums() {
@@ -26,6 +26,8 @@ export default function HabitsNamesNums() {
     habit.append(span1, span2);
     container.append(habit);
   }
+
+  // console.log(fileNames[0].split(".")[0]);
   container.append(AddNewHabitBtn());
   return container;
 }

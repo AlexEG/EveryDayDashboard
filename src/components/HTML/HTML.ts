@@ -10,9 +10,7 @@ export default function HTML(
   if (id) element.setAttribute("id", id);
 
   if (classList) {
-    classList.split(" ").forEach((Class) => {
-      element.classList.add(Class);
-    });
+    element.setAttribute("class", classList);
   }
   return element;
 }

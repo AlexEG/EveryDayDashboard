@@ -18,13 +18,12 @@ export default function Sidebar(): string {
         id="add-calendar-input"
         class="w-full h-full top-0 left-0 fixed z-10 hidden"
       >
-        <div class="w-full h-full">
+          <div class="w-full h-full">
           <!-- overly -->
           <div class="bg-black opacity-70 w-full h-full"></div>
 
           <div
-            class="bg-slate-950 rounded-sm top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute w-1/2 h-28 flex justify-center items-center"
-          >
+            class="bg-slate-950 rounded-sm top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute w-1/2 h-28 flex justify-center items-center">
             <!-- Close Add Calendar Input Container btn  -->
             <button
               id="close-add-new-calendar-btn"
