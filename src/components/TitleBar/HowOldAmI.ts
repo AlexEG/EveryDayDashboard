@@ -8,5 +8,3 @@ export default function HowOldAmI(year: number, month: number, day: number) {
     old / 8.64e7
   )}`;
 }
-
-//TODO in settinges user enter there birthday then store it in local storage
