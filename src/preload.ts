@@ -210,30 +210,25 @@ function Mkdir(path: string) {
  * Done
  *
  */
-// function editCalenderFileJSON(
-//   fileName: string,
-//   month: string,
-//   day: string,
-//   value: boolean
-// ) {
-//   fs.readFile(`./DATA/habits/${fileName}`, "utf-8", (err, data) => {
-//     if (err) {
-//       console.error(err);
-//       return;
-//     }
-//     const jsonData = JSON.parse(data);
+function editCalenderFileJSON(fileName: string, month: string, day: string) {
+  fs.readFile(`./DATA/habits/${fileName}.json`, "utf-8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    const jsonData = JSON.parse(data);
 
-//     jsonData[month][day] = value;
+    jsonData[month][day] = !jsonData[month][day];
 
-//     fs.writeFile(
-//       `./DATA/habits/${fileName}`,
-//       JSON.stringify(jsonData),
-//       function (err) {
-//         if (err) throw err;
-//       }
-//     );
-//   });
-// }
+    fs.writeFile(
+      `./DATA/habits/${fileName}.json`,
+      JSON.stringify(jsonData),
+      function (err) {
+        if (err) throw err;
+      }
+    );
+  });
+}
 
 /**
  *
@@ -242,31 +237,31 @@ function Mkdir(path: string) {
  * Done
  *
  */
-function habitFileToCalender() {
-  document.querySelectorAll("div.sidebar-habit").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      // -- Unmark All Days
-      unMarkAllCalender();
-      const filePath = btn.getAttribute("data-file-path");
+// function habitFileToCalender() {
+//   document.querySelectorAll("div.sidebar-habit").forEach((btn) => {
+//     btn.addEventListener("click", () => {
+//       // -- Unmark All Days
+//       unMarkAllCalender();
+//       const filePath = btn.getAttribute("data-file-path");
 
-      fs.readFile(`./DATA/habits/${filePath}`, "utf-8", (err, data) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        const jsonData = JSON.parse(data);
+//       fs.readFile(`./DATA/habits/${filePath}`, "utf-8", (err, data) => {
+//         if (err) {
+//           console.error(err);
+//           return;
+//         }
+//         const jsonData = JSON.parse(data);
 
-        for (const key in jsonData) {
-          for (const key2 in jsonData[key]) {
-            if (jsonData[key][key2]) {
-              markDay(`${key}-${key2}`);
-            }
-          }
-        }
-      });
-    });
-  });
-}
+//         for (const key in jsonData) {
+//           for (const key2 in jsonData[key]) {
+//             if (jsonData[key][key2]) {
+//               markDay(`${key}-${key2}`);
+//             }
+//           }
+//         }
+//       });
+//     });
+//   });
+// }
 
 /**
  *
@@ -455,6 +450,12 @@ contextBridge.exposeInMainWorld("HabitsData", {
   createJSONHaFileHabit: (FileName: string) => createJSONHaFileHabit(FileName),
   getJSONFileData: (filePath: string) =>
     fs.readFileSync(`./DATA/habits/${filePath}.json`, "utf8"),
+  editCalenderFileJSON: (
+    fileName: string,
+    month: string,
+    day: string,
+    value: boolean
+  ) => editCalenderFileJSON(fileName, month, day, value),
 });
 
 // --------

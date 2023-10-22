@@ -57,6 +57,7 @@ export default function TableBody(data: any) {
       dataCell.dataset.row = `${i}`;
       dataCell.dataset.col = `${j + 1}`;
       dataCell.dataset.habitName = habitsNames[j];
+      dataCell.dataset.month = monthNames[thisMonth][0].toString();
 
       // group-hover/row:border - peer-hover:border-y-0
       const checkbox = HTML("input", "accent-pink-500 w-5 h-5 cursor-pointer");

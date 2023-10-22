@@ -6,7 +6,7 @@ import closeInputBtn from "./add-new-habit/helpers/closeInputBtnEvent";
 import openInputBtnEvent from "./add-new-habit/helpers/openInputBtnEvent";
 import saveInputBtn from "./add-new-habit/helpers/saveInputBtn";
 // import highlightColRow from "./habits-table/helpers/highlightColRow";
-import habitsDATA from "./habits-table/AllHabitsDATA";
+import checkboxEvent from "./habits-table/helpers/checkboxEvent";
 
 export default function Home() {
   const styles =
@@ -20,11 +20,8 @@ export default function Home() {
     saveInputBtn();
     openInputBtnEvent();
     closeInputBtn();
+    checkboxEvent();
   });
-
-  // habitsDATA().then((data) => {
-  //   console.log(data);
-  // });
 
   return homeContainer;
 }
