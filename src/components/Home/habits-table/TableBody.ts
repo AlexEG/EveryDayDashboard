@@ -29,9 +29,9 @@ export default function TableBody(data: any) {
   for (let i = 1; i <= MonthDays; i++) {
     const rowStyle =
       i === today
-        ? "group/row"
+        ? ""
         : i < today
-        ? "opacity-25 group/row"
+        ? "opacity-25"
         : "opacity-5 cursor-not-allowed";
 
     const tableRow = HTML("tr", rowStyle);
@@ -52,8 +52,9 @@ export default function TableBody(data: any) {
     for (let j = 0; j < habitsNames.length; j++) {
       const dataCell = HTML(
         "td",
-        `text-white px-4 border-r border-r-neutral-500 peer peer-hover:bg-neutral-950 group-hover/row:bg-pink-500`
+        "text-white px-4 border-r border-r-neutral-500"
       );
+      // peer peer-hover:bg-neutral-950 group-hover/row:bg-pink-500
       dataCell.dataset.row = `${i}`;
       dataCell.dataset.col = `${j + 1}`;
       dataCell.dataset.habitName = habitsNames[j];

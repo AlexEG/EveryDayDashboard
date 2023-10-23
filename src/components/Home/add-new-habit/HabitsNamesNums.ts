@@ -3,7 +3,8 @@ import AddNewHabitBtn from "./AddNewHabitBtn";
 
 export default function HabitsNamesNums() {
   const styles = "flex flex-col text-neutral-200 w-fit h-fit pr-2 text-sm";
-  const container = HTML("section", styles);
+  const container = HTML("section", styles, "habits-names-nums");
+  const habitsContainer = HTML("div", "", "habits-container-2");
 
   const fileNames = window.HabitsData.getFilesTitles().sort(
     (a: string, b: string) =>
@@ -24,10 +25,10 @@ export default function HabitsNamesNums() {
     );
     const span2 = HTML("span", "pl-1 whitespace-nowrap", "", `${habitTitle}`);
     habit.append(span1, span2);
-    container.append(habit);
+    habitsContainer.append(habit);
   }
 
   // console.log(fileNames[0].split(".")[0]);
-  container.append(AddNewHabitBtn());
+  container.append(habitsContainer, AddNewHabitBtn());
   return container;
 }
