@@ -27,3 +27,6 @@ export default function EditHabitsList() {
   allClickEvents();
   return mainContainer;
 }
+
+// TODO remake all that but use the habit JSONfile number for order/select options
+// TODO replace the data-habit-name data-habit-number => data-habit-file-name [habit_5_Habit_Name]

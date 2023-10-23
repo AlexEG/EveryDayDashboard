@@ -1,22 +1,21 @@
-export default function changeOrderFuncUI(selectBtn: Element) {
-  const oldNum = selectBtn.getAttribute("value");
-
-  selectBtn.setAttribute("value", selectBtn.value);
-
-  selectBtn.querySelector("option[selected]").removeAttribute("selected");
+export default function changeOrderFuncUI(
+  selectBtn: Element,
+  HabitNum1: string,
+  HabitNum2: string
+) {
   selectBtn
-    .querySelector(`option[value="${selectBtn.value}"]`)
+    .querySelector(`option[value="${HabitNum2}"]`)
     .setAttribute("selected", "");
 
   // -------
 
-  const switchHabit = document.querySelectorAll(
-    `#settings--home--edit-habits select[value="${selectBtn.value}"]`
-  )[1];
+  const switchHabit = document.querySelector(
+    `#settings--home--edit-habits select[value="${HabitNum2}"]`
+  );
 
-  switchHabit.setAttribute("value", oldNum);
+  switchHabit.setAttribute("value", HabitNum1);
   switchHabit.querySelector("option[selected]").removeAttribute("selected");
   switchHabit
-    .querySelector(`option[value="${oldNum}"]`)
+    .querySelector(`option[value="${HabitNum1}"]`)
     .setAttribute("selected", "");
 }

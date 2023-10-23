@@ -14,7 +14,7 @@ ROOT.append(Home());
 //? FUNCTIONS ?//
 
 TitleBarClock();
-setInterval(TitleBarClock, 60000);
+// setInterval(TitleBarClock, 60000);
 
 document.querySelector("#settings-open-btn").addEventListener("click", () => {
   document.querySelector("div#settings-box").classList.remove("hidden");
