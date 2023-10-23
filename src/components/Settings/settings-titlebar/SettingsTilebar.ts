@@ -1,4 +1,4 @@
-import HTML from "../..//HTML/HTML";
+import HTML from "../../HTML/HTML";
 import ChangeBirthday from "./ChangeBirthday";
 import EnableDisableField from "./EnableDisableField";
 

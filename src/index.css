@@ -2,16 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.hex {
-  -webkit-clip-path: polygon(
-    50% 0%,
-    95% 25%,
-    95% 75%,
-    50% 100%,
-    5% 75%,
-    5% 25%
-  );
-  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+div#title-bar {
+  -webkit-app-region: drag;
 }
 
 main section::-webkit-scrollbar {
@@ -33,10 +25,6 @@ main section::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
 }
 
-div#title-bar {
-  -webkit-app-region: drag;
-}
-
 /* main::-webkit-scrollbar {
   width: 4px;
 }
@@ -52,3 +40,17 @@ main::-webkit-scrollbar-thumb {
 main::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
 } */
+
+/* ----------------- SETTINGS ----------------- */
+#settings-box section::-webkit-scrollbar {
+  width: 6px;
+}
+#settings-box section::-webkit-scrollbar-track {
+  background: transparent;
+}
+#settings-box section::-webkit-scrollbar-thumb {
+  background: rgb(67 56 202);
+}
+#settings-box section::-webkit-scrollbar-thumb:hover {
+  background: rgb(224 231 255);
+}
