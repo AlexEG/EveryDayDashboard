@@ -4,11 +4,11 @@ export default function OrderBtn(habitNum: number, numberOfHabits: number) {
   const selectContainer = HTML("div", "text-xs");
   const select = HTML(
     "select",
-    "sidebar-change-order text-indigo-600 bg-slate-950"
+    "sidebar-change-order text-indigo-600 bg-slate-950 focus:outline-indigo-400"
   );
   select.setAttribute("value", `${habitNum + 1}`);
 
-  for (let i = 0; i <= numberOfHabits; i++) {
+  for (let i = 0; i < numberOfHabits; i++) {
     const option = HTML("option", "", "", `${i + 1}`);
     option.setAttribute("value", `${i + 1}`);
 

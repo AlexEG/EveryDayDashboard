@@ -1,5 +1,5 @@
 export default function toggleHighlight(e: Event) {
-  const target = e.target as HTMLInputElement;
+  const target = e.target as HTMLElement;
 
   if (target.matches("div.toggle")) {
     const checkbox = target.querySelector("input");

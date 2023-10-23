@@ -145,12 +145,14 @@ contextBridge.exposeInMainWorld("HabitsData", {
   createJSONHaFileHabit: (FileName: string) => createJSONHaFileHabit(FileName),
   getJSONFileData: (filePath: string) =>
     fs.readFileSync(`./DATA/habits/${filePath}.json`, "utf8"),
-  editCalenderFileJSON: (
-    fileName: string,
-    month: string,
-    day: string,
-    value: boolean
-  ) => editCalenderFileJSON(fileName, month, day, value),
+  editCalenderFileJSON: (fileName: string, month: string, day: string) =>
+    editCalenderFileJSON(fileName, month, day),
+  deleteFile: (habitName: string) => deleteJSONFile(habitName),
+  renameJSONFile: (
+    habitNumber: string,
+    oldHabitName: string,
+    newName: string
+  ) => renameJSONFile(habitNumber, oldHabitName, newName),
 });
 
 // --------
@@ -169,3 +171,32 @@ function readBirthdayFile() {
 }
 
 // -----
+
+function deleteJSONFile(habitName: string) {
+  fs.unlink(`./DATA/habits/${habitName}.json`, (err) => {
+    if (err) {
+      throw err;
+    }
+  });
+}
+
+function renameJSONFile(
+  habitNumber: string,
+  oldHabitName: string,
+  newName: string
+) {
+  const oldFilePaht = `./DATA/habits/habit_${habitNumber}_${oldHabitName
+    .split(" ")
+    .join("_")
+    .trim()}.json`;
+
+  const newFileName = newName.split(" ").join("_").trim();
+  const newFilePaht = `./DATA/habits/habit_${habitNumber}_${newFileName}.json`;
+
+  fs.rename(oldFilePaht, newFilePaht, (err) => {
+    if (err) {
+      throw err;
+    }
+    console.log(oldHabitName, " rename to => ", newFileName);
+  });
+}

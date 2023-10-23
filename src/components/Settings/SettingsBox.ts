@@ -12,7 +12,7 @@ export default function SettingsBox() {
   );
   const overlay = HTML(
     "div",
-    "h-[calc(100%-31px)] w-full bg-black opacity-80 rounded-b-3xl mt-[31px]"
+    "h-[calc(100%-31px)] w-full bg-black opacity-80 mt-[31px]"
   );
   const box = HTML(
     "div",
