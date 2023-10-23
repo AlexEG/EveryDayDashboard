@@ -1,4 +1,4 @@
-export default function habitsDATA() {
+export default function AllHabitsDATA() {
   const fileNames = window.HabitsData.getFilesTitles().sort(
     (a: string, b: string) =>
       +a.split("_").slice(1, 2) - +b.split("_").slice(1, 2)

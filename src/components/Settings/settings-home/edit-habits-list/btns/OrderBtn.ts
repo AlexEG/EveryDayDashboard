@@ -1,19 +1,24 @@
 import HTML from "../../../../HTML/HTML";
 
-export default function OrderBtn() {
+export default function OrderBtn(habitNum: number, numberOfHabits: number) {
   const selectContainer = HTML("div", "text-xs");
   const select = HTML(
     "select",
     "sidebar-change-order text-indigo-600 bg-slate-950"
   );
-  select.setAttribute("value", "");
-  const option1 = HTML("option", "", "", "1");
-  const option2 = HTML("option", "", "", "2");
-  const option3 = HTML("option", "", "", "3");
-  const option4 = HTML("option", "", "", "4");
-  select.append(option1, option2, option3, option4);
+  select.setAttribute("value", `${habitNum + 1}`);
+
+  for (let i = 0; i <= numberOfHabits; i++) {
+    const option = HTML("option", "", "", `${i + 1}`);
+    option.setAttribute("value", `${i + 1}`);
+
+    if (i === +habitNum) {
+      option.setAttribute("selected", "");
+    }
+
+    select.append(option);
+  }
 
   selectContainer.append(select);
-
   return selectContainer;
 }

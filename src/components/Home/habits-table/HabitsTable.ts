@@ -2,7 +2,7 @@ import HTML from "../../HTML/HTML";
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 import HabitsNamesNums from "../add-new-habit/HabitsNamesNums";
-import habitsDATA from "./AllHabitsDATA";
+import AllHabitsDATA from "./AllHabitsDATA";
 
 export default function HabitsTable() {
   const tableContainer = HTML("section", "overflow-auto h-full flex");
@@ -12,7 +12,7 @@ export default function HabitsTable() {
     "habits-table"
   );
 
-  habitsDATA().then((data) => {
+  AllHabitsDATA().then((data) => {
     const habitsNames = Object.keys(data);
 
     // console.log(data[habitsNames[0]][monthNames[thisMonth][0]][5]);
