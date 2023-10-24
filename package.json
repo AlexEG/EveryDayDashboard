@@ -1,6 +1,6 @@
 {
-  "name": "everydaycalendar",
-  "productName": "EveryDayCalendar",
+  "name": "everydaydashboard",
+  "productName": "EveryDayDashboard",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".vite/build/main.js",
