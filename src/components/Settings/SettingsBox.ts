@@ -22,6 +22,3 @@ export default function SettingsBox() {
   // console.log(mainContainer);
   return mainContainer;
 }
-
-//! testing
-//! testing 2
