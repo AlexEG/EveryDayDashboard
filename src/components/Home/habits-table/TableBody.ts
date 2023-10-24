@@ -63,6 +63,12 @@ export default function TableBody(data: any) {
       // group-hover/row:border - peer-hover:border-y-0
       const checkbox = HTML("input", "accent-pink-500 w-5 h-5 cursor-pointer");
       checkbox.setAttribute("type", "checkbox");
+
+      const title = `[${habitsNames[j].split("_")[1]}] ${habitsNames[j]
+        .split("_")
+        .slice(2)
+        .join(" ")}`;
+      checkbox.setAttribute("title", title);
       // --------------------
       // const thisMonthData = data[habitsNames[2]][monthNames[thisMonth][0]];
       // console.log(thisMonthData);

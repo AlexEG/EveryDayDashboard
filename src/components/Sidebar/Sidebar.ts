@@ -15,5 +15,20 @@ export default function Sidebar() {
     SectionBtn("youtube"),
     SettingesBtn()
   );
+
+  // Settings Open/Close
+  window.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelector("#settings-open-btn")
+      .addEventListener("click", () => {
+        document.querySelector("div#settings-box").classList.remove("hidden");
+      });
+    document
+      .querySelector("#settings-close-btn")
+      .addEventListener("click", () => {
+        document.querySelector("div#settings-box").classList.add("hidden");
+      });
+  });
+
   return aside;
 }

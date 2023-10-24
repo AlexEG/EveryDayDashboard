@@ -1,4 +1,5 @@
 import HTML from "../HTML/HTML";
+import TitleBarClock from "./TitleBarClock";
 
 export default function TitleBar() {
   const contanier = HTML(
@@ -35,5 +36,9 @@ export default function TitleBar() {
   clockDateWrapperR.append(timeWrapper, dateWrapper);
   contanier.append(CalendarTitleL, clockDateWrapperR);
 
+  window.addEventListener("DOMContentLoaded", () => {
+    TitleBarClock();
+    setInterval(TitleBarClock, 60000);
+  });
   return contanier;
 }
