@@ -5,7 +5,6 @@ import InputField from "./add-new-habit/InputField";
 import closeInputBtn from "./add-new-habit/helpers/closeInputBtnEvent";
 import openInputBtnEvent from "./add-new-habit/helpers/openInputBtnEvent";
 import saveInputBtn from "./add-new-habit/helpers/saveInputBtn";
-// import highlightColRow from "./habits-table/helpers/highlightColRow";
 import checkboxEvent from "./habits-table/helpers/checkboxEvent";
 
 export default function Home() {

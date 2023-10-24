@@ -16,10 +16,10 @@ export default function HabitsNamesNums() {
     const habitTitle = fileNames[i].split("_").slice(2).join(" ").slice(0, -5);
 
     const habit = HTML("div", "mb-0.5");
-
+    habit.dataset.habitNumber = habitNum.toString();
     const span1 = HTML(
       "span",
-      "bg-neutral-300 text-neutral-950 px-1 rounded-sm",
+      "bg-neutral-300 text-neutral-950 px-1 rounded-sm ",
       "",
       `${habitNum}`
     );
