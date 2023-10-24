@@ -3,9 +3,11 @@ import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 import HabitsNamesNums from "../add-new-habit/HabitsNamesNums";
 import AllHabitsDATA from "./AllHabitsDATA";
+import ChangeMonthInPreview from "../change-month-in-preview/ChangeMonthInPreview";
 
 export default function HabitsTable() {
-  const tableContainer = HTML("section", "overflow-auto h-full flex");
+  const styles = "overflow-auto h-full flex border relative";
+  const tableContainer = HTML("section", styles);
   const table = HTML(
     "table",
     "border border-neutral-200 mx-auto",
@@ -20,6 +22,6 @@ export default function HabitsTable() {
     table.append(TableHead(habitsNames), TableBody(data));
   });
 
-  tableContainer.append(HabitsNamesNums(), table);
+  tableContainer.append(HabitsNamesNums(), table, ChangeMonthInPreview());
   return tableContainer;
 }
