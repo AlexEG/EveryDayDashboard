@@ -149,9 +149,6 @@ contextBridge.exposeInMainWorld("HabitsData", {
     editCalenderFileJSON(fileName, month, day),
   deleteJSONFile,
   renameJSONFile,
-
-  changeOrder: (habitName: string, oldNumber: string, newNumber: string) =>
-    changeOrder(habitName, oldNumber, newNumber),
 });
 
 // --------
@@ -189,17 +186,4 @@ function renameJSONFile(oldFilePaht: string, newFilePaht: string) {
       }
     }
   );
-}
-// -------------------------
-function changeOrder(habitName: string, oldNumber: string, newNumber: string) {
-  const fileNsme = habitName.split(" ").join("_").trim();
-  const oldFilePaht = `./DATA/habits/habit_${oldNumber}_${fileNsme}.json`;
-
-  const newFilePaht = `./DATA/habits/habit_${newNumber}_${fileNsme}.json`;
-
-  fs.rename(oldFilePaht, newFilePaht, (err) => {
-    if (err) {
-      throw err;
-    }
-  });
 }
