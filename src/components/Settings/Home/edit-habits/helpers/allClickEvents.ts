@@ -1,4 +1,3 @@
-import renameFunc from "./renameFunc";
 import changeOrderFunc from "./changeOrderFunc";
 
 export default function allClickEvents() {

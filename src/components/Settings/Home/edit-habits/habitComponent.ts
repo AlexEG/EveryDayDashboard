@@ -4,7 +4,7 @@ import RenameBtn from "./RenameBtn";
 import OrderBtn from "./OrderBtn";
 import NameInput from "./NameInput";
 
-export default function habitComponent(
+export default function HabitComponent(
   name: string,
   habitNum: number,
   numberOfHabits: number
@@ -19,7 +19,7 @@ export default function habitComponent(
   container.append(
     OrderBtn(habitNum, numberOfHabits),
     NameInput(habitTitle),
-    RenameBtn(),
+    RenameBtn(name),
     DeleteBtn(name)
   );
   return container;

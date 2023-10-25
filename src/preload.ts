@@ -148,11 +148,8 @@ contextBridge.exposeInMainWorld("HabitsData", {
   editCalenderFileJSON: (fileName: string, month: string, day: string) =>
     editCalenderFileJSON(fileName, month, day),
   deleteJSONFile,
-  renameJSONFile: (
-    habitNumber: string,
-    oldHabitName: string,
-    newName: string
-  ) => renameJSONFile(habitNumber, oldHabitName, newName),
+  renameJSONFile,
+
   changeOrder: (habitName: string, oldNumber: string, newNumber: string) =>
     changeOrder(habitName, oldNumber, newNumber),
 });
@@ -182,25 +179,16 @@ function deleteJSONFile(filePath: string) {
   });
 }
 
-function renameJSONFile(
-  habitNumber: string,
-  oldHabitName: string,
-  newName: string
-) {
-  const oldFilePaht = `./DATA/habits/habit_${habitNumber}_${oldHabitName
-    .split(" ")
-    .join("_")
-    .trim()}.json`;
-
-  const newFileName = newName.split(" ").join("_").trim();
-  const newFilePaht = `./DATA/habits/habit_${habitNumber}_${newFileName}.json`;
-
-  fs.rename(oldFilePaht, newFilePaht, (err) => {
-    if (err) {
-      throw err;
+function renameJSONFile(oldFilePaht: string, newFilePaht: string) {
+  fs.rename(
+    `./DATA/${oldFilePaht}.json`,
+    `./DATA/${newFilePaht}.json`,
+    (err) => {
+      if (err) {
+        throw err;
+      }
     }
-    console.log(oldHabitName, " rename to => ", newFileName);
-  });
+  );
 }
 // -------------------------
 function changeOrder(habitName: string, oldNumber: string, newNumber: string) {

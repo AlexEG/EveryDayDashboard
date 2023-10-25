@@ -1,12 +1,12 @@
 import HTML from "../../../HTML/HTML";
 import SettingsFieldset from "../../utils/SettingsFieldset";
-import habitComponent from "./habitComponent";
+import HabitComponent from "./HabitComponent";
 
 import AllHabitsDATA from "../../../Home/habits-table/AllHabitsDATA";
 
 import allClickEvents from "./helpers/allClickEvents";
 
-export default function EditHabits() {
+export default function EditHabitsContainer() {
   const mainContainer = SettingsFieldset(
     "Edit Habits",
     "settings--home--edit-habits"
@@ -24,7 +24,7 @@ export default function EditHabits() {
     // name => "habit_1_Wake_up_12_AM"
 
     habitsNames.forEach((name, i) => {
-      container.append(habitComponent(name, i, numberOfHabits));
+      container.append(HabitComponent(name, i, numberOfHabits));
     });
   });
 
