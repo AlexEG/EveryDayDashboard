@@ -1,4 +1,3 @@
-import deleteFunc from "./deleteFunc";
 import renameFunc from "./renameFunc";
 import changeOrderFunc from "./changeOrderFunc";
 
@@ -7,7 +6,6 @@ export default function allClickEvents() {
     document
       .querySelector("fieldset#settings--home--edit-habits")
       .addEventListener("click", (e) => {
-        deleteFunc(e);
         renameFunc(e);
       });
 

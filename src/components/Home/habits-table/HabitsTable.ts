@@ -6,7 +6,7 @@ import AllHabitsDATA from "./AllHabitsDATA";
 import ChangeMonthInPreview from "../change-month-in-preview/ChangeMonthInPreview";
 
 export default function HabitsTable() {
-  const styles = "overflow-auto h-full flex border relative";
+  const styles = "overflow-auto h-full flex relative";
   const tableContainer = HTML("section", styles);
   const table = HTML(
     "table",

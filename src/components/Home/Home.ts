@@ -15,6 +15,7 @@ export default function Home() {
 
   homeContainer.append(HabitsTable(), InputField());
   // ---
+
   window.addEventListener("DOMContentLoaded", () => {
     saveInputBtn();
     openInputBtnEvent();

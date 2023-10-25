@@ -9,8 +9,12 @@ export default function SettingsNavbar() {
     "settingsNavBar"
   );
   const tabsWrapper = HTML("div", "flex", "settings-box--tabs-wrapper");
+
+  const first = SettingsNavTab("Home");
+  first.classList.add("before:bg-violet-600");
+
   tabsWrapper.append(
-    SettingsNavTab("Home"),
+    first,
     SettingsNavTab("TitleBar"),
     SettingsNavTab("Sidebar"),
     SettingsNavTab("Calendar"),

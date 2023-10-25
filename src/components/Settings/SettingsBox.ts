@@ -1,7 +1,7 @@
 import HTML from "../HTML/HTML";
 import SettingsNavbar from "./settings-navbar/SettingsNavbar";
-import SettingsTilebar from "./settings-titlebar/SettingsTilebar";
-import SettingsHome from "./settings-home/SettingsHome";
+// import SettingsTilebar from "./settings-titlebar/SettingsTilebar";
+import SettingsHome from "./Home/SettingsHome";
 
 export default function SettingsBox() {
   const styles = "fixed top-0 z-40 h-full w-full hidden";

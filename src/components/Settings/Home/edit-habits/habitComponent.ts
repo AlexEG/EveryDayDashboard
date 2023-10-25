@@ -1,10 +1,10 @@
 import HTML from "../../../HTML/HTML";
-import DeleteBtn from "./btns/DeleteBtn";
-import RenameBtn from "./btns/RenameBtn";
-import OrderBtn from "./btns/OrderBtn";
-import NameInput from "./btns/NameInput";
+import DeleteBtn from "./DeleteBtn";
+import RenameBtn from "./RenameBtn";
+import OrderBtn from "./OrderBtn";
+import NameInput from "./NameInput";
 
-export default function EditHabit(
+export default function habitComponent(
   name: string,
   habitNum: number,
   numberOfHabits: number
@@ -20,7 +20,7 @@ export default function EditHabit(
     OrderBtn(habitNum, numberOfHabits),
     NameInput(habitTitle),
     RenameBtn(),
-    DeleteBtn()
+    DeleteBtn(name)
   );
   return container;
 }

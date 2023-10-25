@@ -2,7 +2,7 @@ import HTML from "../HTML/HTML";
 import SectionBtn from "./SectionBtn";
 import SettingesBtn from "./SettingesBtn";
 
-import openCloseSections from "./openCloseSections";
+import openSections from "./openSections";
 
 export default function Sidebar() {
   const styles =
@@ -10,8 +10,8 @@ export default function Sidebar() {
   const aside = HTML("aside", styles);
 
   aside.append(
-    SectionBtn("home", "", () => openCloseSections("home")),
-    SectionBtn("github", "", () => openCloseSections("github")),
+    SectionBtn("home", "", () => openSections("home")),
+    SectionBtn("github", "", () => openSections("github")),
     SectionBtn("codewars"),
     SectionBtn("wakatime"),
     SectionBtn("youtube"),

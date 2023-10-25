@@ -147,8 +147,7 @@ contextBridge.exposeInMainWorld("HabitsData", {
     fs.readFileSync(`./DATA/habits/${filePath}.json`, "utf8"),
   editCalenderFileJSON: (fileName: string, month: string, day: string) =>
     editCalenderFileJSON(fileName, month, day),
-  deleteFile: (habitNumber: string, habitName: string) =>
-    deleteJSONFile(habitNumber, habitName),
+  deleteJSONFile,
   renameJSONFile: (
     habitNumber: string,
     oldHabitName: string,
@@ -175,11 +174,8 @@ function readBirthdayFile() {
 
 // -----
 
-function deleteJSONFile(habitNumber: string, habitName: string) {
-  const fileName = habitName.split(" ").join("_").trim();
-  const filePaht = `./DATA/habits/habit_${habitNumber}_${fileName}.json`;
-
-  fs.unlink(filePaht, (err) => {
+function deleteJSONFile(filePath: string) {
+  fs.unlink(`./DATA/${filePath}.json`, (err) => {
     if (err) {
       throw err;
     }
