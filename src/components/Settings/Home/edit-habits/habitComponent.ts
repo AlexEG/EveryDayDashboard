@@ -7,20 +7,17 @@ import NameInput from "./NameInput";
 export default function HabitComponent(
   name: string,
   habitNum: number,
-  numberOfHabits: number
+  numberOfHabits: number,
+  arr: string[]
 ) {
   const container = HTML("div", "flex gap-x-2");
-
-  const habitTitle = name.split("_").slice(2).join(" ");
-
-  container.dataset.habitNumber = `${habitNum + 1}`;
-  container.dataset.habitName = habitTitle;
+  container.dataset.habitName = name;
 
   container.append(
-    OrderBtn(habitNum, numberOfHabits),
-    NameInput(habitTitle),
+    OrderBtn(habitNum, numberOfHabits, arr),
+    NameInput(name),
     RenameBtn(name),
-    DeleteBtn(name)
+    DeleteBtn()
   );
   return container;
 }

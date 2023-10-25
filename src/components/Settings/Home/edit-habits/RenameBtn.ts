@@ -1,12 +1,11 @@
 import HTML from "../../../HTML/HTML";
 
-export default function RenameBtn(name: string) {
+export default function RenameBtn() {
   const styles =
     "sidebar-rename-habit-save-btn z-10 text-indigo-100 text-center font-semibold w-24 py-px border-2 rounded-md  border-indigo-600 hover:text-indigo-600 transition-colors duration-300 hover:border-indigo-100 hover:bg-indigo-100 active:opacity-90 bg-slate-950 focus:outline-indigo-400";
 
   const renameBtn = HTML("button", styles, "", "Rename");
   renameBtn.dataset.allowEditing = "false";
-  renameBtn.dataset.habitName = name;
 
   renameBtn.onclick = () => {
     // ----
@@ -14,8 +13,10 @@ export default function RenameBtn(name: string) {
     if (renameBtn.dataset.allowEditing === "true") {
       renameBtn.innerText = "Rename";
       renameBtn.dataset.allowEditing = "false";
-      const NAME = renameBtn.dataset.habitName;
+
+      const NAME = renameBtn.parentElement.dataset.habitName;
       const input = renameBtn.parentElement.querySelector("input");
+
       input.classList.replace("text-indigo-50", "text-slate-700");
       input.parentElement.classList.add("after:absolute");
 
@@ -26,7 +27,8 @@ export default function RenameBtn(name: string) {
       const newFilePaht = `habits/${newName}`;
 
       window.HabitsData.renameJSONFile(oldFilePaht, newFilePaht);
-      renameBtn.dataset.habitName = newName;
+
+      renameBtn.parentElement.dataset.habitName = newName;
 
       console.log(
         `%c Rename %c ${NAME} %c=> %c${newName}`,
@@ -36,11 +38,11 @@ export default function RenameBtn(name: string) {
         "color:green"
       );
     } else {
-      console.log("allow editing name");
       renameBtn.innerText = "SAVE";
       renameBtn.dataset.allowEditing = "true";
 
       const input = renameBtn.parentElement.querySelector("input");
+
       input.classList.replace("text-slate-700", "text-indigo-50");
       input.parentElement.classList.remove("after:absolute");
     }

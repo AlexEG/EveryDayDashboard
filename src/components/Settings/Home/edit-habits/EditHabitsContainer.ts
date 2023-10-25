@@ -4,15 +4,15 @@ import HabitComponent from "./HabitComponent";
 
 import AllHabitsDATA from "../../../Home/habits-table/AllHabitsDATA";
 
-import allClickEvents from "./helpers/allClickEvents";
+// import allClickEvents from "./helpers/allClickEvents";
 
 export default function EditHabitsContainer() {
   const mainContainer = SettingsFieldset(
     "Edit Habits",
     "settings--home--edit-habits"
   );
-
-  const container = HTML("div", "flex flex-col w-full gap-y-4");
+  const styles = "flex flex-col w-full gap-y-4";
+  const container = HTML("div", styles);
 
   // Insert Data
   AllHabitsDATA().then((data) => {
@@ -23,8 +23,8 @@ export default function EditHabitsContainer() {
     // console.log(data);
     // name => "habit_1_Wake_up_12_AM"
 
-    habitsNames.forEach((name, i) => {
-      container.append(HabitComponent(name, i, numberOfHabits));
+    habitsNames.forEach((name, i, arr) => {
+      container.append(HabitComponent(name, i, numberOfHabits, arr));
     });
   });
 

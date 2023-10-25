@@ -1,8 +1,11 @@
 import HTML from "../../../HTML/HTML";
 
-export default function NameInput(habitTitle: string) {
+export default function NameInput(name: string) {
+  const habitTitle = name.split("_").slice(2).join(" ");
+
   const styles =
     "relative w-full cursor-not-allowed after:absolute after:top-0 after:left-0 after:bottom-0 after:right-0";
+
   const div = HTML("div", styles);
 
   const styles2 =

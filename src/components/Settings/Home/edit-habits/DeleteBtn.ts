@@ -1,6 +1,6 @@
 import HTML from "../../../HTML/HTML";
 
-export default function DeleteBtn(name: string) {
+export default function DeleteBtn() {
   const deleteBtn = HTML(
     "button",
     "group z-10 text-red-100 text-center font-semibold px-1 py-px border-2 rounded-md border-red-600 transition-colors duration-300 hover:border-red-600 hover:bg-red-600 active:opacity-80"
@@ -15,9 +15,16 @@ export default function DeleteBtn(name: string) {
   deleteBtn.append(img);
 
   deleteBtn.onclick = () => {
-    window.HabitsData.deleteJSONFile(`habits/${name}`);
+    const Name = deleteBtn.parentElement.dataset.habitName;
+    window.HabitsData.deleteJSONFile(`habits/${Name}`);
     deleteBtn.parentElement.remove();
-    console.log("DELETE |", name);
+
+    console.log("DELETE |", Name);
+    console.log(
+      `%c DELETE %c ${Name} `,
+      "background:black; color:white",
+      "color:red"
+    );
   };
 
   return deleteBtn;
