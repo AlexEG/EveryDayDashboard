@@ -40,9 +40,12 @@ export default function OrderBtn(
       `#settings--home--edit-habits div[data-habit-name="${fileName2}"]`
     ) as HTMLDivElement;
 
+    console.log(fileName1);
+    console.log(fileName2);
+    console.log(arr);
     // switch dataset
-    container1.dataset.habitName = fileName2;
-    container2.dataset.habitName = fileName1;
+    // container1.dataset.habitName = fileName2;
+    // container2.dataset.habitName = fileName1;
 
     // switch input values
     const input1 = container1.querySelector("input");
@@ -62,6 +65,7 @@ export default function OrderBtn(
     container1
       .querySelector(`option[value="${value1}"]`)
       .setAttribute("selected", "");
+    // container1.querySelector("select").value = value1;
 
     // console.log(container1);
     // console.log(container2);
@@ -74,7 +78,6 @@ export default function OrderBtn(
     // console.log(oldFilePaht1);
     // console.log(newFilePaht1);
 
-    container1.dataset.habitName = name1;
     window.HabitsData.renameJSONFile(oldFilePaht1, newFilePaht1);
 
     const name2 = fileName2.split("_").with(1, value1).join("_");
@@ -84,9 +87,25 @@ export default function OrderBtn(
     // console.log(oldFilePaht2);
     // console.log(newFilePaht2);
 
-    container2.dataset.habitName = name2;
     window.HabitsData.renameJSONFile(oldFilePaht2, newFilePaht2);
 
+    const newFileName1 = `habit_${value2}_${name1
+      .split("_")
+      .slice(2)
+      .join("_")}`;
+
+    const newFileName2 = `habit_${value1}_${name2
+      .split("_")
+      .slice(2)
+      .join("_")}`;
+
+    container2.dataset.habitName = newFileName1;
+    container1.dataset.habitName = newFileName2;
+
+    arr[arr.indexOf(arr[habitNum])] = newFileName2;
+    arr[value2 - 1] = newFileName1;
+
+    console.log(arr);
     console.log(
       `%c Change Order %c\n ${oldFilePaht1.split("/")[1]} %c=> %c${
         newFilePaht1.split("/")[1]
@@ -108,4 +127,4 @@ export default function OrderBtn(
   return selectContainer;
 }
 
-// TODO it's working for the first change after that it's not
+// TODO NOW Everything work
