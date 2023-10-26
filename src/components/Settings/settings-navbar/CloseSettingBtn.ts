@@ -1,4 +1,5 @@
 import HTML from "../../HTML/HTML";
+
 export default function CloseSettingBtn() {
   const closeBtn = HTML(
     "button",
@@ -8,8 +9,10 @@ export default function CloseSettingBtn() {
 
   const img = HTML("img", "w-5 h-5 invert group-hover:invert-0");
   img.setAttribute("src", "/src/assets/x-mark.svg");
-
   closeBtn.append(img);
 
+  closeBtn.onclick = () => {
+    document.querySelector("div#settings-box").classList.add("hidden");
+  };
   return closeBtn;
 }

@@ -16,7 +16,7 @@ export default function HabitComponent(
   container.append(
     OrderBtn(habitNum, numberOfHabits, arr),
     NameInput(name),
-    RenameBtn(name),
+    RenameBtn(),
     DeleteBtn()
   );
   return container;

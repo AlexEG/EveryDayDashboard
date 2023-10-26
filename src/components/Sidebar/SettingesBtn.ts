@@ -12,5 +12,10 @@ export default function SettingesBtn() {
   img.setAttribute("src", "/src/assets/settings.svg");
 
   div.append(img);
+
+  div.onclick = () => {
+    document.querySelector("div#settings-box").classList.remove("hidden");
+  };
+
   return div;
 }

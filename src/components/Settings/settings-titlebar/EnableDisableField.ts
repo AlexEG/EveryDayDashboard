@@ -2,6 +2,7 @@
 import SettingsFieldset from "../utils/SettingsFieldset";
 import ToggleBtn from "./helpers/ToggleBtn";
 import toggleBtnClickEvent from "./helpers/toggleBtnClickEvent";
+
 export default function EnableDisableField() {
   const container = SettingsFieldset(
     "Enable/Disable Features",
@@ -16,6 +17,6 @@ export default function EnableDisableField() {
     ToggleBtn("Age in Days", "titlebar-how-old-you-in-days-on-off")
   );
 
-  toggleBtnClickEvent();
+  // toggleBtnClickEvent();
   return container;
 }

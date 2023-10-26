@@ -12,7 +12,8 @@ export default function SettingsBox() {
   );
   const box = HTML(
     "div",
-    "fixed left-1/2 top-1/2 h-96 w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-sm bg-slate-950"
+    "fixed left-1/2 top-1/2 h-96 w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-sm bg-slate-950",
+    "inner-box"
   );
   mainContainer.append(overlay, box);
 
