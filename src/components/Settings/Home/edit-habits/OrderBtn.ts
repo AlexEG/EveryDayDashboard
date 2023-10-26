@@ -43,9 +43,6 @@ export default function OrderBtn(
     // console.log(fileName1);
     // console.log(fileName2);
     // console.log(arr);
-    // switch dataset
-    // container1.dataset.habitName = fileName2;
-    // container2.dataset.habitName = fileName1;
 
     // switch input values
     const input1 = container1.querySelector("input");
@@ -89,6 +86,7 @@ export default function OrderBtn(
 
     window.HabitsData.renameJSONFile(oldFilePaht2, newFilePaht2);
 
+    // switch dataset
     const newFileName1 = `habit_${value2}_${name1
       .split("_")
       .slice(2)
@@ -102,10 +100,11 @@ export default function OrderBtn(
     container2.dataset.habitName = newFileName1;
     container1.dataset.habitName = newFileName2;
 
+    //updata the arr
     arr[arr.indexOf(arr[habitNum])] = newFileName2;
     arr[value2 - 1] = newFileName1;
 
-    console.log(arr);
+    // console.log(arr);
     console.log(
       `%c Change Order %c\n ${oldFilePaht1.split("/")[1]} %c=> %c${
         newFilePaht1.split("/")[1]
@@ -128,3 +127,4 @@ export default function OrderBtn(
 }
 
 // TODO BUG || if you rename then try to change order
+// TODO BUG || after deleting the arr is still have the orgial length & item
