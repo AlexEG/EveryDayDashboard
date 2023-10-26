@@ -40,9 +40,9 @@ export default function OrderBtn(
       `#settings--home--edit-habits div[data-habit-name="${fileName2}"]`
     ) as HTMLDivElement;
 
-    console.log(fileName1);
-    console.log(fileName2);
-    console.log(arr);
+    // console.log(fileName1);
+    // console.log(fileName2);
+    // console.log(arr);
     // switch dataset
     // container1.dataset.habitName = fileName2;
     // container2.dataset.habitName = fileName1;
@@ -127,4 +127,4 @@ export default function OrderBtn(
   return selectContainer;
 }
 
-// TODO NOW Everything work
+// TODO BUG || if you rename then try to change order
