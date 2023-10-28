@@ -17,12 +17,10 @@ export default function WakaTime() {
   div1.append(img1);
 
   // --------
-  const styles3 = "grid grid-cols-4 gap-1 relative";
+  const styles3 = "grid grid-cols-4 gap-1";
   const grid = HTML("div", styles3);
 
   // --------
-  const styles4 =
-    "hover:w-[1000px] hover:z-10 hover:absolute hover:top-1/2 hover:left-1/2 hover:-translate-x-1/2 hover:-translate-y-1/2";
 
   const embedsURL = [
     "https://wakatime.com/share/@AlexEG/96b52650-2866-42cd-9ced-c922d8fdc7e8.svg",
@@ -36,12 +34,56 @@ export default function WakaTime() {
   ];
 
   for (let i = 0; i < embedsURL.length; i++) {
-    const figure = HTML("figure");
+    const styles4 = "w-full h-full    bg-indigo-950/50";
+    const div = HTML("div", styles4);
+
+    const figure = HTML("figure", "relative");
     const embed = HTML("embed");
     embed.setAttribute("src", embedsURL[i]);
 
-    figure.append(embed);
-    grid.append(figure);
+    // expand/shrink
+    const styles =
+      "group absolute cursor-pointer border border-indigo-700 hover:bg-indigo-200 right-1 top-1 p-2 ";
+    const btn = HTML("button", styles);
+    btn.dataset.expand = "false";
+
+    const styles2 = "w-5 h-5 invert group-hover:invert-0";
+
+    const img = HTML("img", styles2);
+    img.setAttribute("src", "/src/assets/expand.svg");
+
+    const styles3 = [
+      "fixed",
+      "z-10",
+      "overflow-hidden",
+      "p-44",
+      "flex",
+      "justify-center",
+      "items-center",
+    ];
+
+    btn.append(img);
+    // btn onClick
+    btn.onclick = () => {
+      if (btn.dataset.expand === "true") {
+        btn.children[0].setAttribute("src", "/src/assets/expand.svg");
+        btn.dataset.expand = "false";
+
+        btn.parentElement.parentElement.classList.remove(...styles3);
+        btn.parentElement.classList.remove("w-[1000px]");
+      } else {
+        btn.children[0].setAttribute("src", "/src/assets/shrink.svg");
+        btn.dataset.expand = "true";
+
+        btn.parentElement.parentElement.classList.add(...styles3);
+        btn.parentElement.classList.add("w-[1000px]");
+      }
+    };
+
+    // -------------
+    figure.append(embed, btn);
+    div.append(figure);
+    grid.append(div);
   }
 
   MainContainer.append(div1);
