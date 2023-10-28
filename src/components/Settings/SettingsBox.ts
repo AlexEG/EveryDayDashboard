@@ -4,7 +4,7 @@ import SettingsNavbar from "./settings-navbar/SettingsNavbar";
 import SettingsHome from "./Home/SettingsHome";
 
 export default function SettingsBox() {
-  const styles = "fixed top-0 z-40 h-full w-full ";
+  const styles = "fixed top-0 z-40 h-full w-full hidden";
   const mainContainer = HTML("div", styles, "settings-box");
   const overlay = HTML(
     "div",
