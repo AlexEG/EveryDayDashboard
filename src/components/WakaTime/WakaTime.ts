@@ -33,8 +33,20 @@ export default function WakaTime() {
     "https://wakatime.com/share/@AlexEG/8c5d6e4e-2c83-4a6d-9106-4ac8d1714190.svg",
   ];
 
+  const expandShrinkChartStyles = [
+    "fixed",
+    "z-10",
+    "overflow-hidden",
+    "p-44",
+    "flex",
+    "justify-center",
+    "items-center",
+  ];
+  const styles4 = "w-full h-full bg-indigo-950/75";
+  const expandShrinkBtnStyles =
+    "group absolute cursor-pointer border border-indigo-700 hover:bg-indigo-200 right-1 top-1 p-2";
+
   for (let i = 0; i < embedsURL.length; i++) {
-    const styles4 = "w-full h-full    bg-indigo-950/50";
     const div = HTML("div", styles4);
 
     const figure = HTML("figure", "relative");
@@ -42,25 +54,14 @@ export default function WakaTime() {
     embed.setAttribute("src", embedsURL[i]);
 
     // expand/shrink
-    const styles =
-      "group absolute cursor-pointer border border-indigo-700 hover:bg-indigo-200 right-1 top-1 p-2 ";
-    const btn = HTML("button", styles);
+
+    const btn = HTML("button", expandShrinkBtnStyles);
     btn.dataset.expand = "false";
 
     const styles2 = "w-5 h-5 invert group-hover:invert-0";
 
     const img = HTML("img", styles2);
     img.setAttribute("src", "/src/assets/expand.svg");
-
-    const styles3 = [
-      "fixed",
-      "z-10",
-      "overflow-hidden",
-      "p-44",
-      "flex",
-      "justify-center",
-      "items-center",
-    ];
 
     btn.append(img);
     // btn onClick
@@ -69,13 +70,17 @@ export default function WakaTime() {
         btn.children[0].setAttribute("src", "/src/assets/expand.svg");
         btn.dataset.expand = "false";
 
-        btn.parentElement.parentElement.classList.remove(...styles3);
+        btn.parentElement.parentElement.classList.remove(
+          ...expandShrinkChartStyles
+        );
         btn.parentElement.classList.remove("w-[1000px]");
       } else {
         btn.children[0].setAttribute("src", "/src/assets/shrink.svg");
         btn.dataset.expand = "true";
 
-        btn.parentElement.parentElement.classList.add(...styles3);
+        btn.parentElement.parentElement.classList.add(
+          ...expandShrinkChartStyles
+        );
         btn.parentElement.classList.add("w-[1000px]");
       }
     };
