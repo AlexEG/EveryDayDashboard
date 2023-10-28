@@ -8,10 +8,10 @@ export default function Sidebar() {
   const aside = HTML("aside", styles);
 
   aside.append(
-    SectionBtn("home", "home"),
-    SectionBtn("github", "github"),
-    // SectionBtn("codewars"),
-    // SectionBtn("wakatime"),
+    SectionBtn("home"),
+    SectionBtn("github"),
+    SectionBtn("codewars"),
+    SectionBtn("wakatime"),
     // SectionBtn("youtube"),
 
     SettingesBtn()
