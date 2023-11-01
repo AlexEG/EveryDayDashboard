@@ -3,6 +3,9 @@ import Home from "../Home/Home";
 import GitHub from "../GitHub/GitHub";
 import CodeWars from "../CodeWars/CodeWars";
 import WakaTime from "../WakaTime/WakaTime";
+import YouTube from "../YouTube/YouTube";
+import Spotify from "../Spotify/Spotify";
+import AinList from "../AniList/AinList";
 
 export default function SectionBtn(sectionName: string) {
   const styles =
@@ -17,6 +20,7 @@ export default function SectionBtn(sectionName: string) {
   img.setAttribute("src", `/src/assets/${sectionName}.svg`);
 
   div.append(img);
+  div.setAttribute("title", sectionName);
 
   div.onclick = () => {
     console.log(sectionName);
@@ -48,6 +52,15 @@ export default function SectionBtn(sectionName: string) {
     }
     if (sectionName === "wakatime") {
       ROOT.append(WakaTime());
+    }
+    if (sectionName === "youtube") {
+      ROOT.append(YouTube());
+    }
+    if (sectionName === "spotify") {
+      ROOT.append(Spotify());
+    }
+    if (sectionName === "anilist") {
+      ROOT.append(AinList());
     }
   };
 
