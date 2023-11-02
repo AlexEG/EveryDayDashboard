@@ -17,7 +17,7 @@ export default function WakaTime() {
   div1.append(img1);
 
   // --------
-  const styles3 = "grid grid-cols-4 gap-1";
+  const styles3 = "grid grid-cols-4 gap-x-1 gap-y-4";
   const grid = HTML("div", styles3);
 
   // --------
@@ -31,6 +31,10 @@ export default function WakaTime() {
     "https://wakatime.com/share/@AlexEG/f155aaeb-8225-4e92-a56c-4fca559f1ebd.svg",
     "https://wakatime.com/share/@AlexEG/f36b0d33-be7a-493a-aa24-e1aad03ec444.svg",
     "https://wakatime.com/share/@AlexEG/8c5d6e4e-2c83-4a6d-9106-4ac8d1714190.svg",
+    "https://wakatime.com/share/@AlexEG/263320fc-06e1-43e4-aac5-492df6e15cd2.svg",
+    "https://wakatime.com/share/@AlexEG/ba6bd7e9-8951-4211-ab4a-9ad30807df1c.svg",
+    "https://wakatime.com/share/@AlexEG/78631744-f81a-4ebf-b4d9-c75662322123.svg",
+    "https://wakatime.com/share/@AlexEG/9f924734-f53e-48d2-87f1-6f9960463d83.svg",
   ];
 
   const expandShrinkChartStyles = [

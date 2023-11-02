@@ -19,8 +19,8 @@ export default function Sidebar() {
     SectionBtn("frontendmentor"),
     SectionBtn("monkeytype"),
     SectionBtn("firebase"),
-    SectionBtn("freecodecamp"),
     SectionBtn("vercel"),
+    SectionBtn("freecodecamp"),
     SectionBtn("tryhackme"),
 
     SettingesBtn()
