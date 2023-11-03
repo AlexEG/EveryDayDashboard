@@ -75,7 +75,7 @@ export default function OrderBtn(
     // console.log(oldFilePaht1);
     // console.log(newFilePaht1);
 
-    window.HabitsData.renameJSONFile(oldFilePaht1, newFilePaht1);
+    window.DATA.renameJSONFile(oldFilePaht1, newFilePaht1);
 
     const name2 = fileName2.split("_").with(1, value1).join("_");
     const oldFilePaht2 = `habits/${fileName2}`;
@@ -84,7 +84,7 @@ export default function OrderBtn(
     // console.log(oldFilePaht2);
     // console.log(newFilePaht2);
 
-    window.HabitsData.renameJSONFile(oldFilePaht2, newFilePaht2);
+    window.DATA.renameJSONFile(oldFilePaht2, newFilePaht2);
 
     // switch dataset
     const newFileName1 = `habit_${value2}_${name1

@@ -10,7 +10,7 @@ export default function checkboxEvent() {
 
       console.log(habitName, month, day);
 
-      window.HabitsData.editCalenderFileJSON(habitName, month, day);
+      window.DATA.editCalenderFileJSON(habitName, month, day);
     }
   });
 }

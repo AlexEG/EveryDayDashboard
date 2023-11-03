@@ -1,5 +1,6 @@
 import HTML from "../HTML/HTML";
 import TitleBarClock from "./TitleBarClock";
+import HowOldAmI from "./HowOldAmI";
 
 export default function TitleBar() {
   const contanier = HTML(
@@ -36,9 +37,21 @@ export default function TitleBar() {
   clockDateWrapperR.append(timeWrapper, dateWrapper);
   contanier.append(CalendarTitleL, clockDateWrapperR);
 
+  // ------------
   window.addEventListener("DOMContentLoaded", () => {
     TitleBarClock();
     setInterval(TitleBarClock, 60000);
   });
+  // ------------
+  const TitleBarDATA = new Promise((res, rej) => {
+    res(JSON.parse(window.DATA.getJSONFileData("settings/titlebar")));
+  });
+
+  TitleBarDATA.then((data) => {
+    const birthday = data["birthday"];
+    HowOldAmI(birthday[0], birthday[1], birthday[2]);
+  });
+  // ------------
+
   return contanier;
 }

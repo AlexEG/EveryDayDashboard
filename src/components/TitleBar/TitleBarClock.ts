@@ -21,6 +21,4 @@ export default function TitleBarClock(): void {
 
   document.querySelector("#title-bar-clock").textContent = time;
   document.querySelector("#title-bar-session").textContent = session;
-
-  // console.log(time);
 }

@@ -7,10 +7,6 @@ Mkdir("./DATA");
 Mkdir("./DATA/habits");
 Mkdir("./DATA/Settings");
 
-window.addEventListener("DOMContentLoaded", () => {
-  readBirthdayFile();
-});
-
 // _________________________________________________________ //
 
 /**
@@ -140,33 +136,17 @@ function editCalenderFileJSON(fileName: string, month: string, day: string) {
 
 import { contextBridge } from "electron";
 
-contextBridge.exposeInMainWorld("HabitsData", {
+contextBridge.exposeInMainWorld("DATA", {
   getFilesTitles: () => fs.readdirSync("./DATA/habits"),
-  createJSONHaFileHabit: (FileName: string) => createJSONHaFileHabit(FileName),
+  createJSONHaFileHabit,
   getJSONFileData: (filePath: string) =>
-    fs.readFileSync(`./DATA/habits/${filePath}.json`, "utf8"),
-  editCalenderFileJSON: (fileName: string, month: string, day: string) =>
-    editCalenderFileJSON(fileName, month, day),
+    fs.readFileSync(`./DATA/${filePath}.json`, "utf8"),
+  editCalenderFileJSON,
   deleteJSONFile,
   renameJSONFile,
 });
 
 // --------
-// TitleBar get birthday from ./settings/birthday.json
-import HowOldAmI from "./components/TitleBar/HowOldAmI";
-
-function readBirthdayFile() {
-  fs.readFile(`./DATA/settings/titlebar.json`, "utf-8", (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    const birthday = JSON.parse(data)["birthday"];
-    HowOldAmI(birthday[0], birthday[1], birthday[2]);
-  });
-}
-
-// -----
 
 function deleteJSONFile(filePath: string) {
   fs.unlink(`./DATA/${filePath}.json`, (err) => {

@@ -26,7 +26,7 @@ export default function RenameBtn() {
       const oldFilePaht = `habits/${NAME}`;
       const newFilePaht = `habits/${newName}`;
 
-      window.HabitsData.renameJSONFile(oldFilePaht, newFilePaht);
+      window.DATA.renameJSONFile(oldFilePaht, newFilePaht);
 
       renameBtn.parentElement.dataset.habitName = newName;
 

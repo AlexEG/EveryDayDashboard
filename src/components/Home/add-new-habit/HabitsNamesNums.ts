@@ -6,7 +6,7 @@ export default function HabitsNamesNums() {
   const container = HTML("section", styles, "habits-names-nums");
   const habitsContainer = HTML("div", "", "habits-container-2");
 
-  const fileNames = window.HabitsData.getFilesTitles().sort(
+  const fileNames = window.DATA.getFilesTitles().sort(
     (a: string, b: string) =>
       +a.split("_").slice(1, 2) - +b.split("_").slice(1, 2)
   );

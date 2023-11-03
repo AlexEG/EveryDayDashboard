@@ -7,7 +7,7 @@ export default function saveInputBtn() {
       console.log("add new habit | Save input && create JSON");
       const input = document.querySelector("div#add-calendar-input input");
 
-      window.HabitsData.createJSONHaFileHabit(input.value.trim());
+      window.DATA.createJSONHaFileHabit(input.value.trim());
 
       document.querySelector("div#add-calendar-input").classList.add("hidden");
       // ------- add the new habit
