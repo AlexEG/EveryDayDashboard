@@ -12,16 +12,17 @@ export default function Sidebar() {
     SectionBtn("github"),
     SectionBtn("codewars"),
     SectionBtn("leetcode"),
+    SectionBtn("cssbattle"),
+    SectionBtn("tryhackme"),
+    SectionBtn("monkeytype"),
     SectionBtn("wakatime"),
     SectionBtn("youtube"),
     SectionBtn("spotify"),
     SectionBtn("anilist"),
     SectionBtn("frontendmentor"),
-    SectionBtn("monkeytype"),
+    SectionBtn("freecodecamp"),
     SectionBtn("firebase"),
     SectionBtn("vercel"),
-    SectionBtn("freecodecamp"),
-    SectionBtn("tryhackme"),
 
     SettingesBtn()
   );
