@@ -1,4 +1,4 @@
-import HTML from "../HTML/HTML";
+import HTML from "../../components/HTML/HTML";
 import HabitsTable from "./habits-table/HabitsTable";
 import InputField from "./add-new-habit/InputField";
 // ---

@@ -1,4 +1,4 @@
-import HTML from "../../HTML/HTML";
+import HTML from "../../../components/HTML/HTML";
 
 export default function TableHead(habitsNames: string[]) {
   const styles = "border";

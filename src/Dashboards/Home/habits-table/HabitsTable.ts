@@ -1,4 +1,4 @@
-import HTML from "../../HTML/HTML";
+import HTML from "../../../components/HTML/HTML";
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 import HabitsNamesNums from "../add-new-habit/HabitsNamesNums";

@@ -2,7 +2,7 @@ import HTML from "../../../HTML/HTML";
 import SettingsFieldset from "../../utils/SettingsFieldset";
 import HabitComponent from "./HabitComponent";
 
-import AllHabitsDATA from "../../../Home/habits-table/AllHabitsDATA";
+import AllHabitsDATA from "../../../../Dashboards/Home/habits-table/AllHabitsDATA";
 
 export default function EditHabitsContainer() {
   const mainContainer = SettingsFieldset(

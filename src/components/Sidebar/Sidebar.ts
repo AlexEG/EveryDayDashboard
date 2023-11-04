@@ -2,7 +2,7 @@ import HTML from "../HTML/HTML";
 import SectionBtn from "./SectionBtn";
 import SettingesBtn from "./SettingesBtn";
 
-import Home from "../Home/Home";
+import Home from "../../Dashboards/Home/Home";
 import GitHub from "../../Dashboards/GitHub/GitHub";
 import WakaTime from "../../Dashboards/WakaTime/WakaTime";
 import CodeWars from "../../Dashboards/CodeWars/CodeWars";

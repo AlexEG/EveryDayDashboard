@@ -1,4 +1,4 @@
-import HTML from "../../HTML/HTML";
+import HTML from "../../../components/HTML/HTML";
 
 export default function ChangeMonthInPreview() {
   const styles = "bg-indigo-600 absolute top-2 right-2";

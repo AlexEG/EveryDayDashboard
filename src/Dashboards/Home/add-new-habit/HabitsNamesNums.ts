@@ -1,4 +1,4 @@
-import HTML from "../../HTML/HTML";
+import HTML from "../../../components/HTML/HTML";
 import AddNewHabitBtn from "./AddNewHabitBtn";
 
 export default function HabitsNamesNums() {

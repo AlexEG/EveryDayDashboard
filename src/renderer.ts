@@ -2,7 +2,7 @@ import "./index.css";
 import TitleBar from "./components/TitleBar/TitleBar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import SettingsBox from "./components/Settings/SettingsBox";
-import Home from "./components/Home/Home";
+import Home from "./Dashboards/Home/Home";
 
 const ROOT = document.querySelector("div#root");
 
