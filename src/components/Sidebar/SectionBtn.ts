@@ -1,13 +1,6 @@
 import HTML from "../HTML/HTML";
-import Home from "../Home/Home";
-import GitHub from "../GitHub/GitHub";
-import CodeWars from "../CodeWars/CodeWars";
-import WakaTime from "../WakaTime/WakaTime";
-import YouTube from "../YouTube/YouTube";
-import Spotify from "../Spotify/Spotify";
-import AinList from "../AniList/AinList";
 
-export default function SectionBtn(sectionName: string) {
+export default function SectionBtn(sectionName: string, sectionHTML: any) {
   const styles =
     "group flex h-14 cursor-pointer items-center justify-center transition duration-200 hover:bg-slate-300";
 
@@ -41,27 +34,8 @@ export default function SectionBtn(sectionName: string) {
     div.children[0].classList.remove("invert");
 
     // change Main Content
-    if (sectionName === "home") {
-      ROOT.append(Home());
-    }
-    if (sectionName === "github") {
-      ROOT.append(GitHub());
-    }
-    if (sectionName === "codewars") {
-      ROOT.append(CodeWars());
-    }
-    if (sectionName === "wakatime") {
-      ROOT.append(WakaTime());
-    }
-    if (sectionName === "youtube") {
-      ROOT.append(YouTube());
-    }
-    if (sectionName === "spotify") {
-      ROOT.append(Spotify());
-    }
-    if (sectionName === "anilist") {
-      ROOT.append(AinList());
-    }
+
+    ROOT.append(sectionHTML());
   };
 
   return div;

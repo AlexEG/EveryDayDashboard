@@ -1,4 +1,4 @@
-import HTML from "../HTML/HTML";
+import HTML from "../../components/HTML/HTML";
 
 export default function AinList() {
   const styles =
