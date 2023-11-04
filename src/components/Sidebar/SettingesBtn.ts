@@ -2,7 +2,7 @@ import HTML from "../HTML/HTML";
 
 export default function SettingesBtn() {
   const styles =
-    "group absolute bottom-0 right-0 w-14 flex h-14 cursor-pointer items-center justify-center transition duration-300 hover:bg-slate-200";
+    "group w-14 flex h-14 cursor-pointer items-center justify-center transition duration-300 hover:bg-slate-200";
   const div = HTML("div", styles, "settings-open-btn");
 
   const img = HTML(

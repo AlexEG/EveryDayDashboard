@@ -54,3 +54,9 @@ main::-webkit-scrollbar-thumb:hover {
 #settings-box section::-webkit-scrollbar-thumb:hover {
   background: rgb(224 231 255);
 }
+
+/* ----------------- SIDEBAR ----------------- */
+
+aside div#sidebar::-webkit-scrollbar {
+  width: 0px;
+}

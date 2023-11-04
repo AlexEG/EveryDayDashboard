@@ -20,10 +20,13 @@ import Vercel from "../../Dashboards/Vercel/Vercel";
 
 export default function Sidebar() {
   const styles =
-    "absolute w-14 top-[31px] left-0 h-[calc(100%-31px)] bg-slate-950 text-white";
+    "absolute w-14 top-[31px] left-0 h-[calc(100%-31px)] bg-slate-950 text-white ";
   const aside = HTML("aside", styles);
 
-  aside.append(
+  const styles2 = "h-[calc(100%-56px)] overflow-y-auto";
+  const innerDiv = HTML("div", styles2, "sidebar");
+
+  innerDiv.append(
     SectionBtn("home", Home),
     SectionBtn("github", GitHub),
     SectionBtn("wakatime", WakaTime),
@@ -38,12 +41,13 @@ export default function Sidebar() {
     SectionBtn("frontendmentor", FrontEndMentor),
     SectionBtn("freecodecamp", FreeCodeCamp),
     SectionBtn("firebase", Firebase),
-    SectionBtn("vercel", Vercel),
-
-    SettingesBtn()
+    SectionBtn("vercel", Vercel)
   );
 
-  aside.children[0].classList.add("bg-slate-200");
-  aside.children[0].children[0].classList.remove("invert");
+  innerDiv.children[0].classList.add("bg-slate-200");
+  innerDiv.children[0].children[0].classList.remove("invert");
+
+  aside.append(innerDiv);
+  aside.append(SettingesBtn());
   return aside;
 }
