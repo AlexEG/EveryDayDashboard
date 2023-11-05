@@ -1,4 +1,4 @@
-export default function HTML(
+export default function HTML2(
   tag: string,
   classList?: string,
   id?: string,

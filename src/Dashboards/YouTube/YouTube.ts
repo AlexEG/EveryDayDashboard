@@ -8,6 +8,10 @@ export default function YouTube() {
 
   const h1 = HTML("h1", "text-center text-neutral-50 font-bold", "", "YouTube");
 
-  MainContainer.append(h1);
+  const styles2 = "bg-indigo-600 px-8 py-2";
+
+  const div = HTML("div", styles2, "id", "Text", { title: "button" });
+
+  MainContainer.append(h1, div);
   return MainContainer;
 }

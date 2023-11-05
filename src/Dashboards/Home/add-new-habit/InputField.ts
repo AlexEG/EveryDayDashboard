@@ -15,31 +15,28 @@ export default function InputField() {
   );
 
   // ---
-  const closeBtn = HTML(
-    "button",
-    "group absolute right-2 top-2 z-50 rounded-sm text-white transition-colors hover:bg-gray-200 hover:text-slate-950",
-    "close-add-new-calendar-btn"
-  );
-  const img = HTML("img", "w-5 h-5 invert group-hover:invert-0");
-  img.setAttribute("src", "/src/assets/x-mark.svg");
+  const styles =
+    "group absolute right-2 top-2 z-50 rounded-sm text-white transition-colors hover:bg-gray-200 hover:text-slate-950";
+  const closeBtn = HTML("button", styles, "close-add-new-calendar-btn");
+
+  const img = HTML("img", "w-5 h-5 invert group-hover:invert-0", "", "", {
+    src: "/src/assets/x-mark.svg",
+  });
   closeBtn.append(img);
 
   // ---
-  const input = HTML(
-    "input",
-    "bg-transparent border-indigo-600 border-2 rounded-md py-1 pl-2 focus-within:outline-none placeholder:opacity-30 focus-within:border-indigo-400 transition-colors text-white duration-300 w-60"
-  );
-  input.setAttribute("type", "text");
-  input.setAttribute("placeholder", "Habit Name");
-  input.setAttribute("value", "");
-  // ---
+  const styles2 =
+    "bg-transparent border-indigo-600 border-2 rounded-md py-1 pl-2 focus-within:outline-none placeholder:opacity-30 focus-within:border-indigo-400 transition-colors text-white duration-300 w-60";
+  const input = HTML("input", styles2, "", "", {
+    type: "text",
+    placeholder: "Habit Name",
+    value: "",
+  });
 
-  const saveBtn = HTML(
-    "button",
-    "text-indigo-100 text-center font-semibold px-4 py-1 border-2 rounded-md ml-3 border-indigo-600 hover:text-indigo-600 transition-colors duration-300 hover:border-indigo-100 hover:bg-indigo-100 active:opacity-90",
-    "add-new-calendar-save-btn",
-    "SAVE"
-  );
+  // ---
+  const styles3 =
+    "text-indigo-100 text-center font-semibold px-4 py-1 border-2 rounded-md ml-3 border-indigo-600 hover:text-indigo-600 transition-colors duration-300 hover:border-indigo-100 hover:bg-indigo-100 active:opacity-90";
+  const saveBtn = HTML("button", styles3, "add-new-calendar-save-btn", "SAVE");
 
   box.append(closeBtn, input, saveBtn);
   container2.append(overly, box);

@@ -5,8 +5,7 @@ export default function ChangeMonthInPreview() {
   const container = HTML("div", styles);
 
   const styles2 = "text-indigo-600 bg-neutral-900 focus:outline-indigo-400";
-  const select = HTML("select", styles2);
-  select.setAttribute("value", "October");
+  const select = HTML("select", styles2, "", "", { value: "October" });
 
   // ---------------------
   const thisMonth = new Date().getMonth();
@@ -28,8 +27,9 @@ export default function ChangeMonthInPreview() {
 
   // ---------------------
   for (let i = 0; i < monthNames.length; i++) {
-    const option = HTML("option", "", "", monthNames[i]);
-    option.setAttribute("value", monthNames[i]);
+    const option = HTML("option", "", "", monthNames[i], {
+      value: monthNames[i],
+    });
 
     if (monthNames[i] === monthNames[thisMonth]) {
       option.setAttribute("selected", "");
