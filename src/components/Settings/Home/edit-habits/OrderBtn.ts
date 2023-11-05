@@ -7,12 +7,9 @@ export default function OrderBtn(
 ) {
   const selectContainer = HTML("div", "text-xs pt-1");
 
-  const select = HTML(
-    "select",
-    "sidebar-change-order text-indigo-600 bg-slate-950 focus:outline-indigo-400"
-  );
-
-  select.setAttribute("value", `${habitNum + 1}`);
+  const styles =
+    "sidebar-change-order text-indigo-600 bg-slate-950 focus:outline-indigo-400";
+  const select = HTML("select", styles, "", "", { value: `${habitNum + 1}` });
 
   for (let i = 0; i < numberOfHabits; i++) {
     const option = HTML("option", "", "", `${i + 1}`);

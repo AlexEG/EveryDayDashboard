@@ -3,17 +3,15 @@ import HTML from "../HTML/HTML";
 export default function SectionBtn(sectionName: string, sectionHTML: any) {
   const styles =
     "group flex h-14 cursor-pointer items-center justify-center transition duration-200 hover:bg-slate-300";
+  const div = HTML("div", styles, "", "", { title: sectionName });
 
-  const div = HTML("div", styles);
-
-  const img = HTML(
-    "img",
-    "h-6 w-6 invert group-hover:invert-0 opacity-75 group-hover:opacity-100 transition duration-200"
-  );
-  img.setAttribute("src", `/src/assets/${sectionName}.svg`);
+  const styles2 =
+    "h-6 w-6 invert group-hover:invert-0 opacity-75 group-hover:opacity-100 transition duration-200";
+  const img = HTML("img", styles2, "", "", {
+    src: `/src/assets/${sectionName}.svg`,
+  });
 
   div.append(img);
-  div.setAttribute("title", sectionName);
 
   div.onclick = () => {
     console.log(sectionName);

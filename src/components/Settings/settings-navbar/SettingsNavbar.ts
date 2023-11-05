@@ -6,13 +6,11 @@ import SettingsHome from "../Home/SettingsHome";
 import SettingsTilebar from "../settings-titlebar/SettingsTilebar";
 
 export default function SettingsNavbar() {
-  const container = HTML(
-    "div",
-    "relative flex h-9 w-full bg-slate-900 flex justify-between",
-    "settingsNavBar"
-  );
-  const styles = "flex ";
-  const tabsWrapper = HTML("div", styles, "settings-box--tabs-wrapper");
+  const styles = "relative flex h-9 w-full bg-slate-900 justify-between";
+  const container = HTML("div", styles, "settingsNavBar");
+
+  const styles2 = "flex";
+  const tabsWrapper = HTML("div", styles2, "settings-box--tabs-wrapper");
 
   tabsWrapper.append(
     SettingsNavTab("Home", SettingsHome()),
