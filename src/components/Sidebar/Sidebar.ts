@@ -13,7 +13,7 @@ import MonkeyType from "../../Dashboards/MonkeyType/MonkeyType";
 import YouTube from "../../Dashboards/YouTube/YouTube";
 import Spotify from "../../Dashboards/Spotify/Spotify";
 import AinList from "../../Dashboards/AniList/AinList";
-import FrontEndMentor from "../../Dashboards/FrontEndMentor/FrontEndMentor";
+import FrontendMentor from "../../Dashboards/FrontendMentor/FrontendMentor";
 import FreeCodeCamp from "../../Dashboards/FreeCodeCamp/FreeCodeCamp";
 import Firebase from "../../Dashboards/Firebase/Firebase";
 import Vercel from "../../Dashboards/Vercel/Vercel";
@@ -38,7 +38,7 @@ export default function Sidebar() {
     SectionBtn("youtube", YouTube),
     SectionBtn("spotify", Spotify),
     SectionBtn("anilist", AinList),
-    SectionBtn("frontendmentor", FrontEndMentor),
+    SectionBtn("frontendmentor", FrontendMentor),
     SectionBtn("freecodecamp", FreeCodeCamp),
     SectionBtn("firebase", Firebase),
     SectionBtn("vercel", Vercel)

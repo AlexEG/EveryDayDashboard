@@ -1,5 +1,7 @@
 import SettingsNavTab from "./SettingsNavTab";
 import CloseSettingBtn from "./CloseSettingBtn";
+import MaximizeWindowBtn from "./MaximizeWindowBtn";
+
 import HTML from "../../HTML/HTML";
 
 import SettingsHome from "../Home/SettingsHome";
@@ -20,7 +22,10 @@ export default function SettingsNavbar() {
     // SettingsNavTab("Backup/Restore")
   );
 
+  const closeExpandWrapper = HTML("div", "h-full flex");
+  closeExpandWrapper.append(MaximizeWindowBtn(), CloseSettingBtn());
+
   tabsWrapper.children[0].classList.add("before:bg-violet-600");
-  container.append(tabsWrapper, CloseSettingBtn());
+  container.append(tabsWrapper, closeExpandWrapper);
   return container;
 }

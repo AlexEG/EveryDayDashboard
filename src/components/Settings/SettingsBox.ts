@@ -10,11 +10,12 @@ export default function SettingsBox() {
     "div",
     "h-[calc(100%-31px)] w-full bg-black opacity-80 mt-[31px]"
   );
-  const box = HTML(
-    "div",
-    "fixed left-1/2 top-1/2 h-96 w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-sm bg-slate-950",
-    "inner-box"
-  );
+
+  const styles2 =
+    "fixed left-1/2 top-1/2 h-96 w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-sm bg-slate-950";
+  const box = HTML("div", styles2, "inner-box");
+  box.dataset.isWindowMaximized = "false";
+
   mainContainer.append(overlay, box);
 
   // box.append(SettingsNavbar(), SettingsTilebar());
