@@ -8,6 +8,10 @@ export default function AddNewHabitBtn() {
   const styles2 = "w-5 h-5 invert group-hover:invert-0";
   const img = HTML("img", styles2, "", "", { src: "/src/assets/plus.svg" });
 
+  btn.onclick = () => {
+    console.log("add new habit | Open input field");
+    document.querySelector("div#add-calendar-input").classList.remove("hidden");
+  };
   btn.append(img);
   return btn;
 }
