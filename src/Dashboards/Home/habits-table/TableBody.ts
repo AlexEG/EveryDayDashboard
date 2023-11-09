@@ -67,13 +67,39 @@ export default function TableBody(data: any) {
         .join(" ")}`;
 
       const styles =
-        "relative accent-pink-500 w-5 h-5 cursor-pointer after:content-[attr(customtitle)] after:absolute after:-top-2 after:left-1/2 after:text-indigo-200 after:bg-indigo-950 after:px-2 after:py-0.5 after:-translate-y-full after:-translate-x-1/2 after:whitespace-nowrap after:invisible hover:after:visible after:rounded-md";
+        "relative accent-indigo-600 w-5 h-5 cursor-pointer after:content-[attr(customtitle)] after:absolute after:-top-2 after:left-1/2 after:text-indigo-200 after:bg-indigo-950 after:px-2 after:py-0.5 after:-translate-y-full after:-translate-x-1/2 after:whitespace-nowrap after:invisible hover:after:visible after:rounded-md";
 
       const checkbox = HTML("input", styles, "", "", {
         type: "checkbox",
         customtitle: title,
       });
+      checkbox.onclick = () => {
+        const habitName = checkbox.parentElement.dataset.habitName;
+        const month = checkbox.parentElement.dataset.month;
+        const day = checkbox.parentElement.dataset.row;
 
+        if (checkbox.hasAttribute("checked")) {
+          checkbox.removeAttribute("checked");
+          console.log(
+            `%c Check %c ${habitName}\n%c Time %c ${month},${day}`,
+            "background:black; color:white",
+            "color:#090",
+            "background:black; color:white",
+            "color:#309"
+          );
+        } else {
+          checkbox.setAttribute("checked", "");
+          console.log(
+            `%c Uncheck %c ${habitName}\n%c Time %c ${month},${day}`,
+            "background:black; color:white",
+            "color:#c00",
+            "background:black; color:white",
+            "color:#309"
+          );
+        }
+
+        window.DATA.editCalenderFileJSON(habitName, month, day);
+      };
       // --------------------
       // const thisMonthData = data[habitsNames[2]][monthNames[thisMonth][0]];
       // console.log(thisMonthData);
