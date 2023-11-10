@@ -15,6 +15,7 @@ import Spotify from "../../Dashboards/Spotify/Spotify";
 import AinList from "../../Dashboards/AniList/AinList";
 import FrontendMentor from "../../Dashboards/FrontendMentor/FrontendMentor";
 import FreeCodeCamp from "../../Dashboards/FreeCodeCamp/FreeCodeCamp";
+import DEV from "../../Dashboards/DEV/DEV";
 import Firebase from "../../Dashboards/Firebase/Firebase";
 import Vercel from "../../Dashboards/Vercel/Vercel";
 
@@ -40,6 +41,7 @@ export default function Sidebar() {
     SectionBtn("anilist", AinList),
     SectionBtn("frontendmentor", FrontendMentor),
     SectionBtn("freecodecamp", FreeCodeCamp),
+    SectionBtn("devdotto", DEV),
     SectionBtn("firebase", Firebase),
     SectionBtn("vercel", Vercel)
   );

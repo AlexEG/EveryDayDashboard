@@ -16,10 +16,10 @@ export default function SettingsNavbar() {
 
   tabsWrapper.append(
     SettingsNavTab("Home", SettingsHome()),
-    SettingsNavTab("TitleBar", SettingsTilebar())
-    // SettingsNavTab("Sidebar"),
-    // SettingsNavTab("Calendar"),
-    // SettingsNavTab("Backup/Restore")
+    SettingsNavTab("TitleBar", SettingsTilebar()),
+    SettingsNavTab("Sidebar", SettingsTilebar()),
+    SettingsNavTab("Plugins", SettingsTilebar()),
+    SettingsNavTab("Backup/Restore", SettingsTilebar())
   );
 
   const closeExpandWrapper = HTML("div", "h-full flex");
