@@ -1,7 +1,7 @@
 import HTML from "../../../components/HTML/HTML";
 import AddNewHabitBtn from "./AddNewHabitBtn";
 
-export default function HabitsNamesNums() {
+export default function HabitSideList() {
   const styles = "flex flex-col text-neutral-200 w-fit h-fit pr-2 text-sm";
   const container = HTML("section", styles, "habits-names-nums");
   const habitsContainer = HTML("div", "", "habits-container-2");

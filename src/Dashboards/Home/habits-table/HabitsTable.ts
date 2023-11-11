@@ -1,9 +1,7 @@
 import HTML from "../../../components/HTML/HTML";
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
-import HabitsNamesNums from "../add-new-habit/HabitsNamesNums";
 import AllHabitsDATA from "./AllHabitsDATA";
-import ChangeMonthInPreview from "../change-month-in-preview/ChangeMonthInPreview";
 
 export default function HabitsTable() {
   const styles = "overflow-auto h-full flex relative";
@@ -22,6 +20,6 @@ export default function HabitsTable() {
     table.append(TableHead(habitsNames), TableBody(data));
   });
 
-  tableContainer.append(HabitsNamesNums(), table, ChangeMonthInPreview());
+  tableContainer.append(table);
   return tableContainer;
 }

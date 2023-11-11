@@ -5,7 +5,7 @@ export default function ChangeMonthInPreview() {
   const container = HTML("div", styles);
 
   const styles2 = "text-indigo-600 bg-neutral-900 focus:outline-indigo-400";
-  const select = HTML("select", styles2, "", "", { value: "October" });
+  const select = HTML("select", styles2);
 
   // ---------------------
   const thisMonth = new Date().getMonth();
