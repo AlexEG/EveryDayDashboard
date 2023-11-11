@@ -144,6 +144,7 @@ contextBridge.exposeInMainWorld("DATA", {
   editCalenderFileJSON,
   deleteJSONFile,
   renameJSONFile,
+  editSettingsJSONFile_ON_OFF,
 });
 
 // --------
@@ -166,4 +167,24 @@ function renameJSONFile(oldFilePaht: string, newFilePaht: string) {
       }
     }
   );
+}
+
+function editSettingsJSONFile_ON_OFF(path: string, key: string) {
+  fs.readFile(`./DATA/${path}.json`, "utf-8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    const jsonData = JSON.parse(data);
+
+    jsonData[key] = !jsonData[key];
+
+    fs.writeFile(
+      `./DATA/${path}.json`,
+      JSON.stringify(jsonData),
+      function (err) {
+        if (err) throw err;
+      }
+    );
+  });
 }

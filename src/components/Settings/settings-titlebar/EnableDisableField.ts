@@ -1,7 +1,6 @@
 // import HTML from "../../HTML/HTML";
 import SettingsFieldset from "../utils/SettingsFieldset";
-import ToggleBtn from "./helpers/ToggleBtn";
-import toggleBtnClickEvent from "./helpers/toggleBtnClickEvent";
+import ToggleBtn from "./ToggleBtn";
 
 export default function EnableDisableField() {
   const container = SettingsFieldset(
@@ -9,14 +8,28 @@ export default function EnableDisableField() {
     "settings--titlebar--enable-disable-features"
   );
 
-  container.append(
-    ToggleBtn("Calendar Title", "titlebar-calendar-title-on-off")
-  );
-  container.append(ToggleBtn("Clock", "titlebar-clock-on-off"));
-  container.append(
-    ToggleBtn("Age in Days", "titlebar-how-old-you-in-days-on-off")
-  );
+  function settings(key: string) {
+    window.DATA.editSettingsJSONFile_ON_OFF("settings/titlebar", key);
+  }
 
-  // toggleBtnClickEvent();
+  const TitleBarDATA = new Promise((res, rej) => {
+    res(JSON.parse(window.DATA.getJSONFileData("settings/titlebar")));
+  });
+
+  TitleBarDATA.then((data) => {
+    console.log(data);
+    container.append(
+      ToggleBtn("Clock", "titlebar-clock-on-off", !!data["clock"], () =>
+        settings("clock")
+      ),
+      ToggleBtn(
+        "Age in Days",
+        "titlebar-how-old-you-in-days-on-off",
+        !!data["howOldYouInDays"],
+        () => settings("howOldYouInDays")
+      )
+    );
+  });
+
   return container;
 }
