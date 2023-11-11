@@ -40,7 +40,6 @@ export default function TitleBar() {
   // ------------
   window.addEventListener("DOMContentLoaded", () => {
     TitleBarClock();
-    setInterval(TitleBarClock, 60000);
   });
   // ------------
   const TitleBarDATA = new Promise((res, rej) => {

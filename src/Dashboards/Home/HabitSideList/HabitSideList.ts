@@ -2,7 +2,7 @@ import HTML from "../../../components/HTML/HTML";
 import AddNewHabitBtn from "./AddNewHabitBtn";
 
 export default function HabitSideList() {
-  const styles = "flex flex-col text-neutral-200 w-fit h-fit pr-2 text-sm";
+  const styles = "flex flex-col text-indigo-200 w-fit h-fit pr-2 text-sm";
   const container = HTML("section", styles, "habits-names-nums");
   const habitsContainer = HTML("div", "", "habits-container-2");
 
@@ -19,7 +19,7 @@ export default function HabitSideList() {
     habit.dataset.habitNumber = habitNum.toString();
     const span1 = HTML(
       "span",
-      "bg-neutral-300 text-neutral-950 px-1 rounded-sm ",
+      "bg-indigo-300 text-indigo-950 px-1 rounded-sm ",
       "",
       `${habitNum}`
     );
