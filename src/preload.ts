@@ -145,6 +145,7 @@ contextBridge.exposeInMainWorld("DATA", {
   deleteJSONFile,
   renameJSONFile,
   editSettingsJSONFile_ON_OFF,
+  editSettingsJSONFile_Value,
 });
 
 // --------
@@ -178,6 +179,25 @@ function editSettingsJSONFile_ON_OFF(path: string, key: string) {
     const jsonData = JSON.parse(data);
 
     jsonData[key] = !jsonData[key];
+
+    fs.writeFile(
+      `./DATA/${path}.json`,
+      JSON.stringify(jsonData),
+      function (err) {
+        if (err) throw err;
+      }
+    );
+  });
+}
+function editSettingsJSONFile_Value(path: string, key: string, value: any) {
+  fs.readFile(`./DATA/${path}.json`, "utf-8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    const jsonData = JSON.parse(data);
+
+    jsonData[key] = value;
 
     fs.writeFile(
       `./DATA/${path}.json`,

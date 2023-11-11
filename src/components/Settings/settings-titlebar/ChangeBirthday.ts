@@ -1,59 +1,53 @@
 import HTML from "../../HTML/HTML";
 import SettingsFieldset from "../utils/SettingsFieldset";
+import TextInput from "./TextInput";
+import SaveBtn from "./SaveBtn";
+import TitleBarDATA from "./TitleBarDATA";
 
 export default function ChangeBirthday() {
-  const inputStyles =
-    "bg-transparent border-indigo-600 border-2 rounded-md py-px px-1 focus-within:outline-none placeholder:opacity-30 focus-within:border-indigo-400 transition-colors text-indigo-50 duration-300 w-16 text-center text-base";
-
-  const labelStyles = "text-indigo-300 pl-3 pr-1 first:pl-0";
-  const saveBtnStyles =
-    "text-indigo-100 text-center font-semibold px-3 py-px border-2 rounded-md border-indigo-600 hover:text-indigo-600 transition-colors duration-300 hover:border-indigo-100 hover:bg-indigo-100 active:opacity-90 bg-slate-950";
-
   const container = SettingsFieldset(
     "Change Birthday",
     "settings--titlebar--change-birthday"
   );
 
-  const inputYear = HTML("input", inputStyles, "birthday-input-year");
-  inputYear.setAttribute("type", "text");
-  inputYear.setAttribute("maxlength", "4");
-  inputYear.setAttribute("placeholder", "YYYY");
-  inputYear.setAttribute("name", "birthday-input-year");
-  const labelYear = HTML("label", labelStyles, "", "Year");
-  labelYear.setAttribute("for", "birthday-input-year");
+  const inputsWrapper = HTML("div", "flex gap-x-4");
 
-  const inputMonth = HTML("input", inputStyles, "birthday-input-month");
-  inputMonth.setAttribute("type", "text");
-  inputMonth.setAttribute("maxlength", "2");
-  inputMonth.setAttribute("placeholder", "MM");
-  inputMonth.setAttribute("name", "birthday-input-month");
-  const labelMonth = HTML("label", labelStyles, "", "Month");
-  labelMonth.setAttribute("for", "birthday-input-month");
+  TitleBarDATA().then((data) => {
+    const [y, m, d] = data["birthday"];
+    inputsWrapper.append(
+      TextInput("birthday-input-year", "YYYY", "Year", "4", y),
+      TextInput("birthday-input-month", "MM", "Month", "2", m),
+      TextInput("birthday-input-day", "DD", "Day", "2", d)
+    );
+  });
 
-  const inputDay = HTML("input", inputStyles, "birthday-input-day");
-  inputDay.setAttribute("type", "text");
-  inputDay.setAttribute("maxlength", "2");
-  inputDay.setAttribute("placeholder", "DD");
-  inputDay.setAttribute("name", "birthday-input-day");
-  const labelDay = HTML("label", labelStyles, "", "Day");
-  labelDay.setAttribute("for", "birthday-input-day");
+  const saveBtn = SaveBtn();
 
-  const inputsWrapper = HTML("div");
-  inputsWrapper.append(
-    labelYear,
-    inputYear,
-    labelMonth,
-    inputMonth,
-    labelDay,
-    inputDay
-  );
+  saveBtn.onclick = () => {
+    const inputs = saveBtn.parentElement.children[1].children;
+    // console.log(inputs);
+    // console.log(inputs[1].lastChild);
 
-  const saveBtn = HTML(
-    "button",
-    saveBtnStyles,
-    "birthday-save-inputs-btn",
-    "SAVE"
-  );
+    const [y, m, d] = [
+      inputs[0].lastChild as HTMLInputElement,
+      inputs[1].lastChild as HTMLInputElement,
+      inputs[2].lastChild as HTMLInputElement,
+    ];
+    const newBirthday = [+y.value, +m.value, +d.value];
+
+    window.DATA.editSettingsJSONFile_Value(
+      "settings/titlebar",
+      "birthday",
+      newBirthday
+    );
+
+    console.log(
+      `%c Change Birthday %c => %c${newBirthday.join("-")}`,
+      "background:black; color:white",
+      "",
+      "color:#0a0"
+    );
+  };
   container.append(inputsWrapper, saveBtn);
   return container;
 }
