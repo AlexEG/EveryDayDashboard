@@ -3,7 +3,7 @@ import { closeSettingsAnimation } from "../components/Sidebar/settingsAnimation"
 
 export default function CloseBtn() {
   const styles =
-    "group rounded-sm p-1 transition-colors hover:bg-gray-200 absolute top-1 right-1";
+    "group rounded-sm p-1 transition-colors hover:bg-gray-200 absolute top-1 right-1 z-50";
   const closeBtn = HTML("button", styles);
 
   const styles2 = "w-5 h-5 invert group-hover:invert-0";
