@@ -15,47 +15,51 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
   div.append(img);
 
   div.onclick = () => {
-    console.log(sectionName);
+    if (!(document.querySelector("main").getAttribute("id") == sectionName)) {
+      console.log(
+        ` %c OPEN  ${sectionName} `,
+        "background:black; color:#0f0;font-weight: 700;"
+      );
 
-    img.classList.replace("opacity-70", "opacity-100");
+      img.classList.replace("opacity-70", "opacity-100");
 
-    const ROOT = document.querySelector("div#root");
-    document.querySelector("main").remove();
+      const ROOT = document.querySelector("div#root");
 
-    // remove highlight from all dashboard btns
-    const btns = div.parentElement.children;
-    for (let i = 0; i < btns.length; i++) {
-      if (btns[i].classList.contains("bg-slate-200"))
-        btns[i].firstElementChild.classList.replace(
+      // remove highlight from all dashboard btns
+      const btns = div.parentElement.children;
+      for (let i = 0; i < btns.length; i++) {
+        if (btns[i].classList.contains("bg-slate-200"))
+          btns[i].firstElementChild.classList.replace(
+            "opacity-100",
+            "opacity-70"
+          );
+
+        btns[i].classList.remove("bg-slate-200");
+        btns[i].children[0].classList.add("invert");
+      }
+
+      // reomve highlight from settings btn
+      const settingsBtn = div.parentElement.parentElement
+        .lastChild as HTMLDivElement;
+      if (settingsBtn.classList.contains("bg-slate-200")) {
+        settingsBtn.classList.remove("bg-slate-200");
+        settingsBtn.firstElementChild.classList.add("invert");
+        settingsBtn.firstElementChild.classList.replace(
           "opacity-100",
           "opacity-70"
         );
+        settingsBtn.dataset.isSettingsOpen = "false";
+      }
+      closeSettingsAnimation();
 
-      btns[i].classList.remove("bg-slate-200");
-      btns[i].children[0].classList.add("invert");
+      // add highlight
+      div.classList.add("bg-slate-200");
+      div.children[0].classList.remove("invert");
+
+      // change Main Content
+      document.querySelector("main").remove();
+      ROOT.append(sectionHTML());
     }
-
-    // reomve highlight from settings btn
-    const settingsBtn = div.parentElement.parentElement
-      .lastChild as HTMLDivElement;
-    if (settingsBtn.classList.contains("bg-slate-200")) {
-      settingsBtn.classList.remove("bg-slate-200");
-      settingsBtn.firstElementChild.classList.add("invert");
-      settingsBtn.firstElementChild.classList.replace(
-        "opacity-100",
-        "opacity-70"
-      );
-      settingsBtn.dataset.isSettingsOpen = "false";
-    }
-    closeSettingsAnimation();
-
-    // add highlight
-    div.classList.add("bg-slate-200");
-    div.children[0].classList.remove("invert");
-
-    // change Main Content
-
-    ROOT.append(sectionHTML());
   };
 
   return div;
