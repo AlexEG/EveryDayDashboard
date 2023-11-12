@@ -14,7 +14,7 @@ export function openSettingsAnimation() {
         fill: "forwards",
         duration: 500,
         iterations: 1,
-        easing: "ease-in",
+        easing: "ease-in-out",
       }
     );
     settings.dataset.isSettingsOpen = "true";
@@ -37,7 +37,7 @@ export function closeSettingsAnimation() {
         fill: "forwards",
         duration: 500,
         iterations: 1,
-        easing: "ease-in",
+        easing: "ease-in-out",
       }
     );
     settings.dataset.isSettingsOpen = "false";

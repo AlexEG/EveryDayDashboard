@@ -27,12 +27,12 @@ export default function SettingsBtn() {
           );
 
         btns[i].classList.remove("bg-slate-200");
-        btns[i].children[0].classList.add("invert");
+        btns[i].firstElementChild.classList.add("invert");
       }
       // add highlight
       img.classList.replace("opacity-70", "opacity-100");
       div.classList.add("bg-slate-200");
-      div.children[0].classList.remove("invert");
+      div.firstElementChild.classList.remove("invert");
 
       /* Open Settings box */
       openSettingsAnimation();

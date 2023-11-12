@@ -35,12 +35,12 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
           );
 
         btns[i].classList.remove("bg-slate-200");
-        btns[i].children[0].classList.add("invert");
+        btns[i].firstElementChild.classList.add("invert");
       }
 
       // add highlight
       div.classList.add("bg-slate-200");
-      div.children[0].classList.remove("invert");
+      div.firstElementChild.classList.remove("invert");
 
       // change Main Content
       document.querySelector("main").remove();
