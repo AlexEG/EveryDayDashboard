@@ -38,20 +38,6 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
         btns[i].children[0].classList.add("invert");
       }
 
-      // reomve highlight from settings btn
-      const settingsBtn = div.parentElement.parentElement
-        .lastChild as HTMLDivElement;
-      if (settingsBtn.classList.contains("bg-slate-200")) {
-        settingsBtn.classList.remove("bg-slate-200");
-        settingsBtn.firstElementChild.classList.add("invert");
-        settingsBtn.firstElementChild.classList.replace(
-          "opacity-100",
-          "opacity-70"
-        );
-        settingsBtn.dataset.isSettingsOpen = "false";
-      }
-      closeSettingsAnimation();
-
       // add highlight
       div.classList.add("bg-slate-200");
       div.children[0].classList.remove("invert");
@@ -59,6 +45,22 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
       // change Main Content
       document.querySelector("main").remove();
       ROOT.append(sectionHTML());
+    }
+
+    // to close when click on the same dashboard btn
+    //* Settings
+    closeSettingsAnimation();
+    // reomve highlight from settings btn
+    const settingsBtn = div.parentElement.parentElement
+      .lastChild as HTMLDivElement;
+    if (settingsBtn.classList.contains("bg-slate-200")) {
+      settingsBtn.classList.remove("bg-slate-200");
+      settingsBtn.firstElementChild.classList.add("invert");
+      settingsBtn.firstElementChild.classList.replace(
+        "opacity-100",
+        "opacity-70"
+      );
+      settingsBtn.dataset.isSettingsOpen = "false";
     }
   };
 
