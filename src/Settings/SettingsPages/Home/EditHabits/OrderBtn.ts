@@ -1,4 +1,4 @@
-import HTML from "../../../HTML/HTML";
+import HTML from "../../../../components/HTML/HTML";
 
 export default function OrderBtn(
   habitNum: number,
@@ -8,7 +8,7 @@ export default function OrderBtn(
   const selectContainer = HTML("div", "text-xs pt-1");
 
   const styles =
-    "sidebar-change-order text-indigo-600 bg-slate-950 focus:outline-indigo-400";
+    "sidebar-change-order text-indigo-600 bg-neutral-900 focus:outline-indigo-400";
   const select = HTML("select", styles, "", "", { value: `${habitNum + 1}` });
 
   for (let i = 0; i < numberOfHabits; i++) {

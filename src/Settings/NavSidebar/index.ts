@@ -12,7 +12,8 @@ import Firebase from "../SettingsPages/Firebase";
 import AniList from "../SettingsPages/AniList";
 import GitHub from "../SettingsPages/GitHub";
 export default function NavSidebar() {
-  const styles = "bg-neutral-800 h-full w-60 border-r border-r-neutral-700 p-4";
+  const styles =
+    "bg-neutral-800 h-full w-60 border-r border-r-neutral-700 p-4 select-none";
   const nav = HTML("nav", styles);
 
   nav.append(
@@ -28,16 +29,16 @@ export default function NavSidebar() {
     // NavBtn("WakaTime"),
     NavBtn("CodeWars", CodeWars),
     // NavBtn("LeetCode"),
-    // NavBtn("CSS Battle"),
+    NavBtn("CSS Battle", CSSBattle),
     // NavBtn("TryHackMe"),
     // NavBtn("MonkeyType"),
     // NavBtn("YouTube"),
     // NavBtn("Spotify"),
-    NavBtn("AinList", AniList)
+    NavBtn("AinList", AniList),
     // NavBtn("Frontend Mentor"),
     // NavBtn("FreeCodeCamp"),
-    // NavBtn("DEV"),
-    // NavBtn("Firebase"),
+    NavBtn("DEV", DEV),
+    NavBtn("Firebase", Firebase)
     // NavBtn("Vercel")
   );
   nav.children[1].classList.add("bg-neutral-600");

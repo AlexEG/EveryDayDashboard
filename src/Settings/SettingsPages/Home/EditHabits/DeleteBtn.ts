@@ -1,4 +1,4 @@
-import HTML from "../../../HTML/HTML";
+import HTML from "../../../../components/HTML/HTML";
 
 export default function DeleteBtn() {
   const styles =
@@ -17,7 +17,7 @@ export default function DeleteBtn() {
     console.log(
       `%c DELETE %c ${Name} `,
       "background:black; color:white",
-      "color:red"
+      "background:black; color:#f00"
     );
   };
 

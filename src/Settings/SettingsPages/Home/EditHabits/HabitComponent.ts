@@ -1,4 +1,4 @@
-import HTML from "../../../HTML/HTML";
+import HTML from "../../../../components/HTML/HTML";
 import DeleteBtn from "./DeleteBtn";
 import RenameBtn from "./RenameBtn";
 import OrderBtn from "./OrderBtn";
