@@ -1,6 +1,6 @@
 import HTML from "../HTML/HTML";
 import SectionBtn from "./SectionBtn";
-import SettingesBtn from "./SettingesBtn";
+import SettingsBtn from "./SettingsBtn";
 
 import Home from "../../Dashboards/Home/Home";
 import GitHub from "../../Dashboards/GitHub/GitHub";
@@ -50,6 +50,6 @@ export default function Sidebar() {
   innerDiv.children[0].children[0].classList.remove("invert");
 
   aside.append(innerDiv);
-  aside.append(SettingesBtn());
+  aside.append(SettingsBtn());
   return aside;
 }

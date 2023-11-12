@@ -14,7 +14,6 @@ export default function DeleteBtn() {
     window.DATA.deleteJSONFile(`habits/${Name}`);
     deleteBtn.parentElement.remove();
 
-    console.log("DELETE |", Name);
     console.log(
       `%c DELETE %c ${Name} `,
       "background:black; color:white",
