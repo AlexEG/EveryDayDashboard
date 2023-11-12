@@ -45,6 +45,7 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
         "opacity-100",
         "opacity-70"
       );
+      settingsBtn.dataset.isSettingsOpen = "false";
     }
     closeSettingsAnimation();
 
