@@ -192,7 +192,12 @@ function editSettingsJSONFile_ON_OFF(path: string, key: string) {
     );
   });
 }
-function editSettingsJSONFile_Value(path: string, key: string, value: any) {
+function editSettingsJSONFile_Value(
+  path: string,
+  key: string,
+  value: any,
+  key2?: string
+) {
   fs.readFile(`./DATA/${path}.json`, "utf-8", (err, data) => {
     if (err) {
       console.error(err);
@@ -200,7 +205,7 @@ function editSettingsJSONFile_Value(path: string, key: string, value: any) {
     }
     const jsonData = JSON.parse(data);
 
-    jsonData[key] = value;
+    key2 ? (jsonData[key][key2] = value) : (jsonData[key] = value);
 
     fs.writeFile(
       `./DATA/${path}.json`,

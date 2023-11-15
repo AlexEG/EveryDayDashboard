@@ -2,6 +2,7 @@ import HTML from "../HTML/HTML";
 import TitleBarClock from "./TitleBarClock";
 import HowOldAmI from "./HowOldAmI";
 import Clock from "./Clock";
+import TitleBarDATA from "../../Settings/SettingsPages/Titlebar/TitleBarDATA";
 
 export default function TitleBar() {
   const contanier = HTML(
@@ -16,17 +17,26 @@ export default function TitleBar() {
   );
 
   // ------------
-  const TitleBarDATA = new Promise((res, rej) => {
-    res(JSON.parse(window.DATA.getJSONFileData("settings/titlebar")));
-  });
 
-  TitleBarDATA.then((data) => {
+  TitleBarDATA().then((data) => {
     if (!!data["clock"]) {
-      clockDateWrapperR.append(Clock());
+      clockDateWrapperR.append(
+        Clock(
+          data["theme"]["clockTimeColor"],
+          data["theme"]["clock_AM_PMColor"]
+        )
+      );
+
       TitleBarClock();
     }
+
     if (!!data["howOldYouInDays"])
-      clockDateWrapperR.append(HowOldAmI(data["birthday"]));
+      clockDateWrapperR.append(
+        HowOldAmI(data["birthday"], data["theme"]["ageInDaysColor"])
+      );
+
+    if (data["theme"]["backgroundColor"])
+      contanier.style.backgroundColor = data["theme"]["backgroundColor"];
   });
   // ------------
 

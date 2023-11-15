@@ -1,6 +1,6 @@
 import HTML from "../HTML/HTML";
 
-export default function HowOldAmI(birthday: number[]) {
+export default function HowOldAmI(birthday: number[], ageInDaysColor: string) {
   const [year, month, day] = birthday;
 
   const birth = new Date(year, month - 1, day).getTime();
@@ -17,6 +17,8 @@ export default function HowOldAmI(birthday: number[]) {
     ageInDays
   );
   dateWrapper.append(days);
+
+  if (ageInDaysColor) days.style.color = ageInDaysColor;
 
   return dateWrapper;
 }

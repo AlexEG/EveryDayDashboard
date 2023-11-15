@@ -1,5 +1,6 @@
-import HTML from "../../../components/HTML/HTML";
+// import HTML from "../../../components/HTML/HTML";
 import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
+import TitleBarDATA from "./TitleBarDATA";
 
 import ColorInput from "../../../components/Settings/inputs/ColorInput";
 
@@ -13,10 +14,18 @@ export default function ChangeColor() {
     const titlebar = document.querySelector("div#titlebar") as HTMLDivElement;
     titlebar.style.backgroundColor = colorPicker.value;
 
+    window.DATA.editSettingsJSONFile_Value(
+      "settings/titlebar",
+      "theme",
+      colorPicker.value,
+      "backgroundColor"
+    );
+
     console.log(
-      `%c Change Titlebar background Color => %c  `,
+      `%c Change Titlebar background Color => %c  %c\n${colorPicker.value}`,
       "background:black; color:white",
-      `background:${colorPicker.value};`
+      `background:${colorPicker.value};`,
+      ""
     );
   }
 
@@ -28,10 +37,18 @@ export default function ChangeColor() {
     if (clock) {
       clock.style.color = colorPicker.value;
 
+      window.DATA.editSettingsJSONFile_Value(
+        "settings/titlebar",
+        "theme",
+        colorPicker.value,
+        "clockTimeColor"
+      );
+
       console.log(
-        `%c Change Titlebar Clock (Time) Color => %c  `,
+        `%c Change Titlebar Clock (Time) Color => %c  %c\n${colorPicker.value}`,
         "background:black; color:white",
-        `background:${colorPicker.value};`
+        `background:${colorPicker.value};`,
+        ""
       );
     }
   }
@@ -43,10 +60,18 @@ export default function ChangeColor() {
     if (clock) {
       clock.style.color = colorPicker.value;
 
+      window.DATA.editSettingsJSONFile_Value(
+        "settings/titlebar",
+        "theme",
+        colorPicker.value,
+        "clock_AM_PMColor"
+      );
+
       console.log(
-        `%c Change Titlebar Clock (AM/PM) Color => %c  `,
+        `%c Change Titlebar Clock (AM/PM) Color => %c  %c\n${colorPicker.value}`,
         "background:black; color:white",
-        `background:${colorPicker.value};`
+        `background:${colorPicker.value};`,
+        ""
       );
     }
   }
@@ -59,39 +84,61 @@ export default function ChangeColor() {
     if (ageInDays) {
       ageInDays.style.color = colorPicker.value;
 
+      window.DATA.editSettingsJSONFile_Value(
+        "settings/titlebar",
+        "theme",
+        colorPicker.value,
+        "ageInDaysColor"
+      );
+
       console.log(
-        `%c Change Titlebar AgeInDays Color => %c  `,
+        `%c Change Titlebar AgeInDays Color => %c  %c\n${colorPicker.value}`,
         "background:black; color:white",
-        `background:${colorPicker.value};`
+        `background:${colorPicker.value};`,
+        ""
       );
     }
   }
+  TitleBarDATA().then((data: any) => {
+    // console.log(data["theme"]);
+    const {
+      backgroundColor,
+      clockTimeColor,
+      clock_AM_PMColor,
+      ageInDaysColor,
+    } = data["theme"];
 
-  container.append(
-    ColorInput(
-      "settings--titlebar--change-color--background",
-      "Background Color",
-      "#f000f0",
-      background
-    ),
-    ColorInput(
-      "settings--titlebar--change-color--clock",
-      "Clock Time",
-      "#f000f0",
-      clockTime
-    ),
-    ColorInput(
-      "settings--titlebar--change-color--clock-am-pm",
-      "Clock AM/PM",
-      "#f000f0",
-      clock_AM_PM
-    ),
-    ColorInput(
-      "settings--titlebar--change-color--age-in-days",
-      "Age in Days Color",
-      "#f000f0",
-      ageInDays
-    )
-  );
+    console.log(backgroundColor);
+    console.log(clockTimeColor);
+    console.log(clock_AM_PMColor);
+    console.log(ageInDaysColor);
+
+    container.append(
+      ColorInput(
+        "settings--titlebar--change-color--background",
+        "Background Color",
+        backgroundColor,
+        background
+      ),
+      ColorInput(
+        "settings--titlebar--change-color--clock",
+        "Clock Time",
+        clockTimeColor,
+        clockTime
+      ),
+      ColorInput(
+        "settings--titlebar--change-color--clock-am-pm",
+        "Clock AM/PM",
+        clock_AM_PMColor,
+        clock_AM_PM
+      ),
+      ColorInput(
+        "settings--titlebar--change-color--age-in-days",
+        "Age in Days Color",
+        ageInDaysColor,
+        ageInDays
+      )
+    );
+  });
   return container;
 }
