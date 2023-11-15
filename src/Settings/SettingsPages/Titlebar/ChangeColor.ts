@@ -1,4 +1,3 @@
-import HTML from "../../../components/HTML/HTML";
 import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
 import ColorInput from "../../../components/Settings/inputs/ColorInput";
 import TitleBarDATA from "./TitleBarDATA";
@@ -116,7 +115,7 @@ export default function ChangeColor() {
         background
       ),
       ColorInput(
-        "settings--titlebar--change-color--clock",
+        "settings--titlebar--change-color--clock-time",
         "Clock Time",
         clockTimeColor,
         clockTime
@@ -140,6 +139,7 @@ export default function ChangeColor() {
   const resetBtn = ResetAllBtn();
 
   resetBtn.onclick = () => {
+    // Reset JSON
     const defaultTheme = {
       backgroundColor: "",
       clockTimeColor: "",
@@ -153,6 +153,7 @@ export default function ChangeColor() {
       defaultTheme
     );
 
+    // Reset UI (in real time)
     document.querySelector("div#titlebar").style.backgroundColor = "";
     document.querySelector("div#titlebar #titlebar--clock time").style.color =
       "";
@@ -161,6 +162,20 @@ export default function ChangeColor() {
     document.querySelector(
       "div#titlebar #titlebar--age-in-days span"
     ).style.color = "";
+
+    // Reset color picker (in real time)
+    document.querySelector(
+      "#settings--titlebar--change-color--background"
+    ).value = "#020617";
+    document.querySelector(
+      "#settings--titlebar--change-color--clock-time"
+    ).value = "#ffffff";
+    document.querySelector(
+      "#settings--titlebar--change-color--clock-am-pm"
+    ).value = "#ffffff";
+    document.querySelector(
+      "#settings--titlebar--change-color--age-in-days"
+    ).value = "#ffffff";
   };
 
   return container;

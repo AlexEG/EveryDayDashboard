@@ -18,8 +18,8 @@ export default function NavSidebar() {
 
   nav.append(
     BlockTitle("General"),
-    NavBtn("Sidebar", Sidebar),
     NavBtn("Titlebar", Titlebar),
+    NavBtn("Sidebar", Sidebar),
     // NavBtn("Backup/Restore"),
     // BlockTitle("Plugins"),
     // NavBtn("Plugins list"),
