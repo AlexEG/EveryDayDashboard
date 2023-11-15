@@ -1,5 +1,5 @@
 import HTML from "../../../../components/HTML/HTML";
-import SettingsFieldset from "../../../../components/Settings/utils/SettingsFieldset";
+import SettingsFieldset from "../../../../components/Settings/SettingsFieldset";
 import HabitComponent from "./HabitComponent";
 
 import AllHabitsDATA from "../../../../Dashboards/Home/habits-table/AllHabitsDATA";

@@ -17,16 +17,16 @@ export default function ToggleBtn(
   const checkbox = HTML("input", "w-4 h-4 mx-auto invisible", inputID, "", {
     type: "checkbox",
   });
+
   isOn && checkbox.setAttribute("checked", "");
 
   const circle = HTML(
     "div",
     "bg-indigo-50 rounded-full w-5 h-5 flex items-center"
   );
-  const labelStyles = "text-indigo-300 pl-3 pr-2 first:pl-0";
 
-  const label = HTML("label", labelStyles, "", labelTitle, {});
-  label.setAttribute("for", inputID);
+  const labelStyles = "text-indigo-300 pl-3 pr-2 first:pl-0";
+  const label = HTML("label", labelStyles, "", labelTitle, { for: inputID });
 
   circle.append(checkbox);
   toggle.append(circle);

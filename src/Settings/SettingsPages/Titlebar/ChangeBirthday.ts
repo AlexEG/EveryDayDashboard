@@ -1,7 +1,7 @@
-import HTML from "../../HTML/HTML";
-import SettingsFieldset from "../utils/SettingsFieldset";
-import TextInput from "./TextInput";
-import SaveBtn from "./SaveBtn";
+import HTML from "../../../components/HTML/HTML";
+import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
+import TextInput from "../../../components/Settings/TextInput";
+import SaveBtn from "../../../components/Settings/buttons/SaveBtn";
 import TitleBarDATA from "./TitleBarDATA";
 
 export default function ChangeBirthday() {
@@ -42,10 +42,9 @@ export default function ChangeBirthday() {
     );
 
     console.log(
-      `%c Change Birthday %c => %c${newBirthday.join("-")}`,
+      `%c Change Birthday => %c${newBirthday.join("-")} `,
       "background:black; color:white",
-      "",
-      "color:#0a0"
+      "background:black; color:#0f0"
     );
   };
   container.append(inputsWrapper, saveBtn);

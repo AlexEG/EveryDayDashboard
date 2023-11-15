@@ -1,4 +1,4 @@
-import HTML from "../HTML/HTML";
+import HTML from "../../HTML/HTML";
 
 export default function CloseBtn(additionalStyles?: string) {
   const styles =

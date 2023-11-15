@@ -1,4 +1,4 @@
-import HTML from "../../HTML/HTML";
+import HTML from "../HTML/HTML";
 
 export default function TextInput(
   name: string,

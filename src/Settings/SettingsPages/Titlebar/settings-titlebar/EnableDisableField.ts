@@ -1,6 +1,6 @@
-import SettingsFieldset from "../utils/SettingsFieldset";
-import ToggleBtn from "./ToggleBtn";
-import TitleBarDATA from "./TitleBarDATA";
+import SettingsFieldset from "../../../../components/Settings/SettingsFieldset";
+import ToggleBtn from "../../../../components/Settings/buttons/ToggleBtn";
+import TitleBarDATA from "../TitleBarDATA";
 
 export default function EnableDisableField() {
   const container = SettingsFieldset(

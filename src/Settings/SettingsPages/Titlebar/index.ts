@@ -1,7 +1,10 @@
 import HTML from "../../../components/HTML/HTML";
+import EnableDisableField from "./settings-titlebar/EnableDisableField";
+import ChangeBirthday from "./ChangeBirthday";
 
 export default function Titlebar() {
-  const styles = "bg-pink-500/50 w-[calc(100%-15rem)] h-full";
+  const styles =
+    "w-[calc(100%-15rem)] h-full pt-6 px-4 pb-4 flex flex-col select-none overflow-y-auto";
   const mainContainer = HTML("section", styles, "settings--titlebar");
   const h1 = HTML(
     "h1",
@@ -10,6 +13,6 @@ export default function Titlebar() {
     "Titlebar"
   );
 
-  mainContainer.append(h1);
+  mainContainer.append(h1, ChangeBirthday(), EnableDisableField());
   return mainContainer;
 }
