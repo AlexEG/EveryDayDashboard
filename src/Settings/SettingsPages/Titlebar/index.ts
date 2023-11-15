@@ -1,5 +1,5 @@
 import HTML from "../../../components/HTML/HTML";
-import EnableDisableField from "./settings-titlebar/EnableDisableField";
+import EnableDisableField from "./EnableDisableField";
 import ChangeBirthday from "./ChangeBirthday";
 
 export default function Titlebar() {
