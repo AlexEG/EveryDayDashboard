@@ -7,7 +7,7 @@ export default function TitleBar() {
   const contanier = HTML(
     "div",
     "h-[31px] bg-slate-950 select-none relative pl-14 flex items-center",
-    "title-bar"
+    "titlebar"
   );
 
   const clockDateWrapperR = HTML(

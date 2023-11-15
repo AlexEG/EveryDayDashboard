@@ -9,7 +9,7 @@ export default function HowOldAmI(birthday: number[]) {
 
   const ageInDays = `${Math.trunc(old / 8.64e7)}`;
 
-  const dateWrapper = HTML("div", "text-sm");
+  const dateWrapper = HTML("div", "text-sm", "titlebar--age-in-days");
   const days = HTML(
     "span",
     "text-white/95",

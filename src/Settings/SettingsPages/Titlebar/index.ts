@@ -1,6 +1,7 @@
 import HTML from "../../../components/HTML/HTML";
 import EnableDisableField from "./EnableDisableField";
 import ChangeBirthday from "./ChangeBirthday";
+import ChangeColor from "./ChangeColor";
 
 export default function Titlebar() {
   const styles =
@@ -13,6 +14,11 @@ export default function Titlebar() {
     "Titlebar"
   );
 
-  mainContainer.append(h1, ChangeBirthday(), EnableDisableField());
+  mainContainer.append(
+    h1,
+    ChangeBirthday(),
+    EnableDisableField(),
+    ChangeColor()
+  );
   return mainContainer;
 }

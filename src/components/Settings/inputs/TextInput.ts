@@ -1,4 +1,4 @@
-import HTML from "../HTML/HTML";
+import HTML from "../../HTML/HTML";
 
 export default function TextInput(
   name: string,
@@ -19,13 +19,13 @@ export default function TextInput(
     value: value,
   }) as HTMLInputElement;
 
+  const inputLabel = HTML("label", labelStyles, "", label, { for: name });
+  const wrapper = HTML("div");
+  wrapper.append(inputLabel, input);
+
   input.onchange = () => {
     input.setAttribute("value", input.value);
   };
 
-  const inputLabel = HTML("label", labelStyles, "", label, { for: name });
-
-  const wrapper = HTML("div");
-  wrapper.append(inputLabel, input);
   return wrapper;
 }

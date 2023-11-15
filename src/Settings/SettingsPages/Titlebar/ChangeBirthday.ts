@@ -1,6 +1,6 @@
 import HTML from "../../../components/HTML/HTML";
 import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
-import TextInput from "../../../components/Settings/TextInput";
+import TextInput from "../../../components/Settings/inputs/TextInput";
 import SaveBtn from "../../../components/Settings/buttons/SaveBtn";
 import TitleBarDATA from "./TitleBarDATA";
 
