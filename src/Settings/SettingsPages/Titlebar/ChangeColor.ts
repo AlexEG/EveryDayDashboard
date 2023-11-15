@@ -1,8 +1,8 @@
-// import HTML from "../../../components/HTML/HTML";
+import HTML from "../../../components/HTML/HTML";
 import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
-import TitleBarDATA from "./TitleBarDATA";
-
 import ColorInput from "../../../components/Settings/inputs/ColorInput";
+import TitleBarDATA from "./TitleBarDATA";
+import ResetAllBtn from "../../../components/Settings/buttons/ResetAllBtn";
 
 export default function ChangeColor() {
   const container = SettingsFieldset(
@@ -108,11 +108,6 @@ export default function ChangeColor() {
       ageInDaysColor,
     } = data["theme"];
 
-    console.log(backgroundColor);
-    console.log(clockTimeColor);
-    console.log(clock_AM_PMColor);
-    console.log(ageInDaysColor);
-
     container.append(
       ColorInput(
         "settings--titlebar--change-color--background",
@@ -137,8 +132,36 @@ export default function ChangeColor() {
         "Age in Days Color",
         ageInDaysColor,
         ageInDays
-      )
+      ),
+      resetBtn
     );
   });
+
+  const resetBtn = ResetAllBtn();
+
+  resetBtn.onclick = () => {
+    const defaultTheme = {
+      backgroundColor: "",
+      clockTimeColor: "",
+      clock_AM_PMColor: "",
+      ageInDaysColor: "",
+    };
+
+    window.DATA.editSettingsJSONFile_Value(
+      "settings/titlebar",
+      "theme",
+      defaultTheme
+    );
+
+    document.querySelector("div#titlebar").style.backgroundColor = "";
+    document.querySelector("div#titlebar #titlebar--clock time").style.color =
+      "";
+    document.querySelector("div#titlebar #titlebar--clock span").style.color =
+      "";
+    document.querySelector(
+      "div#titlebar #titlebar--age-in-days span"
+    ).style.color = "";
+  };
+
   return container;
 }
