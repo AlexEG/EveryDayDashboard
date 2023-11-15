@@ -16,7 +16,7 @@ export default function HabitsTable() {
     const habitsNames = Object.keys(data);
 
     // console.log(data[habitsNames[0]][monthNames[thisMonth][0]][5]);
-
+    // console.log(data);
     table.append(TableHead(habitsNames), TableBody(data));
   });
 

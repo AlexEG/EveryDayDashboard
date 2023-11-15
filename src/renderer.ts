@@ -1,7 +1,7 @@
 import "./index.css";
 import TitleBar from "./components/TitleBar/TitleBar";
 import Sidebar from "./components/Sidebar/Sidebar";
-import SettingsBox from "./components/Settings/SettingsBox";
+// import SettingsBox from "./components/Settings/SettingsBox";
 import Home from "./Dashboards/Home/Home";
 import Settings from "./Settings";
 

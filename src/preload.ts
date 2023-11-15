@@ -36,7 +36,7 @@ function emptyDataHabit() {
   monthNames.forEach((month) => {
     year[month[0]] = {};
     for (let i = 1; i <= +month[1]; i++) {
-      year[month[0]][i] = false;
+      year[month[0]][i] = [false, "0000-00-00"];
     }
   });
   return year;
@@ -120,7 +120,10 @@ function editCalenderFileJSON(fileName: string, month: string, day: string) {
     }
     const jsonData = JSON.parse(data);
 
-    jsonData[month][day] = !jsonData[month][day];
+    const date = new Date();
+    const time = date.toString().split(" ").slice(0, 5);
+
+    jsonData[month][day] = [!jsonData[month][day][0], time];
 
     fs.writeFile(
       `./DATA/habits/${fileName}.json`,
