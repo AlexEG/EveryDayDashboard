@@ -39,29 +39,27 @@ export default function DataCell(
     const date = new Date();
     const time = date.toString().split(" ").slice(0, 5).join(" ");
 
-    if (checkbox.hasAttribute("checked")) {
-      checkbox.removeAttribute("checked");
-      console.log(
-        `%c Uncheck %c ${habitName} \n%c Day     %c ${month} ${day} \n%c Time    %c ${time} `,
-        "background:black; color:white",
-        "background:black; color:#f00",
-        "background:black; color:white",
-        "background:black; color:#ffd269",
-        "background:black; color:white",
-        "background:black; color:#df37fc"
-      );
-    } else {
-      checkbox.setAttribute("checked", "");
-      console.log(
-        `%c Check %c ${habitName} \n%c Day   %c ${month} ${day} \n%c Time  %c ${time} `,
-        "background:black; color:white",
-        "background:black; color:#0f0",
-        "background:black; color:white",
-        "background:black; color:#ffd269",
-        "background:black; color:white",
-        "background:black; color:#df37fc"
-      );
-    }
+    checkbox.hasAttribute("checked")
+      ? checkbox.removeAttribute("checked")
+      : checkbox.setAttribute("checked", "");
+
+    console.log(
+      `%c ${
+        checkbox.hasAttribute("checked") ? "Check" : "Uncheck"
+      } %c ${habitName} \n%c Day${
+        checkbox.hasAttribute("checked") ? "   " : "     "
+      }%c ${month} ${day} \n%c Time${
+        checkbox.hasAttribute("checked") ? "  " : "    "
+      }%c ${time} `,
+      "background:black; color:white",
+      `background:black; color:#${
+        checkbox.hasAttribute("checked") ? "0f0" : "f00"
+      }`,
+      "background:black; color:white",
+      "background:black; color:#ffd269",
+      "background:black; color:white",
+      "background:black; color:#df37fc"
+    );
 
     window.DATA.editCalenderFileJSON(habitName, month, day);
   };
