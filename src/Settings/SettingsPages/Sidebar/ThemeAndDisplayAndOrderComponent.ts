@@ -3,8 +3,8 @@ import Hr from "../../../components/Settings/Hr";
 import Logo from "../../../components/Settings/Logo";
 import LogoTilte from "../../../components/Settings/LogoTilte";
 import MultiInputColor from "../../../components/Settings/inputs/MultiInputColor";
-import ToggleBtn from "../../../components/Settings/buttons/ToggleBtn";
-import SelectNumBtn from "../../../components/Settings/buttons/SelectNumBtn";
+import DashboardONOFF from "./DashboardONOFF";
+import DashboardChangeOrder from "./DashboardChangeOrder";
 
 export default function ThemeAndDisplayAndOrderComponent(
   svgName: string,
@@ -23,25 +23,8 @@ export default function ThemeAndDisplayAndOrderComponent(
   rightWrapper.append(Logo(svgName), LogoTilte(dashboardName));
 
   LeftWrapper.append(
-    SelectNumBtn(maxOptionNum, SelectedOption),
-    ToggleBtn("", "", isDisplayed, (checkbox: HTMLInputElement) => {
-      window.DATA.editSettingsJSONFile_ON_OFF(
-        "settings/sidebar",
-        "ThemeAndDisplayAndOrder",
-        SelectedOption,
-        2
-      );
-
-      console.log(
-        `%c Sidebar Dashboard < ${dashboardName} >  %c ${
-          checkbox.hasAttribute("checked") ? "ON" : "OFF"
-        }  `,
-        "background:black; color:white",
-        `background:black; color:#${
-          checkbox.hasAttribute("checked") ? "0f0" : "f00"
-        }; font-weight: 900;`
-      );
-    })
+    DashboardChangeOrder(maxOptionNum, SelectedOption),
+    DashboardONOFF(isDisplayed, SelectedOption, dashboardName)
   );
 
   container.append(

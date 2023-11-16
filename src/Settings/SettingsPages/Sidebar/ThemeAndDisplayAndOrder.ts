@@ -1,7 +1,7 @@
 import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
 import ThemeAndDisplayAndOrderComponent from "./ThemeAndDisplayAndOrderComponent";
 import SidebarrDATA from "./SidebarDATA";
-import HTML from "../../../components/HTML/HTML";
+// import HTML from "../../../components/HTML/HTML";
 
 export default function ThemeAndDisplayAndOrder() {
   const container = SettingsFieldset(
