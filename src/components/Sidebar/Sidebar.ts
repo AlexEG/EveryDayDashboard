@@ -71,8 +71,9 @@ export default function Sidebar() {
         innerDiv.append(SectionBtn(svgName, func));
       }
     }
-    innerDiv.children[0].classList.add("bg-slate-200");
-    innerDiv.children[0].children[0].classList.remove("invert");
+    // innerDiv.children[0].classList.add("bg-slate-200");
+    // innerDiv.children[0].children[0].classList.remove("invert");
+    innerDiv.children[0].children[0].classList.add("hue-rotate-15");
   });
 
   aside.append(innerDiv);
