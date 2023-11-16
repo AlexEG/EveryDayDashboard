@@ -1,6 +1,7 @@
 import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
 import ThemeAndDisplayAndOrderComponent from "./ThemeAndDisplayAndOrderComponent";
 import SidebarrDATA from "./SidebarDATA";
+import HTML from "../../../components/HTML/HTML";
 
 export default function ThemeAndDisplayAndOrder() {
   const container = SettingsFieldset(
@@ -8,6 +9,7 @@ export default function ThemeAndDisplayAndOrder() {
     "settings--sidebar--theme-display-order"
   );
 
+  // ------------------
   SidebarrDATA().then((data) => {
     const svgName_dashboardName = data["ThemeAndDisplayAndOrder"];
 
@@ -27,5 +29,7 @@ export default function ThemeAndDisplayAndOrder() {
       );
     }
   });
+  // ------------------
+
   return container;
 }

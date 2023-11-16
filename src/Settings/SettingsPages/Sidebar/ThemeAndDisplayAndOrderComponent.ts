@@ -14,8 +14,7 @@ export default function ThemeAndDisplayAndOrderComponent(
   isDisplayed: boolean,
   colors: string[]
 ) {
-  const styles =
-    "relative bg-neutral-500/0 p-5 w-full mb-2 flex justify-between";
+  const styles = "relative p-5 w-full mb-2 flex justify-between";
   const container = HTML("div", styles);
 
   const rightWrapper = HTML("div", "flex");

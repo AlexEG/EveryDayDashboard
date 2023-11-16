@@ -6,10 +6,11 @@ export default function MultiInputColor(
 ) {
   const styles = "w-7 h-7 bg-transparent cursor-pointer";
 
-  function inputColor(id: string, value: string) {
+  function inputColor(id: string, value: string, title: string) {
     return HTML("input", styles, id, "", {
       type: "color",
       value: value,
+      title: title,
     }) as HTMLInputElement;
   }
 
@@ -19,19 +20,23 @@ export default function MultiInputColor(
   colorPickerContainer.append(
     inputColor(
       `settings--sidebar--theme-display-order--${dashboardName}--svg-color`,
-      svgColor
+      svgColor,
+      "SVG color"
     ),
     inputColor(
       `settings--sidebar--theme-display-order--${dashboardName}--background-color`,
-      backgroundColor
+      backgroundColor,
+      "background color"
     ),
     inputColor(
       `settings--sidebar--theme-display-order--${dashboardName}--svg-color-hover`,
-      svgColorHover
+      svgColorHover,
+      "SVG color (hover)"
     ),
     inputColor(
       `settings--sidebar--theme-display-order--${dashboardName}--background-color-hover`,
-      backgroundColorHover
+      backgroundColorHover,
+      "background color (hover)"
     )
   );
 
