@@ -6,11 +6,11 @@ export default function ToggleBtn(
   isOn: boolean,
   callback: any
 ) {
-  const wrapper = HTML("div", "flex");
+  const wrapper = HTML("div", "flex items-center px-2");
 
   const styles = isOn
-    ? "bg-indigo-600 rounded-full w-12 flex px-0.5 py-0.5 items-center justify-end"
-    : "bg-indigo-950 opacity-75 rounded-full w-12 flex px-0.5 py-0.5 items-center justify-start";
+    ? "bg-indigo-600 rounded-full w-12 flex px-0.5 py-0.5 items-center justify-end cursor-pointer"
+    : "bg-indigo-950 opacity-75 rounded-full w-12 flex px-0.5 py-0.5 items-center justify-start cursor-pointer";
 
   const toggle = HTML("div", styles);
 
@@ -24,13 +24,17 @@ export default function ToggleBtn(
     "div",
     "bg-indigo-50 rounded-full w-5 h-5 flex items-center"
   );
-
-  const labelStyles = "text-indigo-300 pl-3 pr-2 first:pl-0";
-  const label = HTML("label", labelStyles, "", labelTitle, { for: inputID });
-
   circle.append(checkbox);
   toggle.append(circle);
-  wrapper.append(label, toggle);
+
+  if (labelTitle) {
+    const labelStyles = "text-indigo-300 pl-3 pr-2 first:pl-0";
+    const label = HTML("label", labelStyles, "", labelTitle, { for: inputID });
+
+    wrapper.append(label, toggle);
+  } else {
+    wrapper.append(toggle);
+  }
 
   toggle.onclick = () => {
     if (checkbox.getAttribute("checked") === "") {

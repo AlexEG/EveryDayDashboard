@@ -1,7 +1,8 @@
 import HTML from "../components/HTML/HTML";
 import CloseSettingBtn from "./CloseSettingBtn";
 import NavSidebar from "./NavSidebar";
-import Titlebar from "./SettingsPages/Titlebar";
+// import Titlebar from "./SettingsPages/Titlebar";
+import Sidebar from "./SettingsPages/Sidebar";
 
 export default function Settings() {
   const styles =
@@ -10,6 +11,6 @@ export default function Settings() {
   const settingsContainer = HTML("section", styles, "settings");
   settingsContainer.dataset.isSettingsOpen = "false";
 
-  settingsContainer.append(CloseSettingBtn(), NavSidebar(), Titlebar());
+  settingsContainer.append(CloseSettingBtn(), NavSidebar(), Sidebar());
   return settingsContainer;
 }
