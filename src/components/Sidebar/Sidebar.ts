@@ -1,6 +1,7 @@
 import HTML from "../HTML/HTML";
 import SectionBtn from "./SectionBtn";
 import SettingsBtn from "./SettingsBtn";
+import SidebarrDATA from "../../Settings/SettingsPages/Sidebar/SidebarDATA";
 
 import Home from "../../Dashboards/Home/Home";
 import GitHub from "../../Dashboards/GitHub/GitHub";
@@ -27,27 +28,52 @@ export default function Sidebar() {
   const styles2 = "h-[calc(100%-56px)] overflow-y-auto";
   const innerDiv = HTML("div", styles2, "sidebar");
 
-  innerDiv.append(
-    SectionBtn("home", Home),
-    SectionBtn("github", GitHub),
-    SectionBtn("wakatime", WakaTime),
-    SectionBtn("codewars", CodeWars),
-    SectionBtn("leetcode", LeetCode),
-    SectionBtn("cssbattle", CSSBattle),
-    SectionBtn("tryhackme", TryHackMe),
-    SectionBtn("monkeytype", MonkeyType),
-    SectionBtn("youtube", YouTube),
-    SectionBtn("spotify", Spotify),
-    SectionBtn("anilist", AinList),
-    SectionBtn("frontendmentor", FrontendMentor),
-    SectionBtn("freecodecamp", FreeCodeCamp),
-    SectionBtn("devdotto", DEV),
-    SectionBtn("firebase", Firebase),
-    SectionBtn("vercel", Vercel)
-  );
+  SidebarrDATA().then((data) => {
+    const DashboardsData = data["ThemeAndDisplayAndOrder"];
 
-  innerDiv.children[0].classList.add("bg-slate-200");
-  innerDiv.children[0].children[0].classList.remove("invert");
+    for (let i = 0; i < DashboardsData.length; i++) {
+      const [svgName, , isDisplayed] = DashboardsData[i];
+
+      if (isDisplayed) {
+        const func =
+          svgName === "home"
+            ? Home
+            : svgName === "github"
+            ? GitHub
+            : svgName === "wakatime"
+            ? WakaTime
+            : svgName === "codewars"
+            ? CodeWars
+            : svgName === "leetcode"
+            ? LeetCode
+            : svgName === "cssbattle"
+            ? CSSBattle
+            : svgName === "tryhackme"
+            ? TryHackMe
+            : svgName === "monkeytype"
+            ? MonkeyType
+            : svgName === "youtube"
+            ? YouTube
+            : svgName === "spotify"
+            ? Spotify
+            : svgName === "anilist"
+            ? AinList
+            : svgName === "frontendmentor"
+            ? FrontendMentor
+            : svgName === "freecodecamp"
+            ? FreeCodeCamp
+            : svgName === "devdotto"
+            ? DEV
+            : svgName === "firebase"
+            ? Firebase
+            : Vercel;
+
+        innerDiv.append(SectionBtn(svgName, func));
+      }
+    }
+    innerDiv.children[0].classList.add("bg-slate-200");
+    innerDiv.children[0].children[0].classList.remove("invert");
+  });
 
   aside.append(innerDiv);
   aside.append(SettingsBtn());

@@ -11,17 +11,16 @@ export default function ThemeAndDisplayAndOrder() {
 
   // ------------------
   SidebarrDATA().then((data) => {
-    const svgName_dashboardName = data["ThemeAndDisplayAndOrder"];
+    const DashboardsData = data["ThemeAndDisplayAndOrder"];
 
-    for (let i = 0; i < svgName_dashboardName.length; i++) {
-      const [svgName, dashboardName, isDisplayed, colors] =
-        svgName_dashboardName[i];
+    for (let i = 0; i < DashboardsData.length; i++) {
+      const [svgName, dashboardName, isDisplayed, colors] = DashboardsData[i];
 
       container.append(
         ThemeAndDisplayAndOrderComponent(
           svgName,
           dashboardName,
-          svgName_dashboardName.length,
+          DashboardsData.length,
           i,
           isDisplayed,
           colors
