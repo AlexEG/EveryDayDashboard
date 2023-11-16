@@ -1,12 +1,14 @@
 import HTML from "../../HTML/HTML";
 
-export default function MultiInputColor() {
+export default function MultiInputColor(
+  dashboardName: string,
+  [svgColor, backgroundColor, svgColorHover, backgroundColorHover]: string[]
+) {
   const styles = "w-7 h-7 bg-transparent cursor-pointer";
 
-  function inputColor(name: string, value: string) {
-    return HTML("input", styles, "color-input", "", {
+  function inputColor(id: string, value: string) {
+    return HTML("input", styles, id, "", {
       type: "color",
-      name: name,
       value: value,
     }) as HTMLInputElement;
   }
@@ -15,10 +17,22 @@ export default function MultiInputColor() {
   const colorPickerContainer = HTML("div", styles2);
 
   colorPickerContainer.append(
-    inputColor("name1", "#f55090"),
-    inputColor("name2", "#654600"),
-    inputColor("name3", "#a55bc4"),
-    inputColor("name4", "#33ff33")
+    inputColor(
+      `settings--sidebar--theme-display-order--${dashboardName}--svg-color`,
+      svgColor
+    ),
+    inputColor(
+      `settings--sidebar--theme-display-order--${dashboardName}--background-color`,
+      backgroundColor
+    ),
+    inputColor(
+      `settings--sidebar--theme-display-order--${dashboardName}--svg-color-hover`,
+      svgColorHover
+    ),
+    inputColor(
+      `settings--sidebar--theme-display-order--${dashboardName}--background-color-hover`,
+      backgroundColorHover
+    )
   );
 
   return colorPickerContainer;

@@ -6,7 +6,14 @@ import MultiInputColor from "../../../components/Settings/inputs/MultiInputColor
 import ToggleBtn from "../../../components/Settings/buttons/ToggleBtn";
 import SelectNumBtn from "../../../components/Settings/buttons/SelectNumBtn";
 
-export default function ThemeAndDisplayAndOrderComponent() {
+export default function ThemeAndDisplayAndOrderComponent(
+  svgName: string,
+  dashboardName: string,
+  maxOptionNum: number,
+  SelectedOption: number,
+  isDisplayed: boolean,
+  colors: string[]
+) {
   const styles =
     "relative bg-neutral-500/0 p-5 w-full mb-2 flex justify-between";
   const container = HTML("div", styles);
@@ -14,12 +21,17 @@ export default function ThemeAndDisplayAndOrderComponent() {
   const rightWrapper = HTML("div", "flex");
   const LeftWrapper = HTML("div", "flex");
 
-  rightWrapper.append(Logo(), LogoTilte());
+  rightWrapper.append(Logo(svgName), LogoTilte(dashboardName));
   LeftWrapper.append(
-    SelectNumBtn(10, 5),
-    ToggleBtn("", "", true, () => console.log("ON/OFF"))
+    SelectNumBtn(maxOptionNum, SelectedOption),
+    ToggleBtn("", "", isDisplayed, () => console.log("ON/OFF"))
   );
 
-  container.append(rightWrapper, MultiInputColor(), LeftWrapper, Hr());
+  container.append(
+    rightWrapper,
+    MultiInputColor(dashboardName, colors),
+    LeftWrapper,
+    Hr()
+  );
   return container;
 }
