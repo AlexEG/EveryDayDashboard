@@ -22,9 +22,27 @@ export default function ThemeAndDisplayAndOrderComponent(
   const LeftWrapper = HTML("div", "flex");
 
   rightWrapper.append(Logo(svgName), LogoTilte(dashboardName));
+
   LeftWrapper.append(
     SelectNumBtn(maxOptionNum, SelectedOption),
-    ToggleBtn("", "", isDisplayed, () => console.log("ON/OFF"))
+    ToggleBtn("", "", isDisplayed, (checkbox: HTMLInputElement) => {
+      window.DATA.editSettingsJSONFile_ON_OFF(
+        "settings/sidebar",
+        "ThemeAndDisplayAndOrder",
+        SelectedOption,
+        2
+      );
+
+      console.log(
+        `%c Sidebar Dashboard < ${dashboardName} >  %c ${
+          checkbox.hasAttribute("checked") ? "ON" : "OFF"
+        }  `,
+        "background:black; color:white",
+        `background:black; color:#${
+          checkbox.hasAttribute("checked") ? "0f0" : "f00"
+        }; font-weight: 900;`
+      );
+    })
   );
 
   container.append(

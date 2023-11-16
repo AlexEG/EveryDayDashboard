@@ -14,7 +14,6 @@ export default function ThemeAndDisplayAndOrder() {
     for (let i = 0; i < svgName_dashboardName.length; i++) {
       const [svgName, dashboardName, isDisplayed, colors] =
         svgName_dashboardName[i];
-      console.log(svgName, dashboardName);
 
       container.append(
         ThemeAndDisplayAndOrderComponent(

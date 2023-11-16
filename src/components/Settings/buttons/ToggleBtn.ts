@@ -49,7 +49,7 @@ export default function ToggleBtn(
       toggle.classList.remove("opacity-75");
     }
 
-    callback();
+    callback(checkbox);
   };
 
   return wrapper;

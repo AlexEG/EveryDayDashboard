@@ -173,15 +173,23 @@ function renameJSONFile(oldFilePaht: string, newFilePaht: string) {
   );
 }
 
-function editSettingsJSONFile_ON_OFF(path: string, key: string) {
+function editSettingsJSONFile_ON_OFF(
+  path: string,
+  key: string,
+  key2?: string,
+  key3?: string
+) {
   fs.readFile(`./DATA/${path}.json`, "utf-8", (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
     const jsonData = JSON.parse(data);
-
-    jsonData[key] = !jsonData[key];
+    if (key2 && key3) {
+      jsonData[key][key2][key3] = !jsonData[key][key2][key3];
+    } else {
+      jsonData[key] = !jsonData[key];
+    }
 
     fs.writeFile(
       `./DATA/${path}.json`,
