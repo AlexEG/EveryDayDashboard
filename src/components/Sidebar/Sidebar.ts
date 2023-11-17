@@ -6,7 +6,7 @@ import SidebarrDATA from "../../Settings/SettingsPages/Sidebar/SidebarDATA";
 import Home from "../../Dashboards/Home/Home";
 import GitHub from "../../Dashboards/GitHub/GitHub";
 import WakaTime from "../../Dashboards/WakaTime/WakaTime";
-import CodeWars from "../../Dashboards/CodeWars/CodeWars";
+import CodeWars from "../../Dashboards/CodeWars";
 import LeetCode from "../../Dashboards/LeetCode/LeetCode";
 import CSSBattle from "../../Dashboards/CSSBattle/CSSBattle";
 import TryHackMe from "../../Dashboards/TryHackMe/TryHackMe";
@@ -85,7 +85,6 @@ export default function Sidebar() {
     );
   });
 
-  aside.append(innerDiv);
-  aside.append(SettingsBtn());
+  aside.append(innerDiv, SettingsBtn());
   return aside;
 }
