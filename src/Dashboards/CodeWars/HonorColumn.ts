@@ -1,7 +1,7 @@
 import HTML from "../../components/HTML/HTML";
 
 export default function HonorColumn(minMaxDailyHonor: number[]) {
-  const COLS_NUM = 10;
+  const COLS_NUM = 9;
 
   const styles =
     "h-full bg-green-400 row-start-1 row-end-2 col-start-1 col-end-2 flex flex-col-reverse";
@@ -15,13 +15,15 @@ export default function HonorColumn(minMaxDailyHonor: number[]) {
   const nextScoreValue = (max - min) / COLS_NUM;
 
   // render scores
-  for (let i = 1; i <= COLS_NUM; i++) {
+  const score = HTML("div", styles2, "1", "0");
+  honorColumn.append(score);
+  // ----
+  for (let i = 0; i <= COLS_NUM; i++) {
     const num = String(Math.round(nextScoreValue * i) + min);
 
-    const score = HTML("div", styles2, "", num);
+    const score = HTML("div", styles2, String(i + 1), num);
     honorColumn.append(score);
   }
 
-  console.log(minMaxDailyHonor);
   return honorColumn;
 }

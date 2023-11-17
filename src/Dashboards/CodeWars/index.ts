@@ -10,6 +10,6 @@ export default function CodeWars() {
   const img = HTML("img", "mx-auto my-4");
   img.setAttribute("src", "https://www.codewars.com/users/AlexEG/badges/micro");
 
-  MainContainer.append(img, ChartCointainer(20, [5, 23]));
+  MainContainer.append(img, ChartCointainer(20, [17, 50]));
   return MainContainer;
 }
