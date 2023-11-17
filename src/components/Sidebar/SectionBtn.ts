@@ -57,6 +57,7 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
       .lastChild as HTMLDivElement;
     if (settingsBtn.classList.contains("bg-white/90")) {
       settingsBtn.classList.remove("bg-white/90");
+      settingsBtn.classList.add("hover:bg-white/80");
       settingsBtn.firstElementChild.classList.add("invert");
       settingsBtn.firstElementChild.classList.replace(
         "opacity-100",

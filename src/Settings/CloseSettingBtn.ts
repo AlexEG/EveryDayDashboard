@@ -17,7 +17,8 @@ export default function CloseBtn() {
     const OpenSettingsBtn = document.querySelector(
       "#settings-open-btn"
     ) as HTMLButtonElement;
-    OpenSettingsBtn.classList.remove("bg-slate-200");
+    OpenSettingsBtn.classList.remove("bg-white/90");
+    OpenSettingsBtn.classList.add("hover:bg-white/80");
     OpenSettingsBtn.firstElementChild.classList.add("invert");
     OpenSettingsBtn.firstElementChild.classList.replace(
       "opacity-100",
@@ -32,7 +33,8 @@ export default function CloseBtn() {
       `aside div[title='${dashboardName}']`
     ) as HTMLDivElement;
 
-    openedDashboardBtn.classList.add("bg-slate-200");
+    openedDashboardBtn.classList.add("bg-white/90");
+    openedDashboardBtn.classList.remove("hover:bg-white/80");
     openedDashboardBtn.firstElementChild.classList.remove("invert");
     openedDashboardBtn.firstElementChild.classList.replace(
       "opacity-70",
