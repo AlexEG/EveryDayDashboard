@@ -15,8 +15,6 @@ export default function HonorColumn(minMaxDailyHonor: number[]) {
   const nextScoreValue = (max - min) / COLS_NUM;
 
   // render scores
-  const score = HTML("div", styles2, "1", "0");
-  honorColumn.append(score);
   // ----
   for (let i = 0; i <= COLS_NUM; i++) {
     const num = String(Math.round(nextScoreValue * i) + min);

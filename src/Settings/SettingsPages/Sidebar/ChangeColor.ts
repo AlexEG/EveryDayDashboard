@@ -56,7 +56,7 @@ export default function ChangeColor() {
     };
 
     window.DATA.editSettingsJSONFile_Value(
-      "settings/titlebar",
+      "settings/sidebar",
       "theme",
       defaultTheme
     );
