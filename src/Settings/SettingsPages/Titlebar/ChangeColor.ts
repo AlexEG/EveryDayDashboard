@@ -6,7 +6,7 @@ import HTML from "../../../components/HTML/HTML";
 
 export default function ChangeColor() {
   const container = SettingsFieldset(
-    "Change Color",
+    "Theme",
     "settings--titlebar--change-color"
   );
 
