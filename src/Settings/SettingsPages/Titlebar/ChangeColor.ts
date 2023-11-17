@@ -2,6 +2,7 @@ import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
 import ColorInput from "../../../components/Settings/inputs/ColorInput";
 import TitleBarDATA from "./TitleBarDATA";
 import ResetAllBtn from "../../../components/Settings/buttons/ResetAllBtn";
+import HTML from "../../../components/HTML/HTML";
 
 export default function ChangeColor() {
   const container = SettingsFieldset(
@@ -132,11 +133,13 @@ export default function ChangeColor() {
         ageInDaysColor,
         ageInDays
       ),
-      resetBtn
+      resetBtnContainer
     );
   });
 
   const resetBtn = ResetAllBtn();
+  const resetBtnContainer = HTML("div", "w-full pt-4 flex justify-end");
+  resetBtnContainer.append(resetBtn);
 
   resetBtn.onclick = () => {
     // Reset JSON

@@ -28,18 +28,20 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
       // remove highlight from all dashboard btns
       const btns = div.parentElement.children;
       for (let i = 0; i < btns.length; i++) {
-        if (btns[i].classList.contains("bg-slate-200"))
+        if (btns[i].classList.contains("bg-white/90"))
           btns[i].firstElementChild.classList.replace(
             "opacity-100",
             "opacity-70"
           );
 
-        btns[i].classList.remove("bg-slate-200");
+        btns[i].classList.remove("bg-white/90");
+        btns[i].classList.add("hover:bg-white/80");
         btns[i].firstElementChild.classList.add("invert");
       }
 
       // add highlight
-      div.classList.add("bg-slate-200");
+      div.classList.add("bg-white/90");
+      div.classList.remove("hover:bg-white/80");
       div.firstElementChild.classList.remove("invert");
 
       // change Main Content
@@ -53,8 +55,8 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
     // reomve highlight from settings btn
     const settingsBtn = div.parentElement.parentElement
       .lastChild as HTMLDivElement;
-    if (settingsBtn.classList.contains("bg-slate-200")) {
-      settingsBtn.classList.remove("bg-slate-200");
+    if (settingsBtn.classList.contains("bg-white/90")) {
+      settingsBtn.classList.remove("bg-white/90");
       settingsBtn.firstElementChild.classList.add("invert");
       settingsBtn.firstElementChild.classList.replace(
         "opacity-100",

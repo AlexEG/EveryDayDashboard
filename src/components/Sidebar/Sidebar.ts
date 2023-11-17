@@ -76,8 +76,13 @@ export default function Sidebar() {
         innerDiv.append(SectionBtn(svgName, func));
       }
     }
-    innerDiv.children[0].classList.add("bg-slate-200");
+    innerDiv.children[0].classList.add("bg-white/90");
+    innerDiv.children[0].classList.remove("hover:bg-white/80");
     innerDiv.children[0].children[0].classList.remove("invert");
+    innerDiv.children[0].children[0].classList.replace(
+      "opacity-70",
+      "opacity-100"
+    );
   });
 
   aside.append(innerDiv);

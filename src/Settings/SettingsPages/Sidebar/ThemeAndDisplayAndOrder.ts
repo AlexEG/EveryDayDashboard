@@ -14,7 +14,8 @@ export default function ThemeAndDisplayAndOrder() {
     const DashboardsData = data["ThemeAndDisplayAndOrder"];
 
     for (let i = 0; i < DashboardsData.length; i++) {
-      const [svgName, dashboardName, isDisplayed, colors] = DashboardsData[i];
+      // const [svgName, dashboardName, isDisplayed, colors] = DashboardsData[i];
+      const [svgName, dashboardName, isDisplayed] = DashboardsData[i];
 
       container.append(
         ThemeAndDisplayAndOrderComponent(
@@ -22,8 +23,8 @@ export default function ThemeAndDisplayAndOrder() {
           dashboardName,
           DashboardsData.length,
           i,
-          isDisplayed,
-          colors
+          isDisplayed
+          // colors
         )
       );
     }
