@@ -2,7 +2,7 @@ import SelectNumBtn from "../../../components/Settings/buttons/SelectNumBtn";
 import SidebarrDATA from "./SidebarDATA";
 
 import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
-import ThemeAndDisplayAndOrderComponent from "./ThemeAndDisplayAndOrderComponent";
+import DisplayAndOrderComponent from "./DisplayAndOrderComponent";
 
 export default function DashboardChangeOrder(
   maxOptionNum: number,
@@ -15,9 +15,9 @@ export default function DashboardChangeOrder(
     const Value2 = +select.value - 1;
 
     SidebarrDATA().then((data) => {
-      const arr1 = data["ThemeAndDisplayAndOrder"][Value1];
-      const arr2 = data["ThemeAndDisplayAndOrder"][Value2];
-      const DashboardsData = data["ThemeAndDisplayAndOrder"];
+      const arr1 = data["DisplayAndOrder"][Value1];
+      const arr2 = data["DisplayAndOrder"][Value2];
+      const DashboardsData = data["DisplayAndOrder"];
 
       const newAllData = Array.from(DashboardsData);
       newAllData[Value1] = arr2;
@@ -25,7 +25,7 @@ export default function DashboardChangeOrder(
 
       window.DATA.editSettingsJSONFile_Value(
         "settings/sidebar",
-        "ThemeAndDisplayAndOrder",
+        "DisplayAndOrder",
         newAllData
       );
 
@@ -35,32 +35,28 @@ export default function DashboardChangeOrder(
         `background:black; color:#0f0; font-weight: 900;`
       );
       // --------------------------------
-      //* Refresh Theme & Display & Order *//
-      document
-        .querySelector("#settings--sidebar--theme-display-order")
-        .remove();
+      //* Refresh  Display & Order *//
+      document.querySelector("#settings--sidebar--display-order").remove();
 
       const container = SettingsFieldset(
-        "Theme & Display & Order",
-        "settings--sidebar--theme-display-order"
+        "Display & Order",
+        "settings--sidebar--display-order"
       );
 
       for (let i = 0; i < DashboardsData.length; i++) {
-        const [svgName, dashboardName, isDisplayed, colors] = newAllData[i] as [
+        const [svgName, dashboardName, isDisplayed] = newAllData[i] as [
           string,
           string,
-          boolean,
-          string[]
+          boolean
         ];
 
         container.append(
-          ThemeAndDisplayAndOrderComponent(
+          DisplayAndOrderComponent(
             svgName,
             dashboardName,
             DashboardsData.length,
             i,
-            isDisplayed,
-            colors
+            isDisplayed
           )
         );
       }

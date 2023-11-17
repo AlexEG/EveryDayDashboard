@@ -34,7 +34,7 @@ export default function Sidebar() {
       aside.style.backgroundColor = Theme["backgroundColor"];
     }
 
-    const DashboardsData = data["ThemeAndDisplayAndOrder"];
+    const DashboardsData = data["DisplayAndOrder"];
 
     for (let i = 0; i < DashboardsData.length; i++) {
       const [svgName, , isDisplayed] = DashboardsData[i];

@@ -1,30 +1,28 @@
 import SettingsFieldset from "../../../components/Settings/SettingsFieldset";
-import ThemeAndDisplayAndOrderComponent from "./ThemeAndDisplayAndOrderComponent";
+import DisplayAndOrderComponent from "./DisplayAndOrderComponent";
 import SidebarrDATA from "./SidebarDATA";
 // import HTML from "../../../components/HTML/HTML";
 
-export default function ThemeAndDisplayAndOrder() {
+export default function DisplayAndOrder() {
   const container = SettingsFieldset(
-    "Theme & Display & Order",
-    "settings--sidebar--theme-display-order"
+    "Display & Order",
+    "settings--sidebar--display-order"
   );
 
   // ------------------
   SidebarrDATA().then((data) => {
-    const DashboardsData = data["ThemeAndDisplayAndOrder"];
+    const DashboardsData = data["DisplayAndOrder"];
 
     for (let i = 0; i < DashboardsData.length; i++) {
-      // const [svgName, dashboardName, isDisplayed, colors] = DashboardsData[i];
       const [svgName, dashboardName, isDisplayed] = DashboardsData[i];
 
       container.append(
-        ThemeAndDisplayAndOrderComponent(
+        DisplayAndOrderComponent(
           svgName,
           dashboardName,
           DashboardsData.length,
           i,
           isDisplayed
-          // colors
         )
       );
     }

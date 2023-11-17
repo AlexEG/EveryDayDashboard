@@ -8,7 +8,7 @@ export default function DashboardONOFF(
   return ToggleBtn("", "", isDisplayed, (checkbox: HTMLInputElement) => {
     window.DATA.editSettingsJSONFile_ON_OFF(
       "settings/sidebar",
-      "ThemeAndDisplayAndOrder",
+      "DisplayAndOrder",
       SelectedOption,
       2
     );
