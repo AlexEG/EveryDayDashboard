@@ -1,4 +1,5 @@
 import HTML from "../../../components/HTML/HTML";
+import ChangeColor from "./ChangeColor";
 import ThemeAndDisplayAndOrder from "./ThemeAndDisplayAndOrder";
 
 export default function Sidebar() {
@@ -7,6 +8,6 @@ export default function Sidebar() {
   const mainContainer = HTML("section", styles, "settings--sidebar");
   const h1 = HTML("h1", "text-center text-neutral-50 font-bold", "", "Sidebar");
 
-  mainContainer.append(h1, ThemeAndDisplayAndOrder());
+  mainContainer.append(h1, ChangeColor(), ThemeAndDisplayAndOrder());
   return mainContainer;
 }

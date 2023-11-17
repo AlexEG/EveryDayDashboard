@@ -3,7 +3,7 @@ import { closeSettingsAnimation } from "./settingsAnimation";
 
 export default function SectionBtn(sectionName: string, sectionHTML: any) {
   const styles =
-    "group flex h-14 cursor-pointer items-center justify-center transition duration-200 hover:bg-slate-200 select-none";
+    "group flex h-14 cursor-pointer items-center justify-center transition duration-200 hover:bg-white/80 select-none";
   const div = HTML("div", styles, "", "", { title: sectionName });
 
   const styles2 =

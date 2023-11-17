@@ -23,12 +23,17 @@ import Vercel from "../../Dashboards/Vercel/Vercel";
 export default function Sidebar() {
   const styles =
     "absolute w-14 top-[31px] left-0 h-[calc(100%-31px)] bg-slate-950 text-white ";
-  const aside = HTML("aside", styles);
+  const aside = HTML("aside", styles, "sidebar");
 
   const styles2 = "h-[calc(100%-56px)] overflow-y-auto";
-  const innerDiv = HTML("div", styles2, "sidebar");
+  const innerDiv = HTML("div", styles2);
 
   SidebarrDATA().then((data) => {
+    const Theme = data["theme"];
+    if (Theme["backgroundColor"]) {
+      aside.style.backgroundColor = Theme["backgroundColor"];
+    }
+
     const DashboardsData = data["ThemeAndDisplayAndOrder"];
 
     for (let i = 0; i < DashboardsData.length; i++) {
@@ -71,9 +76,8 @@ export default function Sidebar() {
         innerDiv.append(SectionBtn(svgName, func));
       }
     }
-    // innerDiv.children[0].classList.add("bg-slate-200");
-    // innerDiv.children[0].children[0].classList.remove("invert");
-    innerDiv.children[0].children[0].classList.add("hue-rotate-15");
+    innerDiv.children[0].classList.add("bg-slate-200");
+    innerDiv.children[0].children[0].classList.remove("invert");
   });
 
   aside.append(innerDiv);
