@@ -1,4 +1,5 @@
 import HTML from "../../components/HTML/HTML";
+import RefreshBtn from "./RefreshBtn";
 
 export default function CodeWars() {
   const styles =
@@ -9,5 +10,6 @@ export default function CodeWars() {
   const img = HTML("img", "mx-auto my-4");
   img.setAttribute("src", "https://www.codewars.com/users/AlexEG/badges/micro");
 
+  MainContainer.append(RefreshBtn());
   return MainContainer;
 }

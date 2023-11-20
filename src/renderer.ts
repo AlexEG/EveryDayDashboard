@@ -8,7 +8,6 @@ import CodeWars from "./Dashboards/CodeWars";
 const ROOT = document.querySelector("div#root");
 ROOT.append(TitleBar());
 ROOT.append(Sidebar());
-// ROOT.append(SettingsBox());
 ROOT.append(Settings());
 
 ROOT.append(CodeWars());
