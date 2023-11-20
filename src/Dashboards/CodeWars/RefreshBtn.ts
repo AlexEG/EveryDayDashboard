@@ -9,11 +9,6 @@ export default function RefreshBtn() {
 
   refreshBtn.onclick = () => {
     codewarsAPI_update();
-    console.log(
-      `%c Update %c CodeWars JSON `,
-      "background:black; color:white",
-      "background:black; color:#0f0"
-    );
   };
 
   return refreshBtn;
