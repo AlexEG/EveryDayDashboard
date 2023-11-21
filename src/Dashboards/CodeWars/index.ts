@@ -1,6 +1,7 @@
 import HTML from "../../components/HTML/HTML";
-import RefreshBtn from "./RefreshBtn";
-import HonorChart from "./HonorChart";
+import Header from "./Header";
+
+import HonorScoreChart from "./HonorScoreChart";
 
 export default function CodeWars() {
   const styles =
@@ -8,9 +9,6 @@ export default function CodeWars() {
 
   const MainContainer = HTML("main", styles, "codewars");
 
-  const img = HTML("img", "mx-auto my-4");
-  img.setAttribute("src", "https://www.codewars.com/users/AlexEG/badges/micro");
-
-  MainContainer.append(RefreshBtn(), HonorChart());
+  MainContainer.append(Header(), HonorScoreChart());
   return MainContainer;
 }
