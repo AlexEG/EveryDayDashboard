@@ -1,1 +1,17 @@
-{"data":{"Honor":231,"Score":184,"Rank":-6,"Leaderboard Position":312600,"Honor Percentile":"Top 52.807%","Total Completed Kata":74,"daily honor":{"Sun Nov 19 2023":[0,229],"Mon Nov 20 2023":[2,231]}}}
+{
+  "data": {
+    "Honor": 231,
+    "Score": 184,
+    "Rank": -6,
+    "Leaderboard Position": 312744,
+    "Honor Percentile": "Top 52.807%",
+    "Total Completed Kata": 74,
+    "daily honor": {
+      "Sun Oct 18 2023": [9, 209],
+      "Sun Nov 19 2023": [6, 229],
+      "Sun Oct 17 2023": [19, 209],
+      "Mon Nov 20 2023": [2, 231],
+      "Tue Nov 21 2023": [8, 231]
+    }
+  }
+}

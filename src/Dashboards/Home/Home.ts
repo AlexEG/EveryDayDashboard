@@ -11,8 +11,6 @@ export default function Home() {
 
   const homeContainer = HTML("main", styles, "home");
 
-  // homeContainer.append(HabitsTable(), InputField());
-
   const wrapper = HTML("div", "flex gap-x-2 p-2");
   wrapper.append(HabitSideList(), HabitsTable());
 
