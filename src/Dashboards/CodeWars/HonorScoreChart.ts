@@ -16,16 +16,13 @@ export default function HonorScoreChart(selectedMonth?: string) {
     0
   ).getDate();
 
-  selectedMonth && console.log(numberOfDaysInThisMonth);
-  selectedMonth && console.log(selectedMonthNum);
-  selectedMonth && console.log(selectedMonth);
   // ---------------
 
   const styles = "w-full";
   const chartContainer = HTML("section", styles, "codewars--codewars-chart");
 
   const styles2 = "w-full";
-  const chartCanvas = HTML("canvas", styles2);
+  const chartCanvas = HTML("canvas", styles2) as HTMLCanvasElement;
 
   // ----------------
 
@@ -36,9 +33,9 @@ export default function HonorScoreChart(selectedMonth?: string) {
   CodewarsDashboardDATA.then((data) => {
     const dailyHonor = Object.entries(data["data"]["daily honor"]);
 
-    const labelsDays = [];
-    const honorDataset = [];
-    const scoreDataset = [];
+    const labelsDays: string[] = [];
+    const honorDataset: number[] = [];
+    const scoreDataset: number[] = [];
 
     // for 30 Days view
     for (let i = 0; i < numberOfDaysInThisMonth; i++) {
@@ -52,9 +49,9 @@ export default function HonorScoreChart(selectedMonth?: string) {
       // get the chosen month only
       if (!(dayName.split(" ")[1] === SELECTED_MONTH)) continue;
       // Honor Dataset
-      honorDataset.push(DailyHonor);
+      honorDataset.push(+DailyHonor);
       // Score Dataset
-      scoreDataset.push(DailyScore);
+      scoreDataset.push(+DailyScore);
     }
 
     // ----------------

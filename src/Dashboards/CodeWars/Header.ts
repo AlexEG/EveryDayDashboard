@@ -21,7 +21,9 @@ export default function Header() {
       .append(HonorScoreChart(selectedMonth));
 
     console.log(
-      `%c CodeWars  Honor/Score Chart  Change View => %c ${select.value} `,
+      `%c CodeWars  Honor/Score Chart  Change View => %c ${
+        select.value.split("-")[0]
+      } `,
       "background:black; color:white",
       "background:black; color:#0f0; font-weight:900;"
     );

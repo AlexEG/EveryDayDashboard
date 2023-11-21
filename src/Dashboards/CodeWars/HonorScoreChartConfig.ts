@@ -1,8 +1,10 @@
 export default function HonorScoreChartConfig(
   labelsDays: string[],
-  honorDataset: string[],
-  scoreDataset: string[]
+  honorDataset: number[],
+  scoreDataset: number[]
 ) {
+  // console.log(honorDataset, scoreDataset);
+
   const HonorDataset = {
     label: "Honor",
     data: honorDataset,
