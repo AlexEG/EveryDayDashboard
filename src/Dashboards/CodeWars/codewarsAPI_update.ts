@@ -27,7 +27,6 @@ export default async function codewarsAPI_update() {
     const todayName = new Date().toDateString();
 
     const dailyHonor = data["data"]["daily honor"];
-
     const dailyHonorArr = Object.entries(dailyHonor);
 
     const lastDay =
@@ -35,19 +34,21 @@ export default async function codewarsAPI_update() {
         ? dailyHonorArr[dailyHonorArr.length - 2]
         : dailyHonorArr[dailyHonorArr.length - 1];
 
-    const lastDayTotalHonor = lastDay[1][1];
+    const lastDayTotalHonor = lastDay[1][2];
+    const lastDayTotalScore = lastDay[1][3];
 
     // --- Update codewars.json --- //
 
     const todayHonor = Honor - lastDayTotalHonor;
+    const todayScore = Score - lastDayTotalScore;
 
     console.log(
-      `%c Today Honor %c ${todayHonor} `,
+      `%c Today Honor / Score  %c ${todayHonor}  ${todayScore} `,
       "background:black; color:white",
       "background:black; color:#0f0; font-weight:900;"
     );
 
-    dailyHonor[todayName] = [todayHonor || 0, Honor];
+    dailyHonor[todayName] = [todayHonor || 0, todayScore || 0, Honor, Score];
 
     const newCodewarsData = {
       Honor: Honor,

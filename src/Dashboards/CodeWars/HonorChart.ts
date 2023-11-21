@@ -1,7 +1,6 @@
 import Chart from "chart.js/auto";
 import HTML from "../../components/HTML/HTML";
 import HonorChartConfig from "./HonorChartConfig";
-
 export default function HonorChart() {
   const styles = "w-full";
   const chartCanvas = HTML("canvas", styles, "codewars-chart");
@@ -15,7 +14,7 @@ export default function HonorChart() {
   CodewarsDashboardDATA.then((data) => {
     const dailyHonor = Object.entries(data["data"]["daily honor"]);
 
-    console.log(dailyHonor);
+    // console.log(dailyHonor);
 
     const SELECTED_MONTH = "Nov";
 
@@ -35,7 +34,6 @@ export default function HonorChart() {
     }
 
     // ----------------
-
     (async function () {
       new Chart(chartCanvas, HonorChartConfig(labelsDays, honorDataset));
     })();
