@@ -9,6 +9,6 @@ export default function CodeWars() {
 
   const MainContainer = HTML("main", styles, "codewars");
 
-  MainContainer.append(Header());
+  MainContainer.append(Header(), HonorScoreChart());
   return MainContainer;
 }

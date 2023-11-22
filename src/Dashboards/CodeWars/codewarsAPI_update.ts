@@ -41,13 +41,13 @@ export default async function codewarsAPI_update() {
       "December",
     ];
 
-    const [dayOfWeek, , dayNum, year] = date.toDateString().split(" ");
+    const [, , dayNum, year] = date.toDateString().split(" ");
 
     const thisMonthName = MONTHS[date.getMonth()];
 
     // console.log(dayOfWeek, thisMonthName, dayNum, year);
 
-    const dailyHonor = data["data"]["daily honor"];
+    const dailyHonorScore = data["data"]["daily honor Score"];
     const LastHonor = data["data"]["LastHonor"];
     const LasScore = data["data"]["LasScore"];
 
@@ -57,10 +57,12 @@ export default async function codewarsAPI_update() {
     // const todayScore = Score - lastDayTotalScore;
 
     // add new data to  year: { month: {day:[]} }
-    dailyHonor[year] = { ...dailyHonor[year] };
-    dailyHonor[year][thisMonthName] = { ...dailyHonor[year][[thisMonthName]] };
+    dailyHonorScore[year] = { ...dailyHonorScore[year] };
+    dailyHonorScore[year][thisMonthName] = {
+      ...dailyHonorScore[year][[thisMonthName]],
+    };
 
-    dailyHonor[year][thisMonthName][`${dayOfWeek} ${dayNum}`] = {
+    dailyHonorScore[year][thisMonthName][String(dayNum)] = {
       DailyHonor: Honor - LastHonor,
       DailyScore: Score - LasScore,
       TotalHonor: Honor,
@@ -74,28 +76,28 @@ export default async function codewarsAPI_update() {
     );
 
     // get the last honor & score
-    // flat daily honor to one array of dayName:{...}
+    // flat daily honor Score to one array of dayName:{...}
     // then just get the last item if today is added get the second to last item
 
     const allDaysArr = [];
 
-    for (const year in data["data"]["daily honor"]) {
-      for (const month in data["data"]["daily honor"][year]) {
-        for (const day in data["data"]["daily honor"][year][month]) {
+    for (const year in data["data"]["daily honor Score"]) {
+      for (const month in data["data"]["daily honor Score"][year]) {
+        for (const day in data["data"]["daily honor Score"][year][month]) {
           const honor =
-            data["data"]["daily honor"][year][month][day]["TotalHonor"];
+            data["data"]["daily honor Score"][year][month][day]["TotalHonor"];
           const score =
-            data["data"]["daily honor"][year][month][day]["TotalScore"];
+            data["data"]["daily honor Score"][year][month][day]["TotalScore"];
 
           allDaysArr.push(`${year} ${month} ${day} - ${honor} ${score}`);
         }
       }
     }
     // console.log(allDaysArr);
-    //=> ['2023 November Wed 20 - 231 184', '2023 November Wed 21 - 220 170', '2023 November Wed 22 - 231 184']
+    //=> ['2023 November 20 - 231 184', '2023 November 21 - 220 170', '2023 November 22 - 231 184']
 
     // now get the last day
-    const todayYearMonthDay = `${year} ${thisMonthName} ${dayOfWeek} ${dayNum}`;
+    const todayYearMonthDay = `${year} ${thisMonthName} ${dayNum}`;
     const lastDay =
       allDaysArr[allDaysArr.length - 1].split("-")[0].trimEnd() ===
       todayYearMonthDay
@@ -116,7 +118,7 @@ export default async function codewarsAPI_update() {
       Rank: Rank,
       "Leaderboard Position": LeaderboardPosition,
       "Total Completed Kata": TotalCompletedKata,
-      "daily honor": dailyHonor,
+      "daily honor Score": dailyHonorScore,
     };
 
     window.DATA.editSettingsJSONFile_Value(

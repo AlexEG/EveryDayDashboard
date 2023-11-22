@@ -4,14 +4,33 @@ import HonorScoreChartConfig from "./HonorScoreChartConfig";
 
 export default function HonorScoreChart(selectedMonth?: string) {
   const date = new Date();
-  const thisMonth = date.toDateString().split(" ");
-  const thisMonthNum = date.getMonth() + 1;
+  const MONTHS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const thisYear = date.getFullYear();
+  const thisMonthNum = date.getMonth();
+
+  const SELECTED_YEAR = thisYear;
   const SELECTED_MONTH =
-    (selectedMonth && selectedMonth.split("-")[0].slice(0, 3)) || thisMonth[1];
+    (selectedMonth && selectedMonth.split("-")[0]) || MONTHS[thisMonthNum];
+  // console.log(SELECTED_MONTH); //=> November
+
   const selectedMonthNum = selectedMonth && +selectedMonth.split("-")[1];
 
   const numberOfDaysInThisMonth = new Date(
-    +thisMonth[3],
+    thisYear,
     selectedMonthNum + 1 || thisMonthNum,
     0
   ).getDate();
@@ -31,7 +50,17 @@ export default function HonorScoreChart(selectedMonth?: string) {
   });
 
   CodewarsDashboardDATA.then((data) => {
-    const dailyHonor = Object.entries(data["data"]["daily honor"]);
+    if (!data["data"]["daily honor Score"][SELECTED_YEAR][SELECTED_MONTH]) {
+      console.log(
+        `%c CodeWars  Honor/Score Chart \n%c There is NO DATA for ${SELECTED_MONTH}`,
+        "background:black; color:white",
+        "background:black; color:#f00; font-weight:900;"
+      );
+      return;
+    }
+
+    const dailyHonorScore = data["data"]["daily honor Score"];
+    const MonthData = dailyHonorScore[SELECTED_YEAR][SELECTED_MONTH];
 
     const labelsDays: string[] = [];
     const honorDataset: number[] = [];
@@ -40,36 +69,25 @@ export default function HonorScoreChart(selectedMonth?: string) {
     // for 30 Days view
     for (let i = 0; i < numberOfDaysInThisMonth; i++) {
       // X axis Labels
-      const day = `${SELECTED_MONTH} ${i + 1}`;
+      const dayOfWeek = new Date(`${SELECTED_MONTH} ${i + 1}, ${thisYear}`)
+        .toString()
+        .slice(0, 4);
+
+      const day = `${dayOfWeek} ${i + 1}`;
       labelsDays.push(day);
 
-      //TODO
-      // "2023": {
-      //   "November": {
-      //     "Mon 20": [8, 4, 231, 184],
-      //     "Tue 21": [8, 4, 231, 184]
-      //   }
-      // }
-
-      //  if (!(dailyHonor[i][0].split(" ")[1] === SELECTED_MONTH)) continue;
-
-      if (!(dailyHonor[i][1].split(" ")[2] === i + 1)) {
+      if (MonthData[String(i + 1)]) {
         // Honor Dataset
-        honorDataset.push(+dailyHonor[i][1][0]);
+        honorDataset.push(MonthData[String(i + 1)]["DailyHonor"]);
         // Score Dataset
-        scoreDataset.push(+dailyHonor[i][1][1]);
+        scoreDataset.push(MonthData[String(i + 1)]["DailyScore"]);
+      } else {
+        honorDataset.push(0);
+        scoreDataset.push(0);
       }
     }
 
     // get data from dashboard/codewars.json
-    // for (const [dayName, [DailyHonor, DailyScore]] of dailyHonor) {
-    //   // get the chosen month only
-    //   if (!(dayName.split(" ")[1] === SELECTED_MONTH)) continue;
-    //   // Honor Dataset
-    //   honorDataset.push(+DailyHonor);
-    //   // Score Dataset
-    //   scoreDataset.push(+DailyScore);
-    // }
 
     // ----------------
     (async function () {
