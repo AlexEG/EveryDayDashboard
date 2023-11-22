@@ -2,8 +2,9 @@ import HTML from "../../components/HTML/HTML";
 import HabitsTable from "./habits-table/HabitsTable";
 import InputField from "./HabitSideList/InputField";
 
-import Header from "./Header/Header";
+import Header from "./Header";
 import HabitSideList from "./HabitSideList/HabitSideList";
+import TimeChart from "./TimeChart";
 
 export default function Home() {
   const styles =
@@ -11,9 +12,13 @@ export default function Home() {
 
   const homeContainer = HTML("main", styles, "home");
 
-  const wrapper = HTML("div", "flex gap-x-2 p-2");
-  wrapper.append(HabitSideList(), HabitsTable());
+  const wrapper = HTML(
+    "div",
+    "flex gap-x-2 p-2",
+    "home--habits-table-list-wrapper"
+  );
+  // wrapper.append(HabitSideList(), HabitsTable());
 
-  homeContainer.append(Header(), wrapper, InputField());
+  homeContainer.append(Header(), TimeChart(), InputField());
   return homeContainer;
 }
