@@ -2,33 +2,34 @@
   "data": {
     "Honor": 231,
     "Score": 184,
+    "LastHonor": 220,
+    "LasScore": 170,
     "Rank": -6,
-    "Leaderboard Position": 312744,
-    "Honor Percentile": "Top 52.807%",
+    "Leaderboard Position": 312873,
     "Total Completed Kata": 74,
     "daily honor": {
-      "Sun Oct 18 2023": [9, 5, 209, 184],
-      "Mon Nov 1 2023": [3, 1, 231, 184],
-      "Mon Nov 2 2023": [5, 3, 231, 184],
-      "Mon Nov 3 2023": [7, 3, 231, 184],
-      "Mon Nov 4 2023": [12, 6, 231, 184],
-      "Mon Nov 5 2023": [20, 12, 231, 184],
-      "Mon Nov 6 2023": [4, 1, 231, 184],
-      "Mon Nov 7 2023": [9, 3, 231, 184],
-      "Mon Nov 8 2023": [12, 10, 231, 184],
-      "Mon Nov 9 2023": [6, 2, 231, 184],
-      "Mon Nov 10 2023": [22, 6, 231, 184],
-      "Mon Nov 11 2023": [26, 17, 231, 184],
-      "Mon Nov 12 2023": [30, 12, 231, 184],
-      "Mon Nov 13 2023": [10, 22, 231, 184],
-      "Mon Nov 14 2023": [15, 13, 231, 184],
-      "Mon Nov 15 2023": [26, 25, 231, 184],
-      "Mon Nov 16 2023": [0, 0, 231, 184],
-      "Mon Nov 17 2023": [0, 0, 231, 184],
-      "Mon Nov 18 2023": [7, 5, 231, 184],
-      "Sun Nov 19 2023": [5, 5, 229, 184],
-      "Mon Nov 20 2023": [8, 4, 231, 184],
-      "Tue Nov 21 2023": [0, 0, 231, 184]
+      "2023": {
+        "November": {
+          "Wed 20": {
+            "DailyHonor": 50,
+            "DailyScore": 30,
+            "TotalHonor": 231,
+            "TotalScore": 184
+          },
+          "Wed 21": {
+            "DailyHonor": 50,
+            "DailyScore": 30,
+            "TotalHonor": 220,
+            "TotalScore": 170
+          },
+          "Wed 22": {
+            "DailyHonor": 11,
+            "DailyScore": 14,
+            "TotalHonor": 231,
+            "TotalScore": 184
+          }
+        }
+      }
     }
   }
 }

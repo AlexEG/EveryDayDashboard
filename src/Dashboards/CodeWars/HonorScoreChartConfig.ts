@@ -20,11 +20,28 @@ export default function HonorScoreChartConfig(
     backgroundColor: "#1e40af",
   };
 
+  const XAaxis = {
+    grid: {
+      color: "#ffffff11",
+    },
+  };
+  const YAaxis = {
+    grid: {
+      color: "#ffffff33",
+    },
+  };
+
   return {
     type: "bar",
     data: {
       labels: labelsDays,
       datasets: [HonorDataset, ScoreDataset],
+    },
+    options: {
+      scales: {
+        x: XAaxis,
+        y: YAaxis,
+      },
     },
   };
 }

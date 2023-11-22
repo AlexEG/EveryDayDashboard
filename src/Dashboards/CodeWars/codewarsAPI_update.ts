@@ -24,38 +24,97 @@ export default async function codewarsAPI_update() {
   });
 
   CodewarsDashboardDATA.then((data) => {
-    const todayName = new Date().toDateString();
+    const date = new Date();
+
+    const MONTHS = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    const [dayOfWeek, , dayNum, year] = date.toDateString().split(" ");
+
+    const thisMonthName = MONTHS[date.getMonth()];
+
+    // console.log(dayOfWeek, thisMonthName, dayNum, year);
 
     const dailyHonor = data["data"]["daily honor"];
-    const dailyHonorArr = Object.entries(dailyHonor);
-
-    const lastDay =
-      dailyHonorArr[dailyHonorArr.length - 1][0] === todayName
-        ? dailyHonorArr[dailyHonorArr.length - 2]
-        : dailyHonorArr[dailyHonorArr.length - 1];
-
-    const lastDayTotalHonor = lastDay[1][2];
-    const lastDayTotalScore = lastDay[1][3];
+    const LastHonor = data["data"]["LastHonor"];
+    const LasScore = data["data"]["LasScore"];
 
     // --- Update codewars.json --- //
 
-    const todayHonor = Honor - lastDayTotalHonor;
-    const todayScore = Score - lastDayTotalScore;
+    // const todayHonor = Honor - lastDayTotalHonor;
+    // const todayScore = Score - lastDayTotalScore;
+
+    // add new data to  year: { month: {day:[]} }
+    dailyHonor[year] = { ...dailyHonor[year] };
+    dailyHonor[year][thisMonthName] = { ...dailyHonor[year][[thisMonthName]] };
+
+    dailyHonor[year][thisMonthName][`${dayOfWeek} ${dayNum}`] = {
+      DailyHonor: Honor - LastHonor,
+      DailyScore: Score - LasScore,
+      TotalHonor: Honor,
+      TotalScore: Score,
+    };
 
     console.log(
-      `%c Today Honor / Score  %c ${todayHonor}  ${todayScore} `,
+      `%c Today Honor / Score  %c ${Honor - LastHonor}  ${Score - LasScore} `,
       "background:black; color:white",
       "background:black; color:#0f0; font-weight:900;"
     );
 
-    dailyHonor[todayName] = [todayHonor || 0, todayScore || 0, Honor, Score];
+    // get the last honor & score
+    // flat daily honor to one array of dayName:{...}
+    // then just get the last item if today is added get the second to last item
+
+    const allDaysArr = [];
+
+    for (const year in data["data"]["daily honor"]) {
+      for (const month in data["data"]["daily honor"][year]) {
+        for (const day in data["data"]["daily honor"][year][month]) {
+          const honor =
+            data["data"]["daily honor"][year][month][day]["TotalHonor"];
+          const score =
+            data["data"]["daily honor"][year][month][day]["TotalScore"];
+
+          allDaysArr.push(`${year} ${month} ${day} - ${honor} ${score}`);
+        }
+      }
+    }
+    // console.log(allDaysArr);
+    //=> ['2023 November Wed 20 - 231 184', '2023 November Wed 21 - 220 170', '2023 November Wed 22 - 231 184']
+
+    // now get the last day
+    const todayYearMonthDay = `${year} ${thisMonthName} ${dayOfWeek} ${dayNum}`;
+    const lastDay =
+      allDaysArr[allDaysArr.length - 1].split("-")[0].trimEnd() ===
+      todayYearMonthDay
+        ? allDaysArr[allDaysArr.length - 2]
+        : allDaysArr[allDaysArr.length - 1];
+
+    const [newLastHonor, newLsatScore] = lastDay
+      .split("-")[1]
+      .trimStart()
+      .split(" ");
+    // console.log(newLastHonor, newLsatScore);
 
     const newCodewarsData = {
       Honor: Honor,
       Score: Score,
+      LastHonor: +newLastHonor,
+      LasScore: +newLsatScore,
       Rank: Rank,
       "Leaderboard Position": LeaderboardPosition,
-      "Honor Percentile": "Top 52.807%",
       "Total Completed Kata": TotalCompletedKata,
       "daily honor": dailyHonor,
     };

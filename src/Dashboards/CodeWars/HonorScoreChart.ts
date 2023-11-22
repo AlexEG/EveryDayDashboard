@@ -18,10 +18,10 @@ export default function HonorScoreChart(selectedMonth?: string) {
 
   // ---------------
 
-  const styles = "w-full";
+  const styles = "w-full flex justify-center py-4 mt-4 bg-indigo-800/5";
   const chartContainer = HTML("section", styles, "codewars--codewars-chart");
 
-  const styles2 = "w-full";
+  const styles2 = "max-w-7xl border border-indigo-600/50";
   const chartCanvas = HTML("canvas", styles2) as HTMLCanvasElement;
 
   // ----------------
@@ -42,17 +42,34 @@ export default function HonorScoreChart(selectedMonth?: string) {
       // X axis Labels
       const day = `${SELECTED_MONTH} ${i + 1}`;
       labelsDays.push(day);
+
+      //TODO
+      // "2023": {
+      //   "November": {
+      //     "Mon 20": [8, 4, 231, 184],
+      //     "Tue 21": [8, 4, 231, 184]
+      //   }
+      // }
+
+      //  if (!(dailyHonor[i][0].split(" ")[1] === SELECTED_MONTH)) continue;
+
+      if (!(dailyHonor[i][1].split(" ")[2] === i + 1)) {
+        // Honor Dataset
+        honorDataset.push(+dailyHonor[i][1][0]);
+        // Score Dataset
+        scoreDataset.push(+dailyHonor[i][1][1]);
+      }
     }
 
     // get data from dashboard/codewars.json
-    for (const [dayName, [DailyHonor, DailyScore]] of dailyHonor) {
-      // get the chosen month only
-      if (!(dayName.split(" ")[1] === SELECTED_MONTH)) continue;
-      // Honor Dataset
-      honorDataset.push(+DailyHonor);
-      // Score Dataset
-      scoreDataset.push(+DailyScore);
-    }
+    // for (const [dayName, [DailyHonor, DailyScore]] of dailyHonor) {
+    //   // get the chosen month only
+    //   if (!(dayName.split(" ")[1] === SELECTED_MONTH)) continue;
+    //   // Honor Dataset
+    //   honorDataset.push(+DailyHonor);
+    //   // Score Dataset
+    //   scoreDataset.push(+DailyScore);
+    // }
 
     // ----------------
     (async function () {
