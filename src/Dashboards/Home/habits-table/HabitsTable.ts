@@ -4,7 +4,7 @@ import TableBody from "./TableBody";
 import AllHabitsDATA from "./AllHabitsDATA";
 
 export default function HabitsTable() {
-  const styles = "overflow-auto h-full w-full relative";
+  const styles = "h-full w-full relative";
   const tableContainer = HTML("section", styles);
   const table = HTML("table", "border border-neutral-200", "habits-table");
 

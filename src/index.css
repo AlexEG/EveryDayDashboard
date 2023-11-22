@@ -6,53 +6,23 @@ div#titlebar {
   -webkit-app-region: drag;
 }
 
-main section::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-main section::-webkit-scrollbar-track {
-  background: transparent;
-  /* margin-top: 35px; */
-  /* margin-bottom: 50px; */
-  /* margin-inline: 10px; */
-  margin-block: 10px;
-}
-main section::-webkit-scrollbar-thumb {
-  background: #ffffff77;
-  border-radius: 5px;
-}
-main section::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
-}
-
-/* main::-webkit-scrollbar {
-  width: 4px;
-}
-main::-webkit-scrollbar-track {
-  background: black;
-  margin-top: 35px;
-  margin-bottom: 50px;
-}
-main::-webkit-scrollbar-thumb {
-  background: #ffffff77;
-  border-radius: 5px;
-}
-main::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
-} */
-
-/* ----------------- SETTINGS ----------------- */
-#settings section::-webkit-scrollbar {
+/* ----------------- SETTINGS && MAIN ----------------- */
+#settings section::-webkit-scrollbar,
+main::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
-#settings section::-webkit-scrollbar-track {
+#settings section::-webkit-scrollbar-track,
+main::-webkit-scrollbar-track {
   background: transparent;
   margin-top: 2.5rem;
 }
-#settings section::-webkit-scrollbar-thumb {
+#settings section::-webkit-scrollbar-thumb,
+main::-webkit-scrollbar-thumb {
   background: rgb(67 56 202);
 }
-#settings section::-webkit-scrollbar-thumb:hover {
+#settings section::-webkit-scrollbar-thumb:hover,
+main::-webkit-scrollbar-thumb:hover {
   background: rgb(100, 125, 209);
 }
 

@@ -37,11 +37,11 @@ export default function TimeChartConfig(
   ];
   const datasets: any = [];
 
-  console.log(AllHabitsNames);
-  console.log(AllHabitsTimeDataset);
+  // console.log(AllHabitsNames);
+  // console.log(AllHabitsTimeDataset);
 
   for (let i = 0; i < AllHabitsNames.length; i++) {
-    console.log(AllHabitsNames[i]);
+    // console.log(AllHabitsNames[i]);
     const dataset = {
       label: AllHabitsNames[i],
       data: AllHabitsTimeDataset[i],
