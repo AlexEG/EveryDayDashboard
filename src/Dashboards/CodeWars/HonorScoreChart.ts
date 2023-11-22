@@ -50,6 +50,14 @@ export default function HonorScoreChart(selectedMonth?: string) {
   });
 
   CodewarsDashboardDATA.then((data) => {
+    if (!data["data"]["daily honor Score"][SELECTED_YEAR]) {
+      console.log(
+        `%c CodeWars  Honor/Score Chart \n%c There is NO DATA for ${SELECTED_YEAR}`,
+        "background:black; color:white",
+        "background:black; color:#f00; font-weight:900;"
+      );
+      return;
+    }
     if (!data["data"]["daily honor Score"][SELECTED_YEAR][SELECTED_MONTH]) {
       console.log(
         `%c CodeWars  Honor/Score Chart \n%c There is NO DATA for ${SELECTED_MONTH}`,
