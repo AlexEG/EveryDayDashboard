@@ -2,7 +2,6 @@ import Chart from "chart.js/auto";
 import HTML from "../../../components/HTML/HTML";
 import TimeChartConfig from "./TimeChartConfig";
 import ChartLabelDays from "./ChartLabelDays";
-// import HabitsTimeDatasets from "./HabitsTimeDatasets";
 import AllHabitsDATA from "../habits-table/AllHabitsDATA";
 
 export default function TimeChart() {
