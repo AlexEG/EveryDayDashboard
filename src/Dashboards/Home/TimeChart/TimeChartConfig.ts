@@ -43,7 +43,7 @@ export default function TimeChartConfig(
   for (let i = 0; i < AllHabitsNames.length; i++) {
     // console.log(AllHabitsNames[i]);
     const dataset = {
-      label: AllHabitsNames[i],
+      label: AllHabitsNames[i] + " ",
       data: AllHabitsTimeDataset[i],
       borderWidth: 2,
       borderColor: colors[i],
