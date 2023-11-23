@@ -6,7 +6,7 @@ import AllHabitsDATA from "../habits-table/AllHabitsDATA";
 
 export default function TimeChart() {
   const styles =
-    "w-full h-[800px] flex justify-center p-4 mt-4 bg-indigo-800/5";
+    "w-full h-[800px] flex justify-center p-4 mt-4 bg-indigo-800/5 bg-indigo-50";
   const chartContainer = HTML("section", styles, "home--habits-time-chart");
 
   const styles2 = "border border-indigo-600/50";

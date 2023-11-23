@@ -37,10 +37,10 @@ export default function HonorScoreChart(selectedMonth?: string) {
 
   // ---------------
 
-  const styles = "w-full flex justify-center py-4 mt-4 bg-indigo-800/5";
+  const styles =
+    "w-full h-[800px] flex justify-center p-4 mt-4 bg-indigo-800/5";
   const chartContainer = HTML("section", styles, "codewars--codewars-chart");
-
-  const styles2 = "max-w-7xl border border-indigo-600/50";
+  const styles2 = "border border-indigo-600/50";
   const chartCanvas = HTML("canvas", styles2) as HTMLCanvasElement;
 
   // ----------------

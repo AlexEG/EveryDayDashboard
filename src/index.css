@@ -10,7 +10,7 @@ div#titlebar {
 #settings section::-webkit-scrollbar,
 main::-webkit-scrollbar {
   width: 6px;
-  height: 6px;
+  height: 10px;
 }
 #settings section::-webkit-scrollbar-track,
 main::-webkit-scrollbar-track {

@@ -1,32 +1,41 @@
 {
   "data": {
-    "Honor": 231,
-    "Score": 184,
-    "LastHonor": 220,
-    "LasScore": 170,
+    "Honor": 243,
+    "Score": 196,
+    "LastHonor": 231,
+    "LasScore": 184,
     "Rank": -6,
-    "Leaderboard Position": 312873,
-    "Total Completed Kata": 74,
+    "Leaderboard Position": 300621,
+    "Total Completed Kata": 80,
+    "Languages": {
+      "javascript": {
+        "rank": -6,
+        "name": "6 kyu",
+        "color": "yellow",
+        "score": 153
+      },
+      "typescript": {
+        "rank": -7,
+        "name": "7 kyu",
+        "color": "white",
+        "score": 45
+      },
+      "go": { "rank": -8, "name": "8 kyu", "color": "white", "score": 4 }
+    },
     "daily honor Score": {
       "2023": {
         "November": {
-          "20": {
-            "DailyHonor": 50,
-            "DailyScore": 30,
-            "TotalHonor": 231,
-            "TotalScore": 184
-          },
-          "21": {
-            "DailyHonor": 50,
-            "DailyScore": 30,
-            "TotalHonor": 220,
-            "TotalScore": 170
-          },
           "22": {
             "DailyHonor": 11,
             "DailyScore": 14,
             "TotalHonor": 231,
             "TotalScore": 184
+          },
+          "23": {
+            "DailyHonor": 12,
+            "DailyScore": 12,
+            "TotalHonor": 243,
+            "TotalScore": 196
           }
         }
       }

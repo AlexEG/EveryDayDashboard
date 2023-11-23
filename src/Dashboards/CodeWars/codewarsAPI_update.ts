@@ -10,10 +10,12 @@ export default async function codewarsAPI_update() {
   );
   const data = await response.json();
 
+  console.log(data);
   // --- GET API DATA --- //
   const Honor = data.honor;
   const Score = data.ranks.overall.score;
   const Rank = data.ranks.overall.rank;
+  const Languages = data.ranks.languages;
   const TotalCompletedKata = data.codeChallenges.totalCompleted;
   const LeaderboardPosition = data.leaderboardPosition;
 
@@ -118,6 +120,7 @@ export default async function codewarsAPI_update() {
       Rank: Rank,
       "Leaderboard Position": LeaderboardPosition,
       "Total Completed Kata": TotalCompletedKata,
+      Languages: Languages,
       "daily honor Score": dailyHonorScore,
     };
 

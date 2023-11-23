@@ -48,6 +48,7 @@ export default function TimeChartConfig(
       borderWidth: 2,
       borderColor: colors[i],
       backgroundColor: colors[i],
+      pointHoverRadius: 7,
     };
     datasets.push(dataset);
   }
@@ -61,7 +62,10 @@ export default function TimeChartConfig(
     max: 24,
     beginAtZero: true,
     ticks: {
+      callback: (value: number) =>
+        value > 12 ? `${value - 12} pm` : `${value} am`,
       stepSize: 2,
+      color: "rgb(238 242 255 / 80)",
     },
     grid: {
       color: "#ffffff33",
