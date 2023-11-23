@@ -106,11 +106,44 @@ export default async function codewarsAPI_update() {
         ? allDaysArr[allDaysArr.length - 2]
         : allDaysArr[allDaysArr.length - 1];
 
+    // console.log(lastDay); //=> '2023 November 22 - 231 184'
+
     const [newLastHonor, newLsatScore] = lastDay
       .split("-")[1]
       .trimStart()
       .split(" ");
     // console.log(newLastHonor, newLsatScore);
+
+    //* Languages Score [Start]
+    const LanguagesScore = {};
+
+    const [lastDayYear, lastDayMonth, lastDayDayNum] = lastDay
+      .split("-")[0]
+      .trimStart()
+      .split(" ");
+    // console.log(lastDayYear, lastDayMonth, lastDayDayNum);
+
+    // DailyLangScore = lastday language TotalScore - today language totalScore
+
+    for (const key in Languages) {
+      const lastDayTotalLangScore =
+        data["data"]["daily honor Score"][lastDayYear][lastDayMonth][
+          lastDayDayNum
+        ]["LanguagesScore"][key]["TotalLangScore"];
+
+      // console.log(lastDayTotalLangScore);
+
+      const DailyLangScore = Languages[key]["score"] - lastDayTotalLangScore;
+
+      LanguagesScore[key] = {
+        DailyLangScore: DailyLangScore,
+        TotalLangScore: Languages[key]["score"],
+      };
+    }
+    dailyHonorScore[year][thisMonthName][String(dayNum)]["LanguagesScore"] =
+      LanguagesScore;
+
+    //* Languages Score [End]
 
     const newCodewarsData = {
       Honor: Honor,

@@ -29,13 +29,23 @@
             "DailyHonor": 10,
             "DailyScore": 10,
             "TotalHonor": 231,
-            "TotalScore": 184
+            "TotalScore": 184,
+            "LanguagesScore": {
+              "javascript": { "DailyLangScore": 8, "TotalLangScore": 153 },
+              "typescript": { "DailyLangScore": 4, "TotalLangScore": 33 },
+              "go": { "DailyLangScore": 10, "TotalLangScore": 4 }
+            }
           },
           "23": {
             "DailyHonor": 12,
             "DailyScore": 12,
             "TotalHonor": 243,
-            "TotalScore": 196
+            "TotalScore": 196,
+            "LanguagesScore": {
+              "javascript": { "DailyLangScore": 3, "TotalLangScore": 153 },
+              "typescript": { "DailyLangScore": 12, "TotalLangScore": 45 },
+              "go": { "DailyLangScore": 7, "TotalLangScore": 4 }
+            }
           }
         }
       }

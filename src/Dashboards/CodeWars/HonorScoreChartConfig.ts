@@ -1,31 +1,50 @@
 export default function HonorScoreChartConfig(
   labelsDays: string[],
   honorDataset: number[],
-  scoreDataset: number[]
+  LanguagesNames: string[],
+  LanguagesScoreBigArray: any
 ) {
-  // console.log(honorDataset, scoreDataset);
+  // console.log(honorDataset);
 
   const HonorDataset = {
     label: "Honor",
     data: honorDataset,
-    borderWidth: 0,
-    borderColor: "#fb7185",
-    backgroundColor: "#9f1239",
+    backgroundColor: "#6b21a8",
+    stack: "Stack 0",
   };
-  const ScoreDataset = {
-    label: "Score",
-    data: scoreDataset,
-    borderWidth: 0,
-    borderColor: "#60a5fa",
-    backgroundColor: "#1e40af",
-  };
+
+  const colors = [
+    "#eab308",
+    "#0ea5e9",
+    "#be123c",
+    "#9333ea",
+    "#4f46e5",
+    "#1d4ed8",
+    "#16a34a",
+  ];
+
+  const languageDatasetsArr = [];
+  for (let i = 0; i < LanguagesNames.length; i++) {
+    const Dataset = {
+      label: LanguagesNames[i],
+      data: LanguagesScoreBigArray[i],
+      backgroundColor: colors[i],
+      stack: "Stack 1",
+    };
+    console.log(LanguagesScoreBigArray[i]);
+    languageDatasetsArr.push(Dataset);
+  }
+
+  console.log(languageDatasetsArr);
 
   const XAaxis = {
     grid: {
+      stacked: true,
       color: "#ffffff11",
     },
   };
   const YAaxis = {
+    stacked: true,
     grid: {
       color: "#ffffff33",
     },
@@ -35,9 +54,13 @@ export default function HonorScoreChartConfig(
     type: "bar",
     data: {
       labels: labelsDays,
-      datasets: [HonorDataset, ScoreDataset],
+      datasets: [HonorDataset, ...languageDatasetsArr],
     },
     options: {
+      responsive: true,
+      interaction: {
+        intersect: false,
+      },
       scales: {
         x: XAaxis,
         y: YAaxis,

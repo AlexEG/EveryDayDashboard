@@ -72,7 +72,7 @@ export default function HonorScoreChart(selectedMonth?: string) {
 
     const labelsDays: string[] = [];
     const honorDataset: number[] = [];
-    const scoreDataset: number[] = [];
+    // const scoreDataset: number[] = [];
 
     // for 30 Days view
     for (let i = 0; i < numberOfDaysInThisMonth; i++) {
@@ -88,20 +88,83 @@ export default function HonorScoreChart(selectedMonth?: string) {
         // Honor Dataset
         honorDataset.push(MonthData[String(i + 1)]["DailyHonor"]);
         // Score Dataset
-        scoreDataset.push(MonthData[String(i + 1)]["DailyScore"]);
+        // scoreDataset.push(MonthData[String(i + 1)]["DailyScore"]);
       } else {
-        honorDataset.push(0);
-        scoreDataset.push(0);
+        honorDataset.push(null);
+        // scoreDataset.push(null);
       }
     }
 
-    // get data from dashboard/codewars.json
+    //* Languages Score START *//
 
+    const LanguagesNames = Object.keys(data["data"]["Languages"]);
+    const LanguagesMonthlyDailyLangScore = {};
+
+    for (const langName of LanguagesNames) {
+      LanguagesMonthlyDailyLangScore[langName] = [];
+    }
+    console.log(LanguagesMonthlyDailyLangScore);
+    // now we need arr with arrays of the values of DailyLangScore for the month so each array must be like 30 value and each array is indexed at the same index of lang name in "LanguagesNames"
+
+    // data: [15, 23, 0, 4, 8] repeat the same value three time in the same day and stack them
+
+    // 1. we have 3 datasets
+    // 2. if data: [values] will repeat the day index for the 3 dataset
+    // 3. but what if we make 3 dataset with 3 difrenet ( data: [values] )
+    // 4. for "JS" give data: the month Array of JS only and so on
+    // 5. so now we need to get each language array of dailyLangScore for the Month
+    // 6. then store all of them in one big array
+    // 7. then in config loop over the number of languages (3)
+    // 8. make (3) datasets
+    // 9. pass the bigArray[i] to each data:
+
+    for (let i = 0; i < numberOfDaysInThisMonth; i++) {
+      const languageScore =
+        data["data"]["daily honor Score"][SELECTED_YEAR][SELECTED_MONTH][
+          String(i + 1)
+        ];
+      console.log("languageScore :", languageScore);
+
+      if (languageScore) {
+        const languagesObjForEveryDay = languageScore["LanguagesScore"];
+
+        for (const lang in languagesObjForEveryDay) {
+          const langScore = languagesObjForEveryDay[lang]["DailyLangScore"];
+          // console.log(langScore);
+
+          LanguagesMonthlyDailyLangScore[lang].push(langScore);
+        }
+
+        // console.log(languagesObjForEveryDay);
+      } else {
+        // now I need to fill the empty days with null
+        for (const lang in LanguagesMonthlyDailyLangScore) {
+          LanguagesMonthlyDailyLangScore[lang].push(null);
+        }
+      }
+    }
+    console.log(LanguagesNames);
+    console.log("the BIG arr ", LanguagesMonthlyDailyLangScore);
+
+    // now all I need to do is just convert the big arr (have objects in it) to array of array  then store then in array
+    const LanguagesScoreBigArray = Object.values(
+      LanguagesMonthlyDailyLangScore
+    );
+    console.log(LanguagesScoreBigArray);
+    //* Languages Score END *//
+
+    // get data from dashboard/codewars.json
+    // console.log(scoreDataset);
     // ----------------
     (async function () {
       new Chart(
         chartCanvas,
-        HonorScoreChartConfig(labelsDays, honorDataset, scoreDataset)
+        HonorScoreChartConfig(
+          labelsDays,
+          honorDataset,
+          LanguagesNames,
+          LanguagesScoreBigArray
+        )
       );
     })();
 

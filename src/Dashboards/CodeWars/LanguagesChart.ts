@@ -16,7 +16,6 @@ export default function LanguagesChart() {
   });
 
   CodewarsDashboardDATA.then((data) => {
-    console.log(data);
     const totalScore = data["data"]["Score"];
     const LanguagesNames = [];
     const LanguagesScores = [];
