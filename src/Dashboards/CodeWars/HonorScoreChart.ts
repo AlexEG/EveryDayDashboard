@@ -103,7 +103,7 @@ export default function HonorScoreChart(selectedMonth?: string) {
     for (const langName of LanguagesNames) {
       LanguagesMonthlyDailyLangScore[langName] = [];
     }
-    console.log(LanguagesMonthlyDailyLangScore);
+    // console.log(LanguagesMonthlyDailyLangScore);
     // now we need arr with arrays of the values of DailyLangScore for the month so each array must be like 30 value and each array is indexed at the same index of lang name in "LanguagesNames"
 
     // data: [15, 23, 0, 4, 8] repeat the same value three time in the same day and stack them
@@ -123,7 +123,7 @@ export default function HonorScoreChart(selectedMonth?: string) {
         data["data"]["daily honor Score"][SELECTED_YEAR][SELECTED_MONTH][
           String(i + 1)
         ];
-      console.log("languageScore :", languageScore);
+      // console.log("languageScore :", languageScore);
 
       if (languageScore) {
         const languagesObjForEveryDay = languageScore["LanguagesScore"];
@@ -143,14 +143,14 @@ export default function HonorScoreChart(selectedMonth?: string) {
         }
       }
     }
-    console.log(LanguagesNames);
-    console.log("the BIG arr ", LanguagesMonthlyDailyLangScore);
+    // console.log(LanguagesNames);
+    // console.log("the BIG arr ", LanguagesMonthlyDailyLangScore);
 
     // now all I need to do is just convert the big arr (have objects in it) to array of array  then store then in array
     const LanguagesScoreBigArray = Object.values(
       LanguagesMonthlyDailyLangScore
     );
-    console.log(LanguagesScoreBigArray);
+    // console.log(LanguagesScoreBigArray);
     //* Languages Score END *//
 
     // get data from dashboard/codewars.json

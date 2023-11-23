@@ -33,7 +33,7 @@
             "LanguagesScore": {
               "javascript": { "DailyLangScore": 8, "TotalLangScore": 153 },
               "typescript": { "DailyLangScore": 4, "TotalLangScore": 33 },
-              "go": { "DailyLangScore": 10, "TotalLangScore": 4 }
+              "go": { "DailyLangScore": 0, "TotalLangScore": 4 }
             }
           },
           "23": {

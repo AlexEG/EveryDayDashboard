@@ -31,11 +31,11 @@ export default function HonorScoreChartConfig(
       backgroundColor: colors[i],
       stack: "Stack 1",
     };
-    console.log(LanguagesScoreBigArray[i]);
+    // console.log(LanguagesScoreBigArray[i]);
     languageDatasetsArr.push(Dataset);
   }
 
-  console.log(languageDatasetsArr);
+  // console.log(languageDatasetsArr);
 
   const XAaxis = {
     grid: {
