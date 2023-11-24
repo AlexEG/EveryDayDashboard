@@ -5,7 +5,7 @@ import LanguagesChartConfig from "./LanguagesChartConfig";
 export default function LanguagesChart() {
   const styles =
     "w-full h-[800px] flex justify-center p-4 mt-4 bg-indigo-800/5";
-  const chartContainer = HTML("section", styles, "codewars--codewars-chart");
+  const chartContainer = HTML("section", styles, "codewars--Languages--chart");
 
   const chartCanvas = HTML("canvas") as HTMLCanvasElement;
 

@@ -3,6 +3,7 @@ import Header from "./Header";
 
 import HonorScoreChart from "./HonorScoreChart";
 import LanguagesChart from "./LanguagesChart";
+import LanguagesRankCharts from "./LanguagesRankCharts";
 
 export default function CodeWars() {
   const styles =
@@ -10,6 +11,11 @@ export default function CodeWars() {
 
   const MainContainer = HTML("main", styles, "codewars");
 
-  MainContainer.append(Header(), HonorScoreChart(), LanguagesChart());
+  MainContainer.append(
+    Header(),
+    HonorScoreChart(),
+    LanguagesRankCharts(),
+    LanguagesChart()
+  );
   return MainContainer;
 }
