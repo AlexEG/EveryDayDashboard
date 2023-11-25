@@ -21,8 +21,14 @@ export default function LanguagesChart() {
     const LanguagesScores = [];
 
     for (const key in data["data"]["Languages"]) {
-      LanguagesNames.push(`${key}  ${data["data"]["Languages"][key]["name"]}`);
-      LanguagesScores.push(data["data"]["Languages"][key]["score"]);
+      const langScore = data["data"]["Languages"][key]["score"];
+      LanguagesNames.push(
+        `${key} (${data["data"]["Languages"][key]["name"]} | ${+(
+          (langScore / totalScore) *
+          100
+        ).toFixed(1)}%)`
+      );
+      LanguagesScores.push(langScore);
     }
     // ----------------
     (async function () {
