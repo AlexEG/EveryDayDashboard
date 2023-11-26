@@ -10,7 +10,7 @@ export default async function codewarsAPI_update() {
   );
   const data = await response.json();
 
-  console.log(data);
+  // console.log(data);
   // --- GET API DATA --- //
   const Honor = data.honor;
   const Score = data.ranks.overall.score;

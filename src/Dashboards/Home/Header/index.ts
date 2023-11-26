@@ -8,7 +8,7 @@ export default function Header() {
     "p",
     "text-emerald-500 text-sm font-medium self-center mr-auto",
     "",
-    "Check after the task is finished"
+    "Check after the task is finished  (Don't do in order, Do when you feel like it)"
   );
   function aa() {
     console.log("first");
