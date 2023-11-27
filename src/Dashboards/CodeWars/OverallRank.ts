@@ -42,7 +42,7 @@ export default function OverallRank() {
     const progress = `${+((myScore / nextRankScore) * 100).toFixed(1)}%`;
     span.textContent = progress;
 
-    console.log(nextRankScore);
+    // console.log(nextRankScore);
     // ----------------
     (async function () {
       new Chart(chartCanvas, OverallRankConfig(myScore, nextRankScore));

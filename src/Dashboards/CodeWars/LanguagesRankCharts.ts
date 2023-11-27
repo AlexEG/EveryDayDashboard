@@ -5,15 +5,16 @@ import LanguagesRankChartsConfig from "./LanguagesRankChartsConfig";
 
 export default function LanguagesRankCharts() {
   const REQUIRED_SCORE_TO_RANK_UP = {
-    "8 kyu": 0,
-    "7 kyu": 20,
-    "6 kyu": 76,
-    "5 kyu": 229,
-    "4 kyu": 643,
-    "3 kyu": 1_768,
-    "2 kyu": 4_829,
-    "1 kyu": 13_147,
+    "8 kyu": [0, 0],
+    "7 kyu": [20, 20],
+    "6 kyu": [76, 96],
+    "5 kyu": [229, 325],
+    "4 kyu": [643, 968],
+    "3 kyu": [1_768, 2_736],
+    "2 kyu": [4_829, 7_565],
+    "1 kyu": [13_147, 20_712],
   };
+
   const LANGUAGES_COLORS = {
     javascript: "#eab308",
     typescript: "#0ea5e9",
@@ -25,7 +26,7 @@ export default function LanguagesRankCharts() {
 
   // -------------------------
   codewarsDATA().then((data) => {
-    // console.log(data);
+    console.log(data);
 
     for (const langName in data["data"]["Languages"]) {
       // 1. markup: Canvas for each doughnut Chart
@@ -43,17 +44,19 @@ export default function LanguagesRankCharts() {
       // console.log(langName);
       // console.log(langColor);
 
-      // 3. get the lang score
-      const langScore = data["data"]["Languages"][langName]["score"];
-      // console.log(langScore);
-
       // 4. lang rank
       const langRank = -data["data"]["Languages"][langName]["rank"];
       // console.log(langRank);
 
+      // 3. get the lang score
+      const langScore =
+        data["data"]["Languages"][langName]["score"] -
+        REQUIRED_SCORE_TO_RANK_UP[`${langRank} kyu`][0];
+      // console.log(langScore);
+
       // 5. get lang score for next rank
       const langNextRankRequiredScore =
-        REQUIRED_SCORE_TO_RANK_UP[`${langRank - 1} kyu`];
+        REQUIRED_SCORE_TO_RANK_UP[`${langRank - 1} kyu`][0];
       // console.log(
       //   "Next Rank Required Score: ",
       //   langNextRankRequiredScore,
