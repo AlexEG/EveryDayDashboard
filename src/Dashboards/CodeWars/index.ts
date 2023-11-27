@@ -4,6 +4,7 @@ import Header from "./Header";
 import HonorScoreChart from "./HonorScoreChart";
 import LanguagesChart from "./LanguagesChart";
 import LanguagesRankCharts from "./LanguagesRankCharts";
+import OverallRank from "./OverallRank";
 
 export default function CodeWars() {
   const styles =
@@ -15,7 +16,8 @@ export default function CodeWars() {
     Header(),
     HonorScoreChart(),
     LanguagesRankCharts(),
-    LanguagesChart()
+    LanguagesChart(),
+    OverallRank()
   );
   return MainContainer;
 }
