@@ -9,10 +9,6 @@ export default function Header() {
   const styles = "flex justify-between";
   const Header = HTML("div", styles);
 
-  const img = HTML("img", "mr-auto", "", "", {
-    src: "https://www.codewars.com/users/AlexEG/badges/micro",
-  });
-
   function changeViewedMonth(target: EventTarget) {
     const select = target as HTMLSelectElement;
     const selectedMonth = select.value;
@@ -41,6 +37,8 @@ export default function Header() {
     const rank = data["data"]["Rank"];
     const honor = data["data"]["Honor"];
     const leaderboardPositionor = data["data"]["Leaderboard Position"];
+    const CompletedKata = data["data"]["Total Completed Kata"];
+
     // Header Badges
     const Rank = Badge(`Rank: ${-rank} kyu`);
     const Honor = Badge(`Honor: ${honor}`);
@@ -51,7 +49,7 @@ export default function Header() {
     const HonorPercentile = Badge(
       `Top ${((leaderboardPositionor / 600_000) * 100).toFixed(3)}%`
     );
-    const TotalCompletedKata = Badge("Completed Kata: 80");
+    const TotalCompletedKata = Badge(`Completed Kata: ${CompletedKata}`);
 
     wrraper2.append(
       Rank,
