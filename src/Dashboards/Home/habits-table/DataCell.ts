@@ -27,8 +27,6 @@ export default function DataCell(
     .slice(2)
     .join(" ")}`;
 
-  console.log(habitsNames[j].split("_").slice(2).join(" "));
-
   const styles =
     "relative accent-indigo-600 w-5 h-5 cursor-pointer after:content-[attr(customtitle)] after:absolute after:-top-2 after:left-1/2 after:text-indigo-200 after:bg-indigo-950 after:px-2 after:py-0.5 after:-translate-y-full after:-translate-x-1/2 after:whitespace-nowrap after:invisible hover:after:visible after:rounded-md";
 

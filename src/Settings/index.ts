@@ -3,6 +3,7 @@ import CloseSettingBtn from "./CloseSettingBtn";
 import NavSidebar from "./NavSidebar";
 // import Titlebar from "./SettingsPages/Titlebar";
 import Sidebar from "./SettingsPages/Sidebar";
+// import Home from "./SettingsPages/Home";
 
 export default function Settings() {
   const styles =

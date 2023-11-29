@@ -1,9 +1,1 @@
-{
-  "data": {
-    "habitsColor": {
-      "Wake up 12 AM": "#ff0000",
-      "Brush Teeth - morning": "#00ff00",
-      "Brush Teeth - bedtime": "#00ff00"
-    }
-  }
-}
+{"habitsColor":{"Wake up 12 AM":"#4b0cdf","Brush Teeth - morning":"#940000","Brush Teeth - bedtime":"#940000","Eat 3":"#00d1e0","Eat 1":"#00d1e0","Eat 2":"#00d1e0","Reading 1 - 2hrs":"#ff0088","Reading 2 - 1hr":"#ff0088","Reading 3 - 1hr":"#ff0088","Supplements - Omega 3":"#92d600","Hypotension - Pantoprazole":"#8fd200","Hypotension - Fludrocortisone":"#8fd200","Supplements - Multivitamin":"#92d600","CodeWars - 1hr":"#12009e","Side Project - 1hr":"#12009e","Plank":"#00f53d","Do Laundry - 12PM":"#00f53d","Whiteboard Brainstorming - 15mins":"#00f53d","Record English - 30 mins":"#00f53d","Take Shower":"#00f53d","MonkeyType - 5mins":"#00f53d"}}

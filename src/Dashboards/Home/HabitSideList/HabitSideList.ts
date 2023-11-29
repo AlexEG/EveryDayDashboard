@@ -40,7 +40,7 @@ export default function HabitSideList() {
         `${habitTitle}`
       );
       // add color
-      const habitColor = data["data"]["habitsColor"][habitTitle];
+      const habitColor = data["habitsColor"][habitTitle];
       span2.style.color = habitColor ? habitColor : "";
 
       habit.append(span1, span2);

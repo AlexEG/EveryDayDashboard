@@ -10,9 +10,8 @@ export default function HabitsTable() {
   const table = HTML("table", "border border-neutral-200", "habits-table");
 
   SettingsHomeDATA().then((data) => {
-    console.log(data);
-    const habitsColors = data["data"]["habitsColor"];
-    console.log(habitsColors);
+    const habitsColors = data["habitsColor"];
+    // console.log(habitsColors);
 
     AllHabitsDATA().then((data) => {
       const habitsNames = Object.keys(data);
