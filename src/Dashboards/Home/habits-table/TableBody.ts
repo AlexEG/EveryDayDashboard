@@ -1,7 +1,7 @@
 import HTML from "../../../components/HTML/HTML";
 import DataCell from "./DataCell";
 
-export default function TableBody(data: any) {
+export default function TableBody(data: any, habitsColors: any) {
   const habitsNames = Object.keys(data);
   const thisMonth = new Date().getMonth();
   const monthNames = [
@@ -26,6 +26,7 @@ export default function TableBody(data: any) {
 
   const date = new Date();
   const today = +date.toDateString().split(" ")[2];
+
   // ROWs
   for (let i = 1; i <= MonthDays; i++) {
     const rowStyle =
@@ -50,10 +51,12 @@ export default function TableBody(data: any) {
     tableRow.append(dataCell);
     // -------------------
     // Data COLs
-    for (let j = 0; j < habitsNames.length; j++) {
-      tableRow.append(DataCell(data, i, j, habitsNames, monthNames, thisMonth));
-    }
 
+    for (let j = 0; j < habitsNames.length; j++) {
+      tableRow.append(
+        DataCell(data, i, j, habitsNames, monthNames, thisMonth, habitsColors)
+      );
+    }
     tbody.append(tableRow);
   }
 
