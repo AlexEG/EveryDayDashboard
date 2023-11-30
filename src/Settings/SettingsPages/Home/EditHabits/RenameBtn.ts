@@ -8,6 +8,8 @@ export default function RenameBtn() {
   renameBtn.dataset.allowEditing = "false";
 
   renameBtn.onclick = () => {
+    const PREF_LOG_START = Date.now();
+
     // ----
 
     if (renameBtn.dataset.allowEditing === "true") {
@@ -43,23 +45,24 @@ export default function RenameBtn() {
       );
 
       // change habit name in settings/home
-      console.log(oldName);
-      console.log(newName);
+      // console.log(oldName);
+      // console.log(newName);
 
       const SettingsHomeDATA = new Promise((res, rej) => {
         res(JSON.parse(window.DATA.getJSONFileData("settings/home")));
       });
 
       SettingsHomeDATA.then((data: any) => {
-        const colorPickerValue = data["habitsColor"][oldName];
+        const colorPickerValue = data["habitsColor"][oldName] || "#ffffff";
         const newHabitName = newName.split("_").slice(2).join(" ");
 
-        console.log(colorPickerValue);
-        console.log(newHabitName);
+        // console.log(colorPickerValue);
+        // console.log(newHabitName);
 
         delete data["habitsColor"][oldName];
         data["habitsColor"][newHabitName] = colorPickerValue;
 
+        console.log(data["habitsColor"]);
         window.DATA.editSettingsJSONFile_Value(
           "settings/home",
           "habitsColor",
@@ -77,6 +80,15 @@ export default function RenameBtn() {
     }
 
     // ----
+    const PREF_LOG_END = Date.now();
+    const PREF_LOG_CSS = [
+      "background:#000; color:#fff",
+      "background:#000; color:#0f0",
+    ];
+    console.log(
+      `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms`,
+      ...PREF_LOG_CSS
+    );
   };
 
   return renameBtn;
