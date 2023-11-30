@@ -17,7 +17,7 @@ export default function RenameBtn() {
       const NAME = renameBtn.parentElement.dataset.habitName;
       const input = renameBtn.parentElement.querySelector("input");
 
-      input.classList.replace("text-indigo-50", "text-slate-700");
+      input.classList.replace("text-neutral-50", "text-neutral-600");
       input.parentElement.classList.add("after:absolute");
 
       const habitNum = NAME.split("_").slice(0, 2).join("_");
@@ -28,6 +28,10 @@ export default function RenameBtn() {
 
       window.DATA.renameJSONFile(oldFilePaht, newFilePaht);
 
+      const oldName = renameBtn.parentElement.dataset.habitName
+        .split("_")
+        .slice(2)
+        .join(" ");
       renameBtn.parentElement.dataset.habitName = newName;
 
       console.log(
@@ -37,13 +41,38 @@ export default function RenameBtn() {
         "",
         "color:green"
       );
+
+      // change habit name in settings/home
+      console.log(oldName);
+      console.log(newName);
+
+      const SettingsHomeDATA = new Promise((res, rej) => {
+        res(JSON.parse(window.DATA.getJSONFileData("settings/home")));
+      });
+
+      SettingsHomeDATA.then((data: any) => {
+        const colorPickerValue = data["habitsColor"][oldName];
+        const newHabitName = newName.split("_").slice(2).join(" ");
+
+        console.log(colorPickerValue);
+        console.log(newHabitName);
+
+        delete data["habitsColor"][oldName];
+        data["habitsColor"][newHabitName] = colorPickerValue;
+
+        window.DATA.editSettingsJSONFile_Value(
+          "settings/home",
+          "habitsColor",
+          data["habitsColor"]
+        );
+      });
     } else {
       renameBtn.innerText = "SAVE";
       renameBtn.dataset.allowEditing = "true";
 
       const input = renameBtn.parentElement.querySelector("input");
 
-      input.classList.replace("text-slate-700", "text-indigo-50");
+      input.classList.replace("text-neutral-600", "text-neutral-50");
       input.parentElement.classList.remove("after:absolute");
     }
 

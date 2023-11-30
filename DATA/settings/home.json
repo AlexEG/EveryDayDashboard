@@ -3,7 +3,6 @@
     "Wake up 12 AM": "#4b0cdf",
     "Brush Teeth - morning": "#940000",
     "Brush Teeth - bedtime": "#940000",
-    "Eat 3": "#00d1e0",
     "Eat 1": "#00d1e0",
     "Eat 2": "#00d1e0",
     "Reading 1 - 2hrs": "#ff0088",
@@ -13,13 +12,14 @@
     "Hypotension - Pantoprazole": "#8fd200",
     "Hypotension - Fludrocortisone": "#8fd200",
     "Supplements - Multivitamin": "#92d600",
-    "CodeWars - 1hr": "#12009e",
-    "Side Project - 1hr": "#12009e",
-    "Plank": "#00f53d",
+    "Plank": "#940000",
     "Do Laundry - 12PM": "#00f53d",
-    "Whiteboard Brainstorming - 15mins": "#00f53d",
-    "Record English - 30 mins": "#00f53d",
-    "Take Shower": "#00f53d",
-    "MonkeyType - 5mins": "#00f53d"
+    "Audio Journal - 30 mins": "#00f43d",
+    "Take Shower": "#940000",
+    "TypingClub - 5lessons": "#00f53d",
+    "Whiteboard Brainstorming - 15mins": "#ffffff",
+    "MonkeyType - 5mins 5": "#00f53d",
+    "Eat 3": "#00d1e0",
+    "CodeWars - 1hr": "#12009e"
   }
 }

@@ -46,7 +46,7 @@ export default function DataCell(
     const day = checkbox.parentElement.dataset.row;
 
     const date = new Date();
-    const time = date.toString().split(" ").slice(0, 5).join(" ");
+    const time = date.toString().split(" ").slice(0, 5);
 
     checkbox.hasAttribute("checked")
       ? checkbox.removeAttribute("checked")
@@ -59,7 +59,7 @@ export default function DataCell(
         checkbox.hasAttribute("checked") ? "   " : "     "
       }%c ${month} ${day} \n%c Time${
         checkbox.hasAttribute("checked") ? "  " : "    "
-      }%c ${time} `,
+      }%c ${time.join(" ")} `,
       "background:black; color:white",
       `background:black; color:#${
         checkbox.hasAttribute("checked") ? "0f0" : "f00"
@@ -70,7 +70,9 @@ export default function DataCell(
       "background:black; color:#df37fc"
     );
 
-    window.DATA.editCalenderFileJSON(habitName, month, day);
+    checkbox.hasAttribute("checked")
+      ? window.DATA.editCalenderFileJSON(habitName, month, day, time)
+      : window.DATA.editCalenderFileJSON(habitName, month, day, 0);
   };
   // --------------------
   // const thisMonthData = data[habitsNames[2]][monthNames[thisMonth][0]];

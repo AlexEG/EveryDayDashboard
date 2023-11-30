@@ -112,16 +112,18 @@ function Mkdir(path: string) {
  * Done
  *
  */
-function editCalenderFileJSON(fileName: string, month: string, day: string) {
+function editCalenderFileJSON(
+  fileName: string,
+  month: string,
+  day: string,
+  time: string[]
+) {
   fs.readFile(`./DATA/habits/${fileName}.json`, "utf-8", (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
     const jsonData = JSON.parse(data);
-
-    const date = new Date();
-    const time = date.toString().split(" ").slice(0, 5);
 
     jsonData[month][day] = [!jsonData[month][day][0], time];
 
