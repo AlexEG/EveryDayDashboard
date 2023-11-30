@@ -31,7 +31,7 @@ export default function HonorScoreChart(selectedMonth?: string) {
 
   const numberOfDaysInThisMonth = new Date(
     thisYear,
-    selectedMonthNum + 1 || thisMonthNum,
+    selectedMonthNum + 1 || thisMonthNum - 1,
     0
   ).getDate();
 
