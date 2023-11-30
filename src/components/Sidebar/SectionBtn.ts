@@ -15,6 +15,7 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
   div.append(img);
 
   div.onclick = () => {
+    const PREF_LOG_START = Date.now();
     if (!(document.querySelector("main").getAttribute("id") == sectionName)) {
       console.log(
         ` %c OPEN  ${sectionName} `,
@@ -65,6 +66,16 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
       );
       settingsBtn.dataset.isSettingsOpen = "false";
     }
+
+    const PREF_LOG_END = Date.now();
+    const PREF_LOG_CSS = [
+      "background:#000; color:#fff",
+      "background:#000; color:#0f0",
+    ];
+    console.log(
+      `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms`,
+      ...PREF_LOG_CSS
+    );
   };
 
   return div;
