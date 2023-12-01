@@ -4,7 +4,7 @@ import TimeChartConfig from "./TimeChartConfig";
 import ChartLabelDays from "./ChartLabelDays";
 import AllHabitsDATA from "../habits-table/AllHabitsDATA";
 
-export default function TimeChart() {
+export default function TimeChart(year?: number, month?: number) {
   const styles =
     "w-full h-[800px] flex justify-center p-4 mt-4 bg-indigo-800/5 bg-indigo-50";
   const chartContainer = HTML("section", styles, "home--habits-time-chart");
@@ -12,7 +12,23 @@ export default function TimeChart() {
   const styles2 = "border border-indigo-600/50";
   const chartCanvas = HTML("canvas", styles2) as HTMLCanvasElement;
   // -------------------
-  const SELECTED_MONTH = "November";
+  const MONTHS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const thisMonthNum = month || new Date().getMonth();
+  const SELECTED_MONTH = MONTHS[thisMonthNum];
 
   AllHabitsDATA().then((data) => {
     // ------------
@@ -47,7 +63,11 @@ export default function TimeChart() {
     (async function () {
       new Chart(
         chartCanvas,
-        TimeChartConfig(ChartLabelDays(), AllHabitsNames, AllHabitsTimeDataset)
+        TimeChartConfig(
+          ChartLabelDays(year, month),
+          AllHabitsNames,
+          AllHabitsTimeDataset
+        )
       );
     })();
   });

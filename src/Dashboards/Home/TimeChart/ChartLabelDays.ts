@@ -1,4 +1,4 @@
-export default function ChartLabelDays() {
+export default function ChartLabelDays(year?: number, month?: number) {
   const date = new Date();
 
   const MONTHS = [
@@ -16,8 +16,8 @@ export default function ChartLabelDays() {
     "December",
   ];
 
-  const thisYear = date.getFullYear();
-  const thisMonthNum = date.getMonth();
+  const thisYear = year || date.getFullYear();
+  const thisMonthNum = month || date.getMonth();
 
   const SELECTED_MONTH = MONTHS[thisMonthNum];
 

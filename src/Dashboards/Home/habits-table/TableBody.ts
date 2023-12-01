@@ -1,9 +1,15 @@
 import HTML from "../../../components/HTML/HTML";
 import DataCell from "./DataCell";
 
-export default function TableBody(data: any, habitsColors: any) {
+export default function TableBody(
+  data: any,
+  habitsColors: any,
+  year?: number,
+  month?: number
+) {
   const habitsNames = Object.keys(data);
-  const thisMonth = new Date().getMonth();
+  const thisMonth = month || new Date().getMonth();
+
   const monthNames = [
     ["January", 31],
     ["February", 28],
