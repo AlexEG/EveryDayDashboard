@@ -2,7 +2,7 @@ import Chart from "chart.js/auto";
 import HTML from "../../components/HTML/HTML";
 import HonorScoreChartConfig from "./HonorScoreChartConfig";
 
-export default function HonorScoreChart(selectedMonth?: string) {
+export default function HonorScoreChart(year?: number, month?: number) {
   const date = new Date();
   const MONTHS = [
     "January",
@@ -19,19 +19,15 @@ export default function HonorScoreChart(selectedMonth?: string) {
     "December",
   ];
 
-  const thisYear = date.getFullYear();
-  const thisMonthNum = date.getMonth();
+  const thisMonthNum = month || date.getMonth();
 
-  const SELECTED_YEAR = thisYear;
-  const SELECTED_MONTH =
-    (selectedMonth && selectedMonth.split("-")[0]) || MONTHS[thisMonthNum];
+  const SELECTED_YEAR = year || date.getFullYear();
+  const SELECTED_MONTH = MONTHS[thisMonthNum];
   // console.log(SELECTED_MONTH); //=> November
 
-  const selectedMonthNum = selectedMonth && +selectedMonth.split("-")[1];
-
   const numberOfDaysInThisMonth = new Date(
-    thisYear,
-    selectedMonthNum + 1 || thisMonthNum - 1,
+    SELECTED_YEAR,
+    thisMonthNum - 1,
     0
   ).getDate();
 
@@ -49,6 +45,7 @@ export default function HonorScoreChart(selectedMonth?: string) {
     res(JSON.parse(window.DATA.getJSONFileData("dashboards/codewars")));
   });
 
+  // console.log(SELECTED_YEAR);
   CodewarsDashboardDATA.then((data) => {
     if (!data["data"]["daily honor Score"][SELECTED_YEAR]) {
       console.log(
@@ -69,32 +66,31 @@ export default function HonorScoreChart(selectedMonth?: string) {
 
     const dailyHonorScore = data["data"]["daily honor Score"];
     const MonthData = dailyHonorScore[SELECTED_YEAR][SELECTED_MONTH];
+    // console.log(MonthData);
 
     const labelsDays: string[] = [];
     const honorDataset: number[] = [];
-    // const scoreDataset: number[] = [];
 
     // for 30 Days view
     for (let i = 0; i < numberOfDaysInThisMonth; i++) {
       // X axis Labels
-      const dayOfWeek = new Date(`${SELECTED_MONTH} ${i + 1}, ${thisYear}`)
+      const dayOfWeek = new Date(`${SELECTED_MONTH} ${i + 1}, ${SELECTED_YEAR}`)
         .toString()
         .slice(0, 4);
 
       const day = `${dayOfWeek} ${i + 1}`;
+      // console.log(day);
       labelsDays.push(day);
 
       if (MonthData[String(i + 1)]) {
         // Honor Dataset
         honorDataset.push(MonthData[String(i + 1)]["DailyHonor"]);
-        // Score Dataset
-        // scoreDataset.push(MonthData[String(i + 1)]["DailyScore"]);
       } else {
         honorDataset.push(null);
-        // scoreDataset.push(null);
       }
     }
 
+    // console.log(labelsDays, honorDataset);
     //* Languages Score START *//
 
     const LanguagesNames = Object.keys(data["data"]["Languages"]);

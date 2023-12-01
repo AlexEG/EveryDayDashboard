@@ -9,21 +9,39 @@ export default function Header() {
   const styles = "flex justify-between";
   const Header = HTML("div", styles);
 
-  function changeViewedMonth(target: EventTarget) {
-    const select = target as HTMLSelectElement;
-    const selectedMonth = select.value;
+  function changeViewedMonth(select: HTMLSelectElement) {
+    const PREF_LOG_START = Date.now();
+    // ---------
+    const SELECTED_YEAR = 2023;
+    const [selectedMonthName, selectedNum] = select.value.split("-");
 
     document.querySelector("section#codewars--codewars-chart").remove();
-    document
-      .querySelector("main#codewars")
-      .append(HonorScoreChart(selectedMonth));
+    const codewarsContainer = document.querySelector("main#codewars");
 
+    codewarsContainer.insertBefore(
+      HonorScoreChart(SELECTED_YEAR, +selectedNum),
+      codewarsContainer.querySelector("#codewars--Languages-rank-chart")
+    );
+
+    const LOG_CSS = [
+      "background:#000; color:#fff",
+      "background:#000; color:#f9f",
+      "background:#000; color:#0f0; font-weight:900",
+    ];
     console.log(
-      `%c CodeWars  Honor/Score Chart  Change View => %c ${
-        select.value.split("-")[0]
-      } `,
-      "background:black; color:white",
-      "background:black; color:#0f0; font-weight:900;"
+      `%c Home / HonorScore Chart %c<Change View>  %c${SELECTED_YEAR} ${selectedMonthName} `,
+      ...LOG_CSS
+    );
+
+    // ---------
+    const PREF_LOG_END = Date.now();
+    const PREF_LOG_CSS = [
+      "background:#000; color:#fff",
+      "background:#000; color:#0f0",
+    ];
+    console.log(
+      `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms`,
+      ...PREF_LOG_CSS
     );
   }
 

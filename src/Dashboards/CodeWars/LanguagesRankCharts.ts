@@ -22,11 +22,15 @@ export default function LanguagesRankCharts() {
   };
 
   const styles = "w-full flex justify-center gap-2 p-4 mt-4 bg-indigo-800/5";
-  const chartContainer = HTML("section", styles, "codewars--Languages--chart");
+  const chartContainer = HTML(
+    "section",
+    styles,
+    "codewars--Languages-rank-chart"
+  );
 
   // -------------------------
   codewarsDATA().then((data) => {
-    console.log(data);
+    // console.log(data);
 
     for (const langName in data["data"]["Languages"]) {
       // 1. markup: Canvas for each doughnut Chart
