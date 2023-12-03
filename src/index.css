@@ -12,10 +12,12 @@ main::-webkit-scrollbar {
   width: 6px;
   height: 10px;
 }
-#settings section::-webkit-scrollbar-track,
-main::-webkit-scrollbar-track {
+#settings section::-webkit-scrollbar-track {
   background: transparent;
   margin-top: 2.5rem;
+}
+main::-webkit-scrollbar-track {
+  background: transparent;
 }
 #settings section::-webkit-scrollbar-thumb,
 main::-webkit-scrollbar-thumb {
