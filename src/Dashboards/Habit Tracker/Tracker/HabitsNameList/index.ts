@@ -1,7 +1,7 @@
 import HTML from "../../../../components/HTML/HTML";
 
 export default function HabitsNameList() {
-  const styles = "h-full border border-green-400";
+  const styles = "h-full text-sm";
   const HabitsNameListContainer = HTML("div", styles);
 
   // get file names + order

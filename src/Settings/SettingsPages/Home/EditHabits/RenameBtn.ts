@@ -62,7 +62,7 @@ export default function RenameBtn() {
         delete data["habitsColor"][oldName];
         data["habitsColor"][newHabitName] = colorPickerValue;
 
-        console.log(data["habitsColor"]);
+        // console.log(data["habitsColor"]);
         window.DATA.editSettingsJSONFile_Value(
           "settings/home",
           "habitsColor",
