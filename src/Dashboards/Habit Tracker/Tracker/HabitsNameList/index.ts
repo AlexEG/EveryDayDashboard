@@ -21,7 +21,6 @@ export default function HabitsNameList() {
     const habitsColor = data["habitsColor"];
 
     for (const fileName of fileNames) {
-      // console.log(habitName, color);
       const habitNum = fileName.match(/\d+(?=_)/)[0];
       const habitName = fileName
         .match(/(?<=\d+_).*(?=\.json)/)[0]

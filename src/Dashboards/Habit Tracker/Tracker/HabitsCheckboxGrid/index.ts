@@ -3,7 +3,7 @@ import DaysColumn from "./DaysColumn";
 import HabitsColumnsContainer from "./HabitsColumnsContainer";
 
 export default function HabitsCheckboxGrid() {
-  const styles = "w-96 h-full mx-auto flex";
+  const styles = "w-fit h-full flex";
   const HabitsCheckboxGridContainer = HTML("div", styles);
 
   const DATE = new Date();

@@ -3,27 +3,34 @@ import HabitCheckbox from "./HabitCheckbox";
 
 export default function HabitColumnComponent(
   numberOfDaysInThisMonth: number,
-  todayNum: number
+  todayNum: number,
+  habitNum: string,
+  habitName: string,
+  habitGroupColor: string
 ) {
   const styles =
     "group w-fit flex flex-col border border-blue-800 hover:border-blue-500 transition-colors";
-  const container = HTML("div", styles);
+  const columnContainer = HTML("div", styles);
+
+  columnContainer.dataset.habitNum = habitNum;
+  columnContainer.dataset.habitName = habitName;
 
   // habit number
-
   const colHead = HTML(
     "div",
     "w-10 h-10 text-center text-blue-50 flex justify-center items-center font-bold group-hover:bg-blue-600 transition-colors",
     "",
-    "1"
+    habitNum
   );
-  container.append(colHead);
+  columnContainer.append(colHead);
 
   // checkbox column
   for (let i = 1; i <= numberOfDaysInThisMonth; i++) {
     const highlightToday = todayNum === i;
-    container.append(HabitCheckbox(highlightToday));
+    columnContainer.append(
+      HabitCheckbox(highlightToday, habitName, i, habitGroupColor)
+    );
   }
 
-  return container;
+  return columnContainer;
 }
