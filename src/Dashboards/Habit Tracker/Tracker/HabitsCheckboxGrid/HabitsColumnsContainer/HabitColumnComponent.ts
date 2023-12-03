@@ -6,7 +6,8 @@ export default function HabitColumnComponent(
   todayNum: number,
   habitNum: string,
   habitName: string,
-  habitGroupColor: string
+  habitGroupColor: string,
+  thisMonthData: any
 ) {
   const styles =
     "group w-fit flex flex-col border border-blue-800 hover:border-blue-500 transition-colors";
@@ -24,11 +25,16 @@ export default function HabitColumnComponent(
   );
   columnContainer.append(colHead);
 
+  // console.log(thisMonthData);
+
   // checkbox column
   for (let i = 1; i <= numberOfDaysInThisMonth; i++) {
+    const [isChecked, time] = thisMonthData[i] || [false, 0];
+    // console.log(isChecked, time);
+
     const highlightToday = todayNum === i;
     columnContainer.append(
-      HabitCheckbox(highlightToday, habitName, i, habitGroupColor)
+      HabitCheckbox(highlightToday, isChecked, habitName, i, habitGroupColor)
     );
   }
 

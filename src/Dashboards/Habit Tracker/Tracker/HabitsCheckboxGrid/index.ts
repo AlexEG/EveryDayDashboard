@@ -6,9 +6,25 @@ export default function HabitsCheckboxGrid() {
   const styles = "w-fit h-full flex";
   const HabitsCheckboxGridContainer = HTML("div", styles);
 
+  const MONTHS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   const DATE = new Date();
   const thisYear = DATE.getFullYear();
   const thisMonthNum = DATE.getMonth();
+  const thisMonthName = MONTHS[thisMonthNum];
   const todayNum = DATE.getDate();
   const numberOfDaysInThisMonth = new Date(
     thisYear,
@@ -18,7 +34,7 @@ export default function HabitsCheckboxGrid() {
 
   HabitsCheckboxGridContainer.append(
     DaysColumn(numberOfDaysInThisMonth, todayNum),
-    HabitsColumnsContainer(numberOfDaysInThisMonth, todayNum)
+    HabitsColumnsContainer(numberOfDaysInThisMonth, todayNum, thisMonthName)
   );
   return HabitsCheckboxGridContainer;
 }

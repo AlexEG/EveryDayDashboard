@@ -2,13 +2,14 @@ import HTML from "../../../../../components/HTML/HTML";
 
 export default function HabitCheckbox(
   highlightToday: boolean,
+  isChecked: boolean,
   habitName: string,
   dayNum: number,
   habitGroupColor: string
 ) {
   // const highlight = highlightToday && "bg-black";
   const styles =
-    "w-10 h-10 flex justify-center items-center border-t border-blue-800 bg-black";
+    "w-10 h-10 flex justify-center items-center border-t border-blue-800 bg-black group-hover:border-black";
 
   const cell = HTML("div", styles);
   cell.dataset.dayNum = String(dayNum);
@@ -23,6 +24,9 @@ export default function HabitCheckbox(
     customtitle: habitName,
   });
   checkbox.style.accentColor = habitGroupColor;
+  if (isChecked) {
+    checkbox.setAttribute("checked", "");
+  }
 
   cell.append(checkbox);
   return cell;
