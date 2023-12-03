@@ -2,8 +2,10 @@ import "./index.css";
 import TitleBar from "./components/TitleBar/TitleBar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Settings from "./Settings";
-import Home from "./Dashboards/Home/Home";
+// import Home from "./Dashboards/Home/Home";
 // import CodeWars from "./Dashboards/CodeWars";
+import HabitTracker from "./Dashboards/Habit Tracker";
+
 const PREF_LOG_START = Date.now();
 
 const ROOT = document.querySelector("div#root");
@@ -11,7 +13,7 @@ ROOT.append(TitleBar());
 ROOT.append(Sidebar());
 ROOT.append(Settings());
 
-ROOT.append(Home());
+ROOT.append(HabitTracker());
 // ROOT.append(CodeWars());
 
 const PREF_LOG_END = Date.now();

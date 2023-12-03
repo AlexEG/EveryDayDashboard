@@ -1,4 +1,5 @@
 import HTML from "../../components/HTML/HTML";
+import Tracker from "./Tracker";
 
 export default function HabitTracker() {
   const styles =
@@ -6,13 +7,6 @@ export default function HabitTracker() {
 
   const MainContainer = HTML("main", styles, "habit-tracker");
 
-  const h1 = HTML(
-    "h1",
-    "text-center text-neutral-50 font-bold",
-    "",
-    "Habit Tracker"
-  );
-
-  MainContainer.append(h1);
+  MainContainer.append(Tracker());
   return MainContainer;
 }
