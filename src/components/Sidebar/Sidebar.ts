@@ -4,6 +4,7 @@ import SettingsBtn from "./SettingsBtn";
 import SidebarrDATA from "../../Settings/SettingsPages/Sidebar/SidebarDATA";
 
 import Home from "../../Dashboards/Home/Home";
+import HabitTracker from "../../Dashboards/Habit Tracker";
 import GitHub from "../../Dashboards/GitHub/GitHub";
 import WakaTime from "../../Dashboards/WakaTime/WakaTime";
 import CodeWars from "../../Dashboards/CodeWars";
@@ -43,6 +44,8 @@ export default function Sidebar() {
         const func =
           svgName === "home"
             ? Home
+            : svgName === "habit-tracker"
+            ? HabitTracker
             : svgName === "github"
             ? GitHub
             : svgName === "wakatime"
