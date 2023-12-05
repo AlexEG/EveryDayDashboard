@@ -9,14 +9,14 @@ export default function DaysColumn(
 
   const colHead = HTML(
     "div",
-    "w-10 h-10 text-center text-blue-50 flex justify-center items-center",
+    "w-10 h-10 text-center text-blue-50 flex justify-center items-center border-b border-b-blue-800",
     "",
     "Days"
   );
   container.append(colHead);
 
   for (let i = 1; i <= numberOfDaysInThisMonth; i++) {
-    const styles = `w-10 h-10  border-blue-800 flex justify-center items-center border-t border-blue-800 ${
+    const styles = `w-10 h-10  border-blue-800 flex justify-center items-center border-b last:border-none border-blue-800 ${
       todayNum === i
         ? "text-blue-900 bg-blue-200 font-semibold"
         : "text-blue-50"

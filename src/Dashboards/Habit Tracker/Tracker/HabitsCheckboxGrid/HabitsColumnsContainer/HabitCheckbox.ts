@@ -7,17 +7,20 @@ export default function HabitCheckbox(
   dayNum: number,
   habitGroupColor: string
 ) {
-  // const highlight = highlightToday && "bg-black";
+  const highlight =
+    highlightToday &&
+    "border-y  relative after:absolute after:top-0 after:-right-0.5 after:bottom-0 after:w-0.5 after:bg-black ";
   const styles =
-    "w-10 h-10 flex justify-center items-center border-t border-blue-800 bg-black group-hover:border-black";
+    "w-10 h-10 flex justify-center items-center border-y-blue-600 bg-black " +
+    highlight;
 
   const cell = HTML("div", styles);
   cell.dataset.dayNum = String(dayNum);
 
-  const highlight2 = highlightToday ? "opacity-100" : "opacity-50";
+  const highlightTodayCSS = highlightToday ? "opacity-100" : "opacity-50";
   const styles2 =
-    "relative accent-blue-600 w-5 h-5 cursor-pointer after:content-[attr(customtitle)] after:absolute after:-top-2 after:left-1/2 after:text-blue-200 after:bg-blue-950 after:px-2 after:py-0.5 after:-translate-y-full after:-translate-x-1/2 after:whitespace-nowrap after:invisible hover:after:visible after:rounded-sm " +
-    highlight2;
+    "relative accent-blue-600 w-5 h-5 cursor-pointer after:content-[attr(customtitle)] after:absolute after:-top-2 after:left-1/2 after:text-blue-200 after:z-50 after:bg-black after:px-2 after:py-0.5 after:-translate-y-full after:-translate-x-1/2 after:whitespace-nowrap after:invisible hover:after:visible after:rounded-sm " +
+    highlightTodayCSS;
 
   const checkbox = HTML("input", styles2, "", "", {
     type: "checkbox",
