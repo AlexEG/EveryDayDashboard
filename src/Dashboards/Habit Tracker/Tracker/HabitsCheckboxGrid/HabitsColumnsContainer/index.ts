@@ -14,41 +14,43 @@ export default function HabitsColumnsContainer(
   HabitsColumnsContainer.dataset.month = "December";
   HabitsColumnsContainer.dataset.year = "2023";
 
-  SettingsHomeDATA().then((data) => {
-    const habitsColor = data["habitsColor"];
-    // console.log(habitsColor);
+  // SettingsHomeDATA().then((data) => {
+  //   const habitsColor = data["habitsColor"];
+  //   // console.log(habitsColor);
 
-    HabitTrackerDATA().then((data) => {
-      // console.log(data);
+  HabitTrackerDATA().then((data) => {
+    // console.log(data);
 
-      for (const [fileName, value] of Object.entries(data)) {
-        // console.log(fileName, value);
-        const habitNum = fileName.match(/\d+(?=_)/)[0];
-        const habitName = fileName.match(/(?<=\d+_).*/)[0].replace(/_/g, " ");
-        const habitGroupColor = habitsColor[habitName];
+    for (const [fileName, value] of Object.entries(data)) {
+      // console.log(fileName, value);
+      const habitNum = fileName.match(/\d+(?=_)/)[0];
+      const habitName = fileName.match(/(?<=\d+_).*/)[0].replace(/_/g, " ");
 
-        const metadata = value["metadata"];
-        const habitData = value["habitData"];
+      const metadata = value["metadata"];
+      const habitData = value["habitData"];
 
-        const thisMonthData =
-          habitData[thisYear] && habitData[thisYear][thisMonthName];
-        // console.log(habitNum);
-        // console.log(habitName);
-        // console.log(habitGroupColor);
-        // console.log(thisMonthData);
+      const thisMonthData =
+        habitData[thisYear] && habitData[thisYear][thisMonthName];
+      // console.log(habitNum);
+      // console.log(habitName);
+      // console.log(habitGroupColor);
+      // console.log(thisMonthData);
+      console.log(metadata);
 
-        HabitsColumnsContainer.append(
-          HabitColumnComponent(
-            numberOfDaysInThisMonth,
-            todayNum,
-            habitNum,
-            habitName,
-            habitGroupColor,
-            thisMonthData
-          )
-        );
-      }
-    });
+      const habitGroupColor = metadata["groupColor"];
+
+      HabitsColumnsContainer.append(
+        HabitColumnComponent(
+          numberOfDaysInThisMonth,
+          todayNum,
+          habitNum,
+          habitName,
+          habitGroupColor,
+          thisMonthData
+        )
+      );
+    }
   });
+  // });
   return HabitsColumnsContainer;
 }
