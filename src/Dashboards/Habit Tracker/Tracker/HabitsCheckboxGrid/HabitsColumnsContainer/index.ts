@@ -11,6 +11,7 @@ export default function HabitsColumnsContainer(
   const styles = "flex";
   const HabitsColumnsContainer = HTML("div", styles);
   HabitsColumnsContainer.dataset.month = "December";
+  HabitsColumnsContainer.dataset.year = "2023";
 
   SettingsHomeDATA().then((data) => {
     const habitsColor = data["habitsColor"];

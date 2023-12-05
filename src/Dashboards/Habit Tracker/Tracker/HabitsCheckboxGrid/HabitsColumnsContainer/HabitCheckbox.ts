@@ -32,5 +32,69 @@ export default function HabitCheckbox(
   }
 
   cell.append(checkbox);
+
+  checkbox.onclick = () => {
+    // 1. get habit file name, year, month, day
+    // 2. if not checked before
+    // 3. add new property to filename -> data -> year -> month -> day w/ the time of click
+    // 4. if checked delete property
+    // 5. get metadata, data
+    // 6. edit data
+    // 7. save metadata + data then write to json
+
+    // ---- ---- //
+
+    // 1. habit file name
+    const habitName = cell.parentElement.dataset.habitName;
+    const habitNum = cell.parentElement.dataset.habitNum;
+    const habitFileName = `dashboards/habit-tracker/habit_${habitNum}_${habitName.replace(
+      /\s+/g,
+      "_"
+    )}`;
+    console.log(habitFileName);
+
+    // 1. year, month, day
+    const day = cell.dataset.dayNum;
+    const month = cell.parentElement.parentElement.dataset.month;
+    const year = cell.parentElement.parentElement.dataset.year;
+    console.log(year, month, day);
+
+    const habitDATA = new Promise((res, rej) => {
+      res(JSON.parse(window.DATA.getJSONFileData(habitFileName)));
+    });
+
+    habitDATA.then((data) => {
+      console.log(data);
+      const metadata = data["data"]["metadata"];
+      const habitData = data["data"]["habitData"];
+      console.log("metadata: ", metadata);
+      console.log("habitData: ", habitData);
+
+      if (checkbox.hasAttribute("checked")) {
+        // 2. remove checked + the day from json
+        checkbox.removeAttribute("checked");
+        console.log("checked before");
+
+        delete habitData[year][month][day];
+      } else {
+        // 3. add checked attribute + the day to json
+        checkbox.setAttribute("checked", "");
+        console.log("checked Now");
+
+        habitData[year][month][day] = Date()
+          .match(/\d{2}:\d{2}:\d{2}/g)
+          .toString();
+      }
+
+      // 7.
+      console.log(data);
+      window.DATA.editSettingsJSONFile_Value(
+        habitFileName,
+        "data",
+        data["data"]
+      );
+    });
+  }; // onclick end
+
   return cell;
 }
