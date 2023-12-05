@@ -34,7 +34,12 @@ export default function HabitsCheckboxGrid() {
 
   HabitsCheckboxGridContainer.append(
     DaysColumn(numberOfDaysInThisMonth, todayNum),
-    HabitsColumnsContainer(numberOfDaysInThisMonth, todayNum, thisMonthName)
+    HabitsColumnsContainer(
+      numberOfDaysInThisMonth,
+      thisMonthName,
+      todayNum,
+      thisYear
+    )
   );
   return HabitsCheckboxGridContainer;
 }

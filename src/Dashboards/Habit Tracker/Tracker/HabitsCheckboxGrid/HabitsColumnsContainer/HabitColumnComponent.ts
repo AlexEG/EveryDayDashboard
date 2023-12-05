@@ -25,16 +25,23 @@ export default function HabitColumnComponent(
   );
   columnContainer.append(colHead);
 
-  // console.log(thisMonthData);
+  console.log(thisMonthData);
 
   // checkbox column
+
   for (let i = 1; i <= numberOfDaysInThisMonth; i++) {
-    const [isChecked, time] = thisMonthData[i] || [false, 0];
-    // console.log(isChecked, time);
+    const isChecked_time = thisMonthData[i];
+    console.log(isChecked_time);
 
     const highlightToday = todayNum === i;
     columnContainer.append(
-      HabitCheckbox(highlightToday, isChecked, habitName, i, habitGroupColor)
+      HabitCheckbox(
+        highlightToday,
+        isChecked_time,
+        habitName,
+        i,
+        habitGroupColor
+      )
     );
   }
 

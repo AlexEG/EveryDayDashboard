@@ -2,7 +2,7 @@ import HTML from "../../../../../components/HTML/HTML";
 
 export default function HabitCheckbox(
   highlightToday: boolean,
-  isChecked: boolean,
+  isChecked_time: string,
   habitName: string,
   dayNum: number,
   habitGroupColor: string
@@ -27,8 +27,9 @@ export default function HabitCheckbox(
     customtitle: habitName,
   });
   checkbox.style.accentColor = habitGroupColor;
-  if (isChecked) {
+  if (isChecked_time) {
     checkbox.setAttribute("checked", "");
+    cell.dataset.checkedTime = isChecked_time;
   }
 
   cell.append(checkbox);
@@ -73,6 +74,7 @@ export default function HabitCheckbox(
       if (checkbox.hasAttribute("checked")) {
         // 2. remove checked + the day from json
         checkbox.removeAttribute("checked");
+        cell.removeAttribute("data-checked-time");
         console.log("checked before");
 
         delete habitData[year][month][day];

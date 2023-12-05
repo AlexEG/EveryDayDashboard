@@ -143,6 +143,8 @@ import { contextBridge } from "electron";
 
 contextBridge.exposeInMainWorld("DATA", {
   getFilesTitles: () => fs.readdirSync("./DATA/habits"),
+  getHabitTrackerFileNames: () =>
+    fs.readdirSync("./DATA/dashboards/habit-tracker"),
   createJSONHaFileHabit,
   getJSONFileData: (filePath: string) =>
     fs.readFileSync(`./DATA/${filePath}.json`, "utf8"),
