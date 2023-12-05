@@ -1,33 +1,20 @@
 import HTML from "../../../../components/HTML/HTML";
+import HabitTrackerDATA from "../../HabitTrackerDATA";
 
 export default function HabitsNameList() {
   const styles = "h-full text-sm";
   const HabitsNameListContainer = HTML("div", styles);
 
-  // get file names + order
-  const fileNames = window.DATA.getFilesTitles().sort(
-    (a: string, b: string) =>
-      +a.split("_").slice(1, 2) - +b.split("_").slice(1, 2)
-  );
-  // console.log(fileNames);
-
-  // get colors
-  const SettingsHomeDATA = new Promise((res, rej) => {
-    res(JSON.parse(window.DATA.getJSONFileData("settings/home")));
-  });
-
-  SettingsHomeDATA.then((data) => {
+  HabitTrackerDATA().then((data) => {
     // console.log(data);
-    const habitsColor = data["habitsColor"];
-
-    for (const fileName of fileNames) {
+    for (const [fileName, value] of Object.entries(data)) {
       const habitNum = fileName.match(/\d+(?=_)/)[0];
-      const habitName = fileName
-        .match(/(?<=\d+_).*(?=\.json)/)[0]
-        .replace(/_/g, " ");
+      const habitName = fileName.match(/(?<=\d+_).*/)[0].replace(/_/g, " ");
 
-      // console.log(habitNum);
-      // console.log(habitName);
+      const metadata = value["metadata"];
+
+      // console.log(fileName, value);
+      // console.log(habitNum, habitName);
 
       const habit = HTML("div", "mb-0.5");
       const span1 = HTML(
@@ -38,7 +25,7 @@ export default function HabitsNameList() {
       );
 
       const span2 = HTML("span", "pl-1 whitespace-nowrap ", "", habitName);
-      span2.style.color = habitsColor[habitName] || "#ffffff";
+      span2.style.color = metadata.groupColor || "#ffffff";
 
       habit.append(span1, span2);
       HabitsNameListContainer.append(habit);

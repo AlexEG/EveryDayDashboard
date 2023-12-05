@@ -35,7 +35,7 @@ export default function HabitsColumnsContainer(
       // console.log(habitName);
       // console.log(habitGroupColor);
       // console.log(thisMonthData);
-      console.log(metadata);
+      // console.log(metadata);
 
       const habitGroupColor = metadata["groupColor"];
 
