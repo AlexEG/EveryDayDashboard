@@ -1,6 +1,7 @@
 import HTML from "../../../../components/HTML/HTML";
 import DaysColumn from "./DaysColumn";
 import HabitsColumnsContainer from "./HabitsColumnsContainer";
+import DailyProgressColumn from "./DailyProgressColumn";
 
 export default function HabitsCheckboxGrid() {
   const styles = "w-fit h-full flex border border-blue-800";
@@ -35,6 +36,12 @@ export default function HabitsCheckboxGrid() {
   HabitsCheckboxGridContainer.append(
     DaysColumn(numberOfDaysInThisMonth, todayNum),
     HabitsColumnsContainer(
+      numberOfDaysInThisMonth,
+      thisMonthName,
+      todayNum,
+      thisYear
+    ),
+    DailyProgressColumn(
       numberOfDaysInThisMonth,
       thisMonthName,
       todayNum,
