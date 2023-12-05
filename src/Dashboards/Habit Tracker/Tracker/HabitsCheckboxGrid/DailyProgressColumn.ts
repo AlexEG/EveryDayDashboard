@@ -1,5 +1,6 @@
 import HTML from "../../../../components/HTML/HTML";
 import HabitTrackerDATA from "../../HabitTrackerDATA";
+import { dailyProgressColumnAnimation } from "../../HabitTrackerAnimation";
 
 export default function DailyProgressColumn(
   numberOfDaysInThisMonth: number,
@@ -7,7 +8,7 @@ export default function DailyProgressColumn(
   todayNum: number,
   thisYear: number
 ) {
-  const styles = "w-fit flex flex-col border border-blue-800";
+  const styles = "w-fit flex flex-col border border-blue-800 select-none ";
   const container = HTML("div", styles);
 
   const colHead = HTML(
@@ -19,7 +20,7 @@ export default function DailyProgressColumn(
   container.append(colHead);
 
   const styles2 =
-    "w-10 h-10 text-xs border-blue-800 flex justify-center items-center border-b last:border-none ";
+    "w-10 h-10 text-xs relative border-blue-800 border-b last:border-none overflow-x-hidden ";
 
   HabitTrackerDATA().then((data) => {
     const numOfHabits = Object.keys(data).length;
@@ -50,7 +51,8 @@ export default function DailyProgressColumn(
         (howManyCheckedInThisDay / numOfHabits) * 100
       );
 
-      console.log(percentage);
+      // console.log(percentage);
+
       const progressStyles =
         percentage <= 25
           ? " text-red-500"
@@ -63,12 +65,17 @@ export default function DailyProgressColumn(
           ? ""
           : `${howManyCheckedInThisDay}/${numOfHabits}`;
 
-      const day = HTML(
-        "div",
-        styles2 + highlightToday + progressStyles,
-        "",
-        text
-      );
+      const day = HTML("div", styles2 + highlightToday + progressStyles);
+
+      const styles3 = "w-full h-full flex justify-center items-center ";
+      const span1 = HTML("span", styles3, "", text);
+      const span2 = HTML("span", styles3, "", `${percentage}%`);
+
+      const wrapper = HTML("div", "w-20 h-full grid grid-cols-2");
+      wrapper.append(span1, span2);
+      dailyProgressColumnAnimation(wrapper, i * 200);
+
+      day.append(wrapper);
       container.append(day);
     }
   });
