@@ -91,5 +91,6 @@ typings/
 # Electron-Forge
 out/
 DATA/habits
+DATA/dashboards/habit-tracker
 test.js
 test.ts

@@ -25,13 +25,13 @@ export default function HabitColumnComponent(
   );
   columnContainer.append(colHead);
 
-  console.log(thisMonthData);
+  // console.log(thisMonthData);
 
   // checkbox column
 
   for (let i = 1; i <= numberOfDaysInThisMonth; i++) {
-    const isChecked_time = thisMonthData[i];
-    console.log(isChecked_time);
+    const isChecked_time = thisMonthData ? thisMonthData[i] : false;
+    // console.log(isChecked_time);
 
     const highlightToday = todayNum === i;
     columnContainer.append(
