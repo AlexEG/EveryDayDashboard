@@ -1,6 +1,5 @@
 import HTML from "../../../../../components/HTML/HTML";
 import HabitColumnComponent from "./HabitColumnComponent";
-import SettingsHomeDATA from "../../../../Home/SettingsHomeDATA";
 import HabitTrackerDATA from "../../../HabitTrackerDATA";
 
 export default function HabitsColumnsContainer(
