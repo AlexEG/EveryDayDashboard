@@ -40,5 +40,5 @@ export default function ChartLabelDays(year?: number, month?: number) {
     labelsDays.push(day);
   }
 
-  return labelsDays;
+  return labelsDays as string[];
 }

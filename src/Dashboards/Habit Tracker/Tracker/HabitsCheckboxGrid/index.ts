@@ -3,9 +3,13 @@ import DaysColumn from "./DaysColumn";
 import HabitsColumnsContainer from "./HabitsColumnsContainer";
 import DailyProgressColumn from "./DailyProgressColumn";
 
-export default function HabitsCheckboxGrid() {
+export default function HabitsCheckboxGrid(year?: number, month?: number) {
   const styles = "w-fit h-full flex border border-blue-800";
-  const HabitsCheckboxGridContainer = HTML("div", styles);
+  const HabitsCheckboxGridContainer = HTML(
+    "div",
+    styles,
+    "habits-checkbox-grid"
+  );
 
   const MONTHS = [
     "January",
@@ -23,8 +27,8 @@ export default function HabitsCheckboxGrid() {
   ];
 
   const DATE = new Date();
-  const thisYear = DATE.getFullYear();
-  const thisMonthNum = DATE.getMonth();
+  const thisYear = year || DATE.getFullYear();
+  const thisMonthNum = month || DATE.getMonth();
   const thisMonthName = MONTHS[thisMonthNum];
   const todayNum = DATE.getDate();
   const numberOfDaysInThisMonth = new Date(
