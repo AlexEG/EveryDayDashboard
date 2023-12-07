@@ -69,7 +69,7 @@ export default function HabitCheckbox(
       const metadata = data["data"]["metadata"];
       const habitData = data["data"]["habitData"];
       // console.log("metadata: ", metadata);
-      console.log("habitData: ", habitData);
+      // console.log("habitData: ", habitData);
 
       if (checkbox.hasAttribute("checked")) {
         // 2. remove checked + the day from json

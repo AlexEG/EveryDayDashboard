@@ -31,7 +31,7 @@ export default function TrackerTimeChart(year?: number, month?: number) {
   const SELECTED_MONTH = MONTHS[thisMonthNum];
 
   HabitTrackerDATA().then((data) => {
-    console.log(data);
+    // console.log(data);
     // ------------
     const AllHabitsNames = Array.from(Object.keys(data), (name) =>
       name.match(/(?<=\d+_).*/)[0].replace(/_/g, " ")
@@ -70,7 +70,8 @@ export default function TrackerTimeChart(year?: number, month?: number) {
         // console.log(isChecked_time);
 
         if (isChecked_time) {
-          habitMonth.push(+isChecked_time[4].split(":").slice(0, 2).join("."));
+          habitMonth.push(+isChecked_time.split(":").slice(0, 2).join("."));
+          // console.log(+isChecked_time[4].split(":").slice(0, 2).join("."));
         } else {
           habitMonth.push(null);
         }
@@ -80,7 +81,7 @@ export default function TrackerTimeChart(year?: number, month?: number) {
       AllHabitsTimeDataset.push(habitMonth);
     }
 
-    // console.log(AllHabitsTimeDataset);
+    console.log(AllHabitsTimeDataset);
 
     // -------------------
     (async function () {
