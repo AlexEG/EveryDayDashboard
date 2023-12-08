@@ -5,17 +5,17 @@ import OrderBtn from "./OrderBtn";
 import NameInput from "./NameInput";
 
 export default function HabitComponent(
-  name: string,
+  fileName: string,
   habitNum: number,
   numberOfHabits: number,
   arr: string[]
 ) {
   const container = HTML("div", "flex gap-x-2");
-  container.dataset.habitName = name;
+  container.dataset.habitName = fileName;
 
   container.append(
     OrderBtn(habitNum, numberOfHabits, arr),
-    NameInput(name),
+    NameInput(fileName),
     RenameBtn(),
     DeleteBtn()
   );

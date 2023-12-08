@@ -2,6 +2,7 @@ import HTML from "../../../components/HTML/HTML";
 import EditHabitsContainer from "./EditHabits/EditHabitsContainer";
 import HabitGroupColor from "./HabitGroupColor";
 import HabitChartColor from "./HabitChartColor";
+import CreateNewHabit from "./CreateNewHabit";
 import HabitTrackerDATA from "../../../Dashboards/Habit Tracker/HabitTrackerDATA";
 
 export default function HabitTracker() {
@@ -58,6 +59,7 @@ export default function HabitTracker() {
     mainContainer.append(
       h1,
       themeWrapper,
+      CreateNewHabit(),
       EditHabitsContainer(fileNameArr, fileNumArr)
     );
   });

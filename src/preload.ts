@@ -1,46 +1,9 @@
-// See the Electron documentation for details on how to use preload scripts:
-// https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
-
 import fs from "fs";
 
 Mkdir("./DATA");
-Mkdir("./DATA/habits");
 Mkdir("./DATA/Settings");
 
 // _________________________________________________________ //
-
-/**
- *
- * ! emptyDataHabit
- * return object w/ all days default to false
- * Done
- *
- */
-function emptyDataHabit() {
-  const monthNames = [
-    ["January", 31],
-    ["February", 28],
-    ["March", 31],
-    ["April", 30],
-    ["May", 31],
-    ["June", 30],
-    ["July", 31],
-    ["August", 31],
-    ["September", 30],
-    ["October", 31],
-    ["November", 30],
-    ["December", 31],
-  ];
-
-  const year: any = {};
-  monthNames.forEach((month) => {
-    year[month[0]] = {};
-    for (let i = 1; i <= +month[1]; i++) {
-      year[month[0]][i] = [false, "0000-00-00"];
-    }
-  });
-  return year;
-}
 
 /**
  *
@@ -50,10 +13,11 @@ function emptyDataHabit() {
  *
  */
 function createJSONHaFileHabit(FileName: string) {
-  const habitsFiles = fs.readdirSync("./DATA/habits");
+  const habitsFiles = fs.readdirSync("./DATA/dashboards/habit-tracker");
   //* checkIfTheNameAvailable
   habitsFiles.map((excitingFile) => {
     const fileTitle = excitingFile.split("_").slice(2).join(" ").slice(0, -5);
+
     if (FileName === fileTitle) {
       console.error(`There is already exciting File with the Name ${FileName}`);
       return;
@@ -79,9 +43,14 @@ function createJSONHaFileHabit(FileName: string) {
     availableFileNumber = habitsFiles.length + 1;
   }
   FileName = FileName.split(" ").join("_");
+  const emptyDataHabit = {
+    data: { metadata: {}, habitData: {} },
+  };
+
   fs.writeFile(
-    `./DATA/habits/habit_${availableFileNumber}_${FileName}.json`,
-    JSON.stringify(emptyDataHabit()),
+    `./DATA/dashboards/habit-tracker/habit_${availableFileNumber}_${FileName}.json`,
+
+    JSON.stringify(emptyDataHabit),
     (err) => {
       if (err) console.error(err);
     }
