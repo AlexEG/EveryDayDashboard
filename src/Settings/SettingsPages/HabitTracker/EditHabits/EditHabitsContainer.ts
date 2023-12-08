@@ -2,28 +2,25 @@ import HTML from "../../../../components/HTML/HTML";
 import SettingsFieldset from "../../../../components/Settings/SettingsFieldset";
 import HabitComponent from "./HabitComponent";
 
-import AllHabitsDATA from "../../../../Dashboards/Home/habits-table/AllHabitsDATA";
-
-export default function EditHabitsContainer() {
+export default function EditHabitsContainer(
+  fileNameArr: string[],
+  fileNumArr: number[]
+) {
   const mainContainer = SettingsFieldset(
     "Edit Habits",
-    "settings--home--edit-habits"
+    "settings--habit-tracker--edit-habits"
   );
   const styles = "flex flex-col w-full gap-y-4";
   const container = HTML("div", styles);
 
   // Insert Data
-  AllHabitsDATA().then((data) => {
-    const habitsNames = Object.keys(data);
-    const numberOfHabits = habitsNames.length;
 
-    // console.log(habitsNames);
-    // console.log(data);
-    // name => "habit_1_Wake_up_12_AM"
+  // console.log(habitsNames);
+  // console.log(data);
+  // name => "habit_1_Wake_up_12_AM"
 
-    habitsNames.forEach((name, i, arr) => {
-      container.append(HabitComponent(name, i, numberOfHabits, arr));
-    });
+  fileNameArr.forEach((name, idx, arr) => {
+    container.append(HabitComponent(name, idx, arr.length, arr));
   });
 
   mainContainer.append(container);

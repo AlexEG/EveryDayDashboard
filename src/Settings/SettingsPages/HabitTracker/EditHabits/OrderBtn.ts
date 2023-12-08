@@ -15,7 +15,7 @@ export default function OrderBtn(
     const option = HTML("option", "", "", `${i + 1}`);
     option.setAttribute("value", `${i + 1}`);
 
-    if (i === +habitNum) {
+    if (i === habitNum) {
       option.setAttribute("selected", "");
     }
 
@@ -34,7 +34,7 @@ export default function OrderBtn(
     //* change UI
     const container1 = select.parentElement.parentElement;
     const container2 = document.querySelector(
-      `#settings--home--edit-habits div[data-habit-name="${fileName2}"]`
+      `#settings--habit-tracker--edit-habits div[data-habit-name="${fileName2}"]`
     ) as HTMLDivElement;
 
     // console.log(fileName1);
@@ -66,8 +66,8 @@ export default function OrderBtn(
 
     //* switch JSON
     const name1 = fileName1.split("_").with(1, value2).join("_");
-    const oldFilePaht1 = `habits/${fileName1}`;
-    const newFilePaht1 = `habits/${name1}`;
+    const oldFilePaht1 = `dashboards/habit-tracker/${fileName1}`;
+    const newFilePaht1 = `dashboards/habit-tracker/${name1}`;
 
     // console.log(oldFilePaht1);
     // console.log(newFilePaht1);
@@ -75,8 +75,8 @@ export default function OrderBtn(
     window.DATA.renameJSONFile(oldFilePaht1, newFilePaht1);
 
     const name2 = fileName2.split("_").with(1, value1).join("_");
-    const oldFilePaht2 = `habits/${fileName2}`;
-    const newFilePaht2 = `habits/${name2}`;
+    const oldFilePaht2 = `dashboards/habit-tracker/${fileName2}`;
+    const newFilePaht2 = `dashboards/habit-tracker/${name2}`;
 
     // console.log(oldFilePaht2);
     // console.log(newFilePaht2);
@@ -125,3 +125,4 @@ export default function OrderBtn(
 
 // TODO BUG || if you rename then try to change order
 // TODO BUG || after deleting the arr is still have the orgial length & item
+// TODO This feature is not working  [ rebuild ]

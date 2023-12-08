@@ -11,7 +11,7 @@ export default function DeleteBtn() {
 
   deleteBtn.onclick = () => {
     const Name = deleteBtn.parentElement.dataset.habitName;
-    window.DATA.deleteJSONFile(`habits/${Name}`);
+    window.DATA.deleteJSONFile(`dashboards/habit-tracker/${Name}`);
     deleteBtn.parentElement.remove();
 
     console.log(

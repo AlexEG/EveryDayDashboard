@@ -25,15 +25,11 @@ export default function RenameBtn() {
       const habitNum = NAME.split("_").slice(0, 2).join("_");
       const newName = habitNum + "_" + input.value.split(" ").join("_").trim();
 
-      const oldFilePaht = `habits/${NAME}`;
-      const newFilePaht = `habits/${newName}`;
+      const oldFilePaht = `dashboards/habit-tracker/${NAME}`;
+      const newFilePaht = `dashboards/habit-tracker/${newName}`;
 
       window.DATA.renameJSONFile(oldFilePaht, newFilePaht);
 
-      const oldName = renameBtn.parentElement.dataset.habitName
-        .split("_")
-        .slice(2)
-        .join(" ");
       renameBtn.parentElement.dataset.habitName = newName;
 
       console.log(
@@ -45,30 +41,7 @@ export default function RenameBtn() {
       );
 
       // change habit name in settings/home
-      // console.log(oldName);
       // console.log(newName);
-
-      const SettingsHomeDATA = new Promise((res, rej) => {
-        res(JSON.parse(window.DATA.getJSONFileData("settings/home")));
-      });
-
-      SettingsHomeDATA.then((data: any) => {
-        const colorPickerValue = data["habitsColor"][oldName] || "#ffffff";
-        const newHabitName = newName.split("_").slice(2).join(" ");
-
-        // console.log(colorPickerValue);
-        // console.log(newHabitName);
-
-        delete data["habitsColor"][oldName];
-        data["habitsColor"][newHabitName] = colorPickerValue;
-
-        // console.log(data["habitsColor"]);
-        window.DATA.editSettingsJSONFile_Value(
-          "settings/home",
-          "habitsColor",
-          data["habitsColor"]
-        );
-      });
     } else {
       renameBtn.innerText = "SAVE";
       renameBtn.dataset.allowEditing = "true";
