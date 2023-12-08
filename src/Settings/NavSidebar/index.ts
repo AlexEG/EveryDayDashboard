@@ -4,7 +4,7 @@ import BlockTitle from "./BlockTitle";
 
 import Sidebar from "../SettingsPages/Sidebar";
 import Titlebar from "../SettingsPages/Titlebar";
-import Home from "../SettingsPages/Home";
+import HabitTracker from "../SettingsPages/HabitTracker";
 import CodeWars from "../SettingsPages/CodeWars";
 import CSSBattle from "../SettingsPages/CSSBattle";
 import DEV from "../SettingsPages/DEV";
@@ -24,7 +24,7 @@ export default function NavSidebar() {
     // BlockTitle("Plugins"),
     // NavBtn("Plugins list"),
     BlockTitle("Dashboards"),
-    NavBtn("Home", Home),
+    NavBtn("Habit Tracker", HabitTracker),
     NavBtn("GitHub", GitHub),
     // NavBtn("WakaTime"),
     NavBtn("CodeWars", CodeWars),

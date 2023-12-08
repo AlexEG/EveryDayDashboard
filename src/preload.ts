@@ -208,7 +208,8 @@ function editSettingsJSONFile_Value(
   path: string,
   key: string,
   value: any,
-  key2?: string
+  key2?: string,
+  key3?: string
 ) {
   fs.readFile(`./DATA/${path}.json`, "utf-8", (err, data) => {
     if (err) {
@@ -217,7 +218,11 @@ function editSettingsJSONFile_Value(
     }
     const jsonData = JSON.parse(data);
 
-    key2 ? (jsonData[key][key2] = value) : (jsonData[key] = value);
+    key3
+      ? (jsonData[key][key2][key3] = value)
+      : key2
+      ? (jsonData[key][key2] = value)
+      : (jsonData[key] = value);
 
     fs.writeFile(
       `./DATA/${path}.json`,

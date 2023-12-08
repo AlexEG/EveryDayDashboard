@@ -101,7 +101,7 @@ export default function TrackerTimeChart(year?: number, month?: number) {
     }
 
     // console.log(AllHabitsTimeDataset);
-    console.log(habitsChartColor);
+    // console.log(habitsChartColor);
 
     // -------------------
     (async function () {

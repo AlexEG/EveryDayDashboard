@@ -6,7 +6,7 @@ export default function ColorInput(
   value: string,
   callback: any
 ) {
-  const styles = "w-7 h-7 bg-transparent cursor-pointer";
+  const styles = "w-7 h-7 bg-transparent cursor-pointer ml-auto";
 
   const colorPicker = HTML("input", styles, name, "", {
     type: "color",
@@ -17,7 +17,7 @@ export default function ColorInput(
   const labelStyles = "text-indigo-300 pl-3 pr-1 first:pl-0";
   const inputLabel = HTML("label", labelStyles, "", label, { for: name });
 
-  const wrapper = HTML("div", "flex items-center");
+  const wrapper = HTML("div", "flex items-center border-b border-white/5");
   wrapper.append(inputLabel, colorPicker);
 
   colorPicker.onchange = () => {
