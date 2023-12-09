@@ -21,8 +21,8 @@ export default function TrackerBestFollowedHabitsChartConfig(
 
   const today = +Date().match(/\d{2}/g)[0];
 
-  console.log(datasets);
-  console.log(today);
+  // console.log(datasets);
+  // console.log(today);
   const XAaxis = {
     max: numberOfDaysInThisMonth | today,
     min: 1,

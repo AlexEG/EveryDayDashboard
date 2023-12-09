@@ -58,7 +58,7 @@ export default function TrackerBestFollowedHabitsChart(
       const thisMonthData =
         habitData[thisYear] && habitData[thisYear][SELECTED_MONTH];
 
-      console.log(thisMonthData);
+      // console.log(thisMonthData);
 
       const thisHabitData = [];
 
@@ -81,8 +81,7 @@ export default function TrackerBestFollowedHabitsChart(
     }
 
     bestFollowedHabitsData.sort((a, b) => b[2] - a[2]);
-    console.log(bestFollowedHabitsData);
-    // add habit chart color + name + score
+    // console.log(bestFollowedHabitsData);
 
     // -------------------
     (async function () {
