@@ -16,15 +16,15 @@ export default function HabitsNameList() {
       // console.log(fileName, value);
       // console.log(habitNum, habitName);
 
-      const habit = HTML("div", "mb-0.5");
+      const habit = HTML("div", "mb-0.5 grid grid-cols-[25px_1fr] gap-x-2");
       const span1 = HTML(
         "span",
-        "bg-indigo-300 text-indigo-950 px-1 rounded-sm",
+        `bg-white/10 text-white/90 rounded-sm text-center`,
         "",
         habitNum
       );
 
-      const span2 = HTML("span", "pl-1 whitespace-nowrap ", "", habitName);
+      const span2 = HTML("span", "whitespace-nowrap", "", habitName);
       span2.style.color = metadata.groupColor || "#ffffff";
 
       habit.append(span1, span2);
