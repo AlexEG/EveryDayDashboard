@@ -2,7 +2,6 @@ import "./index.css";
 import TitleBar from "./components/TitleBar/TitleBar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Settings from "./Settings";
-// import Home from "./Dashboards/Home/Home";
 // import CodeWars from "./Dashboards/CodeWars";
 import HabitTracker from "./Dashboards/Habit Tracker";
 
@@ -22,6 +21,6 @@ const PREF_LOG_CSS = [
   "background:#000; color:#0f0",
 ];
 console.log(
-  `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms`,
+  `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms `,
   ...PREF_LOG_CSS
 );

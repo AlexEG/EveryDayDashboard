@@ -2,6 +2,7 @@ import HTML from "../../components/HTML/HTML";
 import Tracker from "./Tracker";
 import TrackerTimeChart from "./TrackerTimeChart";
 import Header from "./Header";
+import TrackerBestFollowedHabitsChart from "./TrackerBestFollowedHabitsChart";
 
 export default function HabitTracker() {
   const styles =
@@ -9,6 +10,11 @@ export default function HabitTracker() {
 
   const MainContainer = HTML("main", styles, "habit-tracker");
 
-  MainContainer.append(Header(), Tracker(), TrackerTimeChart());
+  MainContainer.append(
+    Header(),
+    Tracker(),
+    TrackerTimeChart(),
+    TrackerBestFollowedHabitsChart()
+  );
   return MainContainer;
 }

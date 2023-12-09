@@ -2,6 +2,7 @@ import HTML from "../../../components/HTML/HTML";
 import SelectMonthBtn from "../../../components/Settings/buttons/SelectMonthBtn";
 import HabitsCheckboxGrid from "../Tracker/HabitsCheckboxGrid";
 import TrackerTimeChart from "../TrackerTimeChart";
+import TrackerBestFollowedHabitsChart from "../TrackerBestFollowedHabitsChart";
 
 export default function Header() {
   const styles = "py-1 px-2 relative flex justify-end";
@@ -36,8 +37,15 @@ export default function Header() {
     // delete the chart
     document.querySelector("#habit-tracker--tracker-time-chart").remove();
     document
+      .querySelector("#habit-tracker--tracker-best-followed-habits-chart")
+      .remove();
+
+    document
       .querySelector("#habit-tracker")
       .append(TrackerTimeChart(SELECTED_YEAR, +selectedNum));
+    document
+      .querySelector("#habit-tracker")
+      .append(TrackerBestFollowedHabitsChart(SELECTED_YEAR, +selectedNum));
 
     const LOG_CSS = [
       "background:#000; color:#fff",
