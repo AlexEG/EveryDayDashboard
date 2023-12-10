@@ -11,7 +11,9 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "strictNullChecks":true
+    "strictNullChecks":true,
+    "noImplicitThis":true,
+    "strictFunctionTypes":true
   },
   "include": ["src"]
 }
