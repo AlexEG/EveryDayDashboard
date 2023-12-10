@@ -20,6 +20,6 @@ export default function HTML(
     }
   }
 
-  console.count("HTML");
+  // console.count("HTML");
   return element;
 }
