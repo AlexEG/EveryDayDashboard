@@ -19,5 +19,7 @@ export default function HTML(
       element.setAttribute(key, setAttributes[key]);
     }
   }
+
+  console.count("HTML");
   return element;
 }
