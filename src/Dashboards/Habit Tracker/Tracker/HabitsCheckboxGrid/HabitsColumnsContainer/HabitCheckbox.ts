@@ -66,7 +66,7 @@ export default function HabitCheckbox(
 
     thisHabitDATA.then((data) => {
       // console.log(data);
-      const metadata = data["data"]["metadata"];
+      // const metadata = data["data"]["metadata"];
       const habitData = data["data"]["habitData"];
       // console.log("metadata: ", metadata);
       // console.log("habitData: ", habitData);
@@ -102,6 +102,75 @@ export default function HabitCheckbox(
         data["data"]
       );
     });
+    //--- change the DailyProgressColumn text ---//
+
+    const DailyProgressColumn =
+      cell.parentElement.parentElement.parentElement.lastElementChild;
+    const thisDay = DailyProgressColumn.children[+day];
+
+    const span1 = thisDay.firstElementChild
+      .firstElementChild as HTMLSpanElement; // 10/21
+    const span2 = thisDay.firstElementChild.lastElementChild as HTMLSpanElement; // 48%
+
+    const [howManyCheckedInThisDay, numOfHabits] = span1.innerHTML.split("/");
+
+    // check if it - or +  then add the new values to span1 span2
+    let newPercentage = 0;
+    let newHowManyCheckedInThisDay = +howManyCheckedInThisDay;
+
+    if (checkbox.hasAttribute("checked")) {
+      newPercentage = Math.round(
+        ((+howManyCheckedInThisDay - 1) / +numOfHabits) * 100
+      );
+      newHowManyCheckedInThisDay--;
+    } else {
+      newPercentage = Math.round(
+        ((+howManyCheckedInThisDay + 1) / +numOfHabits) * 100
+      );
+      newHowManyCheckedInThisDay++;
+    }
+
+    span1.innerText = `${newHowManyCheckedInThisDay}/${numOfHabits}`;
+    span2.innerText = `${newPercentage}%`;
+
+    // add the progressStyles
+    const progressStyles =
+      newPercentage <= 25
+        ? "text-red-500"
+        : newPercentage <= 75
+        ? "text-yellow-500"
+        : "text-green-500";
+
+    thisDay.classList.remove(
+      "text-red-500",
+      "text-yellow-500",
+      "text-green-500"
+    );
+    thisDay.classList.add(progressStyles);
+
+    //?  console.log  ?//
+    // console.log("DailyProgressColumn", DailyProgressColumn);
+    // console.log("thisDay", thisDay);
+    // console.log("span1", span1);
+    // console.log("span2", span2);
+    // console.log("howManyCheckedInThisDay", howManyCheckedInThisDay);
+    // console.log("numOfHabits", numOfHabits);
+    // console.log("newPercentage", newPercentage);
+    // console.log("newHowManyCheckedInThisDay", newHowManyCheckedInThisDay);
+
+    checkbox.hasAttribute("checked")
+      ? console.log(
+          `%c Uncheck %c ${habitName} %c ${month} ${day}, ${year} `,
+          "background:black; color:#f00; font-weight:900",
+          "background:black; color:#ffd269",
+          "background:black; color:white"
+        )
+      : console.log(
+          `%c Check %c ${habitName} %c ${month} ${day}, ${year} `,
+          "background:black; color:#0f0; font-weight:900",
+          "background:black; color:#ffd269",
+          "background:black; color:white"
+        );
   }; // onclick end
 
   return cell;
