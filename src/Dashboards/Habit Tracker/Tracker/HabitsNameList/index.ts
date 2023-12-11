@@ -3,7 +3,11 @@ import HabitTrackerDATA from "../../HabitTrackerDATA";
 
 export default function HabitsNameList() {
   const styles = "h-full text-sm";
-  const HabitsNameListContainer = HTML("div", styles);
+  const HabitsNameListContainer = HTML(
+    "div",
+    styles,
+    "habit-tracker--tracker--habit-list"
+  );
 
   HabitTrackerDATA().then((data) => {
     // console.log(data);

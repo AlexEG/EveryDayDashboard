@@ -16,9 +16,9 @@ export default function ViewOtherMonth(select: HTMLSelectElement) {
       ? select.value.split("-")
       : select.dataset.month.split("-");
 
-  console.log("SELECTED_YEAR", SELECTED_YEAR);
-  console.log("selectedMonthName", selectedMonthName);
-  console.log("selectedNum", selectedNum);
+  // console.log("SELECTED_YEAR", SELECTED_YEAR);
+  // console.log("selectedMonthName", selectedMonthName);
+  // console.log("selectedNum", selectedNum);
 
   // Tracker
   {
