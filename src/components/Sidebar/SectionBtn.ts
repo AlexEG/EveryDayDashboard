@@ -71,9 +71,12 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
     const PREF_LOG_CSS = [
       "background:#000; color:#fff",
       "background:#000; color:#0f0",
+      "background:#000; color:#fff",
     ];
     console.log(
-      `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms`,
+      `%c Preformance / ${sectionName}  { %c${
+        PREF_LOG_END - PREF_LOG_START
+      }m%c } `,
       ...PREF_LOG_CSS
     );
   };

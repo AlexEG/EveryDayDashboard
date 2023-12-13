@@ -1,11 +1,11 @@
-export function openSettingsAnimation() {
+export async function openSettingsAnimation() {
   const settings = document.querySelector("section#settings") as HTMLElement;
   if (settings.dataset.isSettingsOpen === "false") {
     console.log(
       " %c OPEN  Settings ",
       "background:black; color:#0f0;font-weight: 700;"
     );
-    settings.animate(
+    const openAnimation = settings.animate(
       {
         transform: ["translateY(100%)", "translateY(0)"],
         visibility: ["hidden", "visible"],
@@ -18,17 +18,22 @@ export function openSettingsAnimation() {
       }
     );
     settings.dataset.isSettingsOpen = "true";
+
+    await openAnimation.finished;
+
+    openAnimation.commitStyles();
+    openAnimation.cancel();
   }
 }
 
-export function closeSettingsAnimation() {
+export async function closeSettingsAnimation() {
   const settings = document.querySelector("section#settings") as HTMLElement;
   if (settings.dataset.isSettingsOpen === "true") {
     console.log(
       " %c CLOSE  Settings ",
       "background:black; color:#f00;font-weight: 700;"
     );
-    settings.animate(
+    const closeAnimation = settings.animate(
       {
         transform: ["translateY(0)", "translateY(100%)"],
         visibility: ["visible", "hidden"],
@@ -41,5 +46,10 @@ export function closeSettingsAnimation() {
       }
     );
     settings.dataset.isSettingsOpen = "false";
+
+    await closeAnimation.finished;
+
+    closeAnimation.commitStyles();
+    closeAnimation.cancel();
   }
 }

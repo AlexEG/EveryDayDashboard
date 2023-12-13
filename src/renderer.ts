@@ -1,11 +1,11 @@
+const PREF_LOG_START = Date.now();
 import "./index.css";
 import TitleBar from "./components/TitleBar/TitleBar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Settings from "./Settings";
 // import CodeWars from "./Dashboards/CodeWars";
-import HabitTracker from "./Dashboards/Habit Tracker";
-
-const PREF_LOG_START = Date.now();
+// import HabitTracker from "./Dashboards/Habit Tracker";
+import MonkeyType from "./Dashboards/MonkeyType/MonkeyType";
 
 const ROOT = document.querySelector("div#root");
 
@@ -13,18 +13,19 @@ if (ROOT) {
   ROOT.append(TitleBar());
   ROOT.append(Sidebar());
   ROOT.append(Settings());
-  ROOT.append(HabitTracker());
+  ROOT.append(MonkeyType());
+  // ROOT.append(HabitTracker());
 }
-// ROOT.append(CodeWars());
 
 {
   const PREF_LOG_END = Date.now();
   const PREF_LOG_CSS = [
     "background:#000; color:#fff",
     "background:#000; color:#0f0",
+    "background:#000; color:#fff",
   ];
   console.log(
-    `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms `,
+    `%c Preformance / renderer.ts  {%c ${PREF_LOG_END - PREF_LOG_START}ms %c} `,
     ...PREF_LOG_CSS
   );
 }
