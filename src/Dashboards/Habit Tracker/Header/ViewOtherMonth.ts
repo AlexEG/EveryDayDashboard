@@ -1,6 +1,7 @@
 import HabitsCheckboxGrid from "../Tracker/HabitsCheckboxGrid";
 import TrackerTimeChart from "../TrackerTimeChart";
 import TrackerBestFollowedHabitsChart from "../TrackerBestFollowedHabitsChart";
+import TrackerBestFollowedDayChart from "../TrackerBestFollowedDayChart";
 
 export default function ViewOtherMonth(select: HTMLSelectElement) {
   const PREF_LOG_START = Date.now();
@@ -44,14 +45,21 @@ export default function ViewOtherMonth(select: HTMLSelectElement) {
     const chart2 = document.querySelector(
       "#habit-tracker--tracker-best-followed-habits-chart"
     );
+    const chart3 = document.querySelector(
+      "#habit-tracker--tracker-best-followed-day-chart"
+    );
     if (chart1) chart1.remove();
     if (chart2) chart2.remove();
+    if (chart3) chart3.remove();
 
     // Append the new charts
     const mainContainer = document.querySelector("#habit-tracker");
 
     if (mainContainer) {
       mainContainer.append(TrackerTimeChart(SELECTED_YEAR, +selectedNum));
+      mainContainer.append(
+        TrackerBestFollowedDayChart(SELECTED_YEAR, +selectedNum)
+      );
       mainContainer.append(
         TrackerBestFollowedHabitsChart(SELECTED_YEAR, +selectedNum)
       );

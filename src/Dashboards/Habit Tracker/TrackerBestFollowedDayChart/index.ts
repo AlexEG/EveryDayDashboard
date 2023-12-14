@@ -53,14 +53,14 @@ export default function TrackerBestFollowedDayChart(
       const thisMonthData =
         habitData[thisYear] && habitData[thisYear][SELECTED_MONTH];
 
-      console.log("thisMonthData", thisMonthData);
+      // console.log("thisMonthData", thisMonthData);
 
       for (const key in thisMonthData) {
         monthDataset[key] ? (monthDataset[key] += 1) : (monthDataset[key] = 1);
       }
     }
 
-    console.log("monthDataset", monthDataset);
+    // console.log("monthDataset", monthDataset);
 
     // -------------------
     (async function () {
