@@ -4,8 +4,8 @@ import TitleBar from "./components/TitleBar/TitleBar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Settings from "./Settings";
 // import CodeWars from "./Dashboards/CodeWars";
-// import HabitTracker from "./Dashboards/Habit Tracker";
-import MonkeyType from "./Dashboards/MonkeyType/MonkeyType";
+import HabitTracker from "./Dashboards/Habit Tracker";
+// import MonkeyType from "./Dashboards/MonkeyType/MonkeyType";
 
 const ROOT = document.querySelector("div#root");
 
@@ -13,8 +13,8 @@ if (ROOT) {
   ROOT.append(TitleBar());
   ROOT.append(Sidebar());
   ROOT.append(Settings());
-  ROOT.append(MonkeyType());
-  // ROOT.append(HabitTracker());
+  // ROOT.append(MonkeyType());
+  ROOT.append(HabitTracker());
 }
 
 {
