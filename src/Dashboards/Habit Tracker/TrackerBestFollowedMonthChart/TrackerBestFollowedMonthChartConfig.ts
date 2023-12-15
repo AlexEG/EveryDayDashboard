@@ -1,30 +1,24 @@
-export default function TrackerBestFollowedDayChartConfig(
-  labelsDays: string[],
+export default function TrackerBestFollowedMonthChartConfig(
+  MONTHS: string[],
   monthDataset: number[],
-  numberOfHaibts: number,
-  thisYear: number,
-  SELECTED_MONTH: string
+  thisYear: number
 ) {
+  // console.log("thisYear", thisYear);
   const XAaxis = {
     grid: {
       color: "#ffffff09",
     },
   };
   const YAaxis = {
-    min: 0,
-    max: numberOfHaibts,
-    ticks: {
-      stepSize: 1,
-    },
     grid: {
-      color: "#e11d4833",
+      color: "#0284c733",
     },
   };
 
   const plugins = {
     title: {
       display: true,
-      text: `Best Followed Day in ${SELECTED_MONTH}, ${thisYear}`,
+      text: `Best Followed Month in ${thisYear}`,
     },
     legend: {
       display: false,
@@ -34,13 +28,13 @@ export default function TrackerBestFollowedDayChartConfig(
   return {
     type: "bar",
     data: {
-      labels: labelsDays,
+      labels: MONTHS,
       datasets: [
         {
           label: "Checked ",
           data: monthDataset,
           borderWidth: 1,
-          backgroundColor: "#e11d48",
+          backgroundColor: "#0284c7",
         },
       ],
     },

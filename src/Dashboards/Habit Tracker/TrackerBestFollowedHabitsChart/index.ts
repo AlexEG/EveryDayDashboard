@@ -89,6 +89,8 @@ export default function TrackerBestFollowedHabitsChart(
         chartCanvas,
         TrackerBestFollowedHabitsChartConfig(
           bestFollowedHabitsData,
+          thisYear,
+          SELECTED_MONTH,
           numberOfDaysInThisMonth
         )
       );

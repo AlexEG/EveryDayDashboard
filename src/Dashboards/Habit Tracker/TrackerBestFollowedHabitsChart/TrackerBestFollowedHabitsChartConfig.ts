@@ -1,5 +1,7 @@
 export default function TrackerBestFollowedHabitsChartConfig(
   bestFollowedHabitsData: any[],
+  thisYear: number,
+  SELECTED_MONTH: string,
   numberOfDaysInThisMonth?: number
 ) {
   const datasets: any = [];
@@ -42,7 +44,7 @@ export default function TrackerBestFollowedHabitsChartConfig(
   const plugins = {
     title: {
       display: true,
-      text: "Tracker Best Followed Habits This Month",
+      text: `Best Followed Habits in ${SELECTED_MONTH}, ${thisYear}`,
     },
     legend: {
       display: true,

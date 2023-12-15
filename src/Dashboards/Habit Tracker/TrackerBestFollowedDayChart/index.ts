@@ -9,7 +9,7 @@ export default function TrackerBestFollowedDayChart(
   month?: number
 ) {
   const styles =
-    "w-full h-[700px] flex justify-center p-4 mt-4 bg-indigo-800/5 bg-indigo-50";
+    "w-full h-[700px] flex justify-center p-4 mt-4 bg-indigo-800/5";
   const chartContainer = HTML(
     "section",
     styles,
@@ -69,7 +69,9 @@ export default function TrackerBestFollowedDayChart(
         TrackerBestFollowedDayChartConfig(
           ChartLabelDays(year, month),
           Object.values(monthDataset),
-          numberOfHaibts
+          numberOfHaibts,
+          thisYear,
+          SELECTED_MONTH
         )
       );
     })();
