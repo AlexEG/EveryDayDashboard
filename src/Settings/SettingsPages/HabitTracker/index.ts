@@ -4,6 +4,7 @@ import HabitGroupColor from "./HabitGroupColor";
 import HabitChartColor from "./HabitChartColor";
 import CreateNewHabit from "./CreateNewHabit";
 import HabitTrackerDATA from "../../../Dashboards/Habit Tracker/HabitTrackerDATA";
+import AutoLockAfterTime from "./AutoLockAfterTime/AutoLockAfterTime";
 
 export default function HabitTracker() {
   const styles =
@@ -25,6 +26,7 @@ export default function HabitTracker() {
     const habitNameArr = [];
     const fileNameArr = [];
     const fileNumArr = [];
+    const HabitsAutoLockAfterTimeArr = [];
 
     for (const [fileName, value] of Object.entries(data)) {
       // console.log(fileName, value);
@@ -35,12 +37,14 @@ export default function HabitTracker() {
       const metadata = value["metadata"];
       const habitGroupColor = metadata.groupColor;
       const habitChartColor = metadata.chartColor;
+      const habitAutoLockAfterTime = metadata.autoLockAfterTime;
 
       fileNumArr.push(+habitNum);
       fileNameArr.push(fileName);
       habitNameArr.push(habitName);
       habitGroupColorArr.push(habitGroupColor);
       habitChartColorArr.push(habitChartColor);
+      HabitsAutoLockAfterTimeArr.push(habitAutoLockAfterTime);
 
       // {
       //   console.log("habitNum: ", habitNum);
@@ -48,8 +52,13 @@ export default function HabitTracker() {
       //   console.log("habitGroupColor: ", habitGroupColor);
       //   console.log("habitChartColor: ", habitChartColor);
       //   console.log("metadata: ", metadata);
+      // console.log("habitAutoLockAfterTime: ", habitAutoLockAfterTime);
       // }
     }
+
+    // console.log("habitNameArr: ", habitNameArr);
+    // console.log("fileNameArr: ", fileNameArr);
+    // console.log("fileNumArr: ", fileNumArr);
 
     themeWrapper.append(
       HabitGroupColor(fileNameArr, habitNameArr, habitGroupColorArr),
@@ -58,6 +67,7 @@ export default function HabitTracker() {
 
     mainContainer.append(
       h1,
+      AutoLockAfterTime(fileNameArr, habitNameArr, HabitsAutoLockAfterTimeArr),
       themeWrapper,
       CreateNewHabit(),
       EditHabitsContainer(fileNameArr, fileNumArr)

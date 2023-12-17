@@ -65,7 +65,7 @@ export default function HabitCheckbox(
           (+lockTime[1] - +timeNow[1]) * 60) *
         1000;
 
-      console.log("timeUntilAutoLock", timeUntilAutoLock);
+      // console.log("timeUntilAutoLock", timeUntilAutoLock);
 
       setTimeout(() => {
         lockCheckbox();
