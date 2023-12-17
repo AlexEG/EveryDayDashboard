@@ -16,6 +16,7 @@ export default function AutoLockComponent(
     "w-full rounded-lg border border-indigo-600 p-2 flex justify-between mb-1 transition-opacity" +
     highlight;
   const container = HTML("div", styles);
+  container.dataset.fileName = fileName;
 
   function changeAutoLockAfterTimePropertyInHabitJSON(
     timeInput: HTMLInputElement
@@ -31,8 +32,18 @@ export default function AutoLockComponent(
       "autoLockAfterTime"
     );
 
-    console.log("fileName", fileName);
-    console.log("timeValue", timeValue);
+    console.log(
+      `%c Set %c AutoLockAfterTime  ${fileName
+        .match(/(?<=habit_).*/)[0]
+        .replace(/_/g, " ")}  {%c ${timeValue}%c } `,
+      "background:black; color:#0f0 ; font-weight:900",
+      "background:black; color:white",
+      "background:black; color:#c7f",
+      "background:black; color:white"
+    );
+
+    // console.log("fileName", fileName);
+    // console.log("timeValue", timeValue);
   }
 
   container.append(
