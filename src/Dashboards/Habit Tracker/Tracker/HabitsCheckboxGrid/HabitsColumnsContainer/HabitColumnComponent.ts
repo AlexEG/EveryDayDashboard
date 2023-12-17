@@ -7,7 +7,8 @@ export default function HabitColumnComponent(
   habitNum: string,
   habitName: string,
   habitGroupColor: string,
-  thisMonthData: any
+  thisMonthData: any,
+  autoLockAfterTime: string
 ) {
   const styles =
     "group w-fit flex flex-col border-r border-t border-b border-blue-800 relative  hover:after:absolute after:top-0 after:bottom-0 after:-right-0.5 after:w-0.5 after:bg-blue-500  hover:before:absolute before:top-0 before:bottom-0 before:-left-0.5 before:w-0.5 before:bg-blue-500 z-40 hover:z-50 hover:border-x-none last:after:absolute last:after:bg-blue-800 last:hover:after:bg-blue-500";
@@ -40,7 +41,8 @@ export default function HabitColumnComponent(
         isChecked_time,
         habitName,
         i,
-        habitGroupColor
+        habitGroupColor,
+        autoLockAfterTime
       )
     );
   }

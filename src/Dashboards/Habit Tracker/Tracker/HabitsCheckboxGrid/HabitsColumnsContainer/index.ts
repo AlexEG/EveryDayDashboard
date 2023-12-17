@@ -30,11 +30,14 @@ export default function HabitsColumnsContainer(
 
       const thisMonthData =
         habitData[thisYear] && habitData[thisYear][thisMonthName];
+
+      const autoLockAfterTime = metadata.autoLockAfterTime;
       // console.log(habitNum);
       // console.log(habitName);
       // console.log(habitGroupColor);
       // console.log(thisMonthData);
       // console.log(metadata);
+      // console.log("autoLockAfterTime", autoLockAfterTime);
 
       const habitGroupColor = metadata["groupColor"];
 
@@ -45,7 +48,8 @@ export default function HabitsColumnsContainer(
           habitNum,
           habitName,
           habitGroupColor,
-          thisMonthData
+          thisMonthData,
+          autoLockAfterTime
         )
       );
     }

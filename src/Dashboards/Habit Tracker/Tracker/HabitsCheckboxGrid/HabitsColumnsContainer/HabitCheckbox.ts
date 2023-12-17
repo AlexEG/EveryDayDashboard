@@ -5,13 +5,14 @@ export default function HabitCheckbox(
   isChecked_time: string,
   habitName: string,
   dayNum: number,
-  habitGroupColor: string
+  habitGroupColor: string,
+  autoLockAfterTime: string
 ) {
   const highlight =
     highlightToday &&
     "border-y  relative after:absolute after:top-0 after:-right-0.5 after:bottom-0 after:w-0.5 after:bg-black ";
   const styles =
-    "w-10 h-10 flex justify-center items-center border-y-blue-600 bg-black " +
+    "w-10 h-10 flex justify-center items-center border-y-blue-600 bg-black relative " +
     highlight;
 
   const cell = HTML("div", styles);
@@ -22,10 +23,71 @@ export default function HabitCheckbox(
     "relative accent-blue-600 w-5 h-5 cursor-pointer after:content-[attr(customtitle)] after:absolute after:-top-2 after:left-1/2 after:text-blue-200 after:z-50 after:bg-black after:px-2 after:py-0.5 after:-translate-y-full after:-translate-x-1/2 after:whitespace-nowrap after:invisible hover:after:visible after:rounded-sm " +
     highlightTodayCSS;
 
+  // AutoLockAfterTime START
+  // 1. don't lock the ckeckbox if
+  //    a. the habit is already checked
+  //    b. today's TODO
+  //    c. if the autoLockAfterTime is not reach yet
+  // 2. get the autoLockAfterTime from habit Column data-auto-lock-after-time
+  // 3. get Date Now and check if timeNow > autoLockAfterTime
+  //    a. if hourNow > hourLock => lock
+  //    b. if hourNow === hourLock but minutesNow > minutesLock => lock
+  //// 4. run function that check evey five minutes [3] is ture or false
+  ////    a. if ture lock the ckeckbox
+  ////    b. do nothing
+  // 5. better than [4] run a function that take the endTime (autoLockAfterTime) and auto Lock the ckeckbox after that time
+
+  if (!isChecked_time && highlightToday && autoLockAfterTime) {
+    const timeNow = Date().match(/\d{2}(?=:)/g); // ['02', '00']
+    const lockTime = autoLockAfterTime.split(":"); // ['01', '50']
+
+    const lockCheckbox = () => {
+      const styles3 =
+        "absolute top-0 left-0 bottom-0 right-0 bg-black/50 p-3 z-50 cursor-not-allowed";
+      const lockDiv = HTML("div", styles3);
+      const lockImg = HTML("img", "", "", "", {
+        src: "/src/assets/lock-closed.svg",
+      });
+
+      lockDiv.append(lockImg);
+      cell.append(lockDiv);
+    };
+
+    if (
+      +timeNow[0] > +lockTime[0] ||
+      (+timeNow[0] === +lockTime[0] && +timeNow[1] > +lockTime[1])
+    ) {
+      lockCheckbox();
+    } else {
+      // run function to autoLock ckeckedbox after timeNow - autoLockAfterTime
+      const timeUntilAutoLock =
+        ((+lockTime[0] - +timeNow[0]) * 60 * 60 +
+          (+lockTime[1] - +timeNow[1]) * 60) *
+        1000;
+
+      console.log("timeUntilAutoLock", timeUntilAutoLock);
+
+      setTimeout(() => {
+        lockCheckbox();
+        console.log(
+          "%c AutoLock This Haibt cuz You're lazy ",
+          "background:#000;color:#f00;font-weight:900"
+        );
+      }, timeUntilAutoLock);
+    }
+
+    // console.log("autoLockAfterTime", autoLockAfterTime);
+    // console.log("timeNow", timeNow);
+    // console.log("lockTime", lockTime);
+    // console.log("+lockTime[0]", +lockTime[0]);
+  }
+  // AutoLockAfterTime END
+
   const checkbox = HTML("input", styles2, "", "", {
     type: "checkbox",
     customtitle: habitName,
   });
+
   checkbox.style.accentColor = habitGroupColor;
   if (isChecked_time) {
     checkbox.setAttribute("checked", "");
