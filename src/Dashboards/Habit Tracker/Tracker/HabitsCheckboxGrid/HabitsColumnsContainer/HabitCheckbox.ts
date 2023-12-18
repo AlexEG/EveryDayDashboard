@@ -97,6 +97,20 @@ export default function HabitCheckbox(
   cell.append(checkbox);
 
   checkbox.onclick = () => {
+    // Lock the history of habit checkbox
+    // 1. add data-edit-habit-history: 'false'  to the HaibtCheckboxGrid by default
+    // 2. add a toggle button to the header "Unlock Edit History"
+    //    2a. when "on" change data-edit-habit-history => true
+    // 3. for the checkboxes add condition if data-edit-habit-history is false and
+    //    dayNum is less then today don't run any of the code below
+
+    if (
+      checkbox.parentElement.parentElement.parentElement.dataset
+        .editHabitHistory === "false" &&
+      !highlightToday
+    )
+      return;
+    // ---- ---- //
     // 1. get habit file name, year, month, day
     // 2. if not checked before
     // 3. add new property to filename -> data -> year -> month -> day w/ the time of click
@@ -233,6 +247,7 @@ export default function HabitCheckbox(
           "background:black; color:#ffd269",
           "background:black; color:white"
         );
+    // } // editHabitHistory if() END
   }; // onclick end
 
   return cell;

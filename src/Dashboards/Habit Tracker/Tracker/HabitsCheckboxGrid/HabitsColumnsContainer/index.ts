@@ -9,13 +9,14 @@ export default function HabitsColumnsContainer(
   thisYear: number
 ) {
   const styles = "flex";
-  const HabitsColumnsContainer = HTML("div", styles);
+  const HabitsColumnsContainer = HTML(
+    "div",
+    styles,
+    "habit-tracker--tracker--habits-checkbox-grid---habits-column-container"
+  );
   HabitsColumnsContainer.dataset.month = "December";
   HabitsColumnsContainer.dataset.year = "2023";
-
-  // SettingsHomeDATA().then((data) => {
-  //   const habitsColor = data["habitsColor"];
-  //   // console.log(habitsColor);
+  HabitsColumnsContainer.dataset.editHabitHistory = "false";
 
   HabitTrackerDATA().then((data) => {
     // console.log(data);
