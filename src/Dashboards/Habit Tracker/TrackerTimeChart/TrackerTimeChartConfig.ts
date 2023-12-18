@@ -65,6 +65,7 @@ export default function TrackerTimeChartConfig(
       datasets: datasets,
     },
     options: {
+      animation: false,
       plugins: plugins,
       scales: {
         x: XAaxis,

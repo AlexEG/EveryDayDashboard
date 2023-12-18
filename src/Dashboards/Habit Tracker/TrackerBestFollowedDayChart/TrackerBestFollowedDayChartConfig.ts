@@ -45,6 +45,7 @@ export default function TrackerBestFollowedDayChartConfig(
       ],
     },
     options: {
+      animation: false,
       plugins: plugins,
       scales: {
         x: XAaxis,

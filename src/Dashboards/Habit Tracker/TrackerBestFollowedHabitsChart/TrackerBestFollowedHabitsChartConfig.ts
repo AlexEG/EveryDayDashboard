@@ -63,6 +63,7 @@ export default function TrackerBestFollowedHabitsChartConfig(
       datasets: datasets,
     },
     options: {
+      animation: false,
       indexAxis: "y",
       plugins: plugins,
       scales: {

@@ -39,6 +39,7 @@ export default function TrackerBestFollowedMonthChartConfig(
       ],
     },
     options: {
+      animation: false,
       plugins: plugins,
       scales: {
         x: XAaxis,
