@@ -7,19 +7,29 @@ export default function toggleHabitList() {
     habitsNameList.classList.remove("hidden");
 
     console.log(
-      "%c HabitTracker /%c OPEN %c HabitList ",
-      "background:black; color:#fff;",
-      "background:black; color:#0f0;font-weight: 900;",
-      "background:black; color:#fff;"
+      `%c ENABLE %c Haibt List `,
+      "background:black; color:#0f0 ; font-weight:900",
+      "background:black; color:white"
+    );
+
+    window.DATA.editSettingsJSONFile_ON_OFF(
+      "settings/habit-tracker",
+      "data",
+      "isHabitListDisplayedByDefault"
     );
   } else {
     habitsNameList.classList.add("hidden");
 
     console.log(
-      "%c HabitTracker /%c CLOSE %c HabitList ",
-      "background:black; color:#fff;",
-      "background:black; color:#f00;font-weight: 900;",
-      "background:black; color:#fff;"
+      `%c DISABLE %c Haibt List `,
+      "background:black; color:#f00 ; font-weight:900",
+      "background:black; color:white"
+    );
+
+    window.DATA.editSettingsJSONFile_ON_OFF(
+      "settings/habit-tracker",
+      "data",
+      "isHabitListDisplayedByDefault"
     );
   }
 }

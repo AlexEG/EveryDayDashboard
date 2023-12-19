@@ -5,6 +5,7 @@ import Header from "./Header";
 import TrackerBestFollowedHabitsChart from "./TrackerBestFollowedHabitsChart";
 import TrackerBestFollowedDayChart from "./TrackerBestFollowedDayChart";
 import TrackerBestFollowedMonthChart from "./TrackerBestFollowedMonthChart";
+import HabitTrackerSettingsDATA from "./HabitTrackerSettingsDATA";
 
 export default function HabitTracker() {
   const styles =
@@ -12,13 +13,21 @@ export default function HabitTracker() {
 
   const MainContainer = HTML("main", styles, "habit-tracker");
 
-  MainContainer.append(
-    Header(),
-    Tracker(),
-    TrackerTimeChart(),
-    TrackerBestFollowedDayChart(),
-    TrackerBestFollowedMonthChart(),
-    TrackerBestFollowedHabitsChart()
+  HabitTrackerSettingsDATA().then(
+    (data: { data: { isHabitListDisplayedByDefault: boolean } }) => {
+      // console.log("HabitTrackerSettingsDATA", data);
+      const isHabitListDisplayedByDefault =
+        data.data.isHabitListDisplayedByDefault;
+
+      MainContainer.append(
+        Header(isHabitListDisplayedByDefault),
+        Tracker(isHabitListDisplayedByDefault),
+        TrackerTimeChart(),
+        TrackerBestFollowedDayChart(),
+        TrackerBestFollowedMonthChart(),
+        TrackerBestFollowedHabitsChart()
+      );
+    }
   );
   return MainContainer;
 }

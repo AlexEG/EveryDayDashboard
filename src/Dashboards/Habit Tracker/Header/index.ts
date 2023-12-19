@@ -6,7 +6,7 @@ import ToggleBtn from "../../../components/Settings/buttons/ToggleBtn";
 import toggleUnlockEditHistory from "./toggleUnlockEditHistory";
 import toggleHabitList from "./toggleHabitList";
 
-export default function Header() {
+export default function Header(isHabitListDisplayedByDefault: boolean) {
   const styles = "py-1 px-2 relative flex justify-end gap-2";
   const Header = HTML("header", styles);
   const p = HTML(
@@ -24,7 +24,12 @@ export default function Header() {
       false,
       toggleUnlockEditHistory
     ),
-    ToggleBtn("Habit List", "toggle-habit-list-btn", true, toggleHabitList),
+    ToggleBtn(
+      "Habit List",
+      "toggle-habit-list-btn",
+      isHabitListDisplayedByDefault,
+      toggleHabitList
+    ),
     SelectMonthBtn(ViewOtherMonth),
     SelectYearBtn(ViewOtherMonth)
   );

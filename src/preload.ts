@@ -1,7 +1,7 @@
 import fs from "fs";
 
-Mkdir("./DATA");
-Mkdir("./DATA/Settings");
+// Mkdir("./DATA");
+// Mkdir("./DATA/Settings");
 
 // _________________________________________________________ //
 
@@ -63,17 +63,17 @@ function createJSONHaFileHabit(FileName: string) {
  * Done
  *
  */
-function Mkdir(path: string) {
-  fs.access(path, (error) => {
-    if (error) {
-      fs.mkdir(path, (error) => {
-        if (error) {
-          console.log(error);
-        }
-      });
-    }
-  });
-}
+// function Mkdir(path: string) {
+//   fs.access(path, (error) => {
+//     if (error) {
+//       fs.mkdir(path, (error) => {
+//         if (error) {
+//           console.log(error);
+//         }
+//       });
+//     }
+//   });
+// }
 
 /**
  *
@@ -160,6 +160,8 @@ function editSettingsJSONFile_ON_OFF(
     const jsonData = JSON.parse(data);
     if (key2 && key3) {
       jsonData[key][key2][key3] = !jsonData[key][key2][key3];
+    } else if (key && key2) {
+      jsonData[key][key2] = !jsonData[key][key2];
     } else {
       jsonData[key] = !jsonData[key];
     }

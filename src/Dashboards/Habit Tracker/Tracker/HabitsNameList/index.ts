@@ -1,8 +1,12 @@
 import HTML from "../../../../components/HTML/HTML";
 import HabitTrackerDATA from "../../HabitTrackerDATA";
 
-export default function HabitsNameList() {
-  const styles = "h-full text-sm";
+export default function HabitsNameList(isHabitListDisplayedByDefault: boolean) {
+  const styles = `h-full text-sm ${
+    isHabitListDisplayedByDefault ? "" : "hidden"
+  }`;
+
+  console.log("isHabitListDisplayedByDefault", isHabitListDisplayedByDefault);
   const HabitsNameListContainer = HTML(
     "div",
     styles,
@@ -34,7 +38,7 @@ export default function HabitsNameList() {
       habit.append(span1, span2);
       HabitsNameListContainer.append(habit);
     }
-  });
+  }); // HabitTrackerDATA END
 
   return HabitsNameListContainer;
 }
