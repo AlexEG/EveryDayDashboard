@@ -46,6 +46,7 @@ export default function EnableDisableCharts() {
     window.DATA.editSettingsJSONFile_ON_OFF(
       "settings/habit-tracker",
       "data",
+      "charts",
       chartPropertyName
     );
   }
