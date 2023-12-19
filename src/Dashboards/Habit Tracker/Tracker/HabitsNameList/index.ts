@@ -6,7 +6,7 @@ export default function HabitsNameList(isHabitListDisplayedByDefault: boolean) {
     isHabitListDisplayedByDefault ? "" : "hidden"
   }`;
 
-  console.log("isHabitListDisplayedByDefault", isHabitListDisplayedByDefault);
+  // console.log("isHabitListDisplayedByDefault", isHabitListDisplayedByDefault);
   const HabitsNameListContainer = HTML(
     "div",
     styles,

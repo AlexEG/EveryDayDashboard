@@ -5,6 +5,7 @@ import HabitChartColor from "./HabitChartColor";
 import CreateNewHabit from "./CreateNewHabit";
 import HabitTrackerDATA from "../../../Dashboards/Habit Tracker/HabitTrackerDATA";
 import AutoLockAfterTime from "./AutoLockAfterTime/AutoLockAfterTime";
+import EnableDisableCharts from "./EnableDisableCharts/EnableDisableCharts";
 
 export default function HabitTracker() {
   const styles =
@@ -67,6 +68,7 @@ export default function HabitTracker() {
 
     mainContainer.append(
       h1,
+      EnableDisableCharts(),
       AutoLockAfterTime(fileNameArr, habitNameArr, HabitsAutoLockAfterTimeArr),
       themeWrapper,
       CreateNewHabit(),

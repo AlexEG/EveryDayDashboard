@@ -14,18 +14,36 @@ export default function HabitTracker() {
   const MainContainer = HTML("main", styles, "habit-tracker");
 
   HabitTrackerSettingsDATA().then(
-    (data: { data: { isHabitListDisplayedByDefault: boolean } }) => {
+    (data: {
+      data: {
+        isHabitListDisplayedByDefault: boolean;
+        charts: {
+          isTrackerTimeChartDisplayed: boolean;
+          isTrackerBestFollowedDayChartDisplayed: boolean;
+          isTrackerBestFollowedMonthChartDisplayed: boolean;
+          isTrackerBestFollowedHabitsChartDisplayed: boolean;
+        };
+      };
+    }) => {
       // console.log("HabitTrackerSettingsDATA", data);
       const isHabitListDisplayedByDefault =
         data.data.isHabitListDisplayedByDefault;
 
+      const isTimeChart = data.data.charts.isTrackerTimeChartDisplayed;
+      const isBestFollowedDayChart =
+        data.data.charts.isTrackerBestFollowedDayChartDisplayed;
+      const isBestFollowedMonthChar =
+        data.data.charts.isTrackerBestFollowedMonthChartDisplayed;
+      const isBestFollowedHabitsChart =
+        data.data.charts.isTrackerBestFollowedHabitsChartDisplayed;
+
       MainContainer.append(
         Header(isHabitListDisplayedByDefault),
         Tracker(isHabitListDisplayedByDefault),
-        TrackerTimeChart(),
-        TrackerBestFollowedDayChart(),
-        TrackerBestFollowedMonthChart(),
-        TrackerBestFollowedHabitsChart()
+        isTimeChart ? TrackerTimeChart() : "",
+        isBestFollowedDayChart ? TrackerBestFollowedDayChart() : "",
+        isBestFollowedMonthChar ? TrackerBestFollowedMonthChart() : "",
+        isBestFollowedHabitsChart ? TrackerBestFollowedHabitsChart() : ""
       );
     }
   );

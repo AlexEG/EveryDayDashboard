@@ -1,1 +1,1 @@
-{ "data": { "isHabitListDisplayedByDefault": true } }
+{"data":{"isHabitListDisplayedByDefault":true,"charts":{"isTrackerTimeChartDisplayed":false,"isTrackerBestFollowedDayChartDisplayed":false,"isTrackerBestFollowedMonthChartDisplayed":true,"isTrackerBestFollowedHabitsChartDisplayed":false},"isTrackerBestFollowedHabitsChartDisplayed":true}}
