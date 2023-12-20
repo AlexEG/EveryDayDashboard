@@ -4,7 +4,7 @@ import SettingsBtn from "./SettingsBtn";
 import SidebarrDATA from "../../Settings/SettingsPages/Sidebar/SidebarDATA";
 
 import Home from "../../Dashboards/Home/Home";
-import HabitTracker from "../../Dashboards/Habit Tracker";
+import HabitTracker from "../../Dashboards/HabitTracker";
 import GitHub from "../../Dashboards/GitHub/GitHub";
 import WakaTime from "../../Dashboards/WakaTime/WakaTime";
 import CodeWars from "../../Dashboards/CodeWars";

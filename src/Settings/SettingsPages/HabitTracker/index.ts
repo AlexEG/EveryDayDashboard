@@ -3,7 +3,7 @@ import EditHabitsContainer from "./EditHabits/EditHabitsContainer";
 import HabitGroupColor from "./HabitGroupColor";
 import HabitChartColor from "./HabitChartColor";
 import CreateNewHabit from "./CreateNewHabit";
-import HabitTrackerDATA from "../../../Dashboards/Habit Tracker/HabitTrackerDATA";
+import HabitTrackerDATA from "../../../Dashboards/HabitTracker/HabitTrackerDATA";
 import AutoLockAfterTime from "./AutoLockAfterTime/AutoLockAfterTime";
 import EnableDisableCharts from "./EnableDisableCharts/EnableDisableCharts";
 

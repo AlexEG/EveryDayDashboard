@@ -1,7 +1,7 @@
 import SettingsFieldset from "../../../../components/Settings/SettingsFieldset";
 import ToggleBtn from "../../../../components/Settings/buttons/ToggleBtn";
 import HTML from "../../../../components/HTML/HTML";
-import HabitTrackerSettingsDATA from "../../../../Dashboards/Habit Tracker/HabitTrackerSettingsDATA";
+import HabitTrackerSettingsDATA from "../../../../Dashboards/HabitTracker/HabitTrackerSettingsDATA";
 
 export default function EnableDisableCharts() {
   const container = SettingsFieldset(

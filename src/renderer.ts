@@ -4,7 +4,7 @@ import TitleBar from "./components/TitleBar/TitleBar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Settings from "./Settings";
 // import CodeWars from "./Dashboards/CodeWars";
-import HabitTracker from "./Dashboards/Habit Tracker";
+import HabitTracker from "./Dashboards/HabitTracker";
 // import MonkeyType from "./Dashboards/MonkeyType/MonkeyType";
 
 const ROOT = document.querySelector("div#root");
