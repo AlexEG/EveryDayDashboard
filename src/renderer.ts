@@ -4,8 +4,9 @@ import TitleBar from "./components/TitleBar/TitleBar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Settings from "./Settings";
 // import CodeWars from "./Dashboards/CodeWars";
-import HabitTracker from "./Dashboards/HabitTracker";
+// import HabitTracker from "./Dashboards/HabitTracker";
 // import MonkeyType from "./Dashboards/MonkeyType/MonkeyType";
+import AniList from "./Dashboards/AniList/AniList";
 
 const ROOT = document.querySelector("div#root");
 
@@ -14,7 +15,8 @@ if (ROOT) {
   ROOT.append(Sidebar());
   ROOT.append(Settings());
   // ROOT.append(MonkeyType());
-  ROOT.append(HabitTracker());
+  // ROOT.append(HabitTracker());
+  ROOT.append(AniList());
 }
 
 {

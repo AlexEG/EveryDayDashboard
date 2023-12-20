@@ -14,7 +14,7 @@ import TryHackMe from "../../Dashboards/TryHackMe/TryHackMe";
 import MonkeyType from "../../Dashboards/MonkeyType/MonkeyType";
 import YouTube from "../../Dashboards/YouTube/YouTube";
 import Spotify from "../../Dashboards/Spotify/Spotify";
-import AinList from "../../Dashboards/AniList/AinList";
+import AinList from "../../Dashboards/AniList/AniList";
 import FrontendMentor from "../../Dashboards/FrontendMentor/FrontendMentor";
 import FreeCodeCamp from "../../Dashboards/FreeCodeCamp/FreeCodeCamp";
 import DEV from "../../Dashboards/DEV/DEV";
