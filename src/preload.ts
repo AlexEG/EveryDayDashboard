@@ -1,8 +1,19 @@
 import fs from "fs";
+import https from "https";
 
 // Mkdir("./DATA");
 // Mkdir("./DATA/Settings");
-
+{
+  Mkdir("./DATA");
+  Mkdir("./DATA/dashboards");
+  Mkdir("./DATA/dashboards/anilist");
+  Mkdir("./DATA/dashboards/anilist/media");
+  Mkdir("./DATA/dashboards/anilist/media/manga");
+  Mkdir("./DATA/dashboards/anilist/media/manga/banner");
+  Mkdir("./DATA/dashboards/anilist/media/manga/cover-image");
+  Mkdir("./DATA/dashboards/anilist/media/manga/cover-image/large");
+  Mkdir("./DATA/dashboards/anilist/media/manga/cover-image/medium");
+}
 // _________________________________________________________ //
 
 /**
@@ -63,17 +74,17 @@ function createJSONHaFileHabit(FileName: string) {
  * Done
  *
  */
-// function Mkdir(path: string) {
-//   fs.access(path, (error) => {
-//     if (error) {
-//       fs.mkdir(path, (error) => {
-//         if (error) {
-//           console.log(error);
-//         }
-//       });
-//     }
-//   });
-// }
+function Mkdir(path: string) {
+  fs.access(path, (error) => {
+    if (error) {
+      fs.mkdir(path, (error) => {
+        if (error) {
+          console.error(error);
+        }
+      });
+    }
+  });
+}
 
 /**
  *
@@ -122,6 +133,7 @@ contextBridge.exposeInMainWorld("DATA", {
   renameJSONFile,
   editSettingsJSONFile_ON_OFF,
   editSettingsJSONFile_Value,
+  downloadImg,
 });
 
 // --------
@@ -204,3 +216,25 @@ function editSettingsJSONFile_Value(
     );
   });
 }
+
+function downloadImg(imgURL: string, imgName: string, pathToSave: string) {
+  const file = fs.createWriteStream(`DATA/${pathToSave}/${imgName}`);
+
+  https
+    .get(imgURL, (response) => {
+      response.pipe(file);
+
+      file.on("finish", () => {
+        file.close();
+        console.log(`Image downloaded as ${imgName}`);
+      });
+    })
+    .on("error", (err) => {
+      fs.unlink(imgName, () => console.error("ERROR"));
+      console.error(`Error downloading image: ${err.message}`);
+    });
+}
+
+// downloadImg();
+
+// const imageName = String(imageUrl.match(/(?<=banner\/).*/g));
