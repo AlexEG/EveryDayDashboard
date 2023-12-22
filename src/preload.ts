@@ -1,18 +1,25 @@
 import fs from "fs";
 import https from "https";
 
-// Mkdir("./DATA");
-// Mkdir("./DATA/Settings");
+Mkdir("./DATA");
+Mkdir("./DATA/dashboards");
+Mkdir("./DATA/settings");
+Mkdir("./DATA/dashboards/habit-tracker");
+Mkdir("./DATA/dashboards/anilist");
+Mkdir("./DATA/dashboards/anilist/media");
 {
-  Mkdir("./DATA");
-  Mkdir("./DATA/dashboards");
-  Mkdir("./DATA/dashboards/anilist");
-  Mkdir("./DATA/dashboards/anilist/media");
   Mkdir("./DATA/dashboards/anilist/media/manga");
   Mkdir("./DATA/dashboards/anilist/media/manga/banner");
   Mkdir("./DATA/dashboards/anilist/media/manga/cover-image");
   Mkdir("./DATA/dashboards/anilist/media/manga/cover-image/large");
   Mkdir("./DATA/dashboards/anilist/media/manga/cover-image/medium");
+}
+{
+  Mkdir("./DATA/dashboards/anilist/media/anime");
+  Mkdir("./DATA/dashboards/anilist/media/anime/banner");
+  Mkdir("./DATA/dashboards/anilist/media/anime/cover-image");
+  Mkdir("./DATA/dashboards/anilist/media/anime/cover-image/large");
+  Mkdir("./DATA/dashboards/anilist/media/anime/cover-image/medium");
 }
 // _________________________________________________________ //
 
@@ -217,8 +224,13 @@ function editSettingsJSONFile_Value(
   });
 }
 
-function downloadImg(imgURL: string, imgName: string, pathToSave: string) {
-  const file = fs.createWriteStream(`DATA/${pathToSave}/${imgName}`);
+function downloadImg(
+  imgURL: string,
+  imgFileName: string,
+  pathToSave: string,
+  logMessage: string
+) {
+  const file = fs.createWriteStream(`DATA/${pathToSave}/${imgFileName}`);
 
   https
     .get(imgURL, (response) => {
@@ -226,11 +238,11 @@ function downloadImg(imgURL: string, imgName: string, pathToSave: string) {
 
       file.on("finish", () => {
         file.close();
-        console.log(`Image downloaded as ${imgName}`);
+        console.log(...logMessage);
       });
     })
     .on("error", (err) => {
-      fs.unlink(imgName, () => console.error("ERROR"));
+      fs.unlink(imgFileName, () => console.error("ERROR"));
       console.error(`Error downloading image: ${err.message}`);
     });
 }
