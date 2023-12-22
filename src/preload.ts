@@ -12,14 +12,14 @@ Mkdir("./DATA/dashboards/anilist/media");
   Mkdir("./DATA/dashboards/anilist/media/manga/banner");
   Mkdir("./DATA/dashboards/anilist/media/manga/cover-image");
   Mkdir("./DATA/dashboards/anilist/media/manga/cover-image/large");
-  Mkdir("./DATA/dashboards/anilist/media/manga/cover-image/medium");
+  Mkdir("./DATA/dashboards/anilist/media/manga/cover-image/extraLarge");
 }
 {
   Mkdir("./DATA/dashboards/anilist/media/anime");
   Mkdir("./DATA/dashboards/anilist/media/anime/banner");
   Mkdir("./DATA/dashboards/anilist/media/anime/cover-image");
   Mkdir("./DATA/dashboards/anilist/media/anime/cover-image/large");
-  Mkdir("./DATA/dashboards/anilist/media/anime/cover-image/medium");
+  Mkdir("./DATA/dashboards/anilist/media/anime/cover-image/extraLarge");
 }
 // _________________________________________________________ //
 
