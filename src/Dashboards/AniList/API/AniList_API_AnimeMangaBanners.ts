@@ -1,14 +1,12 @@
-import responseDataInterface from "./responseDataInterface";
+import responseDataInterface from "../helper/responseDataInterface";
 
-export default function AniList_API_AnimeListData() {
-  const query = `
-  query($userId:Int,$userName:String,$type:MediaType){MediaListCollection(userId:$userId,userName:$userName,type:$type){lists{name entries{...mediaListEntry}}}}fragment mediaListEntry on MediaList{status score progress updatedAt startedAt{year month day}completedAt{year month day}media{title{userPreferred english}coverImage{extraLarge large}type format episodes averageScore popularity genres bannerImage startDate{year month day}}}
-    `;
+export default function AniList_API_AnimeMangaBanners(type: "ANIME" | "MANGA") {
+  const query = `query($userId:Int,$userName:String,$type:MediaType){MediaListCollection(userId:$userId,userName:$userName,type:$type){lists{entries{...mediaListEntry}}}}fragment mediaListEntry on MediaList{media{title{userPreferred english}bannerImage}}`;
 
   const variables = {
     userId: 6482446,
     userName: "AlexEG",
-    type: "ANIME",
+    type: type,
   };
 
   const url = "https://graphql.anilist.co",
@@ -32,9 +30,9 @@ export default function AniList_API_AnimeListData() {
       .catch(handleError);
 
     function handleResponse(response: any) {
-      return response.json().then(function (json: any) {
-        return response.ok ? json : Promise.reject(json);
-      });
+      return response
+        .json()
+        .then((json: any) => (response.ok ? json : Promise.reject(json)));
     }
 
     function handleData(data: responseDataInterface) {

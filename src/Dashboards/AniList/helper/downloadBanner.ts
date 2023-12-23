@@ -1,11 +1,11 @@
-import AniList_API_AnimeMangaCoverImages from "./AniList_API_AnimeMangaCoverImages";
-interface API_AnimeMangaCoverImage {
+import AniList_API_AnimeMangaBanners from "../API/AniList_API_AnimeMangaBanners";
+interface API_AnimeMangaBanner {
   data: {
     MediaListCollection: {
       lists: {
         entries: {
           media: {
-            coverImage: { extraLarge: string; large: string };
+            bannerImage: string;
             title: { userPreferred: string; english: string };
           };
         }[];
@@ -14,23 +14,24 @@ interface API_AnimeMangaCoverImage {
   };
 }
 
-export default function downloadCovers(
-  type: "ANIME" | "MANGA",
-  size: "extraLarge" | "large"
-) {
+export default function downloadBanner(type: "ANIME" | "MANGA") {
   console.log(
-    `%c Check & Update All ${type} Cover Image `,
+    `%c Check & Update All ${type} Banner `,
     "background:black; color:#0f0 ; font-weight:900"
   );
-  AniList_API_AnimeMangaCoverImages(type)
-    .then((data: API_AnimeMangaCoverImage) => {
+  AniList_API_AnimeMangaBanners(type)
+    .then((data: API_AnimeMangaBanner) => {
       console.log(`API DATA ${type} Banners`, data);
       const lists = data.data.MediaListCollection.lists;
+      // console.log("lists", lists);
 
       for (const [, list] of Object.entries(lists)) {
+        // console.log("key", key);
+        // console.log("list", list);
+
         for (const listItme of list.entries) {
           // listItme = manga or anime object
-          const imgURL = listItme.media.coverImage[size];
+          const imgURL = listItme.media.bannerImage;
           // console.log("imgURL", imgURL);
 
           if (imgURL) {
@@ -43,9 +44,7 @@ export default function downloadCovers(
                 : animeOrMangaTitleUserPreferred
             }`;
 
-            const sizeURL =
-              size === "extraLarge" ? /(?<=large\/).*/g : /(?<=medium\/).*/g;
-            const imgFileName = String(imgURL.match(sizeURL));
+            const imgFileName = String(imgURL.match(/(?<=banner\/).*/g));
 
             // console.log("animeTitle", animeTitle);
 
@@ -56,13 +55,13 @@ export default function downloadCovers(
             ];
 
             const logMessage = [
-              `%c Download Complete %c ${type}  coverImage ${size} %c ${animeOrMangaTitle} `,
+              `%c Download Complete %c ${type}  Banner %c ${animeOrMangaTitle} `,
               ...LOG_CSS,
             ];
             window.DATA.downloadImg(
               imgURL,
               imgFileName,
-              `dashboards/anilist/media/${type.toLocaleLowerCase()}/cover-image/${size}`,
+              `dashboards/anilist/media/${type.toLocaleLowerCase()}/banner`,
               logMessage
             );
           } // END if(imgURL)

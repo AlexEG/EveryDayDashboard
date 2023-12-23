@@ -1,5 +1,5 @@
-export default function AniList_API_UserInfo() {
-  const query = `query($id:Int,$name:String){User(id:$id,name:$name){id name avatar{large}bannerImage about createdAt statistics{anime{count meanScore standardDeviation minutesWatched episodesWatched genrePreview:genres(limit:10,sort:COUNT_DESC){genre count}}manga{count meanScore standardDeviation chaptersRead volumesRead genrePreview:genres(limit:10,sort:COUNT_DESC){genre count}}}stats{activityHistory{date amount level}}favourites{anime{edges{node{id type status(version:2)format bannerImage title{userPreferred}coverImage{large}startDate{year}}}}manga{edges{node{id type format bannerImage title{userPreferred}coverImage{large}startDate{year}}}}characters{edges{node{id name{userPreferred}image{large}}}}staff{edges{node{id name{userPreferred}image{large}}}}studios{edges{node{id name}}}}}}`;
+export default function AniList_API_Favourites() {
+  const query = `query($id:Int,$name:String){User(id:$id,name:$name){  favourites{anime{edges{node{id type status(version:2)format bannerImage title{userPreferred}coverImage{large}startDate{year}}}}manga{edges{node{id type format bannerImage title{userPreferred}coverImage{large}startDate{year}}}}characters{edges{node{id name{userPreferred}image{large}}}}staff{edges{node{id name{userPreferred}image{large}}}}studios{edges{node{id name}}}}}}`;
 
   const variables = {
     id: 6482446,

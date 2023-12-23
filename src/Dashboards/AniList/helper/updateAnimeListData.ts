@@ -1,6 +1,5 @@
-import AniList_API_MangaListData from "./AniList_API_MangaListData";
-
-interface mangaListData {
+import AniList_API_AnimeListData from "../API/AniList_API_AnimeListData";
+interface animeListData {
   data: {
     MediaListCollection: {
       lists: {
@@ -20,6 +19,7 @@ interface mangaListData {
               extraLarge: string;
               large: string;
             };
+            type: "ANIME";
             format: string;
             episodes: number;
             averageScore: number;
@@ -34,14 +34,14 @@ interface mangaListData {
   };
 }
 
-export default function updateMangaListData() {
-  AniList_API_MangaListData().then((data: mangaListData) => {
-    console.log("API MangaListData: ", data);
+export default function updateAnimeListData() {
+  AniList_API_AnimeListData().then((data: animeListData) => {
+    console.log("API AnimeListData: ", data);
 
     const lists = data.data.MediaListCollection.lists;
     // console.log("lists: ", lists);
 
-    const updatedData: any = {};
+    const updatedData = {};
     updatedData.data = {};
 
     for (const list of lists) {
@@ -51,7 +51,7 @@ export default function updateMangaListData() {
     console.log("updatedData: ", updatedData);
 
     window.DATA.CreateOrUpdateJSON(
-      "dashboards/anilist/manga-list-data.json",
+      "dashboards/anilist/anime-list-data.json",
       updatedData
     );
   });

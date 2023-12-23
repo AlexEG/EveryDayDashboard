@@ -1,4 +1,4 @@
-import responseDataInterface from "./responseDataInterface";
+import responseDataInterface from "../helper/responseDataInterface";
 
 export default function AniList_API_Call() {
   const query = `

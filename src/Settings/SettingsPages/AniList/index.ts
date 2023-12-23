@@ -1,9 +1,11 @@
-import updateAnimeListData from "../../../Dashboards/AniList/updateAnimeListData";
+import updateAnimeListData from "../../../Dashboards/AniList/helper/updateAnimeListData";
 import HTML from "../../../components/HTML/HTML";
-import updateMangaListData from "../../../Dashboards/AniList/updateMangaListData";
-import updateUserInfoData from "../../../Dashboards/AniList/updateUserInfoData";
-import downloadCovers from "../../../Dashboards/AniList/downloadCoverImages";
-import downloadBanner from "../../../Dashboards/AniList/downloadBanner";
+import updateMangaListData from "../../../Dashboards/AniList/helper/updateMangaListData";
+import updateUserInfoData from "../../../Dashboards/AniList/helper/updateUserInfoData";
+import downloadCovers from "../../../Dashboards/AniList/helper/downloadCoverImages";
+import downloadBanner from "../../../Dashboards/AniList/helper/downloadBanner";
+import updateFavourites from "../../../Dashboards/AniList/helper/updateFavourites";
+import downloadUserAvatarBanner from "../../../Dashboards/AniList/helper/downloadUserAvatarBanner";
 
 export default function AniList() {
   const styles =
@@ -75,6 +77,19 @@ export default function AniList() {
     "",
     "Update User Info Data"
   );
+  const updateFavouritesDataJSONBtn = HTML(
+    "button",
+    styles2,
+    "",
+    "Update Favourites Data"
+  );
+
+  const downloadUserAvatarBannerBtn = HTML(
+    "button",
+    styles2,
+    "",
+    "Download User Avatar & Banner"
+  );
 
   updateAnimeBannerImagesBtn.onclick = () => downloadBanner("ANIME");
   updateMangaBannerImagesBtn.onclick = () => downloadBanner("MANGA");
@@ -91,6 +106,8 @@ export default function AniList() {
   updateAnimeListDataJSONBtn.onclick = updateAnimeListData;
   updateMangaListDataJSONBtn.onclick = updateMangaListData;
   updateUserInfoDataJSONBtn.onclick = updateUserInfoData;
+  updateFavouritesDataJSONBtn.onclick = updateFavourites;
+  downloadUserAvatarBannerBtn.onclick = downloadUserAvatarBanner;
 
   mainContainer.append(
     h1,
@@ -102,7 +119,9 @@ export default function AniList() {
     downloadMangaCoverImage_ExtraLarge,
     updateAnimeListDataJSONBtn,
     updateMangaListDataJSONBtn,
-    updateUserInfoDataJSONBtn
+    updateUserInfoDataJSONBtn,
+    updateFavouritesDataJSONBtn,
+    downloadUserAvatarBannerBtn
   );
 
   return mainContainer;
