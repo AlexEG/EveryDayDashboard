@@ -12,7 +12,7 @@ interface API_UserInfo {
 }
 export default function HomeBanner() {
   const styles =
-    "w-full h-72 border border-rose-600 relative rounded-lg overflow-hidden";
+    "w-full h-72 relative rounded-lg overflow-hidden drop-shadow-[0_0_10px_rgb(225,29,72,0.5)]";
   const header = HTML("header", styles);
 
   // --------------- //
@@ -44,7 +44,7 @@ export default function HomeBanner() {
       src: `/DATA/dashboards/anilist/media/user/${bannerImgFileName}`,
     });
     const styles2 =
-      "w-full max-w-7xl h-20 border border-blue-600 absolute bottom-1 left-1/2 -translate-x-1/2 flex gap-x-2 pl-2";
+      "w-full max-w-7xl h-20 absolute bottom-1 left-1/2 -translate-x-1/2 flex gap-x-2 pl-2";
     const div = HTML("div", styles2);
     const avatarImg = HTML(
       "img",
@@ -56,7 +56,7 @@ export default function HomeBanner() {
       }
     );
     const styles3 =
-      "text-white font-extrabold text-lg text-center flex items-center border border-green-600 drop-shadow-[0_0_10px_rgb(0,0,0,1)]";
+      "text-white font-extrabold text-lg text-center flex items-center drop-shadow-[0_0_10px_rgb(0,0,0,1)]";
     const userName = HTML("span", styles3, "", "AlexEG");
 
     div.append(avatarImg, userName);
