@@ -141,6 +141,7 @@ contextBridge.exposeInMainWorld("DATA", {
   editSettingsJSONFile_ON_OFF,
   editSettingsJSONFile_Value,
   downloadImg,
+  CreateOrUpdateJSON,
 });
 
 // --------
@@ -250,3 +251,9 @@ function downloadImg(
 // downloadImg();
 
 // const imageName = String(imageUrl.match(/(?<=banner\/).*/g));
+
+function CreateOrUpdateJSON(filePath: string, data: any) {
+  fs.writeFile(`./DATA/${filePath}`, JSON.stringify(data), function (err) {
+    if (err) throw err;
+  });
+}

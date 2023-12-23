@@ -26,12 +26,8 @@ export default function downloadCovers(
     .then((data: API_AnimeMangaCoverImage) => {
       console.log(`API DATA ${type} Banners`, data);
       const lists = data.data.MediaListCollection.lists;
-      // console.log("lists", lists);
 
       for (const [, list] of Object.entries(lists)) {
-        // console.log("key", key);
-        // console.log("list", list);
-
         for (const listItme of list.entries) {
           // listItme = manga or anime object
           const imgURL = listItme.media.coverImage[size];

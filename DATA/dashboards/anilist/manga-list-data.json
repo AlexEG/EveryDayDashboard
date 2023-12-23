@@ -1,0 +1,516 @@
+{
+  "data": {
+    "Planning": [
+      {
+        "status": "PLANNING",
+        "score": 0,
+        "progress": 0,
+        "updatedAt": 1698930220,
+        "startedAt": { "year": 2023, "month": 11, "day": 1 },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "Chainsaw Man",
+            "english": "Chainsaw Man"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx105778-82gwrvQV6OBc.png",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx105778-82gwrvQV6OBc.png"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 86,
+          "popularity": 232606,
+          "genres": ["Action", "Comedy", "Drama", "Horror", "Supernatural"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/105778-xpU0zxrlU2Ux.jpg",
+          "startDate": { "year": 2018, "month": 12, "day": 3 }
+        }
+      },
+      {
+        "status": "PLANNING",
+        "score": 6.5,
+        "progress": 0,
+        "updatedAt": 1698998013,
+        "startedAt": { "year": null, "month": null, "day": null },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "Bungou Stray Dogs",
+            "english": "Bungo Stray Dogs"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx85307-cfwdYRhtHRpD.png",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/nx85307-cfwdYRhtHRpD.png"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 84,
+          "popularity": 34322,
+          "genres": ["Action", "Drama", "Mystery", "Supernatural"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/85307-HPlNkWrkD0nk.jpg",
+          "startDate": { "year": 2012, "month": 12, "day": 4 }
+        }
+      },
+      {
+        "status": "PLANNING",
+        "score": 0,
+        "progress": 0,
+        "updatedAt": 1703159320,
+        "startedAt": { "year": null, "month": null, "day": null },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": { "userPreferred": "I Am a Hero", "english": "I Am a Hero" },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx44440-oLFibAj4TvM7.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx44440-oLFibAj4TvM7.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 74,
+          "popularity": 30307,
+          "genres": ["Action", "Horror", "Psychological"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/44440-EsVCieTs3ojl.jpg",
+          "startDate": { "year": 2009, "month": 4, "day": 20 }
+        }
+      },
+      {
+        "status": "PLANNING",
+        "score": 0,
+        "progress": 0,
+        "updatedAt": 1703159803,
+        "startedAt": { "year": null, "month": null, "day": null },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": { "userPreferred": "Sweet Home", "english": "Sweet Home" },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx100954-xY0Vw2sRRo8t.png",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx100954-xY0Vw2sRRo8t.png"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 82,
+          "popularity": 38536,
+          "genres": [
+            "Drama",
+            "Horror",
+            "Psychological",
+            "Supernatural",
+            "Thriller"
+          ],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/100954-qAxlNSSJM4Vh.jpg",
+          "startDate": { "year": 2017, "month": 10, "day": 19 }
+        }
+      }
+    ],
+    "Reading": [
+      {
+        "status": "CURRENT",
+        "score": 10,
+        "progress": 154,
+        "updatedAt": 1699999434,
+        "startedAt": { "year": 2021, "month": 7, "day": 13 },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "Shounen no Abyss",
+            "english": "Boy's Abyss"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx116186-KgIa6Zf6I1iH.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx116186-KgIa6Zf6I1iH.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 71,
+          "popularity": 39773,
+          "genres": ["Drama", "Psychological", "Romance"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/116186-BS9mWfQGwFvl.jpg",
+          "startDate": { "year": 2020, "month": 2, "day": 27 }
+        }
+      },
+      {
+        "status": "CURRENT",
+        "score": 8,
+        "progress": 53,
+        "updatedAt": 1698852601,
+        "startedAt": { "year": null, "month": null, "day": null },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "Mieruko-chan",
+            "english": "Mieruko-chan"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx105097-nMpc8bjBeuXE.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx105097-nMpc8bjBeuXE.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 77,
+          "popularity": 33807,
+          "genres": ["Comedy", "Horror", "Slice of Life", "Supernatural"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/105097-MW8cS0AOR1eq.jpg",
+          "startDate": { "year": 2018, "month": 11, "day": 2 }
+        }
+      },
+      {
+        "status": "CURRENT",
+        "score": 6,
+        "progress": 142,
+        "updatedAt": 1698852738,
+        "startedAt": { "year": null, "month": null, "day": null },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "Kaguya-sama wa Kokurasetai: Tensaitachi no Renai Zunousen",
+            "english": "Kaguya-sama: Love is War"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx86635-EdaLQmsn86Fy.png",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx86635-EdaLQmsn86Fy.png"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 88,
+          "popularity": 92213,
+          "genres": ["Comedy", "Psychological", "Romance", "Slice of Life"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/86635-5lYiOxKzZYZh.jpg",
+          "startDate": { "year": 2015, "month": 5, "day": 19 }
+        }
+      },
+      {
+        "status": "CURRENT",
+        "score": 5,
+        "progress": 132,
+        "updatedAt": 1698853051,
+        "startedAt": { "year": null, "month": null, "day": null },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "Real mo Tama ni wa Uso wo Tsuku",
+            "english": "Sometimes Even Reality Is a Lie!"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx113076-vDHc7BiVw5p3.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx113076-vDHc7BiVw5p3.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 74,
+          "popularity": 14347,
+          "genres": ["Comedy", "Romance", "Slice of Life"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/113076-0Pipb3vwkLD7.jpg",
+          "startDate": { "year": 2018, "month": 8, "day": 12 }
+        }
+      },
+      {
+        "status": "CURRENT",
+        "score": 3,
+        "progress": 68,
+        "updatedAt": 1698998268,
+        "startedAt": { "year": null, "month": null, "day": null },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": { "userPreferred": "ReLife", "english": "ReLIFE" },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx85849-TYAa7nhwSvbx.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/nx85849-TYAa7nhwSvbx.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 85,
+          "popularity": 42667,
+          "genres": [
+            "Comedy",
+            "Drama",
+            "Psychological",
+            "Romance",
+            "Slice of Life"
+          ],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/85849-nMDvs94oNC3X.jpg",
+          "startDate": { "year": 2013, "month": 10, "day": 12 }
+        }
+      },
+      {
+        "status": "CURRENT",
+        "score": 0,
+        "progress": 42,
+        "updatedAt": 1699528186,
+        "startedAt": { "year": 2023, "month": 11, "day": 3 },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "Aishiteru Game wo Owarasetai",
+            "english": "I Want to End This Love Game"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx143031-TP062dcP0V8C.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx143031-TP062dcP0V8C.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 78,
+          "popularity": 7910,
+          "genres": ["Comedy", "Romance"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/143031-ok3q9sM6GQFD.jpg",
+          "startDate": { "year": 2021, "month": 12, "day": 24 }
+        }
+      },
+      {
+        "status": "CURRENT",
+        "score": 1.5,
+        "progress": 8,
+        "updatedAt": 1700372233,
+        "startedAt": { "year": 2023, "month": 11, "day": 17 },
+        "completedAt": { "year": 2023, "month": 11, "day": 17 },
+        "media": {
+          "title": {
+            "userPreferred": "Kaoru Hana wa Rin to Saku",
+            "english": "The Fragrant Flower Blooms With Dignity"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx140475-QEGtrmdvbpOv.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx140475-QEGtrmdvbpOv.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 85,
+          "popularity": 20976,
+          "genres": ["Comedy", "Drama", "Romance"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/140475-ocI74tcAO54G.jpg",
+          "startDate": { "year": 2021, "month": 10, "day": 21 }
+        }
+      },
+      {
+        "status": "CURRENT",
+        "score": 6,
+        "progress": 45,
+        "updatedAt": 1702936753,
+        "startedAt": { "year": null, "month": null, "day": null },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": { "userPreferred": "Horimiya", "english": "Horimiya" },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx72451-vVXtRwyttjGG.png",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx72451-vVXtRwyttjGG.png"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 82,
+          "popularity": 96846,
+          "genres": ["Comedy", "Romance", "Slice of Life"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/42451-shG1Ksjxm3pw.jpg",
+          "startDate": { "year": 2011, "month": 10, "day": 18 }
+        }
+      },
+      {
+        "status": "CURRENT",
+        "score": 5.5,
+        "progress": 103,
+        "updatedAt": 1703189564,
+        "startedAt": { "year": 2022, "month": 2, "day": 15 },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": { "userPreferred": "Ijimeru Yabai Yatsu", "english": null },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx110030-qT9HwAmL9haM.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx110030-qT9HwAmL9haM.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 58,
+          "popularity": 3058,
+          "genres": ["Drama", "Psychological", "Thriller"],
+          "bannerImage": null,
+          "startDate": { "year": 2018, "month": 8, "day": 24 }
+        }
+      },
+      {
+        "status": "CURRENT",
+        "score": 10,
+        "progress": 100,
+        "updatedAt": 1703285237,
+        "startedAt": { "year": 2021, "month": 2, "day": 19 },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": { "userPreferred": "Homunculus", "english": "Homunculus" },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx30936-4syWQ7MpGx92.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx30936-4syWQ7MpGx92.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 83,
+          "popularity": 44510,
+          "genres": [
+            "Drama",
+            "Horror",
+            "Mystery",
+            "Psychological",
+            "Supernatural"
+          ],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/30936-2JwXy6PK3gT0.jpg",
+          "startDate": { "year": 2003, "month": 3, "day": 17 }
+        }
+      }
+    ],
+    "Completed": [
+      {
+        "status": "COMPLETED",
+        "score": 8.5,
+        "progress": 57,
+        "updatedAt": 1698865702,
+        "startedAt": { "year": 2021, "month": 9, "day": 11 },
+        "completedAt": { "year": 2023, "month": 11, "day": 1 },
+        "media": {
+          "title": {
+            "userPreferred": "1-nen A-gumi no Monster",
+            "english": null
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx101850-IHOT2nmKnqLd.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/nx101850-IHOT2nmKnqLd.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 60,
+          "popularity": 7924,
+          "genres": ["Drama", "Psychological", "Romance", "Slice of Life"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/101850-Hmbqbu5WjVFN.jpg",
+          "startDate": { "year": 2018, "month": 1, "day": 27 }
+        }
+      },
+      {
+        "status": "COMPLETED",
+        "score": 7.5,
+        "progress": 215,
+        "updatedAt": 1698998426,
+        "startedAt": { "year": null, "month": null, "day": null },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": { "userPreferred": "Nichijou", "english": "Nichijou" },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx33082-YrGJ9Tj3UJ3a.png",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx33082-YrGJ9Tj3UJ3a.png"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 82,
+          "popularity": 11760,
+          "genres": ["Comedy", "Slice of Life"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/33082-xkNnFgGczr2K.jpg",
+          "startDate": { "year": 2006, "month": 6, "day": 26 }
+        }
+      },
+      {
+        "status": "COMPLETED",
+        "score": 5,
+        "progress": 58,
+        "updatedAt": 1703159418,
+        "startedAt": { "year": 2022, "month": 7, "day": 18 },
+        "completedAt": { "year": 2022, "month": 7, "day": 30 },
+        "media": {
+          "title": {
+            "userPreferred": "Aku no Hana",
+            "english": "The Flowers of Evil"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx54705-YDpCv7Y0KIcx.png",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx54705-YDpCv7Y0KIcx.png"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 81,
+          "popularity": 50282,
+          "genres": ["Drama", "Psychological", "Romance"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/54705-c8gXYYrQboNu.jpg",
+          "startDate": { "year": 2009, "month": 9, "day": 9 }
+        }
+      }
+    ],
+    "Paused": [
+      {
+        "status": "PAUSED",
+        "score": 9,
+        "progress": 83,
+        "updatedAt": 1703159170,
+        "startedAt": { "year": 2021, "month": 2, "day": 16 },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "Sono Bisque Doll wa Koi wo Suru",
+            "english": "My Dress-Up Darling"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx101583-LsEOUNrjOpez.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx101583-LsEOUNrjOpez.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 78,
+          "popularity": 60941,
+          "genres": ["Comedy", "Ecchi", "Romance", "Slice of Life"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/101583-cSP6zPHQzjQD.jpg",
+          "startDate": { "year": 2018, "month": 1, "day": 19 }
+        }
+      },
+      {
+        "status": "PAUSED",
+        "score": 6.5,
+        "progress": 0,
+        "updatedAt": 1703159596,
+        "startedAt": { "year": 2023, "month": 5, "day": 15 },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "[Oshi no Ko]",
+            "english": "[Oshi no Ko]"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx117195-r3kf8eF0xkDJ.png",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx117195-r3kf8eF0xkDJ.png"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 84,
+          "popularity": 71259,
+          "genres": ["Drama", "Mystery", "Psychological", "Supernatural"],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/117195-VVYq1EEOwR0K.jpg",
+          "startDate": { "year": 2020, "month": 4, "day": 23 }
+        }
+      },
+      {
+        "status": "PAUSED",
+        "score": 10,
+        "progress": 30,
+        "updatedAt": 1703160255,
+        "startedAt": { "year": 2021, "month": 5, "day": 18 },
+        "completedAt": { "year": null, "month": null, "day": null },
+        "media": {
+          "title": {
+            "userPreferred": "Bakemonogatari",
+            "english": "Bakemonogatari"
+          },
+          "coverImage": {
+            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx101311-NOQuXK7eRHDm.jpg",
+            "large": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/bx101311-NOQuXK7eRHDm.jpg"
+          },
+          "format": "MANGA",
+          "episodes": null,
+          "averageScore": 82,
+          "popularity": 15791,
+          "genres": [
+            "Action",
+            "Comedy",
+            "Drama",
+            "Mystery",
+            "Romance",
+            "Supernatural"
+          ],
+          "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/manga/banner/101311-qxI6STofssqm.jpg",
+          "startDate": { "year": 2018, "month": 3, "day": 14 }
+        }
+      }
+    ]
+  }
+}
