@@ -8,8 +8,8 @@ export default function NavBar() {
 
   navBar.append(
     NavLink("Overview", false),
-    NavLink("Anime List", true),
-    NavLink("Manga List", false),
+    NavLink("Anime List", false),
+    NavLink("Manga List", true),
     NavLink("Favorites", false),
     NavLink("Stats", false)
   );

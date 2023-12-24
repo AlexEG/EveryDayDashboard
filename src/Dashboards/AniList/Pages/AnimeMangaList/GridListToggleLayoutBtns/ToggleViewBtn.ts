@@ -1,4 +1,4 @@
-import HTML from "../../../../components/HTML/HTML";
+import HTML from "../../../../../components/HTML/HTML";
 import toggleHighlight from "./toggleHighlight";
 
 export default function ToggleViewBtn(

@@ -1,7 +1,7 @@
 import HTML from "../../components/HTML/HTML";
-import AnimeList from "./AnimeList/AnimeList";
 import HomeBanner from "./Header/HomeBanner";
 import NavBar from "./NavBar/NavBar";
+import AnimeMangaList from "./Pages/AnimeMangaList/AnimeMangaList";
 
 export default function AniList() {
   const styles =
@@ -9,6 +9,6 @@ export default function AniList() {
 
   const MainContainer = HTML("main", styles, "anilist");
 
-  MainContainer.append(HomeBanner(), NavBar(), AnimeList());
+  MainContainer.append(HomeBanner(), NavBar(), AnimeMangaList("MANGA"));
   return MainContainer;
 }
