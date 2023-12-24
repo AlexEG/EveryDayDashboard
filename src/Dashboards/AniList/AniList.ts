@@ -5,7 +5,7 @@ import NavBar from "./NavBar/NavBar";
 
 export default function AniList() {
   const styles =
-    "h-[calc(100vh-31px)] w-[100%-3.5rem] ml-14 bg-black border-t border-l border-neutral-400 p-4";
+    "h-[calc(100vh-31px)] w-[100%-3.5rem] ml-14 bg-black border-t border-l border-neutral-400 p-4 overflow-y-auto";
 
   const MainContainer = HTML("main", styles, "anilist");
 

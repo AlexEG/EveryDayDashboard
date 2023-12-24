@@ -10,7 +10,7 @@ export default function ToggleViewBtn(
     : "opacity-50";
   const toggleViewBtn = HTML("button", styles) as HTMLButtonElement;
 
-  const styles2 = "h-4 w-4 invert";
+  const styles2 = "h-4 w-4 invert ";
   const icon = HTML("img", styles2, "", "", {
     src: `/src/assets/${iconFileName}.svg`,
   });

@@ -25,7 +25,7 @@ export default function HomeBanner() {
   });
 
   userInfoJSON.then((data: API_UserInfo) => {
-    console.log("API UserInfoData: ", data);
+    // console.log("API UserInfoData: ", data);
 
     const avatarURL = data.data.User.avatar.large;
     const bannerURL = data.data.User.bannerImage;

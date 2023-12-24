@@ -33,3 +33,13 @@ main::-webkit-scrollbar-thumb:hover {
 aside div#sidebar::-webkit-scrollbar {
   width: 0px;
 }
+
+/* ----------------- AniList ----------------- */
+main#anilist::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+main#anilist::-webkit-scrollbar-thumb {
+  background: rgb(225 29 72);
+  border-radius: 5px;
+}

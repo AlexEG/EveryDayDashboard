@@ -7,8 +7,8 @@ export default function NavBar() {
   const navBar = HTML("nav", styles);
 
   navBar.append(
-    NavLink("Overview", true),
-    NavLink("Anime List", false),
+    NavLink("Overview", false),
+    NavLink("Anime List", true),
     NavLink("Manga List", false),
     NavLink("Favorites", false),
     NavLink("Stats", false)
