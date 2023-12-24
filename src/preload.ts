@@ -8,6 +8,8 @@ Mkdir("./DATA/dashboards/habit-tracker");
 Mkdir("./DATA/dashboards/anilist");
 Mkdir("./DATA/dashboards/anilist/media");
 Mkdir("./DATA/dashboards/anilist/media/user");
+Mkdir("./DATA/dashboards/anilist/media/characters");
+Mkdir("./DATA/dashboards/anilist/media/staff");
 {
   Mkdir("./DATA/dashboards/anilist/media/manga");
   Mkdir("./DATA/dashboards/anilist/media/manga/banner");

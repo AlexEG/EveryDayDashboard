@@ -6,6 +6,7 @@ import downloadCovers from "../../../Dashboards/AniList/helper/downloadCoverImag
 import downloadBanner from "../../../Dashboards/AniList/helper/downloadBanner";
 import updateFavourites from "../../../Dashboards/AniList/helper/updateFavourites";
 import downloadUserAvatarBanner from "../../../Dashboards/AniList/helper/downloadUserAvatarBanner";
+import downloadFavouriteCharacteresAvatars from "../../../Dashboards/AniList/helper/downloadFavouriteCharacteresAvatars";
 
 export default function AniList() {
   const styles =
@@ -90,6 +91,12 @@ export default function AniList() {
     "",
     "Download User Avatar & Banner"
   );
+  const downloadFavouriteCharacteresAvatarsBtn = HTML(
+    "button",
+    styles2,
+    "",
+    "Download Favourite Characteres Avatar"
+  );
 
   updateAnimeBannerImagesBtn.onclick = () => downloadBanner("ANIME");
   updateMangaBannerImagesBtn.onclick = () => downloadBanner("MANGA");
@@ -108,6 +115,8 @@ export default function AniList() {
   updateUserInfoDataJSONBtn.onclick = updateUserInfoData;
   updateFavouritesDataJSONBtn.onclick = updateFavourites;
   downloadUserAvatarBannerBtn.onclick = downloadUserAvatarBanner;
+  downloadFavouriteCharacteresAvatarsBtn.onclick =
+    downloadFavouriteCharacteresAvatars;
 
   mainContainer.append(
     h1,
@@ -121,7 +130,8 @@ export default function AniList() {
     updateMangaListDataJSONBtn,
     updateUserInfoDataJSONBtn,
     updateFavouritesDataJSONBtn,
-    downloadUserAvatarBannerBtn
+    downloadUserAvatarBannerBtn,
+    downloadFavouriteCharacteresAvatarsBtn
   );
 
   return mainContainer;
