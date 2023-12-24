@@ -8,7 +8,7 @@ export default function AnimeComponent(
   Type: string
 ) {
   const styles =
-    "w-full h-14 hover:bg-rose-600/25 rounded-lg grid grid-cols-[3.5rem_3fr_1fr_1fr_1fr] gap-x-2 font-medium leading-[3.4rem] text-rose-100 text-center";
+    "w-full h-14 hover:bg-rose-600/25 rounded-lg grid grid-cols-[3.5rem_3fr_1fr_1fr_1fr] gap-x-2 font-medium leading-[3.4rem] text-rose-100/80 text-center";
   const animeComponent = HTML("div", styles);
 
   const animeCoverImg = HTML("div", "h-14");
@@ -19,7 +19,7 @@ export default function AnimeComponent(
   animeCoverImg.append(img);
 
   const styles3 =
-    "text-left pl-2 whitespace-nowrap truncate select-text selection:bg-rose-100 selection:text-rose-900";
+    "text-left pl-2 whitespace-nowrap truncate select-text selection:bg-rose-100 selection:text-rose-900 ";
 
   const title = HTML("p", styles3, "", Title);
   const score = HTML("p", "", "", Score);

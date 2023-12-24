@@ -5,7 +5,7 @@ import ListsContainer from "./ListsContainer/ListsContainer";
 
 export default function AnimeList() {
   const styles =
-    "w-full grid grid-co grid-cols-[17rem_1fr_7rem] grid-rows-[2.5rem_24rem_1fr] select-none";
+    "w-full grid grid-cols-[17rem_1fr_7rem] grid-rows-[2.5rem_24rem_1fr] select-none";
   const mainContainer = HTML("section", styles, "anilist--anime-list");
 
   mainContainer.append(Filter(), ListsContainer(), GridListToggleLayoutBtns());

@@ -43,3 +43,6 @@ main#anilist::-webkit-scrollbar-thumb {
   background: rgb(225 29 72);
   border-radius: 5px;
 }
+main#anilist::-webkit-scrollbar-track {
+  margin-top: 26.5rem;
+}

@@ -2,11 +2,16 @@ import HTML from "../../../../components/HTML/HTML";
 import AnimeComponent from "./AnimeComponent";
 
 export default function ListComponent(listName: string, listData: any) {
-  const styles = "mb-8";
-  const ListComponent = HTML("div", styles);
+  const ListComponent = HTML("div", "mb-8");
 
-  const styles2 = "text-rose-100 font-bold text-lg mb-1 pl-4";
-  const h2 = HTML("h2", styles2, "", listName);
+  const styles = "text-rose-100 font-bold text-lg mb-1 pl-4";
+  const listTitle = HTML("div", "flex  gap-x-1");
+  const h2 = HTML("h2", styles, "", listName);
+
+  const styles2 =
+    "rounded-full w-5 h-5 text-xs border border-rose-600 text-rose-50 text-center drop-shadow-[0_0_5px_rgb(225,29,72,0.3)]";
+  const span = HTML("span", styles2, "", String(listData.length));
+  listTitle.append(h2, span);
 
   const styles3 = "border border-rose-600 rounded-lg p-2 flex flex-col gap-2";
   const listItemWrapper = HTML("div", styles3);
@@ -39,6 +44,6 @@ export default function ListComponent(listName: string, listData: any) {
       AnimeComponent(imgFileName, title, score, progress, type)
     );
   }
-  ListComponent.append(h2, listItemWrapper);
+  ListComponent.append(listTitle, listItemWrapper);
   return ListComponent;
 }
