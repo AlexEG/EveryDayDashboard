@@ -1,5 +1,7 @@
 import HTML from "../../../components/HTML/HTML";
 import NavLink from "./NavLink";
+import removeRenderPage from "./removeRenderPage";
+import toggleHighlight from "./toggleHighlight";
 
 export default function NavBar() {
   const styles =
@@ -9,10 +11,17 @@ export default function NavBar() {
   navBar.append(
     NavLink("Overview", false),
     NavLink("Anime List", false),
-    NavLink("Manga List", true),
-    NavLink("Favorites", false),
+    NavLink("Manga List", false),
+    NavLink("Favorites", true),
     NavLink("Stats", false)
   );
 
+  navBar.addEventListener(
+    "click",
+    (e) => (
+      toggleHighlight(e.target as HTMLButtonElement, navBar),
+      removeRenderPage(e.target as HTMLButtonElement)
+    )
+  );
   return navBar;
 }

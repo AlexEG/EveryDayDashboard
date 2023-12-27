@@ -17,11 +17,11 @@ export default function ListsContainer(listType: "ANIME" | "MANGA") {
   });
 
   listDataJSON.then((data) => {
-    console.log(
-      `%c JSON  ${listType}  ListData: `,
-      "background:black;color:white",
-      data
-    );
+    // console.log(
+    //   `%c JSON  ${listType}  ListData: `,
+    //   "background:black;color:white",
+    //   data
+    // );
     // listName => Completed | Dropped | Watching | Reading
     for (const [listName, listData] of Object.entries(data.data)) {
       listsContainer.append(ListComponent(listType, listName, listData));

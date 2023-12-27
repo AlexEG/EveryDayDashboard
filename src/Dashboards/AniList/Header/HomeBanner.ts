@@ -40,9 +40,15 @@ export default function HomeBanner() {
     // console.log("bannerImgFileName", bannerImgFileName);
     // console.log("avatarImgFileName", avatarImgFileName);
 
-    const bannerImg = HTML("img", "object-cover w-full h-full", "", "", {
-      src: `/DATA/dashboards/anilist/media/user/${bannerImgFileName}`,
-    });
+    const bannerImg = HTML(
+      "img",
+      "object-cover object-center w-full h-full",
+      "",
+      "",
+      {
+        src: `/DATA/dashboards/anilist/media/user/${bannerImgFileName}`,
+      }
+    );
     const styles2 =
       "w-full max-w-7xl h-20 absolute bottom-1 left-1/2 -translate-x-1/2 flex gap-x-2 pl-2";
     const div = HTML("div", styles2);
