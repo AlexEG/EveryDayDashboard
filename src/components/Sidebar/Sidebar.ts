@@ -20,6 +20,7 @@ import FreeCodeCamp from "../../Dashboards/FreeCodeCamp/FreeCodeCamp";
 import DEV from "../../Dashboards/DEV/DEV";
 import Firebase from "../../Dashboards/Firebase/Firebase";
 import Vercel from "../../Dashboards/Vercel/Vercel";
+import Achievements from "../../Dashboards/Achievements/Achievements";
 
 export default function Sidebar() {
   const styles =
@@ -66,6 +67,8 @@ export default function Sidebar() {
             ? Spotify
             : svgName === "anilist"
             ? AinList
+            : svgName === "achievements"
+            ? Achievements
             : svgName === "frontendmentor"
             ? FrontendMentor
             : svgName === "freecodecamp"

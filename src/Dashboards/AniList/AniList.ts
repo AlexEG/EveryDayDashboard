@@ -9,6 +9,6 @@ export default function AniList() {
 
   const MainContainer = HTML("main", styles, "anilist");
 
-  MainContainer.append(HomeBanner(), NavBar(), AnimeMangaList("MANGA"));
+  MainContainer.append(HomeBanner(), NavBar(), AnimeMangaList("ANIME"));
   return MainContainer;
 }

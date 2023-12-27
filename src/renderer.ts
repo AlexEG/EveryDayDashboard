@@ -6,7 +6,8 @@ import Settings from "./Settings";
 // import CodeWars from "./Dashboards/CodeWars";
 // import HabitTracker from "./Dashboards/HabitTracker";
 // import MonkeyType from "./Dashboards/MonkeyType/MonkeyType";
-import AniList from "./Dashboards/AniList/AniList";
+// import AniList from "./Dashboards/AniList/AniList";
+import Achievements from "./Dashboards/Achievements/Achievements";
 
 const ROOT = document.querySelector("div#root");
 
@@ -16,7 +17,7 @@ if (ROOT) {
   ROOT.append(Settings());
   // ROOT.append(MonkeyType());
   // ROOT.append(HabitTracker());
-  ROOT.append(AniList());
+  ROOT.append(Achievements());
 }
 
 {

@@ -48,7 +48,7 @@ export default function HomeBanner() {
     const div = HTML("div", styles2);
     const avatarImg = HTML(
       "img",
-      "w-20 h-20 drop-shadow-[0_0_2px_rgb(0,0,0,0.5)]",
+      "w-20 h-20 drop-shadow-[0_0_10px_rgb(0,0,0,0.7)] rounded-md",
       "",
       "",
       {
