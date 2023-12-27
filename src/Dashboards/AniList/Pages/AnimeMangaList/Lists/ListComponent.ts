@@ -43,9 +43,11 @@ export default function ListComponent(
       const titleEnglish = listItem.media.title.english;
 
       const title = titleEnglish ? titleEnglish : titleUserPreferred;
-      const chapters = `${listItem.progress}/${listItem.media.chapters}`;
+      const chapters = `${listItem.progress}/${listItem.media.chapters || ""}`;
       const score = listItem.score;
-      const volumes = `${listItem.progressVolumes}/${listItem.media.volumes}`;
+      const volumes = `${listItem.progressVolumes}/${
+        listItem.media.volumes || ""
+      }`;
       listItemWrapper.append(
         ListItem(listType, imgFileName, title, score, chapters, volumes)
       );

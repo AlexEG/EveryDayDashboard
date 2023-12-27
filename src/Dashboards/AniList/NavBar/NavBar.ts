@@ -18,10 +18,11 @@ export default function NavBar() {
 
   navBar.addEventListener(
     "click",
-    (e) => (
-      toggleHighlight(e.target as HTMLButtonElement, navBar),
-      removeRenderPage(e.target as HTMLButtonElement)
-    )
+    (e) =>
+      e.target.tagName === "BUTTON" &&
+      !e.target.classList.contains("text-rose-600") &&
+      (toggleHighlight(e.target as HTMLButtonElement, navBar),
+      removeRenderPage(e.target as HTMLButtonElement))
   );
   return navBar;
 }
