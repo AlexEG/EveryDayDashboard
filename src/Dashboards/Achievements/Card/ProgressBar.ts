@@ -1,17 +1,27 @@
 import HTML from "../../../components/HTML/HTML";
+import ProgressBox from "./ProgressBox";
 
-export default function ProgressBar() {
-  const styles = "h-5 w-44 border border-cyan-500";
-  const ProgressBar = HTML("div", styles);
+export default function ProgressBar(progress: number, max: number) {
+  const percentage = Math.round((progress / max) * 100);
 
-  const PROGRESS_NUM = 46;
+  const styles = " flex items-center gap-x-1";
+  const wrapper = HTML("div", styles);
 
-  const styles2 =
-    "bg-cyan-600 h-full text-cyan-950 font-medium text-sm text-center leading-4";
-  const YourProgress = HTML("div", styles2, "", String(PROGRESS_NUM));
+  const styles2 = "h-5 w-44 border border-rose-500";
+  const ProgressBar = HTML("div", styles2);
 
-  YourProgress.style.width = `${String(PROGRESS_NUM)}%`;
+  const styles3 =
+    "bg-rose-600 text-rose-100 font-semibold h-full text-sm text-center leading-4";
+  const YourProgress = HTML(
+    "div",
+    styles3,
+    "",
+    percentage === 100 ? "Complete" : ""
+  );
+
+  YourProgress.style.width = `${String(percentage)}%`;
 
   ProgressBar.append(YourProgress);
-  return ProgressBar;
+  wrapper.append(ProgressBar, ProgressBox(percentage, progress, max));
+  return wrapper;
 }

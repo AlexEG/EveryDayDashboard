@@ -93,5 +93,6 @@ out/
 DATA/habits
 DATA/dashboards/habit-tracker
 DATA/dashboards/anilist
+DATA/dashboards/achievements
 test.js
 test.ts
