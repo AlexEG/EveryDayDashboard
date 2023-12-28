@@ -5,7 +5,7 @@ export default function ProgressNumberInput(
   chapterPageNumber: number
 ) {
   const styles = "p-1";
-  const div = HTML("div", styles);
+  const progressNumberInput = HTML("div", styles);
 
   const styles2 =
     "w-full h-full border border-rose-950 bg-black text-rose-50 text-center text-sm";
@@ -16,6 +16,16 @@ export default function ProgressNumberInput(
     max: chapterPageNumber,
   });
 
-  div.append(input);
-  return div;
+  function showSaveInputBtn() {
+    const saveBtn = progressNumberInput.nextElementSibling;
+    if (saveBtn.classList.contains("hidden")) {
+      console.log("saveBtn", saveBtn);
+      saveBtn.classList.remove("hidden");
+    }
+  }
+
+  input.onchange = () => showSaveInputBtn();
+
+  progressNumberInput.append(input);
+  return progressNumberInput;
 }

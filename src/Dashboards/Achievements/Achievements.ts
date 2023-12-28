@@ -18,9 +18,9 @@ export default function Achievements() {
   MainContainer.append(h1, Header());
 
   AchievementsDATA().then((data) => {
-    console.log("AchievementsDATA", data);
+    // console.log("AchievementsDATA", data);
 
-    for (const [, achievement] of Object.entries(data)) {
+    for (const [fileNameJSON, achievement] of Object.entries(data)) {
       const data = achievement.data;
       const metadata = achievement.metadata;
 
@@ -33,11 +33,11 @@ export default function Achievements() {
       const progressPages = metadata.progressPages;
       const progressChapterPercentage = metadata.progressChapterPercentage;
       const progressPagesPercentage = metadata.progressPagesPercentage;
-      const isComplete = metadata.isComplete;
 
-      console.log(chapters);
+      // console.log(chapters);
       MainContainer.append(
         Card(
+          fileNameJSON,
           name,
           description,
           chapters,
@@ -47,7 +47,6 @@ export default function Achievements() {
           progressPages,
           progressChapterPercentage,
           progressPagesPercentage,
-          isComplete,
           data
         )
       );

@@ -1,5 +1,3 @@
-import SubCardContainer from "../SubCard/SubCardContainer";
-
 export default function toggleSubCards(expandBtn: HTMLElement): void {
   const cardContainer = expandBtn.parentElement.parentElement.parentElement;
   // console.log("cardContainer:", cardContainer);
