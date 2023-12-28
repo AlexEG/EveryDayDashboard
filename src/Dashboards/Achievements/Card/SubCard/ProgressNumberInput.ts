@@ -19,7 +19,7 @@ export default function ProgressNumberInput(
   function showSaveInputBtn() {
     const saveBtn = progressNumberInput.nextElementSibling;
     if (saveBtn.classList.contains("hidden")) {
-      console.log("saveBtn", saveBtn);
+      // console.log("saveBtn", saveBtn);
       saveBtn.classList.remove("hidden");
     }
   }

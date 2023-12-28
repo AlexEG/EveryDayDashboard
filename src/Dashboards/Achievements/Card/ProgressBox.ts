@@ -1,6 +1,6 @@
 import { dailyProgressColumnAnimation } from "../../../Dashboards/HabitTracker/HabitTrackerAnimation";
 import HTML from "../../../components/HTML/HTML";
-import { ProgressBoxAnimation } from "./ProgressBoxAnimation";
+// import { ProgressBoxAnimation } from "./ProgressBoxAnimation";
 
 export default function ProgressBox(
   percentage: number,
@@ -14,7 +14,7 @@ export default function ProgressBox(
       ? "text-yellow-500"
       : "text-green-500";
 
-  const styles = "h-5 w-16 text-xs overflow-hidden border " + progressStyles;
+  const styles = "h-5 w-16 text-xs overflow-hidden " + progressStyles;
   const progressBox = HTML("div", styles);
 
   const styles3 = "w-full h-full flex justify-center items-center";

@@ -7,7 +7,7 @@ export default function ExpandCollapseBtn() {
   const expandCollapseBtn = HTML("div", styles);
 
   const styles2 =
-    "group border border-rose-600 rounded-lg w-12 h-12 grid place-content-center hover:border-rose-300 hover:bg-rose-300";
+    "group border border-rose-600 w-12 h-12 grid place-content-center hover:border-rose-300 hover:bg-rose-300";
   const expandBtn = HTML("button", styles2);
   const img2 = HTML("img", "invert w-6 h-6 group-hover:invert-0", "", "", {
     src: "/src/assets/chevron-down.svg",

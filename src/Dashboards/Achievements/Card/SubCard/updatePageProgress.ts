@@ -3,15 +3,15 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
   const cardContainer =
     saveBtn.parentElement.parentElement.parentElement.parentElement;
 
-  console.log("cardContainer", cardContainer);
+  // console.log("cardContainer", cardContainer);
   const fileNameJSON = cardContainer.dataset.fileName;
 
-  console.log("fileNameJSON", fileNameJSON);
+  // console.log("fileNameJSON", fileNameJSON);
 
   const input = saveBtn.parentElement.previousElementSibling
     .firstElementChild as HTMLInputElement;
   const newProgressValue = +input.value;
-  console.log("newProgressValue", newProgressValue);
+  // console.log("newProgressValue", newProgressValue);
 
   const cardTitle = cardContainer.firstElementChild.firstElementChild
     .firstElementChild as HTMLParagraphElement;
@@ -21,12 +21,12 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
   const subCardTitle = saveBtn.parentElement.parentElement
     .firstElementChild as HTMLParagraphElement;
 
-  console.log("subCardTitle: ", subCardTitle.innerText);
+  // console.log("subCardTitle: ", subCardTitle.innerText);
 
   const inputMin = +input.getAttribute("min");
   const inputMax = +input.getAttribute("max");
-  console.log("inputMin", inputMin);
-  console.log("inputMax", inputMax);
+  // console.log("inputMin", inputMin);
+  // console.log("inputMax", inputMax);
 
   if (newProgressValue >= inputMin && newProgressValue <= inputMax) {
     // Value is between [inputMin - inputMax] (OK)
@@ -47,12 +47,12 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       const fileData = data.data.data;
       const metadata = data.data.metadata;
 
-      console.log("fileData", fileData);
-      console.log("metadata", metadata);
+      // console.log("fileData", fileData);
+      // console.log("metadata", metadata);
 
       // data item (SubCard/Chapter)
       const cardData = fileData[subCardTitle.innerText];
-      console.log("cardData", cardData);
+      // console.log("cardData", cardData);
 
       const ChapterPages = cardData.pages;
       const oldProgressPages = cardData.progressPages;
@@ -72,7 +72,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       metadata.progressPagesPercentage = newProgressPercentage;
       metadata.progressPages = newProgressPages;
 
-      console.log(cardData.progressPercentage, cardData.isComplete);
+      // console.log(cardData.progressPercentage, cardData.isComplete);
       // progressChapter
       const chapters = metadata.chapters; // 17
 
@@ -102,12 +102,36 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       )
         metadata.isComplete = true;
 
-      console.log("New Data", data);
+      // console.log("New Data", data);
 
       window.DATA.CreateOrUpdateJSON(
         `dashboards/achievements/${fileNameJSON}.json`,
         data
       );
+
+      // change progressBar in realTime
+      const progressBarContainer =
+        saveBtn.parentElement.previousElementSibling.previousElementSibling;
+      const progressBar = progressBarContainer.firstElementChild
+        .firstElementChild as HTMLDivElement;
+
+      const progressBox = progressBarContainer.lastElementChild
+        .lastElementChild as HTMLDivElement;
+      const span1 = progressBox.firstElementChild as HTMLSpanElement;
+      const span2 = progressBox.lastElementChild as HTMLSpanElement;
+
+      console.log("progressBox", progressBox);
+      console.log("span1", span1);
+      console.log("span2", span2);
+
+      progressBar.style.width = `${cardData.progressPercentage}%`;
+      if (cardData.progressPercentage === 100)
+        progressBar.innerText = "Complete";
+      else progressBar.innerText = "";
+
+      span1.innerText = `${cardData.progressPages}/${ChapterPages}`;
+      span2.innerText = `${cardData.progressPercentage}%`;
+      console.log("progressBarContainer", progressBarContainer);
     });
     // --------------------- //
   } else {
