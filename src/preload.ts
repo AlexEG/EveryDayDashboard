@@ -6,6 +6,7 @@ Mkdir("./DATA/dashboards");
 Mkdir("./DATA/settings");
 Mkdir("./DATA/dashboards/habit-tracker");
 Mkdir("./DATA/dashboards/anilist");
+Mkdir("./DATA/dashboards/achievements");
 Mkdir("./DATA/dashboards/anilist/media");
 Mkdir("./DATA/dashboards/anilist/media/user");
 Mkdir("./DATA/dashboards/anilist/media/characters");
@@ -135,6 +136,8 @@ contextBridge.exposeInMainWorld("DATA", {
   getFilesTitles: () => fs.readdirSync("./DATA/habits"),
   getHabitTrackerFileNames: () =>
     fs.readdirSync("./DATA/dashboards/habit-tracker"),
+  getAchievementsFileNames: () =>
+    fs.readdirSync("./DATA/dashboards/achievements"),
   createJSONHaFileHabit,
   getJSONFileData: (filePath: string) =>
     fs.readFileSync(`./DATA/${filePath}.json`, "utf8"),

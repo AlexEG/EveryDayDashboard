@@ -3,23 +3,30 @@ import ProgressBar from "./ProgressBar";
 import ExpandCollapseBtn from "./ExpandCollapseBtn/ExpandCollapseBtn";
 import SubCardContainer from "./SubCard/SubCardContainer";
 
-export default function Card() {
+export default function Card(
+  name: string,
+  description: string,
+  chapters: number,
+  isBook: boolean,
+  pages: number,
+  progressChapter: number,
+  progressPages: number,
+  progressChapterPercentage: number,
+  progressPagesPercentage: number,
+  isComplete: boolean,
+  data: any
+) {
   const styles = "max-w-5xl mx-auto border border-rose-600 p-2 ";
   const CardContainer = HTML("div", styles);
   const titleDescriptionWrapper = HTML("div");
   const styles2 = "text-rose-100";
-  const title = HTML("p", styles2, "", "JavaScript the Definitive Guide 7th");
+  const title = HTML("p", styles2, "", name);
 
   const styles3 = "text-rose-100/80 text-xs";
 
-  const description = HTML(
-    "p",
-    styles3,
-    "",
-    "This book is for programmers who want to learn JavaScript and for web developers who want to take their understanding and mastery to the next level"
-  );
+  const descriptionP = HTML("p", styles3, "", description);
 
-  titleDescriptionWrapper.append(title, description);
+  titleDescriptionWrapper.append(title, descriptionP);
 
   const styles4 = "h-20 grid grid-cols-[1fr_18rem_3rem] gap-x-8 ";
 
@@ -27,7 +34,12 @@ export default function Card() {
     "div",
     "h-full grid place-content-center gap-y-1"
   );
-  progressBarWrapper.append(ProgressBar(630, 1245), ProgressBar(3, 18));
+  console.log(chapters);
+
+  progressBarWrapper.append(
+    ProgressBar(progressPages, pages, progressPagesPercentage),
+    ProgressBar(progressChapter, chapters, progressChapterPercentage)
+  );
   const cardInfoWrapper = HTML("div", styles4);
   cardInfoWrapper.append(
     titleDescriptionWrapper,
@@ -35,6 +47,6 @@ export default function Card() {
     ExpandCollapseBtn()
   );
 
-  CardContainer.append(cardInfoWrapper);
+  CardContainer.append(cardInfoWrapper, SubCardContainer(data));
   return CardContainer;
 }

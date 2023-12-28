@@ -5,7 +5,8 @@ import ProgressNumberInput from "./ProgressNumberInput";
 export default function SubCard(
   title: string,
   pageProgress: number,
-  chapterPageNumber: number
+  chapterPageNumber: number,
+  progressPercentage: number
 ) {
   const styles = "w-full h-8 grid grid-cols-[1fr_17rem_4rem] mb-1";
   const subCard = HTML("div", styles);
@@ -15,7 +16,7 @@ export default function SubCard(
 
   subCard.append(
     p,
-    ProgressBar(pageProgress, chapterPageNumber),
+    ProgressBar(pageProgress, chapterPageNumber, progressPercentage),
     ProgressNumberInput(pageProgress, chapterPageNumber)
   );
   return subCard;

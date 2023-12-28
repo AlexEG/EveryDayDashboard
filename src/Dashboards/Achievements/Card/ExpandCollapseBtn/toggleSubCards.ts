@@ -7,10 +7,10 @@ export default function toggleSubCards(expandBtn: HTMLElement): void {
   if (expandBtn.dataset.open === "false") {
     expandBtn.dataset.open = "true";
     console.log("Open Sub Cards");
-    cardContainer.append(SubCardContainer());
+    cardContainer.lastElementChild.classList.remove("hidden");
   } else {
     expandBtn.dataset.open = "false";
     console.log("Close Sub Cards");
-    cardContainer.lastElementChild.remove();
+    cardContainer.lastElementChild.classList.add("hidden");
   }
 }

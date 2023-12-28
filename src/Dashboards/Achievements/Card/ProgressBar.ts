@@ -1,8 +1,12 @@
 import HTML from "../../../components/HTML/HTML";
 import ProgressBox from "./ProgressBox";
 
-export default function ProgressBar(progress: number, max: number) {
-  const percentage = Math.round((progress / max) * 100);
+export default function ProgressBar(
+  progress: number,
+  max: number,
+  progressPercentage: number
+) {
+  const percentage = progressPercentage || Math.round((progress / max) * 100);
 
   const styles = " flex items-center gap-x-1";
   const wrapper = HTML("div", styles);
