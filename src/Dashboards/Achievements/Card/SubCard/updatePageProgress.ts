@@ -131,6 +131,18 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
 
       span1.innerText = `${cardData.progressPages}/${ChapterPages}`;
       span2.innerText = `${cardData.progressPercentage}%`;
+      progressBox.classList.remove(
+        "text-red-500",
+        "text-yellow-500",
+        "text-green-500"
+      );
+      const progressStyles =
+        cardData.progressPercentage <= 25
+          ? "text-red-500"
+          : cardData.progressPercentage <= 75
+          ? "text-yellow-500"
+          : "text-green-500";
+      progressBox.classList.add(progressStyles);
       console.log("progressBarContainer", progressBarContainer);
     });
     // --------------------- //

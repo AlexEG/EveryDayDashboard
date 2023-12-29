@@ -16,7 +16,7 @@ export default function Card(
   progressPagesPercentage: number,
   data: any
 ) {
-  const styles = "max-w-5xl mx-auto border border-rose-600 p-2 ";
+  const styles = "max-w-5xl mx-auto my-4 border border-rose-600 p-2 ";
   const CardContainer = HTML("div", styles);
   CardContainer.dataset.fileName = fileNameJSON;
 
