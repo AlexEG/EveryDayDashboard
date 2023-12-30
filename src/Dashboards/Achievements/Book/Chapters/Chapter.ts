@@ -3,7 +3,7 @@ import ProgressBar from "../ProgressBar";
 import ProgressNumberInput from "./ProgressNumberInput";
 import SaveInputBtn from "./SaveInputBtn";
 
-export default function SubCard(
+export default function Chapter(
   title: string,
   pageProgress: number,
   chapterPageNumber: number,

@@ -3,7 +3,7 @@ import toggleExpandCollapseHighlight from "./toggleExpandCollapseHighlight";
 import toggleSubCards from "./toggleSubCards";
 
 export default function ExpandCollapseBtn() {
-  const styles = "w-full h-full grid place-content-center";
+  const styles = "w-full h-full";
   const expandCollapseBtn = HTML("div", styles);
 
   const styles2 =

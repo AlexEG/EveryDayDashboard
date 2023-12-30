@@ -1,14 +1,13 @@
 import HTML from "../../../components/HTML/HTML";
 import ProgressBar from "./ProgressBar";
 import ExpandCollapseBtn from "./ExpandCollapseBtn/ExpandCollapseBtn";
-import SubCardContainer from "./SubCard/SubCardContainer";
+import ChaptersContainer from "./Chapters/ChaptersContainer";
 
-export default function Card(
+export default function Book(
   fileNameJSON: string,
   name: string,
   description: string,
   chapters: number,
-  isBook: boolean,
   pages: number,
   progressChapter: number,
   progressPages: number,
@@ -16,9 +15,9 @@ export default function Card(
   progressPagesPercentage: number,
   data: any
 ) {
-  const styles = "max-w-5xl mx-auto my-4 border border-rose-600 p-2 ";
-  const CardContainer = HTML("div", styles);
-  CardContainer.dataset.fileName = fileNameJSON;
+  const styles = "max-w-5xl mx-auto my-4 border border-rose-600  p-2 ";
+  const bookContainer = HTML("div", styles);
+  bookContainer.dataset.fileName = fileNameJSON;
 
   const titleDescriptionWrapper = HTML("div", "overflow-hidden");
   const styles2 = "text-rose-100 truncate";
@@ -49,6 +48,6 @@ export default function Card(
     ExpandCollapseBtn()
   );
 
-  CardContainer.append(cardInfoWrapper, SubCardContainer(data));
-  return CardContainer;
+  bookContainer.append(cardInfoWrapper, ChaptersContainer(data));
+  return bookContainer;
 }

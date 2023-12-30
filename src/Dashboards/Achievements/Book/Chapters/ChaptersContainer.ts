@@ -1,13 +1,13 @@
 import HTML from "../../../../components/HTML/HTML";
-import SubCard from "./SubCard";
+import Chapter from "./Chapter";
 
-export default function SubCardContainer(data: any) {
+export default function ChapterContainer(data: any) {
   const styles = " w-full h-fit max-w-3xl mx-auto hidden";
-  const subCardContainer = HTML("div", styles);
+  const chapterContainer = HTML("div", styles);
 
   for (const [key, values] of Object.entries(data)) {
-    subCardContainer.append(
-      SubCard(
+    chapterContainer.append(
+      Chapter(
         key,
         values.progressPages,
         values.pages,
@@ -15,5 +15,5 @@ export default function SubCardContainer(data: any) {
       )
     );
   }
-  return subCardContainer;
+  return chapterContainer;
 }
