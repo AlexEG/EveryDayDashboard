@@ -12,7 +12,8 @@ export default function Chapter(
   const styles = "w-full h-8 grid grid-cols-[1fr_17rem_4rem_4rem] mb-1";
   const subCard = HTML("div", styles);
 
-  const styles2 = "text-rose-100 px-1 text-sm leading-7 truncate";
+  const styles2 =
+    "group-odd:text-rose-100 group-even:text-blue-100 px-1 text-sm leading-7 truncate";
   const p = HTML("p", styles2, "", title);
 
   subCard.append(

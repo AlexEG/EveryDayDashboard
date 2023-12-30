@@ -3,21 +3,16 @@ export default function toggleExpandCollapseHighlight(
 ): void {
   // console.log("expandBtn", expandBtn);
   if (expandBtn.dataset.open === "false") {
-    // expandBtn.dataset.open = "true";
-
-    expandBtn.classList.add("bg-rose-300", "border-rose-300");
-    expandBtn.classList.remove("border-rose-600");
     expandBtn.firstElementChild.classList.remove("invert");
+    expandBtn.style.backgroundColor = getComputedStyle(expandBtn).borderColor;
+    // console.log(getComputedStyle(expandBtn).borderColor);
     expandBtn.firstElementChild.setAttribute(
       "src",
       "/src/assets/chevron-up.svg"
     );
   } else {
-    // expandBtn.dataset.open = "false";
-
-    expandBtn.classList.remove("bg-rose-300", "border-rose-300");
-    expandBtn.classList.add("border-rose-600");
     expandBtn.firstElementChild.classList.add("invert");
+    expandBtn.removeAttribute("style");
     expandBtn.firstElementChild.setAttribute(
       "src",
       "/src/assets/chevron-down.svg"

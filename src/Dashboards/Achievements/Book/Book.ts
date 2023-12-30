@@ -15,15 +15,17 @@ export default function Book(
   progressPagesPercentage: number,
   data: any
 ) {
-  const styles = "max-w-5xl mx-auto my-4 border border-rose-600  p-2 ";
+  const styles =
+    "max-w-5xl mx-auto my-4 border odd:border-rose-600 even:border-blue-600 p-2 group";
   const bookContainer = HTML("div", styles);
   bookContainer.dataset.fileName = fileNameJSON;
 
   const titleDescriptionWrapper = HTML("div", "overflow-hidden");
-  const styles2 = "text-rose-100 truncate";
-  const title = HTML("p", styles2, "", name);
+  const styles2 = "group-odd:text-rose-50 group-even:text-blue-50 truncate";
+  const title = HTML("h2", styles2, "", name);
 
-  const styles3 = "text-rose-100/80 text-xs";
+  const styles3 =
+    "group-odd:text-rose-100/80 group-even:text-blue-100/80  text-xs";
 
   const descriptionP = HTML("p", styles3, "", description);
 

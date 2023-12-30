@@ -8,7 +8,7 @@ export default function ProgressNumberInput(
   const progressNumberInput = HTML("div", styles);
 
   const styles2 =
-    "w-full h-full border border-rose-950 bg-black text-rose-50 text-center text-sm";
+    "w-full h-full border group-odd:border-rose-950 group-even:border-blue-950 bg-black group-odd:text-rose-50 group-even:text-blue-50 text-center text-sm";
   const input = HTML("input", styles2, "", "", {
     type: "number",
     value: pageProgress,
