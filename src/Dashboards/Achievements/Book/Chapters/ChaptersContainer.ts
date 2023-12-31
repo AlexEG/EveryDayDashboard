@@ -2,7 +2,7 @@ import HTML from "../../../../components/HTML/HTML";
 import Chapter from "./Chapter";
 
 export default function ChapterContainer(data: any) {
-  const styles = " w-full h-fit max-w-3xl mx-auto hidden";
+  const styles = "w-full h-fit max-w-3xl mx-auto hidden";
   const chapterContainer = HTML("div", styles);
 
   for (const [key, values] of Object.entries(data)) {
