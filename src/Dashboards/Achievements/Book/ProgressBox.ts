@@ -5,7 +5,8 @@ import HTML from "../../../components/HTML/HTML";
 export default function ProgressBox(
   percentage: number,
   progress: number,
-  max: number
+  max: number,
+  i?: number
 ) {
   const progressStyles =
     percentage <= 25
@@ -29,7 +30,7 @@ export default function ProgressBox(
   const wrapper = HTML("div", "h-full w-32 grid grid-cols-[4rem_4rem]");
   wrapper.append(span1, span2);
 
-  dailyProgressColumnAnimation(wrapper, 1 * 200);
+  dailyProgressColumnAnimation(wrapper, (i || 1) * 200);
 
   progressBox.append(wrapper);
   return progressBox;

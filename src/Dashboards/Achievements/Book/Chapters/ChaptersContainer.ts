@@ -5,15 +5,18 @@ export default function ChapterContainer(data: any) {
   const styles = "w-full h-fit max-w-3xl mx-auto hidden";
   const chapterContainer = HTML("div", styles);
 
+  let i = 0;
   for (const [key, values] of Object.entries(data)) {
     chapterContainer.append(
       Chapter(
         key,
         values.progressPages,
         values.pages,
-        values.progressPercentage
+        values.progressPercentage,
+        i
       )
     );
+    i++;
   }
   return chapterContainer;
 }

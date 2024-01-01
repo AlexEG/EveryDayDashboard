@@ -144,6 +144,9 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
           : "text-green-500";
       progressBox.classList.add(progressStyles);
       // console.log("progressBarContainer", progressBarContainer);
+
+      // TODO meatadata isComplete true => false if undo progress
+      // TODO change progressBar of book container in real time
     });
     // --------------------- //
   } else {

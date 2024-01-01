@@ -1,7 +1,7 @@
 import HTML from "../../components/HTML/HTML";
 import AchievementsDATA from "./AchievementsDATA";
 import Book from "./Book/Book";
-import Course from "./Course/Course";
+// import Course from "./Course/Course";
 import Header from "./Header/Header";
 
 export default function Achievements() {
@@ -28,7 +28,7 @@ export default function Achievements() {
       const name = metadata.name;
       const description = metadata.description;
       const type = metadata.type;
-      const isComplete = metadata.isComplete;
+      // const isComplete = metadata.isComplete;
 
       if (type === "book") {
         const chapters = metadata.chapters;
