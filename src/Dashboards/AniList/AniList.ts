@@ -1,5 +1,6 @@
 import HTML from "../../components/HTML/HTML";
 import AnimeBanner from "./Header/AnimeBanner/AnimeBanner";
+import InfoHeader from "./Header/InfoHeader/InfoHeader";
 // import HomeBanner from "./Header/HomeBanner";
 import NavBar from "./NavBar/NavBar";
 // import Favorites from "./Pages/Favorites/Favorites";
@@ -14,6 +15,6 @@ export default function AniList() {
   const MainContainer = HTML("main", styles, "anilist");
 
   // updateAnimeListHeaderData()
-  MainContainer.append(AnimeBanner(), NavBar(), AnimeMangaList("ANIME"));
+  MainContainer.append(AnimeBanner(), InfoHeader(), NavBar(), AnimeMangaList("ANIME"));
   return MainContainer;
 }

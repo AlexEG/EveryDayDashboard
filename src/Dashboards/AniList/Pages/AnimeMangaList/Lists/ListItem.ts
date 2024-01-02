@@ -12,12 +12,12 @@ export default function ListItem(
     "w-full h-14 hover:bg-rose-600/25 rounded-lg grid grid-cols-[3.5rem_3fr_1fr_1fr_1fr] gap-x-2 font-medium leading-[3.4rem] text-rose-100/80 text-center";
   const listItme = HTML("div", styles);
 
-  const CoverImg = HTML("div", "h-14");
+  const coverImg = HTML("div", "h-14");
   const styles2 = "object-cover w-full h-full rounded";
   const img = HTML("img", styles2, "", "", {
     src: `/DATA/dashboards/anilist/media/${listType.toLowerCase()}/cover-image/large/${coverFileName}`,
   });
-  CoverImg.append(img);
+  coverImg.append(img);
 
   const styles3 =
     "text-left pl-2 whitespace-nowrap truncate select-text selection:bg-rose-100 selection:text-rose-900 ";
@@ -27,6 +27,6 @@ export default function ListItem(
   const progressChapter = HTML("p", "", "", ProgressChapter);
   const typeVolumes = HTML("p", "", "", TypeVolumes);
 
-  listItme.append(CoverImg, title, score, progressChapter, typeVolumes);
+  listItme.append(coverImg, title, score, progressChapter, typeVolumes);
   return listItme;
 }

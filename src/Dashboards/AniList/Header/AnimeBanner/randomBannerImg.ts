@@ -41,7 +41,7 @@ export default function randomBannerImg(allBanners: boolean) {
     }
     changeBannerImgSrc()
 
-    if (allBanners) setInterval(changeBannerImgSrc, 1_500)
+    if (allBanners) setInterval(changeBannerImgSrc, 2_500)
 
   });
 
