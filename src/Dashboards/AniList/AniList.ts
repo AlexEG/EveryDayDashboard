@@ -1,8 +1,10 @@
 import HTML from "../../components/HTML/HTML";
-import HomeBanner from "./Header/HomeBanner";
+import AnimeBanner from "./Header/AnimeBanner/AnimeBanner";
+// import HomeBanner from "./Header/HomeBanner";
 import NavBar from "./NavBar/NavBar";
-import Favorites from "./Pages/Favorites/Favorites";
-// import AnimeMangaList from "./Pages/AnimeMangaList/AnimeMangaList";
+// import Favorites from "./Pages/Favorites/Favorites";
+import AnimeMangaList from "./Pages/AnimeMangaList/AnimeMangaList";
+import updateAnimeListHeaderData from "./helper/updateAnimeListHeaderData";
 // import Overview from "./Pages/Overview/Overview";
 
 export default function AniList() {
@@ -11,6 +13,7 @@ export default function AniList() {
 
   const MainContainer = HTML("main", styles, "anilist");
 
-  MainContainer.append(HomeBanner(), NavBar(), Favorites());
+  // updateAnimeListHeaderData()
+  MainContainer.append(AnimeBanner(), NavBar(), AnimeMangaList("ANIME"));
   return MainContainer;
 }

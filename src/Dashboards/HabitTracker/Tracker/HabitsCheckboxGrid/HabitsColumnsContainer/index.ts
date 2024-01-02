@@ -14,8 +14,8 @@ export default function HabitsColumnsContainer(
     styles,
     "habit-tracker--tracker--habits-checkbox-grid---habits-column-container"
   );
-  HabitsColumnsContainer.dataset.month = "December";
-  HabitsColumnsContainer.dataset.year = "2023";
+  HabitsColumnsContainer.dataset.month = thisMonthName;
+  HabitsColumnsContainer.dataset.year = String(thisYear);
   HabitsColumnsContainer.dataset.editHabitHistory = "false";
 
   HabitTrackerDATA().then((data) => {

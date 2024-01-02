@@ -10,9 +10,9 @@ export default function NavBar() {
 
   navBar.append(
     NavLink("Overview", false),
-    NavLink("Anime List", false),
+    NavLink("Anime List", true),
     NavLink("Manga List", false),
-    NavLink("Favorites", true),
+    NavLink("Favorites", false),
     NavLink("Stats", false)
   );
 
@@ -22,7 +22,7 @@ export default function NavBar() {
       e.target.tagName === "BUTTON" &&
       !e.target.classList.contains("text-rose-600") &&
       (toggleHighlight(e.target as HTMLButtonElement, navBar),
-      removeRenderPage(e.target as HTMLButtonElement))
+        removeRenderPage(e.target as HTMLButtonElement))
   );
   return navBar;
 }
