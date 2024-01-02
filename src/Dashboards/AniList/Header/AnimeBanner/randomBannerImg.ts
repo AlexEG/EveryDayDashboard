@@ -18,16 +18,21 @@ export default function randomBannerImg(allBanners: boolean) {
     }
 
     const changeBannerImgSrc = () => {
-
+      const headerData = getRandom()
       // console.log(getRandom())
-      const randomBannerImg = getRandom().bannerImgFileName
+      const randomBannerImg = headerData.bannerImgFileName
+      // console.log("randomBannerImg: ", randomBannerImg);
+      const randomCoverImg = headerData.coverImgFileName
       // console.log("randomBannerImg: ", randomBannerImg);
 
-      document.querySelector("img#anilist-header-banner-image").setAttribute("src", `/DATA/dashboards/anilist/media/anime/banner/${randomBannerImg}`)
+      if (randomBannerImg) { document.querySelector("img#anilist--header--banner-image").setAttribute("src", `/DATA/dashboards/anilist/media/anime/banner/${randomBannerImg}`) }
+
+      // cover
+      document.querySelector("img#anilist--info-header--cover-image").setAttribute("src", `/DATA/dashboards/anilist/media/anime/cover-image/large/${randomCoverImg}`)
 
 
 
-      const title = getRandom().title
+      const title = headerData.title
       // LOG
       console.log(
         `%c SWITCH RANDOM  %c{%c ${title}     ${randomBannerImg}%c } `,

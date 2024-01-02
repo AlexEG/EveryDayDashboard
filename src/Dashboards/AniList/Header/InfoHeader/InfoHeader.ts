@@ -5,8 +5,8 @@ import InfoBanner from "./InfoBanner";
 
 
 export default function InfoHeader() {
-  const styles = " h-28 relative pt-6 pb-2"
-  const infoBanner = HTML("div", styles)
+  const styles = "h-28 relative pt-6 pb-2"
+  const infoBanner = HTML("div", styles, "anilist--info-header")
 
   infoBanner.append(CoverImg(), InfoBanner())
   return infoBanner

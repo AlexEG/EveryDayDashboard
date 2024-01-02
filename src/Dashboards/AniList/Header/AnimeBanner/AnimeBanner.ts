@@ -13,7 +13,7 @@ export default function AnimeBanner() {
   const bannerImg = HTML(
     "img",
     "object-cover object-center w-full h-full",
-    "anilist-header-banner-image",
+    "anilist--header--banner-image",
     "",
   );
 

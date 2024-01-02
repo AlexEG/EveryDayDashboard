@@ -52,20 +52,26 @@ export default function updateAnimeListHeaderData() {
       // console.log("list: ", list);
 
       for (const animeMangaData of list.entries) {
-        console.log("animeMangaData: ", animeMangaData)
+        // console.log("animeMangaData: ", animeMangaData)
+
         const bannerURL = animeMangaData.media.bannerImage
         const bannerImgFileName = bannerURL && String(bannerURL.match(/(?<=banner\/).*/g))
+
+        const coverURL = animeMangaData.media.coverImage.large
+        const coverImgFileName = coverURL && String(coverURL.match(/(?<=medium\/).*/g))
+
         const titleUserPreferred = animeMangaData.media.title.userPreferred;
         const titleEnglish = animeMangaData.media.title.english;
 
         const title = titleEnglish ? titleEnglish : titleUserPreferred;
+
         const animeHeaderData = {
-          bannerImgFileName: bannerImgFileName,
+          bannerImgFileName: bannerImgFileName, coverImgFileName: coverImgFileName,
           title: title
         }
         // console.log("bannerURL: ", bannerURL)
         // console.log("bannerImgFileName: ", bannerImgFileName)
-        console.log("animeHeaderData: ", animeHeaderData)
+        // console.log("animeHeaderData: ", animeHeaderData)
         updatedData.data.data.push(animeHeaderData)
       }
 
@@ -76,21 +82,6 @@ export default function updateAnimeListHeaderData() {
 
 
 
-    // const bannerURLs = []
-    // for (const [, listItems] of Object.entries(updatedData.data)) {
-    //   // console.log("listItems: ", listItems)
-
-    //   for (const animeMangaData of listItems) {
-    //     // console.log("animeMangaData: ", animeMangaData)
-    //     const bannerURL = animeMangaData.media.bannerImage
-    //     const bannerImgFileName = bannerURL && bannerURL.match(/(?<=banner\/).*/g)
-    //     bannerURLs.push(String(bannerImgFileName))
-
-    //     // console.log("bannerURL: ", bannerURL)
-    //     // console.log("bannerImgFileName: ", bannerImgFileName)
-    //   }
-    // }
-    // console.log("bannerURLs: ", bannerURLs)
 
     window.DATA.CreateOrUpdateJSON(
       "dashboards/anilist/anime-list-header-data.json",
