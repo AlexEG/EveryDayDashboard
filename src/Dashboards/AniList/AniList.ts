@@ -14,7 +14,7 @@ export default function AniList() {
 
   const MainContainer = HTML("main", styles, "anilist");
 
-  // updateAnimeListHeaderData()
+  updateAnimeListHeaderData()
   MainContainer.append(AnimeBanner(), InfoHeader(), NavBar(), AnimeMangaList("ANIME"));
   return MainContainer;
 }
