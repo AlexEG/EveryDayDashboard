@@ -1,28 +1,24 @@
-import animeFavouritesArrayIdJSON from "./animeFavouritesArrayIdJSON";
+import animeFavouritesArrayIdJSON from "../animeMangaFavouritesArrayIdJSON";
 import animeListHeaderDataJSON from "./animeListHeaderDataJSON";
 
 
 
-export default function randomBannerImg(allBanners: boolean) {
+export default function switchRandomAnime(allBanners: boolean) {
   let favouritesAnimeArrayID: number[]
-  const SEASON_YEAR = true
+  const SEASON_YEAR = false
 
   animeFavouritesArrayIdJSON().then((data: { data: { anime: number[] } }) => {
     // console.log("animeFavouritesArrayIdJSON: ", data)
     favouritesAnimeArrayID = data.data.anime
     // console.log("favouritesAnimeArrayID: ", favouritesAnimeArrayID)
 
-
-
     animeListHeaderDataJSON().then((data: any) => {
       // console.log("animeListHeaderDataJSON: ", data);
-
 
       const numberOfAnime = data.data.metadata.size
       const animeHeaderData = data.data.data
       // console.log("numberOfAnime: ", numberOfAnime);
       // console.log("animeHeaderData: ", animeHeaderData);
-
 
       const getRandom = () => {
         const randomNum = Math.floor(Math.random() * numberOfAnime)
@@ -58,8 +54,6 @@ export default function randomBannerImg(allBanners: boolean) {
           const isFavourite: boolean = favouritesAnimeArrayID.includes(id)
           const startDate: string = headerData.startDate
           const endDate: string = headerData.endDate
-
-
 
 
           // console.log("randomBannerImg: ", randomBannerImg);
@@ -117,8 +111,6 @@ export default function randomBannerImg(allBanners: boolean) {
           const endDateBadge = document.querySelector("span#anilist--info-header-anime--info-banner--end-date-badge") as HTMLSpanElement
           endDateBadge.innerText = endDate
 
-
-
           // LOG
           console.log(
             `%c SWITCH RANDOM  %c{%c ${title} %c} `,
@@ -132,8 +124,6 @@ export default function randomBannerImg(allBanners: boolean) {
         }
       }
       changeBannerImgSrc()
-
-
 
     }); // end of the main function "animeListHeaderDataJSON"
   }) // end of getting anime arr id from json "animeFavouritesArrayIdJSON"

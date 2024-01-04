@@ -1,13 +1,16 @@
 import HTML from "../../components/HTML/HTML";
 import AniList_API_Call from "./API/AniList_API_Call";
+import AniList_API_MangaListHeaderData from "./API/AniList_API_MangaListHeaderData";
 import AnimeBanner from "./Header/AnimeBanner/AnimeBanner";
 import InfoHeader from "./Header/InfoHeader/InfoHeader";
+import MangaBanner from "./Header/MangaBanner/MangaBanner";
 // import HomeBanner from "./Header/HomeBanner";
 import NavBar from "./NavBar/NavBar";
 // import Favorites from "./Pages/Favorites/Favorites";
 import AnimeMangaList from "./Pages/AnimeMangaList/AnimeMangaList";
 import updateAnimeListHeaderData from "./helper/updateAnimeListHeaderData";
 import updateFavouritesArrayID from "./helper/updateFavouritesArrayID";
+import updateMangaListHeaderData from "./helper/updateMangaListHeaderData";
 // import Overview from "./Pages/Overview/Overview";
 
 export default function AniList() {
@@ -18,8 +21,9 @@ export default function AniList() {
 
   // updateFavouritesArrayID()
   // updateAnimeListHeaderData()
-
+  // updateMangaListHeaderData()
+  // AniList_API_MangaListHeaderData()
   // AniList_API_Call()
-  MainContainer.append(AnimeBanner(), InfoHeader(), NavBar(), AnimeMangaList("ANIME"));
+  MainContainer.append(MangaBanner(), InfoHeader("MANGA"), NavBar(), AnimeMangaList("MANGA"));
   return MainContainer;
 }

@@ -1,7 +1,7 @@
 import HTML from "../../../../components/HTML/HTML";
 
 
-export default function InfoBadge(badgeText: "Popularity" | "Average Score" | "Status" | "Genres" | "Episodes" | "Season" | "Start Date" | "End Date") {
+export default function InfoBadge(type: "anime" | "manga", badgeText: "Popularity" | "Average Score" | "Status" | "Genres" | "Episodes" | "Season" | "Start Date" | "End Date" | "Volumes" | "Chapters" | "Source") {
   let badgeStyles: string[];
 
   if (badgeText === "Popularity")
@@ -16,10 +16,10 @@ export default function InfoBadge(badgeText: "Popularity" | "Average Score" | "S
   if (badgeText === "Genres")
     badgeStyles = ["bg-indigo-900", "text-indigo-100 bg-indigo-700", "text-indigo-400"]
 
-  if (badgeText === "Episodes")
+  if (badgeText === "Episodes" || badgeText === "Volumes")
     badgeStyles = ["bg-sky-900", "text-sky-100 bg-sky-700", "text-sky-400"]
 
-  if (badgeText === "Season")
+  if (badgeText === "Season" || badgeText === "Chapters")
     badgeStyles = ["bg-teal-900", "text-teal-100 bg-teal-700", "text-teal-400"]
 
   if (badgeText === "Start Date")
@@ -28,13 +28,16 @@ export default function InfoBadge(badgeText: "Popularity" | "Average Score" | "S
   if (badgeText === "End Date")
     badgeStyles = ["bg-yellow-900", "text-yellow-100 bg-yellow-700", "text-yellow-400"]
 
+  if (badgeText === "Source")
+    badgeStyles = ["bg-red-900", "text-red-100 bg-red-700", "text-red-400"]
+
 
 
   const styles = `w-fit h-fit rounded-lg font-medium text-xs flex justify-center items-center gap-x-1 ${badgeStyles[0]}`
   const badgeContainer = HTML("div", styles)
 
   const styles2 = `rounded-lg px-[6px] py-1 ${badgeStyles[1]}`
-  const span1 = HTML("span", styles2, `anilist--info-header-anime--info-banner--${badgeText.toLowerCase().replaceAll(" ", "-")}-badge`, "???")
+  const span1 = HTML("span", styles2, `anilist--info-header-${type}--info-banner--${badgeText.toLowerCase().replaceAll(" ", "-")}-badge`, "???")
 
 
   const styles3 = `pr-1 pl-0.5 py-1 ${badgeStyles[2]}`

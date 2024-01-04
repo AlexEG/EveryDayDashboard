@@ -1,6 +1,7 @@
 
-import AniList_API_AnimeListHeaderData from "../API/AniList_API_AnimeListHeaderData";
-interface animeListData {
+import AniList_API_MangaListHeaderData from "../API/AniList_API_MangaListHeaderData";
+
+interface mangaListData {
   data: {
     MediaListCollection: {
       lists: {
@@ -8,9 +9,6 @@ interface animeListData {
         entries: {
           status: string;
           score: number;
-          progress: number;
-          startedAt: { year: number; month: number; day: number };
-          completedAt: { year: number; month: number; day: number };
           media: {
             id: number,
             title: {
@@ -21,9 +19,8 @@ interface animeListData {
               extraLarge: string;
               large: string;
             };
-            type: "ANIME";
-            format: string;
-            episodes: number;
+            volumes: number | null;
+            chapters: number | null;
             averageScore: number;
             popularity: number;
             genres: string[];
@@ -31,8 +28,7 @@ interface animeListData {
             startDate: { year: number; month: number; day: number };
             endDate: { year: number; month: number; day: number };
             status: string;
-            season: string
-            isFavourite: boolean
+            source: string;
           };
         }[];
       }[];
@@ -40,8 +36,8 @@ interface animeListData {
   };
 }
 
-export default function updateAnimeListHeaderData() {
-  AniList_API_AnimeListHeaderData().then((data: animeListData) => {
+export default function updateMangaListHeaderData() {
+  AniList_API_MangaListHeaderData().then((data: mangaListData) => {
     console.log("API AnimeListHeaderData: ", data);
 
     const lists = data.data.MediaListCollection.lists;
@@ -79,8 +75,9 @@ export default function updateAnimeListHeaderData() {
         const averageScore = animeMangaData.media.averageScore
         const status = animeMangaData.media.status
         const genres = animeMangaData.media.genres
-        const episodes = animeMangaData.media.episodes
-        const season = animeMangaData.media.season
+        const volumes = animeMangaData.media.volumes
+        const chapters = animeMangaData.media.chapters
+        const source = animeMangaData.media.source
         const startDate = animeMangaData.media.startDate
         const endDate = animeMangaData.media.endDate
 
@@ -95,9 +92,10 @@ export default function updateAnimeListHeaderData() {
           popularity: popularity.toLocaleString(),
           averageScore: averageScore,
           status: `${status[0]}${status.slice(1).toLowerCase()}`,
+          source: `${source[0]}${source.slice(1).toLowerCase()}`,
           genres: genres,
-          episodes: episodes,
-          season: `${season[0]}${season.slice(1).toLowerCase()}`,
+          volumes: volumes,
+          chapters: chapters,
           startDate: `${startDateStr[0]} ${+startDateStr[1] / 1}, ${startDateStr[2]}`,
           endDate: `${endDateStr[0]} ${+endDateStr[1] / 1}, ${endDateStr[2]}`,
         }
@@ -116,7 +114,7 @@ export default function updateAnimeListHeaderData() {
 
 
     window.DATA.CreateOrUpdateJSON(
-      "dashboards/anilist/anime-list-header-data.json",
+      "dashboards/anilist/manga-list-header-data.json",
       updatedData
     );
   });

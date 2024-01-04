@@ -1,4 +1,4 @@
-export default function animeFavouritesArrayIdJSON() {
+export default function animeMangaFavouritesArrayIdJSON() {
   return new Promise((res, rej) => {
     res(
       JSON.parse(
