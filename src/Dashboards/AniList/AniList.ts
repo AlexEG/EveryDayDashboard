@@ -6,6 +6,7 @@ import NavBar from "./NavBar/NavBar";
 // import Favorites from "./Pages/Favorites/Favorites";
 import AnimeMangaList from "./Pages/AnimeMangaList/AnimeMangaList";
 import updateAnimeListHeaderData from "./helper/updateAnimeListHeaderData";
+import updateFavouritesArrayID from "./helper/updateFavouritesArrayID";
 // import Overview from "./Pages/Overview/Overview";
 
 export default function AniList() {
@@ -14,7 +15,8 @@ export default function AniList() {
 
   const MainContainer = HTML("main", styles, "anilist");
 
-  updateAnimeListHeaderData()
+  // updateFavouritesArrayID()
+  // updateAnimeListHeaderData()
   MainContainer.append(AnimeBanner(), InfoHeader(), NavBar(), AnimeMangaList("ANIME"));
   return MainContainer;
 }

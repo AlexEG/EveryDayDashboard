@@ -7,6 +7,8 @@ export default function AnimeBanner() {
   const header = HTML("header", styles, "anilist--header");
 
 
+  const styles2 = "absolute top-2 right-2 w-6 h-6 z-10 hidden"
+  const isFavourite = HTML("img", styles2, "anilist--header--is-favourite", "", { src: "/src/assets/heart.svg" })
 
 
 
@@ -20,6 +22,6 @@ export default function AnimeBanner() {
 
   randomBannerImg(true)
 
-  header.append(bannerImg);
+  header.append(bannerImg, isFavourite);
   return header;
 }

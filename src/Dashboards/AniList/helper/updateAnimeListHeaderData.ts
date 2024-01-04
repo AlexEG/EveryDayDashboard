@@ -12,6 +12,7 @@ interface animeListData {
           startedAt: { year: number; month: number; day: number };
           completedAt: { year: number; month: number; day: number };
           media: {
+            id: number,
             title: {
               userPreferred: string;
               english: string;
@@ -28,7 +29,10 @@ interface animeListData {
             genres: string[];
             bannerImage: string;
             startDate: { year: number; month: number; day: number };
-            status: string
+            endDate: { year: number; month: number; day: number };
+            status: string;
+            season: string
+            isFavourite: boolean
           };
         }[];
       }[];
@@ -69,15 +73,31 @@ export default function updateAnimeListHeaderData() {
         const titleEnglish = animeMangaData.media.title.english;
         const title = titleEnglish ? titleEnglish : titleUserPreferred;
 
-        // popularity  averageScore  status
+        // popularity  averageScore  status  genres  season startDate endDate
+        const id = animeMangaData.media.id
         const popularity = animeMangaData.media.popularity
         const averageScore = animeMangaData.media.averageScore
         const status = animeMangaData.media.status
+        const genres = animeMangaData.media.genres
+        const episodes = animeMangaData.media.episodes
+        const season = animeMangaData.media.season
+        const startDate = animeMangaData.media.startDate
+        const endDate = animeMangaData.media.endDate
 
 
         const animeHeaderData = {
-          bannerImgFileName: bannerImgFileName, coverImgFileName: coverImgFileName,
-          title: title, popularity: popularity.toLocaleString(), averageScore: averageScore, status: status
+          id: id,
+          bannerImgFileName: bannerImgFileName,
+          coverImgFileName: coverImgFileName,
+          title: title,
+          popularity: popularity.toLocaleString(),
+          averageScore: averageScore,
+          status: `${status[0]}${status.slice(1).toLowerCase()}`,
+          genres: genres,
+          episodes: episodes,
+          season: `${season[0]}${season.slice(1).toLowerCase()}`,
+          startDate: startDate,
+          endDate: endDate,
         }
         // console.log("bannerURL: ", bannerURL)
         // console.log("bannerImgFileName: ", bannerImgFileName)
