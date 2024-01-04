@@ -2,7 +2,7 @@ export default function toggleHighlight(
   navLinkBtn: HTMLButtonElement,
   navBar: HTMLElement
 ): void {
-  console.log(navLinkBtn.tagName);
+  // console.log(navLinkBtn.tagName);
 
   const highlight = ["text-rose-600", "border-rose-100", "bg-rose-100"];
   const normal = [
