@@ -24,6 +24,6 @@ export default function AniList() {
   // updateMangaListHeaderData()
   // AniList_API_MangaListHeaderData()
   // AniList_API_Call()
-  MainContainer.append(MangaBanner(), InfoHeader("MANGA"), NavBar(), AnimeMangaList("MANGA"));
+  MainContainer.append(AnimeBanner(), InfoHeader("ANIME"), NavBar(), AnimeMangaList("ANIME"));
   return MainContainer;
 }

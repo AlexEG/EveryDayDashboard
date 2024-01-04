@@ -16,7 +16,7 @@ export default function InfoBanner(type: "ANIME" | "MANGA") {
     badgesWrapper.append(InfoBadge("manga", "Popularity"), InfoBadge("manga", "Average Score"), InfoBadge("manga", "Status"), InfoBadge("manga", "Volumes"), InfoBadge("manga", "Chapters"), InfoBadge("manga", "Start Date"), InfoBadge("manga", "End Date"), InfoBadge("manga", "Source"))
 
   const genresWrapper = HTML("div", "w-fit ml-auto")
-  genresWrapper.append(InfoBadge("manga", "Genres"))
+  genresWrapper.append(InfoBadge(type.toLowerCase() as "anime" | "manga", "Genres"))
 
   infoBanner.append(badgesWrapper, genresWrapper)
   return infoBanner

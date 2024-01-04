@@ -15,7 +15,7 @@ export default function switchRandomManga(allBanners: boolean) {
     // console.log("favouritesMangaArrayID: ", favouritesMangaArrayID)
 
     mangaListHeaderDataJSON().then((data: any) => {
-      console.log("mangaListHeaderDataJSON: ", data);
+      // console.log("mangaListHeaderDataJSON: ", data);
 
       const numberOfAnime = data.data.metadata.size
       const mangaHeaderData = data.data.data
