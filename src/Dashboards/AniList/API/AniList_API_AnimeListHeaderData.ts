@@ -2,7 +2,7 @@ import responseDataInterface from "../helper/responseDataInterface";
 
 export default function AniList_API_AnimeListHeaderData() {
   const query = `
-  query($userId:Int,$userName:String,$type:MediaType){MediaListCollection(userId:$userId,userName:$userName,type:$type){lists{name entries{...mediaListEntry}}}}fragment mediaListEntry on MediaList{id mediaId status score repeat media{id title{userPreferred romaji english native}coverImage{extraLarge large} format status(version:2) episodes description averageScore popularity duration isAdult genres bannerImage season startDate{year month day} endDate{year month day}}}
+  query($userId:Int,$userName:String,$type:MediaType){MediaListCollection(userId:$userId,userName:$userName,type:$type){lists{name entries{...mediaListEntry}}}}fragment mediaListEntry on MediaList{id mediaId status score repeat media{id title{userPreferred romaji english native}coverImage{extraLarge large} format status(version:2) episodes description averageScore popularity duration isAdult genres bannerImage season startDate{year month day} endDate{year month day} rankings{rank context}}}
     `;
 
   const variables = {

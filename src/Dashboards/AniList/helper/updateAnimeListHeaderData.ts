@@ -96,8 +96,8 @@ export default function updateAnimeListHeaderData() {
           genres: genres,
           episodes: episodes,
           season: `${season[0]}${season.slice(1).toLowerCase()}`,
-          startDate: startDate,
-          endDate: endDate,
+          startDate: new Date(startDate.year, startDate.month, startDate.day).toDateString().slice(4).replace(" 2", ", 2"),
+          endDate: new Date(endDate.year, endDate.month, endDate.day).toDateString().slice(4).replace(" 2", ", 2") || "",
         }
         // console.log("bannerURL: ", bannerURL)
         // console.log("bannerImgFileName: ", bannerImgFileName)

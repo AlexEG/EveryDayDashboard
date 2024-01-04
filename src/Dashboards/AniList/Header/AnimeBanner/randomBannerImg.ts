@@ -5,15 +5,16 @@ import animeListHeaderDataJSON from "./animeListHeaderDataJSON";
 
 export default function randomBannerImg(allBanners: boolean) {
   let favouritesAnimeArrayID: number[]
+  const SEASON_YEAR = true
 
   animeFavouritesArrayIdJSON().then((data: { data: { anime: number[] } }) => {
     // console.log("animeFavouritesArrayIdJSON: ", data)
     favouritesAnimeArrayID = data.data.anime
-    console.log("favouritesAnimeArrayID: ", favouritesAnimeArrayID)
+    // console.log("favouritesAnimeArrayID: ", favouritesAnimeArrayID)
 
 
     animeListHeaderDataJSON().then((data: any) => {
-      console.log("animeListHeaderDataJSON: ", data);
+      // console.log("animeListHeaderDataJSON: ", data);
 
       const numberOfAnime = data.data.metadata.size
       const animeHeaderData = data.data.data
@@ -40,6 +41,8 @@ export default function randomBannerImg(allBanners: boolean) {
         const season: string = headerData.season
         const id: number = headerData.id
         const isFavourite: boolean = favouritesAnimeArrayID.includes(id)
+        const startDate: string = headerData.startDate
+        const endDate: string = headerData.endDate
 
 
 
@@ -49,44 +52,55 @@ export default function randomBannerImg(allBanners: boolean) {
         // console.log("popularity: ", popularity);
         // console.log("isFavourite: ", isFavourite);
         // console.log("id: ", id);
+        // console.log("startDate: ", startDate);
+        // console.log("endDate: ", endDate);
 
-        if (randomBannerImg) { document.querySelector("img#anilist--header--banner-image").setAttribute("src", `/DATA/dashboards/anilist/media/anime/banner/${randomBannerImg}`) }
+        if (randomBannerImg) { document.querySelector("img#anilist--header-anime--banner-image").setAttribute("src", `/DATA/dashboards/anilist/media/anime/banner/${randomBannerImg}`) }
 
         // cover
-        document.querySelector("img#anilist--info-header--cover-image").setAttribute("src", `/DATA/dashboards/anilist/media/anime/cover-image/large/${randomCoverImg}`)
+        document.querySelector("img#anilist--info-header-anime--cover-image").setAttribute("src", `/DATA/dashboards/anilist/media/anime/cover-image/large/${randomCoverImg}`)
 
         // popularity
-        const popularityBadge = document.querySelector("span#anilist--info-header--info-banner--popularity-badge") as HTMLSpanElement
+        const popularityBadge = document.querySelector("span#anilist--info-header-anime--info-banner--popularity-badge") as HTMLSpanElement
         popularityBadge.innerText = String(popularity)
 
         // Average Score
-        const averageScoreBadge = document.querySelector("span#anilist--info-header--info-banner--average-score-badge") as HTMLSpanElement
+        const averageScoreBadge = document.querySelector("span#anilist--info-header-anime--info-banner--average-score-badge") as HTMLSpanElement
         averageScoreBadge.innerText = `${averageScore}%`
 
         // Status
-        const statusBadge = document.querySelector("span#anilist--info-header--info-banner--status-badge") as HTMLSpanElement
+        const statusBadge = document.querySelector("span#anilist--info-header-anime--info-banner--status-badge") as HTMLSpanElement
         statusBadge.innerText = status
 
         // Genres
-        const genresBadge = document.querySelector("span#anilist--info-header--info-banner--genres-badge") as HTMLSpanElement
+        const genresBadge = document.querySelector("span#anilist--info-header-anime--info-banner--genres-badge") as HTMLSpanElement
         genresBadge.innerText = genres.join(" • ")
 
         // Anime Title
-        const animeTitle = document.querySelector("h1#anilist--info-header--anime-title") as HTMLHeadingElement
+        const animeTitle = document.querySelector("h1#anilist--info-header-anime--anime-title") as HTMLHeadingElement
         animeTitle.innerText = title
 
         // Episodes
-        const episodesBadge = document.querySelector("span#anilist--info-header--info-banner--episodes-badge") as HTMLSpanElement
+        const episodesBadge = document.querySelector("span#anilist--info-header-anime--info-banner--episodes-badge") as HTMLSpanElement
         episodesBadge.innerText = `\u00a0${episodes}\u00a0`
 
         //  Season
-        const seasonBadge = document.querySelector("span#anilist--info-header--info-banner--season-badge") as HTMLSpanElement
-        seasonBadge.innerText = season
+        const seasonBadge = document.querySelector("span#anilist--info-header-anime--info-banner--season-badge") as HTMLSpanElement
+        if (SEASON_YEAR) seasonBadge.innerText = `${season} ${startDate.split(" ")[2]}`
+        else seasonBadge.innerText = season
 
         // isFavourite
-        const isFavouriteSVG = document.querySelector("img#anilist--header--is-favourite") as HTMLImageElement
+        const isFavouriteSVG = document.querySelector("img#anilist--header-anime--is-favourite") as HTMLImageElement
         if (isFavourite && isFavouriteSVG.classList.contains("hidden")) isFavouriteSVG.classList.remove("hidden")
         if (!isFavourite && !isFavouriteSVG.classList.contains("hidden")) isFavouriteSVG.classList.add("hidden")
+
+        // StartDate
+        const startDateBadge = document.querySelector("span#anilist--info-header-anime--info-banner--start-date-badge") as HTMLSpanElement
+        startDateBadge.innerText = startDate
+
+        // EndDate
+        const endDateBadge = document.querySelector("span#anilist--info-header-anime--info-banner--end-date-badge") as HTMLSpanElement
+        endDateBadge.innerText = endDate
 
 
 

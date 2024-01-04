@@ -1,8 +1,8 @@
 import HTML from "../../../../components/HTML/HTML";
 
 
-export default function InfoBadge(badgeText: "Popularity" | "Average Score" | "Status" | "Genres" | "Episodes" | "Season") {
-  let badgeStyles;
+export default function InfoBadge(badgeText: "Popularity" | "Average Score" | "Status" | "Genres" | "Episodes" | "Season" | "Start Date" | "End Date") {
+  let badgeStyles: string[];
 
   if (badgeText === "Popularity")
     badgeStyles = ["bg-blue-900", "text-blue-100 bg-blue-700", "text-blue-400"]
@@ -22,13 +22,19 @@ export default function InfoBadge(badgeText: "Popularity" | "Average Score" | "S
   if (badgeText === "Season")
     badgeStyles = ["bg-teal-900", "text-teal-100 bg-teal-700", "text-teal-400"]
 
+  if (badgeText === "Start Date")
+    badgeStyles = ["bg-lime-900", "text-lime-100 bg-lime-700", "text-lime-400"]
+
+  if (badgeText === "End Date")
+    badgeStyles = ["bg-yellow-900", "text-yellow-100 bg-yellow-700", "text-yellow-400"]
+
 
 
   const styles = `w-fit h-fit rounded-lg font-medium text-xs flex justify-center items-center gap-x-1 ${badgeStyles[0]}`
   const badgeContainer = HTML("div", styles)
 
   const styles2 = `rounded-lg px-[6px] py-1 ${badgeStyles[1]}`
-  const span1 = HTML("span", styles2, `anilist--info-header--info-banner--${badgeText.toLowerCase().replaceAll(" ", "-")}-badge`, "???")
+  const span1 = HTML("span", styles2, `anilist--info-header-anime--info-banner--${badgeText.toLowerCase().replaceAll(" ", "-")}-badge`, "???")
 
 
   const styles3 = `pr-1 pl-0.5 py-1 ${badgeStyles[2]}`

@@ -1,4 +1,5 @@
 import HTML from "../../components/HTML/HTML";
+import AniList_API_Call from "./API/AniList_API_Call";
 import AnimeBanner from "./Header/AnimeBanner/AnimeBanner";
 import InfoHeader from "./Header/InfoHeader/InfoHeader";
 // import HomeBanner from "./Header/HomeBanner";
@@ -17,6 +18,8 @@ export default function AniList() {
 
   // updateFavouritesArrayID()
   // updateAnimeListHeaderData()
+
+  // AniList_API_Call()
   MainContainer.append(AnimeBanner(), InfoHeader(), NavBar(), AnimeMangaList("ANIME"));
   return MainContainer;
 }
