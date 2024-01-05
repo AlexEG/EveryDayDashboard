@@ -30,7 +30,6 @@ export default function removeRenderPage(navLinkBtn: HTMLButtonElement): void {
     if (infoHeaderManga) infoHeaderManga.remove()
     anilistMainContainer.insertBefore(InfoHeader("ANIME"), anilistMainContainer.firstChild)
     anilistMainContainer.insertBefore(AnimeBanner(), anilistMainContainer.firstChild)
-
   }
 
   if (pageName === "Manga") {
@@ -39,8 +38,8 @@ export default function removeRenderPage(navLinkBtn: HTMLButtonElement): void {
     if (infoHeaderAnime) infoHeaderAnime.remove()
     anilistMainContainer.insertBefore(InfoHeader("MANGA"), anilistMainContainer.firstChild)
     anilistMainContainer.insertBefore(MangaBanner(), anilistMainContainer.firstChild)
-
   }
+
   if (pageName === "Favorites") anilistMainContainer.append(Favorites());
 
   if (pageName === "Stats") anilistMainContainer.append(Stats());

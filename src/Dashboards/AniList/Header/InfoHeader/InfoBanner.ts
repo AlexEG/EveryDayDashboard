@@ -3,10 +3,10 @@ import HTML from "../../../../components/HTML/HTML";
 import InfoBadge from "./InfoBadge";
 
 export default function InfoBanner(type: "ANIME" | "MANGA") {
-  const styles = " border-rose-800 rounded-xl pr-4 pt-5 col-start-2 h-full w-fit ml-auto"
+  const styles = " border-rose-800 rounded-xl pr-4 pt-5 h-full w-fit ml-auto"
   const infoBanner = HTML("div", styles, "anilist--info-header-anime--info-banner")
 
-  const styles2 = "flex gap-1 mb-1 justify-end"
+  const styles2 = "flex flex-wrap justify-end gap-1 mb-1 "
   const badgesWrapper = HTML("div", styles2)
 
   if (type === "ANIME")
