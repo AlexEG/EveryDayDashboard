@@ -140,13 +140,71 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
         cardData.progressPercentage <= 25
           ? "text-red-500"
           : cardData.progressPercentage <= 75
-          ? "text-yellow-500"
-          : "text-green-500";
+            ? "text-yellow-500"
+            : "text-green-500";
       progressBox.classList.add(progressStyles);
       // console.log("progressBarContainer", progressBarContainer);
 
       // TODO meatadata isComplete true => false if undo progress
-      // TODO change progressBar of book container in real time
+
+      const containerProgressBars = cardContainer.firstElementChild.firstElementChild.nextElementSibling
+
+      const pagesProgessBar = containerProgressBars.firstElementChild.firstElementChild.firstElementChild as HTMLDivElement
+      const pagesProgessBox = containerProgressBars.firstElementChild.lastElementChild.firstElementChild as HTMLDivElement
+      const pagesSpan1 = pagesProgessBox.firstElementChild as HTMLSpanElement
+      const pagesSpan2 = pagesProgessBox.lastElementChild as HTMLSpanElement
+
+      pagesProgessBar.style.width = `${metadata.progressPagesPercentage}%`
+      pagesSpan1.innerText = `${metadata.progressPages}/${pages}`;
+      pagesSpan2.innerText = `${metadata.progressPagesPercentage}%`
+
+      pagesProgessBox.classList.remove(
+        "text-red-500",
+        "text-yellow-500",
+        "text-green-500"
+      );
+      const progressPageStyles =
+        metadata.progressPagesPercentage <= 25
+          ? "text-red-500"
+          : metadata.progressPagesPercentage <= 75
+            ? "text-yellow-500"
+            : "text-green-500";
+      pagesProgessBox.classList.add(progressPageStyles);
+
+      const chaptersProgessBar = containerProgressBars.lastElementChild.firstElementChild.firstElementChild as HTMLDivElement
+      const chaptersProgessBox = containerProgressBars.lastElementChild.lastElementChild.firstElementChild as HTMLDivElement
+      const chaptersSpan1 = chaptersProgessBox.firstElementChild as HTMLSpanElement
+      const chaptersSpan2 = chaptersProgessBox.lastElementChild as HTMLSpanElement
+
+      chaptersProgessBar.style.width = `${metadata.progressChapterPercentage}%`;
+      chaptersSpan1.innerText = `${metadata.progressPages}/${chapters}`;
+      chaptersSpan2.innerText = `${metadata.progressChapterPercentage}%`
+
+      chaptersProgessBox.classList.remove(
+        "text-red-500",
+        "text-yellow-500",
+        "text-green-500"
+      );
+      const progressChaptersStyles =
+        metadata.progressChapterPercentage <= 25
+          ? "text-red-500"
+          : metadata.progressChapterPercentage <= 75
+            ? "text-yellow-500"
+            : "text-green-500";
+      chaptersProgessBox.classList.add(progressChaptersStyles);
+
+
+      console.log("containerProgressBars: ", containerProgressBars)
+
+      console.log("pagesProgessBar: ", pagesProgessBar)
+      console.log("pagesProgessBox: ", pagesProgessBox)
+      console.log("pagesSpan1: ", pagesSpan1)
+      console.log("pagesSpan2: ", pagesSpan2)
+
+      console.log("chaptersProgessBar: ", chaptersProgessBar)
+      console.log("chaptersProgessBox: ", chaptersProgessBox)
+      console.log("chaptersSpan1: ", chaptersSpan1)
+      console.log("chaptersSpan2: ", chaptersSpan2)
     });
     // --------------------- //
   } else {
