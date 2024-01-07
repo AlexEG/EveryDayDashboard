@@ -1,6 +1,18 @@
 {
   "data": {
     "defaultHomePage": "Anime",
-    "defaultIsFilterOpened": false
+    "filterIsOpenByDefault": true,
+    "notification": {
+      "isEnabled": true,
+      "isAnimationsEnabled": true,
+      "notificationTotalShowTime": 4000,
+      "animationEnterDurationTime": 600,
+      "animationOutDurationTime": 400
+    },
+    "pages": {
+      "anime": {
+        "isInfoHeaderEnabled": false
+      }
+    }
   }
 }

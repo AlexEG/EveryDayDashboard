@@ -1,8 +1,7 @@
 import HTML from "../../../../components/HTML/HTML";
 import toggleHighlight from "./toggleHighlight";
 
-
-export default function FilterToggleBtn(defaultIsFilterOpened: boolean) {
+export default function FilterToggleBtn(filterIsOpenByDefault: boolean) {
   const styles =
     "w-fit border border-rose-600 rounded-lg px-3 ml-auto flex gap-4 justify-around absolute left-0 top-[3px] bottom-[3px]";
 
@@ -11,7 +10,7 @@ export default function FilterToggleBtn(defaultIsFilterOpened: boolean) {
     styles,
   );
 
-  const styles2 = defaultIsFilterOpened
+  const styles2 = filterIsOpenByDefault
     ? "drop-shadow-[0_0_15px_rgb(225,29,72,1)] opacity-80"
     : "opacity-25";
   const filterBtn = HTML("button", `${styles2} flex gap-x-1 justify-center items-center`) as HTMLButtonElement;
@@ -28,6 +27,14 @@ export default function FilterToggleBtn(defaultIsFilterOpened: boolean) {
 
   filterBtn.onclick = () => {
     toggleHighlight(filterBtn);
+    const filterContainer = document.querySelector("div#filter-container") as HTMLDivElement
+    if (filterContainer.dataset.isOpen === "false") {
+      filterContainer.dataset.isOpen = "true"
+      filterContainer.classList.remove("hidden")
+    } else {
+      filterContainer.dataset.isOpen = "false"
+      filterContainer.classList.add("hidden")
+    }
   };
 
   btnContainer.append(filterBtn)

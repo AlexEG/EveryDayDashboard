@@ -113,7 +113,7 @@ export default function switchRandomAnime(allBanners: boolean) {
 
           // LOG
           console.log(
-            `%c SWITCH RANDOM  %c{%c ${title} %c} `,
+            `%c SWITCH RANDOM ANIME %c{%c ${title} %c} `,
             "background:black; color:#0f0; font-weight:900",
             "background:black; color:white",
             "background:black; color:#c7f; font-weight:700; font-family: Arial",

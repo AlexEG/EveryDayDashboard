@@ -5,7 +5,7 @@ import NavLink from "./NavLink";
 import removeRenderPage from "./removeRenderPage";
 import toggleHighlight from "./toggleHighlight";
 
-export default function NavBar(pageOpened: "Overview" | "Anime" | "Manga" | "Favorites" | "Stats", defaultIsFilterOpened: boolean) {
+export default function NavBar(pageOpened: "Overview" | "Anime" | "Manga" | "Favorites" | "Stats", filterIsOpenByDefault: boolean) {
   const styles = " w-full max-w-6xl mx-auto my-6 h-12 relative pl-24 pr-32"
   const navbar = HTML("div", styles)
 
@@ -30,6 +30,6 @@ export default function NavBar(pageOpened: "Overview" | "Anime" | "Manga" | "Fav
       (toggleHighlight(e.target as HTMLButtonElement, navBarLinksWrapper),
         removeRenderPage(e.target as HTMLButtonElement))
   );
-  navbar.append(FilterToggleBtn(defaultIsFilterOpened), navBarLinksWrapper, GridListToggleLayoutBtns())
+  navbar.append(FilterToggleBtn(filterIsOpenByDefault), navBarLinksWrapper, GridListToggleLayoutBtns())
   return navbar;
 }
