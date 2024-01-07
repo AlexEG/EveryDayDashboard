@@ -2,6 +2,7 @@ import HTML from "../../components/HTML/HTML";
 import AniList_API_Call from "./API/AniList_API_Call";
 import AniList_API_MangaListHeaderData from "./API/AniList_API_MangaListHeaderData";
 import AnimeBanner from "./Header/AnimeBanner/AnimeBanner";
+import AnimeMangaHeader from "./Header/AnimeMangaHeader/AnimeMangaHeader";
 import HomeBanner from "./Header/HomeBanner";
 import InfoHeader from "./Header/InfoHeader/InfoHeader";
 import MangaBanner from "./Header/MangaBanner/MangaBanner";
@@ -18,7 +19,7 @@ import updateFavouritesArrayID from "./helper/updateFavouritesArrayID";
 import updateMangaListHeaderData from "./helper/updateMangaListHeaderData";
 import anilistSettingsData from "./settings/anilistSettingsData";
 
-import { anilistSettingsDataTypes } from "./type";
+import { anilistSettingsDataTypes, animeHeaderTypes, mangaHeaderTypes } from "./type";
 // import Overview from "./Pages/Overview/Overview";
 
 export default function AniList() {
@@ -41,29 +42,25 @@ export default function AniList() {
     const filterIsOpenByDefault = data.data.filterIsOpenByDefault
     const pages = data.data.pages
 
+
     const animePage = pages.anime
-    const isInfoHeaderEnabledAnime = animePage.isInfoHeaderEnabled
+    const mangaPage = pages.manga
+
+    // header
+    const animeHeaderSettings = animePage.header as animeHeaderTypes
+    const mangaHeaderSettings = mangaPage.header as mangaHeaderTypes
+
+
 
     // Notification
-    const notification = data.data.notification
-    const notification_IsEnabled = notification.isEnabled
-    const notification_IsAnimationsEnabled = notification.isAnimationsEnabled
-    const notification_notificationShowTime = notification.notificationTotalShowTime
-    const notification_animationEnterDurationTime = notification.animationEnterDurationTime
-    const notification_animationOutDurationTime = notification.animationOutDurationTime
+    const notificationSettings = data.data.notification
 
-    const notificationSettings = {
-      isEnabled: notification_IsEnabled,
-      isAnimationsEnabled: notification_IsAnimationsEnabled,
-      notificationTotalShowTime: notification_notificationShowTime,
-      animationEnterDurationTime: notification_animationEnterDurationTime,
-      animationOutDurationTime: notification_animationOutDurationTime
-    }
 
+    // --------- --------- --------- --------- //
     {
       if (defaultHomePage === "Overview") MainContainer.append(HomeBanner(), Overview());
-      else if (defaultHomePage === "Anime") MainContainer.append(AnimeBanner(), InfoHeader("ANIME"), AnimeMangaList("ANIME", filterIsOpenByDefault));
-      else if (defaultHomePage === "Manga") MainContainer.append(MangaBanner(), InfoHeader("MANGA"), AnimeMangaList("MANGA", filterIsOpenByDefault));
+      else if (defaultHomePage === "Anime") MainContainer.append(AnimeMangaHeader("ANIME", animeHeaderSettings), AnimeMangaList("ANIME", filterIsOpenByDefault));
+      else if (defaultHomePage === "Manga") MainContainer.append(AnimeMangaHeader("MANGA", mangaHeaderSettings), AnimeMangaList("MANGA", filterIsOpenByDefault));
       else if (defaultHomePage === "Favorites") MainContainer.append(HomeBanner(), Favorites());
       else if (defaultHomePage === "Stats") MainContainer.append(HomeBanner(), Stats());
       else console.error("DATA/setting/anilist.json  defaultHomePage not found or not selected")
@@ -71,7 +68,8 @@ export default function AniList() {
 
     MainContainer.insertBefore(NavBar(defaultHomePage, filterIsOpenByDefault), MainContainer.lastChild)
 
-    if (notification_IsEnabled) MainContainer.append(NotificationsCenter(notificationSettings))
+    if (notificationSettings.isEnabled) MainContainer.append(NotificationsCenter(notificationSettings))
+
   })
   return MainContainer;
 } 

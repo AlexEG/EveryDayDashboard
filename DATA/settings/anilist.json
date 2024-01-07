@@ -1,6 +1,6 @@
 {
   "data": {
-    "defaultHomePage": "Anime",
+    "defaultHomePage": "Manga",
     "filterIsOpenByDefault": false,
     "notification": {
       "isEnabled": true,
@@ -11,7 +11,42 @@
     },
     "pages": {
       "anime": {
-        "isInfoHeaderEnabled": false
+        "header": {
+          "isInfoHeaderEnabled": true,
+          "autoSwitchBanner": true,
+          "isAutoSwitchBannerRandomly": true,
+          "switchingSpeed": 5000,
+          "seasonWithYear": true,
+          "infoBanner": {
+            "popularity": true,
+            "averageScore": true,
+            "status": true,
+            "episodes": true,
+            "season": true,
+            "startDate": true,
+            "endDate": true,
+            "genres": true
+          }
+        }
+      },
+      "manga": {
+        "header": {
+          "isInfoHeaderEnabled": true,
+          "autoSwitchBanner": true,
+          "isAutoSwitchBannerRandomly": true,
+          "switchingSpeed": 3000,
+          "infoBanner": {
+            "popularity": false,
+            "averageScore": false,
+            "status": true,
+            "volumes": true,
+            "chapters": true,
+            "source": true,
+            "startDate": true,
+            "endDate": false,
+            "genres": true
+          }
+        }
       }
     }
   }

@@ -1,4 +1,4 @@
-import HTML from "../../../../components/HTML/HTML";
+import HTML from "../../../../../components/HTML/HTML";
 
 
 export default function CoverImg(type: "ANIME" | "MANGA") {
@@ -7,7 +7,7 @@ export default function CoverImg(type: "ANIME" | "MANGA") {
 
 
   const styles2 = "object-cover w-full h-full rounded drop-shadow-[0_10px_10px_rgb(225,29,72,0.3)]";
-  const img = HTML("img", styles2, `anilist--info-header-${type.toLowerCase()}--cover-image`);
+  const img = HTML("img", styles2, `anilist--header-${type.toLowerCase()}--info-banner--cover-image`);
   coverImg.append(img);
 
   return coverImg

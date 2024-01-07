@@ -1,4 +1,4 @@
-import HTML from "../../../../components/HTML/HTML";
+import HTML from "../../../../../components/HTML/HTML";
 
 
 export default function InfoBadge(type: "anime" | "manga", badgeText: "Popularity" | "Average Score" | "Status" | "Genres" | "Episodes" | "Season" | "Start Date" | "End Date" | "Volumes" | "Chapters" | "Source") {
@@ -37,7 +37,7 @@ export default function InfoBadge(type: "anime" | "manga", badgeText: "Popularit
   const badgeContainer = HTML("div", styles)
 
   const styles2 = `rounded-lg px-[6px] py-1 ${badgeStyles[1]}`
-  const span1 = HTML("span", styles2, `anilist--info-header-${type}--info-banner--${badgeText.toLowerCase().replaceAll(" ", "-")}-badge`, "???")
+  const span1 = HTML("span", styles2, `anilist--header-${type}--info-banner--${badgeText.toLowerCase().replaceAll(" ", "-")}-badge`, "???")
 
 
   const styles3 = `pr-1 pl-0.5 py-1 ${badgeStyles[2]}`
