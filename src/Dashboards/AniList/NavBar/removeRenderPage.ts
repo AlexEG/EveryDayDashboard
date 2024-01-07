@@ -14,7 +14,7 @@ export default function removeRenderPage(navLinkBtn: HTMLButtonElement): void {
   const infoHeaderAnime = document.querySelector("main > div#anilist--info-header-anime")
   const infoHeaderManga = document.querySelector("main > div#anilist--info-header-manga")
 
-  anilistMainContainer.lastElementChild.remove();
+  anilistMainContainer.querySelector("section").remove();
 
   if (pageName === "Overview") {
     anilistMainContainer.append(Overview())
@@ -25,7 +25,7 @@ export default function removeRenderPage(navLinkBtn: HTMLButtonElement): void {
   }
 
   if (pageName === "Anime") {
-    anilistMainContainer.append(AnimeMangaList("ANIME"));
+    anilistMainContainer.append(AnimeMangaList("ANIME", false));
     header.remove()
     if (infoHeaderManga) infoHeaderManga.remove()
     anilistMainContainer.insertBefore(InfoHeader("ANIME"), anilistMainContainer.firstChild)
@@ -33,7 +33,7 @@ export default function removeRenderPage(navLinkBtn: HTMLButtonElement): void {
   }
 
   if (pageName === "Manga") {
-    anilistMainContainer.append(AnimeMangaList("MANGA"));
+    anilistMainContainer.append(AnimeMangaList("MANGA", false));
     header.remove()
     if (infoHeaderAnime) infoHeaderAnime.remove()
     anilistMainContainer.insertBefore(InfoHeader("MANGA"), anilistMainContainer.firstChild)

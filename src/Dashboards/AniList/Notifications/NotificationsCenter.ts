@@ -3,7 +3,7 @@ import { notificationSettingsTypes } from "../type";
 import NotificationCard from "./NotificationCard";
 
 export default function NotificationsCenter(notificationSettings: notificationSettingsTypes) {
-  const styles = "border flex flex-col-reverse gap-y-2 w-80 h-fit fixed right-1 bottom-1 p-1 text-neutral-200"
+  const styles = "border flex flex-col-reverse gap-y-2 w-80 h-fit fixed right-1 -bottom-1 text-neutral-200"
   const notificationsContainer = HTML("div", styles, "anilist-notifications-container")
 
 
