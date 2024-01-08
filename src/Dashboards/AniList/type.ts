@@ -63,4 +63,58 @@ export type mangaHeaderInfoBannerTypes = {
   readonly startDate: boolean
   readonly endDate: boolean
   readonly genres: boolean
-} 
+}
+
+
+// AniList API
+
+
+
+export type Anime = {
+  data: {
+    MediaListCollection: {
+      lists: {
+        name: string;
+        entries: {
+          status: string;
+          score: number;
+          progress: number;
+          startedAt: { year: number; month: number; day: number };
+          completedAt: { year: number; month: number; day: number };
+          media: {
+            title: {
+              userPreferred: string;
+              english: string;
+            };
+            coverImage: {
+              extraLarge: string;
+              large: string;
+            };
+            type: "ANIME";
+            format: string;
+            episodes: number;
+            averageScore: number;
+            popularity: number;
+            genres: string[];
+            bannerImage: string;
+            startDate: { year: number; month: number; day: number };
+          };
+        }[];
+      }[];
+    };
+  };
+}
+
+export type AnimeIdList = {
+  data: {
+    MediaListCollection: {
+      lists: {
+        entries: {
+          media: {
+            id: number
+          };
+        }[];
+      }[];
+    };
+  };
+}

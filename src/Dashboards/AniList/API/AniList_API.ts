@@ -1,16 +1,22 @@
 import responseDataInterface from "../helper/responseDataInterface";
+import Anime from "./querys/Anime"
+import AnimeDetailsData from "./querys/AnimeDetailsData";
+import AnimeIdList from "./querys/AnimeIdList";
+export default function AniList_API(type: "ANIME" | "MANGA" | "AnimeIdList" | "animeDetailsData", variables) {
 
 
-export default function AniList_API_AnimeListData() {
-  const query = `
-  query($userId:Int,$userName:String,$type:MediaType){MediaListCollection(userId:$userId,userName:$userName,type:$type){lists{name entries{...mediaListEntry}}}}fragment mediaListEntry on MediaList{status score progress updatedAt startedAt{year month day}completedAt{year month day}media{title{userPreferred english}coverImage{extraLarge large}type format episodes averageScore popularity genres bannerImage startDate{year month day}}}
-    `;
+  let query
 
-  const variables = {
-    userId: 6482446,
-    userName: "AlexEG",
-    type: "ANIME",
-  };
+  if (type === "ANIME") query = Anime
+  if (type === "AnimeIdList") query = AnimeIdList
+  if (type === "animeDetailsData") query = AnimeDetailsData
+
+
+  // const variables = {
+  //   userId: 6482446,
+  //   userName: "AlexEG",
+  //   type: "ANIME",
+  // };
 
   const url = "https://graphql.anilist.co",
     options = {
@@ -39,9 +45,11 @@ export default function AniList_API_AnimeListData() {
     }
 
     function handleData(data: responseDataInterface) {
-      // console.log("data", data);
+      console.log("AniList_API", data);
       res(data);
     }
+
+
 
     function handleError(error: any) {
       console.error(error);

@@ -136,6 +136,8 @@ contextBridge.exposeInMainWorld("DATA", {
   getFilesTitles: () => fs.readdirSync("./DATA/habits"),
   getHabitTrackerFileNames: () =>
     fs.readdirSync("./DATA/dashboards/habit-tracker"),
+  readDir: (path: string) =>
+    fs.readdirSync(`./DATA/dashboards/${path}`),
   getAchievementsFileNames: () =>
     fs.readdirSync("./DATA/dashboards/achievements"),
   createJSONHaFileHabit,
@@ -218,8 +220,8 @@ function editSettingsJSONFile_Value(
     key3
       ? (jsonData[key][key2][key3] = value)
       : key2
-      ? (jsonData[key][key2] = value)
-      : (jsonData[key] = value);
+        ? (jsonData[key][key2] = value)
+        : (jsonData[key] = value);
 
     fs.writeFile(
       `./DATA/${path}.json`,

@@ -5,12 +5,12 @@ import switchHeaderAnimeManga from "./switchHeaderAnimeManga";
 
 export default function AnimeMangaHeader(type: "ANIME" | "MANGA", animeMangaHeaderSettings: animeHeaderTypes | mangaHeaderTypes) {
 
-  const styles = "border"
+  const styles = ""
   const headerID = `anilist--header-${type.toLowerCase()}`
   const header = HTML("header", styles, headerID);
 
   const styles2 =
-    "border w-full h-56 relative rounded-lg overflow-hidden drop-shadow-[0_0_10px_rgb(225,29,72,0.5)]";
+    "w-full h-56 relative rounded-lg overflow-hidden drop-shadow-[0_0_10px_rgb(225,29,72,0.5)]";
   const banner = HTML("div", styles2, `${headerID}--banner`);
 
 

@@ -1,11 +1,10 @@
 import HTML from "../../components/HTML/HTML";
 import AniList_API_Call from "./API/AniList_API_Call";
+import AniList_API from "./API/AniList_API";
 import AniList_API_MangaListHeaderData from "./API/AniList_API_MangaListHeaderData";
-import AnimeBanner from "./Header/AnimeBanner/AnimeBanner";
+
 import AnimeMangaHeader from "./Header/AnimeMangaHeader/AnimeMangaHeader";
 import HomeBanner from "./Header/HomeBanner";
-import InfoHeader from "./Header/InfoHeader/InfoHeader";
-import MangaBanner from "./Header/MangaBanner/MangaBanner";
 // import HomeBanner from "./Header/HomeBanner";
 import NavBar from "./NavBar/NavBar";
 import NotificationsCenter from "./Notifications/NotificationsCenter";
@@ -20,6 +19,9 @@ import updateMangaListHeaderData from "./helper/updateMangaListHeaderData";
 import anilistSettingsData from "./settings/anilistSettingsData";
 
 import { anilistSettingsDataTypes, animeHeaderTypes, mangaHeaderTypes } from "./type";
+import updateAnimeJSON from "./API/helpers/updateAnimeJSON";
+import updateAnimeIDList from "./API/helpers/updateAnimeIDList";
+import updateAllDetailsDataAnime from "./API/helpers/updateAllDetailsDataAnime";
 // import Overview from "./Pages/Overview/Overview";
 
 export default function AniList() {
@@ -33,7 +35,9 @@ export default function AniList() {
   // updateMangaListHeaderData()
   // AniList_API_MangaListHeaderData()
   // AniList_API_Call()
-
+  // AniList_API("ANIME")
+  // updateAnimeJSON()
+  // updateAnimeIDList()
   // get the "defaultHomePage" from DATA/settings/anilist.json  
 
   anilistSettingsData().then((data: anilistSettingsDataTypes) => {
@@ -69,6 +73,7 @@ export default function AniList() {
     MainContainer.insertBefore(NavBar(defaultHomePage, filterIsOpenByDefault), MainContainer.lastChild)
 
     if (notificationSettings.isEnabled) MainContainer.append(NotificationsCenter(notificationSettings))
+
 
   })
   return MainContainer;

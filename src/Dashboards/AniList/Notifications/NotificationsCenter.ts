@@ -1,4 +1,5 @@
 import HTML from "../../../components/HTML/HTML";
+import updateAllDetailsDataAnime from "../API/helpers/updateAllDetailsDataAnime";
 import { notificationSettingsTypes } from "../type";
 import NotificationCard from "./NotificationCard";
 
@@ -8,7 +9,10 @@ export default function NotificationsCenter(notificationSettings: notificationSe
 
 
 
-  // setTimeout(() => notificationsContainer.append(NotificationCard("Checking for Updates", notificationSettings)), 2000)
+
+  setTimeout(() => notificationsContainer.append(NotificationCard("Checking for Updates", notificationSettings)), 2000)
+  setTimeout(() => updateAllDetailsDataAnime(notificationsContainer, notificationSettings), 2500)
+
 
   // setTimeout(() => notificationsContainer.append(NotificationCard("DB is up-to-date", notificationSettings)), 3000)
 
