@@ -1,5 +1,5 @@
 import HTML from "../../../components/HTML/HTML";
-import updateAllDetailsDataAnime from "../API/helpers/updateAllDetailsDataAnime";
+import updateAllDetailsDataAnimeManga from "../API/helpers/updateAllDetailsDataAnimeManga";
 import { notificationSettingsTypes } from "../type";
 import NotificationCard from "./NotificationCard";
 
@@ -10,8 +10,11 @@ export default function NotificationsCenter(notificationSettings: notificationSe
 
 
 
-  setTimeout(() => notificationsContainer.append(NotificationCard("Checking for Updates", notificationSettings)), 2000)
-  setTimeout(() => updateAllDetailsDataAnime(notificationsContainer, notificationSettings), 2500)
+  setTimeout(() => notificationsContainer.append(NotificationCard("Checking for Anime Details Data", notificationSettings)), 2000)
+  setTimeout(() => updateAllDetailsDataAnimeManga("ANIME", notificationsContainer, notificationSettings), 3000)
+
+  setTimeout(() => notificationsContainer.append(NotificationCard("Checking for Manga Details Data", notificationSettings)), 10_000)
+  setTimeout(() => updateAllDetailsDataAnimeManga("MANGA", notificationsContainer, notificationSettings), 12_000)
 
 
   // setTimeout(() => notificationsContainer.append(NotificationCard("DB is up-to-date", notificationSettings)), 3000)

@@ -21,7 +21,7 @@ import anilistSettingsData from "./settings/anilistSettingsData";
 import { anilistSettingsDataTypes, animeHeaderTypes, mangaHeaderTypes } from "./type";
 import updateAnimeJSON from "./API/helpers/updateAnimeJSON";
 import updateAnimeIDList from "./API/helpers/updateAnimeIDList";
-import updateAllDetailsDataAnime from "./API/helpers/updateAllDetailsDataAnime";
+import updateAllDetailsDataAnime from "./API/helpers/updateAllDetailsDataAnimeManga";
 // import Overview from "./Pages/Overview/Overview";
 
 export default function AniList() {

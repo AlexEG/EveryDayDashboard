@@ -3,7 +3,7 @@ export default function notificationAnimation(notificationCard: HTMLDivElement, 
   const notificationsContainer = document.querySelector("div#anilist-notifications-container")
 
   const containerHight = +getComputedStyle(notificationsContainer).height.slice(0, -2) + 50 + "px"
-  console.log("containerHight: ", containerHight)
+  // console.log("containerHight: ", containerHight)
 
   // open/display
   notificationCard.animate(
