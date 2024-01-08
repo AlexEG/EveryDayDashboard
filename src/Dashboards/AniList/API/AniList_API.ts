@@ -1,8 +1,11 @@
 import responseDataInterface from "../helper/responseDataInterface";
-import Anime from "./querys/Anime"
+import Anime from "./querys/Anime";
 import AnimeDetailsData from "./querys/AnimeDetailsData";
 import AnimeIdList from "./querys/AnimeIdList";
-export default function AniList_API(type: "ANIME" | "MANGA" | "AnimeIdList" | "animeDetailsData", variables) {
+import AnimeList from "./querys/AnimeList";
+
+type apiCallType = "ANIME" | "MANGA" | "AnimeIdList" | "animeDetailsData" | "AnimeList"
+export default function AniList_API(type: apiCallType, variables: Record<string, string | number | boolean>) {
 
 
   let query
@@ -10,6 +13,7 @@ export default function AniList_API(type: "ANIME" | "MANGA" | "AnimeIdList" | "a
   if (type === "ANIME") query = Anime
   if (type === "AnimeIdList") query = AnimeIdList
   if (type === "animeDetailsData") query = AnimeDetailsData
+  if (type === "AnimeList") query = AnimeList
 
 
   // const variables = {
@@ -45,7 +49,7 @@ export default function AniList_API(type: "ANIME" | "MANGA" | "AnimeIdList" | "a
     }
 
     function handleData(data: responseDataInterface) {
-      console.log("AniList_API", data);
+      console.log(`AniList_API ${type}`, data);
       res(data);
     }
 

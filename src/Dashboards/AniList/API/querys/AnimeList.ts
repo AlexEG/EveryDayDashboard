@@ -1,4 +1,4 @@
-query ($userId: Int, $userName: String, $type: MediaType) {
+export default `query ($userId: Int, $userName: String, $type: MediaType) {
   MediaListCollection(userId: $userId, userName: $userName, type: $type) {
     lists {
       name
@@ -32,7 +32,6 @@ fragment mediaListEntry on MediaList {
       extraLarge
       large
     }
-    type
     format
     episodes
     averageScore
@@ -45,4 +44,4 @@ fragment mediaListEntry on MediaList {
       day
     }
   }
-}
+}`

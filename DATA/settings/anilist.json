@@ -2,6 +2,40 @@
   "data": {
     "defaultHomePage": "Anime",
     "filterIsOpenByDefault": false,
+    "autoUpdateOfflineData": {
+      "checkThenUpdate": {
+        "anime": {
+          "allAnimeDetailsData": true,
+          "animeList": true,
+          "animeBanners": true,
+          "animeCoverImageMediumSize": true,
+          "animeCoverImageLargeSize": true
+        },
+        "manga": {
+          "allMangaDetailsData": true,
+          "mangaList": true,
+          "mangaBanners": true,
+          "mangaCoverImageMediumSize": true,
+          "mangaCoverImageLargeSize": true
+        }
+      },
+      "forceToUpdate": {
+        "anime": {
+          "allAnimeDetailsData": false,
+          "animeList": false,
+          "animeBanners": false,
+          "animeCoverImageMediumSize": false,
+          "animeCoverImageLargeSize": false
+        },
+        "manga": {
+          "allMangaDetailsData": false,
+          "mangaList": false,
+          "mangaBanners": false,
+          "mangaCoverImageMediumSize": false,
+          "mangaCoverImageLargeSize": false
+        }
+      }
+    },
     "notification": {
       "isEnabled": true,
       "isAnimationsEnabled": true,

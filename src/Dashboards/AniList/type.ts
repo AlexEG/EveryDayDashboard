@@ -3,7 +3,8 @@ export type anilistSettingsDataTypes = {
   data: {
     readonly defaultHomePage: string,
     readonly filterIsOpenByDefault: boolean,
-    notification: notificationSettingsTypes,
+    autoUpdateOfflineData: AutoUpdateOfflineData
+    notification: notificationSettingsTypes
     pages: {
       anime: animePageTypes
       manga: mangaPageTypes
@@ -17,6 +18,41 @@ export type notificationSettingsTypes = {
   readonly notificationTotalShowTime: number
   readonly animationEnterDurationTime: number
   readonly animationOutDurationTime: number
+}
+
+export type AutoUpdateOfflineData = {
+  checkThenUpdate: {
+    anime: {
+      allAnimeDetailsData: boolean
+      animeList: boolean
+      animeBanners: boolean
+      animeCoverImageMediumSize: boolean
+      animeCoverImageLargeSize: boolean
+    }
+    manga: {
+      allMangaDetailsData: boolean
+      mangaList: boolean
+      mangaBanners: boolean
+      mangaCoverImageMediumSize: boolean
+      mangaCoverImageLargeSize: boolean
+    }
+  },
+  forceToUpdate: {
+    anime: {
+      allAnimeDetailsData: boolean
+      animeList: boolean
+      animeBanners: boolean
+      animeCoverImageMediumSize: boolean
+      animeCoverImageLargeSize: boolean
+    }
+    manga: {
+      allMangaDetailsData: boolean
+      mangaList: boolean
+      mangaBanners: boolean
+      mangaCoverImageMediumSize: boolean
+      mangaCoverImageLargeSize: boolean
+    }
+  }
 }
 
 export type animePageTypes = {
@@ -68,8 +104,6 @@ export type mangaHeaderInfoBannerTypes = {
 
 // AniList API
 
-
-
 export type Anime = {
   data: {
     MediaListCollection: {
@@ -91,6 +125,39 @@ export type Anime = {
               large: string;
             };
             type: "ANIME";
+            format: string;
+            episodes: number;
+            averageScore: number;
+            popularity: number;
+            genres: string[];
+            bannerImage: string;
+            startDate: { year: number; month: number; day: number };
+          };
+        }[];
+      }[];
+    };
+  };
+}
+export type AnimeList = {
+  data: {
+    MediaListCollection: {
+      lists: {
+        name: string;
+        entries: {
+          status: string;
+          score: number;
+          progress: number;
+          startedAt: { year: number; month: number; day: number };
+          completedAt: { year: number; month: number; day: number };
+          media: {
+            title: {
+              userPreferred: string;
+              english: string;
+            };
+            coverImage: {
+              extraLarge: string;
+              large: string;
+            };
             format: string;
             episodes: number;
             averageScore: number;

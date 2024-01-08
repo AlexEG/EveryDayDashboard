@@ -1,28 +1,15 @@
 import HTML from "../../components/HTML/HTML";
-import AniList_API_Call from "./API/AniList_API_Call";
-import AniList_API from "./API/AniList_API";
-import AniList_API_MangaListHeaderData from "./API/AniList_API_MangaListHeaderData";
-
 import AnimeMangaHeader from "./Header/AnimeMangaHeader/AnimeMangaHeader";
 import HomeBanner from "./Header/HomeBanner";
-// import HomeBanner from "./Header/HomeBanner";
 import NavBar from "./NavBar/NavBar";
 import NotificationsCenter from "./Notifications/NotificationsCenter";
-// import Favorites from "./Pages/Favorites/Favorites";
 import AnimeMangaList from "./Pages/AnimeMangaList/AnimeMangaList";
 import Favorites from "./Pages/Favorites/Favorites";
 import Overview from "./Pages/Overview/Overview";
 import Stats from "./Pages/Stats/Stats";
-import updateAnimeListHeaderData from "./helper/updateAnimeListHeaderData";
-import updateFavouritesArrayID from "./helper/updateFavouritesArrayID";
-import updateMangaListHeaderData from "./helper/updateMangaListHeaderData";
 import anilistSettingsData from "./settings/anilistSettingsData";
-
 import { anilistSettingsDataTypes, animeHeaderTypes, mangaHeaderTypes } from "./type";
-import updateAnimeJSON from "./API/helpers/updateAnimeJSON";
-import updateAnimeIDList from "./API/helpers/updateAnimeIDList";
-import updateAllDetailsDataAnime from "./API/helpers/updateAllDetailsDataAnimeManga";
-// import Overview from "./Pages/Overview/Overview";
+
 
 export default function AniList() {
   const styles =
@@ -30,22 +17,13 @@ export default function AniList() {
 
   const MainContainer = HTML("main", styles, "anilist");
 
-  // updateFavouritesArrayID()
-  // updateAnimeListHeaderData()
-  // updateMangaListHeaderData()
-  // AniList_API_MangaListHeaderData()
-  // AniList_API_Call()
-  // AniList_API("ANIME")
-  // updateAnimeJSON()
-  // updateAnimeIDList()
-  // get the "defaultHomePage" from DATA/settings/anilist.json  
 
-  anilistSettingsData().then((data: anilistSettingsDataTypes) => {
+  anilistSettingsData().then(({ data }: anilistSettingsDataTypes) => {
     // console.log("AniList Settings Data", data)
-    const defaultHomePage = data.data.defaultHomePage as "Overview" | "Anime" | "Manga" | "Favorites" | "Stats"
-    const filterIsOpenByDefault = data.data.filterIsOpenByDefault
-    const pages = data.data.pages
-
+    const defaultHomePage = data.defaultHomePage as "Overview" | "Anime" | "Manga" | "Favorites" | "Stats"
+    const filterIsOpenByDefault = data.filterIsOpenByDefault
+    const pages = data.pages
+    //    ^?
 
     const animePage = pages.anime
     const mangaPage = pages.manga
@@ -54,10 +32,12 @@ export default function AniList() {
     const animeHeaderSettings = animePage.header as animeHeaderTypes
     const mangaHeaderSettings = mangaPage.header as mangaHeaderTypes
 
-
+    // auto Update Offline Data
+    const autoUpdateOfflineData = data.autoUpdateOfflineData
 
     // Notification
-    const notificationSettings = data.data.notification
+    const notificationSettings = data.notification
+
 
 
     // --------- --------- --------- --------- //
@@ -72,7 +52,7 @@ export default function AniList() {
 
     MainContainer.insertBefore(NavBar(defaultHomePage, filterIsOpenByDefault), MainContainer.lastChild)
 
-    if (notificationSettings.isEnabled) MainContainer.append(NotificationsCenter(notificationSettings))
+    if (notificationSettings.isEnabled) MainContainer.append(NotificationsCenter(notificationSettings, autoUpdateOfflineData))
 
 
   })

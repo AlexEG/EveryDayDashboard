@@ -3,7 +3,12 @@ import AniList_API from "../AniList_API";
 
 
 export default function updateAnimeIDList() {
-  AniList_API("AnimeIdList").then((data: AnimeIdList) => {
+  const variables = {
+    userId: 6482446,
+    userName: "AlexEG",
+    type: "ANIME",
+  };
+  AniList_API("AnimeIdList", variables).then((data: AnimeIdList) => {
     // console.log("API AnimeListData: ", data);
     const lists = data.data.MediaListCollection.lists;
 
