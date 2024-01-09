@@ -1,6 +1,8 @@
 // * SETTINGS *//
 export type anilistSettingsDataTypes = {
   data: {
+    readonly userId: number,
+    readonly userName: string,
     readonly defaultHomePage: string,
     readonly filterIsOpenByDefault: boolean,
     autoUpdateOfflineData: AutoUpdateOfflineData
@@ -179,6 +181,25 @@ export type AnimeIdList = {
         entries: {
           media: {
             id: number
+          };
+        }[];
+      }[];
+    };
+  };
+}
+
+
+export type Banners = {
+  data: {
+    MediaListCollection: {
+      lists: {
+        entries: {
+          media: {
+            title: {
+              userPreferred: string
+              english: string
+            }
+            bannerImage: string
           };
         }[];
       }[];

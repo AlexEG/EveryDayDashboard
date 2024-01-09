@@ -1,19 +1,21 @@
 {
   "data": {
+    "userId": 6482446,
+    "userName": "AlexEG",
     "defaultHomePage": "Anime",
     "filterIsOpenByDefault": false,
     "autoUpdateOfflineData": {
       "checkThenUpdate": {
         "anime": {
-          "allAnimeDetailsData": true,
-          "animeList": true,
+          "allAnimeDetailsData": false,
+          "animeList": false,
           "animeBanners": true,
           "animeCoverImageMediumSize": true,
           "animeCoverImageLargeSize": true
         },
         "manga": {
-          "allMangaDetailsData": true,
-          "mangaList": true,
+          "allMangaDetailsData": false,
+          "mangaList": false,
           "mangaBanners": true,
           "mangaCoverImageMediumSize": true,
           "mangaCoverImageLargeSize": true

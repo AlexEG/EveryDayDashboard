@@ -1,4 +1,5 @@
 import HTML from "../../../components/HTML/HTML";
+import downloadBanners from "../API/updateOfflineData/downloadBanners";
 import updateAllDetailsDataAnimeManga from "../API/updateOfflineData/updateAllDetailsDataAnimeManga";
 import updateAnimeMangaList from "../API/updateOfflineData/updateAnimeMangaList";
 import { AutoUpdateOfflineData, notificationSettingsTypes } from "../type";
@@ -14,7 +15,7 @@ export default function NotificationsCenter(notificationSettings: notificationSe
   // const forceToUpdate = autoUpdateOfflineData.forceToUpdate  // NOT NOW
 
 
-  const styles = "border flex flex-col-reverse gap-y-2 w-80 h-fit fixed right-1 -bottom-1 text-neutral-200"
+  const styles = "flex flex-col-reverse gap-y-2 w-80 h-fit fixed right-1 -bottom-1 text-neutral-200"
   const notificationsContainer = HTML("div", styles, "anilist-notifications-container")
 
 
@@ -25,12 +26,15 @@ export default function NotificationsCenter(notificationSettings: notificationSe
 
   if (updateAnime.animeList) setTimeout(() => updateAnimeMangaList("ANIME", notificationsContainer, notificationSettings), 5000)
 
+  if (updateAnime.animeBanners) setTimeout(() => downloadBanners("ANIME", notificationsContainer, notificationSettings), 1000)
+
 
   // MANGA //
   if (updateManga.allMangaDetailsData) setTimeout(() => updateAllDetailsDataAnimeManga("MANGA", notificationsContainer, notificationSettings), 12_000)
 
   if (updateManga.mangaList) setTimeout(() => updateAnimeMangaList("MANGA", notificationsContainer, notificationSettings), 13_000)
 
+  if (updateManga.mangaBanners) setTimeout(() => downloadBanners("MANGA", notificationsContainer, notificationSettings), 15_000)
 
   // -------------  ------------- //
 

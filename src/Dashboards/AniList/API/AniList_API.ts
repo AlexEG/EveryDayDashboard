@@ -3,8 +3,9 @@ import Anime from "./querys/Anime";
 import AnimeDetailsData from "./querys/AnimeDetailsData";
 import AnimeIdList from "./querys/AnimeIdList";
 import AnimeList from "./querys/AnimeList";
+import Banners from "./querys/Banners";
 
-type apiCallType = "ANIME" | "MANGA" | "AnimeIdList" | "animeDetailsData" | "AnimeList"
+type apiCallType = "ANIME" | "MANGA" | "AnimeIdList" | "animeDetailsData" | "AnimeList" | "MangaList" | "Banners"
 export default function AniList_API(type: apiCallType, variables: Record<string, string | number | boolean>) {
 
 
@@ -14,6 +15,7 @@ export default function AniList_API(type: apiCallType, variables: Record<string,
   if (type === "AnimeIdList") query = AnimeIdList
   if (type === "animeDetailsData") query = AnimeDetailsData
   if (type === "AnimeList") query = AnimeList
+  if (type === "Banners") query = Banners
 
 
   // const variables = {
