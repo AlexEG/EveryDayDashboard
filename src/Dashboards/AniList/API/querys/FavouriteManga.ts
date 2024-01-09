@@ -1,13 +1,6 @@
-query ($id: Int, $name: String) {
+export default `query ($id: Int, $name: String) {
   User(id: $id, name: $name) {
     favourites {
-      anime {
-        edges {
-          node {
-            id
-          }
-        }
-      }
       manga {
         edges {
           node {
@@ -18,3 +11,4 @@ query ($id: Int, $name: String) {
     }
   }
 }
+`

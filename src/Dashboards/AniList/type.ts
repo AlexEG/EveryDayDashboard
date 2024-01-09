@@ -112,34 +112,89 @@ export type Anime = {
       lists: {
         name: string;
         entries: {
-          status: string;
-          score: number;
-          progress: number;
-          startedAt: { year: number; month: number; day: number };
-          completedAt: { year: number; month: number; day: number };
+          mediaId: number
+          status: string
+          score: number
+          repeat: number
+          progress: number
+
+          startedAt: { year: number; month: number; day: number }
+          completedAt: { year: number; month: number; day: number }
           media: {
+            id: number
             title: {
-              userPreferred: string;
-              english: string;
+              userPreferred: string
+              english: string
             };
             coverImage: {
-              extraLarge: string;
-              large: string;
+              extraLarge: string
+              large: string
             };
-            type: "ANIME";
-            format: string;
-            episodes: number;
-            averageScore: number;
-            popularity: number;
-            genres: string[];
-            bannerImage: string;
-            startDate: { year: number; month: number; day: number };
+            format: string
+            status: string
+            episodes: number
+            duration: number
+            description: string
+            averageScore: number
+            popularity: number
+            genres: string[]
+            source: string
+            season: string
+            bannerImage: string
+            startDate: { year: number; month: number; day: number }
+            endDate: { year: number; month: number; day: number }
+            rankings: { rank: number; context: string }
           };
         }[];
       }[];
     };
   };
 }
+export type Manga = {
+  data: {
+    MediaListCollection: {
+      lists: {
+        name: string;
+        entries: {
+          id: number
+          mediaId: number
+          status: string
+          score: number
+          repeat: number
+          progress: number
+          updatedAt: number
+          startedAt: { year: number; month: number; day: number }
+          completedAt: { year: number; month: number; day: number }
+          media: {
+            id: number
+            title: {
+              userPreferred: string
+              english: string
+            };
+            coverImage: {
+              extraLarge: string
+              large: string
+            };
+            format: string
+            status: string
+            description: string
+            volumes: string
+            chapters: string
+            averageScore: number
+            popularity: number
+            genres: string[]
+            source: string
+            bannerImage: string
+            startDate: { year: number; month: number; day: number }
+            endDate: { year: number; month: number; day: number }
+            rankings: { rank: number; context: string }
+          };
+        }[];
+      }[];
+    };
+  };
+}
+
 export type AnimeList = {
   data: {
     MediaListCollection: {

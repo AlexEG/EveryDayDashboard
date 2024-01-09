@@ -37,14 +37,14 @@ fragment mediaListEntry on MediaList {
     }
     format
     status(version: 2)
-    episodes
+    volumes
     duration
     description
     averageScore
     popularity
     genres
     source
-    season
+    chapters
     bannerImage
     startDate {
       year

@@ -8,15 +8,15 @@
       "checkThenUpdate": {
         "anime": {
           "allAnimeDetailsData": false,
-          "animeList": false,
-          "animeBanners": true,
+          "animeList": true,
+          "animeBanners": false,
           "animeCoverImageMediumSize": true,
           "animeCoverImageLargeSize": true
         },
         "manga": {
           "allMangaDetailsData": false,
-          "mangaList": false,
-          "mangaBanners": true,
+          "mangaList": true,
+          "mangaBanners": false,
           "mangaCoverImageMediumSize": true,
           "mangaCoverImageLargeSize": true
         }

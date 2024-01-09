@@ -24,17 +24,17 @@ export default function NotificationsCenter(notificationSettings: notificationSe
   // ANIME //
   if (updateAnime.allAnimeDetailsData) setTimeout(() => updateAllDetailsDataAnimeManga("ANIME", notificationsContainer, notificationSettings), 3000)
 
-  if (updateAnime.animeList) setTimeout(() => updateAnimeMangaList("ANIME", notificationsContainer, notificationSettings), 5000)
+  if (updateAnime.animeList) setTimeout(() => updateAnimeMangaList("ANIME", notificationsContainer, notificationSettings), 4000)
 
-  if (updateAnime.animeBanners) setTimeout(() => downloadBanners("ANIME", notificationsContainer, notificationSettings), 1000)
+  if (updateAnime.animeBanners) setTimeout(() => downloadBanners("ANIME", notificationsContainer, notificationSettings), 5000)
 
 
   // MANGA //
-  if (updateManga.allMangaDetailsData) setTimeout(() => updateAllDetailsDataAnimeManga("MANGA", notificationsContainer, notificationSettings), 12_000)
+  if (updateManga.allMangaDetailsData) setTimeout(() => updateAllDetailsDataAnimeManga("MANGA", notificationsContainer, notificationSettings), 6000)
 
-  if (updateManga.mangaList) setTimeout(() => updateAnimeMangaList("MANGA", notificationsContainer, notificationSettings), 13_000)
+  if (updateManga.mangaList) setTimeout(() => updateAnimeMangaList("MANGA", notificationsContainer, notificationSettings), 7000)
 
-  if (updateManga.mangaBanners) setTimeout(() => downloadBanners("MANGA", notificationsContainer, notificationSettings), 15_000)
+  if (updateManga.mangaBanners) setTimeout(() => downloadBanners("MANGA", notificationsContainer, notificationSettings), 8000)
 
   // -------------  ------------- //
 
