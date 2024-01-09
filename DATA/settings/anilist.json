@@ -8,16 +8,16 @@
       "checkThenUpdate": {
         "anime": {
           "allAnimeDetailsData": false,
-          "animeList": true,
+          "animeList": false,
           "animeBanners": false,
-          "animeCoverImageMediumSize": true,
+          "animeCoverImageExtraLargeSize": true,
           "animeCoverImageLargeSize": true
         },
         "manga": {
           "allMangaDetailsData": false,
-          "mangaList": true,
+          "mangaList": false,
           "mangaBanners": false,
-          "mangaCoverImageMediumSize": true,
+          "mangaCoverImageExtraLargeSize": true,
           "mangaCoverImageLargeSize": true
         }
       },
@@ -26,14 +26,14 @@
           "allAnimeDetailsData": false,
           "animeList": false,
           "animeBanners": false,
-          "animeCoverImageMediumSize": false,
+          "animeCoverImageExtraLargeSize": false,
           "animeCoverImageLargeSize": false
         },
         "manga": {
           "allMangaDetailsData": false,
           "mangaList": false,
           "mangaBanners": false,
-          "mangaCoverImageMediumSize": false,
+          "mangaCoverImageExtraLargeSize": false,
           "mangaCoverImageLargeSize": false
         }
       }

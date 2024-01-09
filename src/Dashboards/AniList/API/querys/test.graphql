@@ -1,20 +1,42 @@
-query ($id: Int, $name: String) {
-  User(id: $id, name: $name) {
-    favourites {
-      anime {
-        edges {
-          node {
-            id
-          }
-        }
+query ($userId: Int, $userName: String, $type: MediaType) {
+  MediaListCollection(userId: $userId, userName: $userName, type: $type) {
+    lists {
+      entries {
+        ...mediaListEntry
       }
-      manga {
-        edges {
-          node {
-            id
-          }
-        }
+    }
+  }
+}
+fragment mediaListEntry on MediaList {
+  media {
+    title {
+      userPreferred
+      english
+    }
+    coverImage {
+      extraLarge
+      large
+    }
+  }
+}
+
+query ($userId: Int, $userName: String, $type: MediaType) {
+  MediaListCollection(userId: $userId, userName: $userName, type: $type) {
+    lists {
+      entries {
+        ...mediaListEntry
       }
+    }
+  }
+}
+fragment mediaListEntry on MediaList {
+  media {
+    title {
+      userPreferred
+      english
+    }
+    coverImage {
+      large
     }
   }
 }

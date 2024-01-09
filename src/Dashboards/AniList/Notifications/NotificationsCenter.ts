@@ -1,9 +1,10 @@
 import HTML from "../../../components/HTML/HTML";
 import downloadBanners from "../API/updateOfflineData/downloadBanners";
+import downloadCoverImages from "../API/updateOfflineData/downloadCoverImages";
 import updateAllDetailsDataAnimeManga from "../API/updateOfflineData/updateAllDetailsDataAnimeManga";
 import updateAnimeMangaList from "../API/updateOfflineData/updateAnimeMangaList";
 import { AutoUpdateOfflineData, notificationSettingsTypes } from "../type";
-import NotificationCard from "./NotificationCard";
+// import NotificationCard from "./NotificationCard";
 
 export default function NotificationsCenter(notificationSettings: notificationSettingsTypes, autoUpdateOfflineData: AutoUpdateOfflineData) {
 
@@ -27,6 +28,12 @@ export default function NotificationsCenter(notificationSettings: notificationSe
   if (updateAnime.animeList) setTimeout(() => updateAnimeMangaList("ANIME", notificationsContainer, notificationSettings), 4000)
 
   if (updateAnime.animeBanners) setTimeout(() => downloadBanners("ANIME", notificationsContainer, notificationSettings), 5000)
+
+  console.log(updateAnime.animeCoverImageExtraLargeSize)
+  if (updateAnime.animeCoverImageExtraLargeSize) setTimeout(() => downloadCoverImages("ANIME", "extraLarge", notificationsContainer, notificationSettings), 1000)
+
+  if (updateAnime.animeCoverImageLargeSize) setTimeout(() => downloadCoverImages("ANIME", "large", notificationsContainer, notificationSettings), 2000)
+
 
 
   // MANGA //

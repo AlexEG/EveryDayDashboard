@@ -28,14 +28,14 @@ export type AutoUpdateOfflineData = {
       allAnimeDetailsData: boolean
       animeList: boolean
       animeBanners: boolean
-      animeCoverImageMediumSize: boolean
+      animeCoverImageExtraLargeSize: boolean
       animeCoverImageLargeSize: boolean
     }
     manga: {
       allMangaDetailsData: boolean
       mangaList: boolean
       mangaBanners: boolean
-      mangaCoverImageMediumSize: boolean
+      mangaCoverImageExtraLargeSize: boolean
       mangaCoverImageLargeSize: boolean
     }
   },
@@ -44,7 +44,7 @@ export type AutoUpdateOfflineData = {
       allAnimeDetailsData: boolean
       animeList: boolean
       animeBanners: boolean
-      animeCoverImageMediumSize: boolean
+      mangaCoverImageExtraLargeSize: boolean
       animeCoverImageLargeSize: boolean
     }
     manga: {

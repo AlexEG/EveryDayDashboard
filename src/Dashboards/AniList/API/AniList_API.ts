@@ -4,11 +4,15 @@ import AnimeDetailsData from "./querys/AnimeDetailsData";
 import AnimeIdList from "./querys/AnimeIdList";
 import AnimeList from "./querys/AnimeList";
 import Banners from "./querys/Banners";
+import CoverImageExtraLargeSize from "./querys/CoverImageExtraLargeSize";
+import CoverImageLargeSize from "./querys/CoverImageLargeSize";
 import FavouriteAnime from "./querys/FavouriteAnime";
 import FavouriteManga from "./querys/FavouriteManga";
 import Manga from "./querys/Manga";
 
-type apiCallType = "ANIME" | "MANGA" | "AnimeIdList" | "animeDetailsData" | "AnimeList" | "MangaList" | "Banners" | "FavouriteAnime" | "FavouriteManga"
+
+type apiCallType = "ANIME" | "MANGA" | "AnimeIdList" | "animeDetailsData" | "AnimeList" | "MangaList" | "Banners" | "CoverImageExtraLargeSize" | "CoverImageLargeSize" | "FavouriteAnime" | "FavouriteManga"
+
 export default function AniList_API(type: apiCallType, variables: Record<string, string | number | boolean>) {
 
 
@@ -18,6 +22,8 @@ export default function AniList_API(type: apiCallType, variables: Record<string,
   if (type === "MANGA") query = Manga
   if (type === "FavouriteAnime") query = FavouriteAnime
   if (type === "FavouriteManga") query = FavouriteManga
+  if (type === "CoverImageExtraLargeSize") query = CoverImageExtraLargeSize
+  if (type === "CoverImageLargeSize") query = CoverImageLargeSize
   if (type === "AnimeIdList") query = AnimeIdList
   if (type === "animeDetailsData") query = AnimeDetailsData
   if (type === "AnimeList") query = AnimeList

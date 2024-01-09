@@ -23,7 +23,7 @@ export default function updateAnimeMangaList(
   } as const
 
   const favouritesType = type === "ANIME" ? "FavouriteAnime" : "FavouriteManga"
-  AniList_API(favouritesType, variables2).then((data: any) => {
+  AniList_API(favouritesType, variables2).then(({ data }) => {
     // console.log("API FavouritesArrayID: ", data);
 
 
@@ -32,7 +32,7 @@ export default function updateAnimeMangaList(
     const favouritesArrayID: Array<number> = []
     // const favouritesMangaArrayID: Array<number> = []
 
-    const user = data.data.User
+    const user = data.User
     const favourites = user.favourites
     // console.log("user: ", user);
     // console.log("favourites: ", favourites);
