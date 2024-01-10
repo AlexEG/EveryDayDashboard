@@ -1,4 +1,3 @@
-
 import AnimeMangaHeader from "../Header/AnimeMangaHeader/AnimeMangaHeader";
 import HomeBanner from "../Header/HomeBanner";
 import AnimeMangaList from "../Pages/AnimeMangaList/AnimeMangaList";

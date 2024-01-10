@@ -23,13 +23,14 @@ export default function InfoBanner(type: "ANIME" | "MANGA", animeMangaHeaderInfo
 
   if (type === "ANIME") {
 
-    const { popularity, averageScore, status, episodes, season, startDate, endDate, genres } = animeMangaHeaderInfoBannerSettings as animeHeaderInfoBannerTypes
+    const { popularity, averageScore, status, episodes, season, source, startDate, endDate, genres } = animeMangaHeaderInfoBannerSettings as animeHeaderInfoBannerTypes
 
     if (popularity) badgesWrapper.append(InfoBadge("anime", "Popularity"))
     if (averageScore) badgesWrapper.append(InfoBadge("anime", "Average Score"))
     if (status) badgesWrapper.append(InfoBadge("anime", "Status"))
     if (episodes) badgesWrapper.append(InfoBadge("anime", "Episodes"))
     if (season) badgesWrapper.append(InfoBadge("anime", "Season"))
+    if (source) badgesWrapper.append(InfoBadge("anime", "Source"))
     if (startDate) badgesWrapper.append(InfoBadge("anime", "Start Date"))
     if (endDate) badgesWrapper.append(InfoBadge("anime", "End Date"))
     if (genres) genresWrapper.append(InfoBadge("anime", "Genres"))

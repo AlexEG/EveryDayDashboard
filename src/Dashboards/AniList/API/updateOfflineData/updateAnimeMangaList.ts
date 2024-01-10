@@ -11,22 +11,18 @@ export default function updateAnimeMangaList(
     userId: 6482446,
     userName: "AlexEG",
     type: type,
-  } as const
+  }
   notificationsContainer.append(
     NotificationCard(`Checking for ${type} List`, notificationSettings)
   );
 
   // Favourites
-  const variables2 = {
-    id: 6482446,
-    name: "AlexEG",
-  } as const
+  const variables2 = structuredClone(variables)
+  delete variables2.type
 
   const favouritesType = type === "ANIME" ? "FavouriteAnime" : "FavouriteManga"
   AniList_API(favouritesType, variables2).then(({ data }) => {
     // console.log("API FavouritesArrayID: ", data);
-
-
 
 
     const favouritesArrayID: Array<number> = []
@@ -54,151 +50,148 @@ export default function updateAnimeMangaList(
     }
 
     // console.log("favouritesAnimeArrayID: ", favouritesArrayID);
+    return favouritesArrayID
+
+  }).then((favouritesArrayID: Array<number>) => {
+
+    AniList_API(type, variables).then(({ data }: Anime | Manga) => {
 
 
+      const lists = data.MediaListCollection.lists;
+      // console.log("lists: ", lists);
+
+      const updatedData: any = {};
+
+      updatedData.data = {};
+      updatedData.data.metadata = {};
+      updatedData.data.data = [];
 
 
+      for (const list of lists) {
+        // console.log("list: ", list);
 
-    //
-    setTimeout(() => {
-      AniList_API(type, variables).then(({ data }: Anime | Manga) => {
+        for (const animeMangaData of list.entries) {
+          // console.log("animeMangaData: ", animeMangaData)
 
+          // banner image
+          const bannerURL = animeMangaData.media.bannerImage
+          const bannerImgFileName = bannerURL && String(bannerURL.match(/(?<=banner\/).*/g))
 
-        const lists = data.MediaListCollection.lists;
-        // console.log("lists: ", lists);
+          // cover image  note the large & extraLarge size have the same file name
+          const coverURL = animeMangaData.media.coverImage.large
+          const coverImgFileName = coverURL && String(coverURL.match(/(?<=medium\/).*/g))
 
-        const updatedData: any = {};
+          // title
+          const titleUserPreferred = animeMangaData.media.title.userPreferred;
+          const titleEnglish = animeMangaData.media.title.english;
+          const title = titleEnglish ? titleEnglish : titleUserPreferred;
 
-        updatedData.data = {};
-        updatedData.data.metadata = {};
-        updatedData.data.data = [];
-
-
-        for (const list of lists) {
-          // console.log("list: ", list);
-
-          for (const animeMangaData of list.entries) {
-            // console.log("animeMangaData: ", animeMangaData)
-
-            // banner image
-            const bannerURL = animeMangaData.media.bannerImage
-            const bannerImgFileName = bannerURL && String(bannerURL.match(/(?<=banner\/).*/g))
-
-            // cover image
-            const coverURL = animeMangaData.media.coverImage.large
-            const coverImgFileName = coverURL && String(coverURL.match(/(?<=medium\/).*/g))
-
-            // title
-            const titleUserPreferred = animeMangaData.media.title.userPreferred;
-            const titleEnglish = animeMangaData.media.title.english;
-            const title = titleEnglish ? titleEnglish : titleUserPreferred;
-
-            // popularity  averageScore  status  genres  season startDate endDate
-            const id = animeMangaData.media.id
-            const format = animeMangaData.media.format
-            const rankings = animeMangaData.media.rankings
-            const popularity = animeMangaData.media.popularity
-            const averageScore = animeMangaData.media.averageScore
-            const status = animeMangaData.media.status
-            const genres = animeMangaData.media.genres
-            const startDate = animeMangaData.media.startDate
-            const endDate = animeMangaData.media.endDate
-            const source = animeMangaData.media.source
-            const completedAt = animeMangaData.completedAt
-            const mediaId = animeMangaData.mediaId
-            const progress = animeMangaData.progress
-            const repeat = animeMangaData.repeat
-            const score = animeMangaData.score
-            const ListName = animeMangaData.status
-            const isFavourite: boolean = favouritesArrayID.includes(id)
+          // popularity  averageScore  status  genres  season startDate endDate
+          const id = animeMangaData.media.id
+          const format = animeMangaData.media.format
+          const rankings = animeMangaData.media.rankings
+          const popularity = animeMangaData.media.popularity
+          const averageScore = animeMangaData.media.averageScore
+          const status = animeMangaData.media.status
+          const genres = animeMangaData.media.genres
+          const startDate = animeMangaData.media.startDate
+          const endDate = animeMangaData.media.endDate
+          const source = animeMangaData.media.source
+          const completedAt = animeMangaData.completedAt
+          const mediaId = animeMangaData.mediaId
+          const progress = animeMangaData.progress
+          const repeat = animeMangaData.repeat
+          const score = animeMangaData.score
+          const ListName = animeMangaData.status
+          const isFavourite: boolean = favouritesArrayID.includes(id)
 
 
-            const completedAtStr = new Date(completedAt.year, completedAt.month, completedAt.day).toDateString().slice(4).split(" ")
-            const startDateStr = new Date(startDate.year, startDate.month, startDate.day).toDateString().slice(4).split(" ")
-            const endDateStr = new Date(endDate.year, endDate.month, endDate.day).toDateString().slice(4).split(" ")
+          const completedAtStr = new Date(completedAt.year, completedAt.month, completedAt.day).toDateString().slice(4).split(" ")
+          const startDateStr = new Date(startDate.year, startDate.month, startDate.day).toDateString().slice(4).split(" ")
+          const endDateStr = new Date(endDate.year, endDate.month, endDate.day).toDateString().slice(4).split(" ")
 
-            const newData: any = {
-              ListName: ListName,
-              id: id,
-              mediaId: mediaId,
-              isFavourite: isFavourite,
-              progress: progress,
-              repeat: repeat,
-              score: score,
-              bannerImgFileName: bannerImgFileName,
-              coverImgFileName: coverImgFileName,
-              title: title,
-              popularity: popularity.toLocaleString(),
-              averageScore: averageScore,
-              status: `${status[0]}${status.slice(1).toLowerCase()}`,
-              genres: genres,
-              source: source,
-              format: format,
-              rankings: rankings,
-              completedAt: `${completedAtStr[0]} ${+completedAtStr[1] / 1}, ${completedAtStr[2]}`,
-              startDate: `${startDateStr[0]} ${+startDateStr[1] / 1}, ${startDateStr[2]}`,
-              endDate: `${endDateStr[0]} ${+endDateStr[1] / 1}, ${endDateStr[2]}`,
-            }
-
-
-            if (type === "ANIME") {
-              const animeData: any = animeMangaData.media
-              const episodes = animeData.episodes
-              const season = animeData.season
-              newData.episodes = episodes
-              newData.season = `${season[0]}${season.slice(1).toLowerCase()}`
-            }
-
-            if (type === "MANGA") {
-              const mangaData: any = animeMangaData.media
-              const volumes = mangaData.volumes
-              const chapters = mangaData.chapters
-              newData.volumes = volumes
-              newData.chapters = chapters
-            }
-
-            // console.log("bannerURL: ", bannerURL)
-            // console.log("bannerImgFileName: ", bannerImgFileName)
-            // console.log("newData: ", newData)
-            updatedData.data.data.push(newData)
+          const newData: any = {
+            ListName: ListName,
+            id: id,
+            mediaId: mediaId,
+            isFavourite: isFavourite,
+            progress: progress,
+            repeat: repeat,
+            score: score,
+            bannerImgFileName: bannerImgFileName,
+            coverImgFileName: coverImgFileName,
+            title: title,
+            popularity: popularity.toLocaleString(),
+            averageScore: averageScore,
+            status: `${status[0]}${status.slice(1).toLowerCase()}`,
+            genres: genres,
+            source: source,
+            format: format,
+            rankings: rankings,
+            completedAt: `${completedAtStr[0]} ${+completedAtStr[1] / 1}, ${completedAtStr[2]}`,
+            startDate: `${startDateStr[0]} ${+startDateStr[1] / 1}, ${startDateStr[2]}`,
+            endDate: `${endDateStr[0]} ${+endDateStr[1] / 1}, ${endDateStr[2]}`,
           }
 
 
+          if (type === "ANIME") {
+            const animeData: any = animeMangaData.media
+            const episodes = animeData.episodes
+            const season = animeData.season
+            newData.episodes = episodes
+            newData.season = `${season[0]}${season.slice(1).toLowerCase()}`
+          }
+
+          if (type === "MANGA") {
+            const mangaData: any = animeMangaData.media
+            const volumes = mangaData.volumes
+            const chapters = mangaData.chapters
+            newData.volumes = volumes
+            newData.chapters = chapters
+          }
+
+          // console.log("bannerURL: ", bannerURL)
+          // console.log("bannerImgFileName: ", bannerImgFileName)
+          // console.log("newData: ", newData)
+          updatedData.data.data.push(newData)
         }
-        updatedData.data.metadata["size"] = updatedData.data.data.length
-        updatedData.data.metadata["lastUpdate"] = new Date().toUTCString()
-
-        // ----  ----  ---- //
-        const offlineData = JSON.parse(window.DATA.getJSONFileData(
-          `dashboards/anilist/${type.toLowerCase()}`
-        )).data.data
-
-        // console.log("updatedData: ", updatedData);
-        // console.log("offlineData: ", offlineData);
-
-        if (!(JSON.stringify(offlineData) === JSON.stringify(updatedData.data.data))) {
-          console.log("new data has been found")
 
 
-          window.DATA.CreateOrUpdateJSON(
-            `dashboards/anilist/${type.toLowerCase()}.json`,
-            updatedData
-          );
-          notificationsContainer.append(
-            NotificationCard(
-              `${type} Offline Data [Update Complete]`,
-              notificationSettings
-            ))
-        } else
-          notificationsContainer.append(
-            NotificationCard(
-              `Your ${type} List Offline Data is up-to-date`,
-              notificationSettings
-            )
-          );
-      });
-    }, 2_000);
+      }
+      updatedData.data.metadata["size"] = updatedData.data.data.length
+      updatedData.data.metadata["lastUpdate"] = new Date().toUTCString()
 
-  });
+      // ----  ----  ---- //
+      const offlineData = JSON.parse(window.DATA.getJSONFileData(
+        `dashboards/anilist/${type.toLowerCase()}`
+      )).data.data
+
+      // console.log("updatedData: ", updatedData);
+      // console.log("offlineData: ", offlineData);
+
+      if (!(JSON.stringify(offlineData) === JSON.stringify(updatedData.data.data))) {
+        console.log("new data has been found")
+
+
+        window.DATA.CreateOrUpdateJSON(
+          `dashboards/anilist/${type.toLowerCase()}.json`,
+          updatedData
+        );
+        notificationsContainer.append(
+          NotificationCard(
+            `${type} Offline Data [Update Complete]`,
+            notificationSettings
+          ))
+      } else
+        notificationsContainer.append(
+          NotificationCard(
+            `Your ${type} List Offline Data is up-to-date`,
+            notificationSettings
+          )
+        );
+    });
+
+  })
+
 
 }

@@ -2,26 +2,10 @@
   "data": {
     "userId": 6482446,
     "userName": "AlexEG",
-    "defaultHomePage": "Anime",
+    "defaultHomePage": "Manga",
     "filterIsOpenByDefault": false,
     "autoUpdateOfflineData": {
       "checkThenUpdate": {
-        "anime": {
-          "allAnimeDetailsData": false,
-          "animeList": false,
-          "animeBanners": false,
-          "animeCoverImageExtraLargeSize": true,
-          "animeCoverImageLargeSize": true
-        },
-        "manga": {
-          "allMangaDetailsData": false,
-          "mangaList": false,
-          "mangaBanners": false,
-          "mangaCoverImageExtraLargeSize": true,
-          "mangaCoverImageLargeSize": true
-        }
-      },
-      "forceToUpdate": {
         "anime": {
           "allAnimeDetailsData": false,
           "animeList": false,
@@ -51,7 +35,7 @@
           "isInfoHeaderEnabled": true,
           "autoSwitchBanner": true,
           "isAutoSwitchBannerRandomly": true,
-          "switchingSpeed": 5000,
+          "switchingSpeed": 1500,
           "seasonWithYear": true,
           "infoBanner": {
             "popularity": true,
@@ -59,6 +43,7 @@
             "status": true,
             "episodes": true,
             "season": true,
+            "source": true,
             "startDate": true,
             "endDate": true,
             "genres": true

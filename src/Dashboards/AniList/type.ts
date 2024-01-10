@@ -38,22 +38,6 @@ export type AutoUpdateOfflineData = {
       mangaCoverImageExtraLargeSize: boolean
       mangaCoverImageLargeSize: boolean
     }
-  },
-  forceToUpdate: {
-    anime: {
-      allAnimeDetailsData: boolean
-      animeList: boolean
-      animeBanners: boolean
-      mangaCoverImageExtraLargeSize: boolean
-      animeCoverImageLargeSize: boolean
-    }
-    manga: {
-      allMangaDetailsData: boolean
-      mangaList: boolean
-      mangaBanners: boolean
-      mangaCoverImageMediumSize: boolean
-      mangaCoverImageLargeSize: boolean
-    }
   }
 }
 
@@ -88,6 +72,7 @@ export type animeHeaderInfoBannerTypes = {
   readonly episodes: boolean
   readonly season: boolean
   readonly startDate: boolean
+  readonly source: boolean
   readonly endDate: boolean
   readonly genres: boolean
 }

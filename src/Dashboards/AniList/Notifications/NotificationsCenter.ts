@@ -13,8 +13,6 @@ export default function NotificationsCenter(notificationSettings: notificationSe
   const updateAnime = checkThenUpdate.anime
   const updateManga = checkThenUpdate.manga
 
-  // const forceToUpdate = autoUpdateOfflineData.forceToUpdate  // NOT NOW
-
 
   const styles = "flex flex-col-reverse gap-y-2 w-80 h-fit fixed right-1 -bottom-1 text-neutral-200"
   const notificationsContainer = HTML("div", styles, "anilist-notifications-container")
@@ -29,7 +27,6 @@ export default function NotificationsCenter(notificationSettings: notificationSe
 
   if (updateAnime.animeBanners) setTimeout(() => downloadBanners("ANIME", notificationsContainer, notificationSettings), 5000)
 
-  console.log(updateAnime.animeCoverImageExtraLargeSize)
   if (updateAnime.animeCoverImageExtraLargeSize) setTimeout(() => downloadCoverImages("ANIME", "extraLarge", notificationsContainer, notificationSettings), 1000)
 
   if (updateAnime.animeCoverImageLargeSize) setTimeout(() => downloadCoverImages("ANIME", "large", notificationsContainer, notificationSettings), 2000)

@@ -9,7 +9,7 @@ import CodeWars from "../SettingsPages/CodeWars";
 import CSSBattle from "../SettingsPages/CSSBattle";
 import DEV from "../SettingsPages/DEV";
 import Firebase from "../SettingsPages/Firebase";
-import AniList from "../SettingsPages/AniList";
+import AniList from "../SettingsPages/AniList/AniList";
 import GitHub from "../SettingsPages/GitHub";
 export default function NavSidebar() {
   const styles =
