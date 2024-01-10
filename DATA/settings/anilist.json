@@ -2,7 +2,7 @@
   "data": {
     "userId": 6482446,
     "userName": "AlexEG",
-    "defaultHomePage": "Manga",
+    "defaultHomePage": "Anime",
     "filterIsOpenByDefault": false,
     "autoUpdateOfflineData": {
       "checkThenUpdate": {
@@ -34,7 +34,7 @@
         "header": {
           "isInfoHeaderEnabled": true,
           "autoSwitchBanner": true,
-          "isAutoSwitchBannerRandomly": true,
+          "isAutoSwitchBannerRandomly": false,
           "switchingSpeed": 1500,
           "seasonWithYear": true,
           "infoBanner": {
@@ -48,6 +48,15 @@
             "endDate": true,
             "genres": true
           }
+        },
+        "lists": {
+          "listsOrder": [
+            "CURRENT",
+            "PLANNING",
+            "PAUSED",
+            "COMPLETED",
+            "DROPPED"
+          ]
         }
       },
       "manga": {
@@ -67,6 +76,15 @@
             "endDate": false,
             "genres": true
           }
+        },
+        "lists": {
+          "listsOrder": [
+            "CURRENT",
+            "PLANNING",
+            "PAUSED",
+            "COMPLETED",
+            "DROPPED"
+          ]
         }
       }
     }

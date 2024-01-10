@@ -43,10 +43,18 @@ export type AutoUpdateOfflineData = {
 
 export type animePageTypes = {
   header: animeHeaderTypes
+  lists: {
+    listsOrder: Array<string>
+  }
 }
 export type mangaPageTypes = {
   header: mangaHeaderTypes
+  lists: {
+    listsOrder: Array<string>
+  }
 }
+
+
 
 export type animeHeaderTypes = {
   readonly isInfoHeaderEnabled: boolean

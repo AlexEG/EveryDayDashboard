@@ -19,16 +19,11 @@ export default function ListComponent(
 
   if (listType === "ANIME") {
     for (const listItem of listData) {
-      const imgURL = listItem.media.coverImage.large;
-      const imgFileName = String(imgURL.match(/(?<=medium\/).*/g));
-
-      const titleUserPreferred = listItem.media.title.userPreferred;
-      const titleEnglish = listItem.media.title.english;
-
-      const title = titleEnglish ? titleEnglish : titleUserPreferred;
-      const progress = `${listItem.progress}/${listItem.media.episodes}`;
+      const imgFileName = listItem.coverImgFileName
+      const title = listItem.title
+      const progress = `${listItem.progress}/${listItem.episodes}`;
       const score = listItem.score;
-      const type = listItem.media.format;
+      const type = listItem.format;
 
       listItemWrapper.append(
         ListItem(listType, imgFileName, title, score, progress, type)
@@ -36,18 +31,12 @@ export default function ListComponent(
     }
   } else {
     for (const listItem of listData) {
-      const imgURL = listItem.media.coverImage.large;
-      const imgFileName = String(imgURL.match(/(?<=medium\/).*/g));
-
-      const titleUserPreferred = listItem.media.title.userPreferred;
-      const titleEnglish = listItem.media.title.english;
-
-      const title = titleEnglish ? titleEnglish : titleUserPreferred;
-      const chapters = `${listItem.progress}/${listItem.media.chapters || ""}`;
+      const imgFileName = listItem.coverImgFileName
+      const title = listItem.title
+      const chapters = `${listItem.progress}/${listItem.chapters || "??"}`;
       const score = listItem.score;
-      const volumes = `${listItem.progressVolumes}/${
-        listItem.media.volumes || ""
-      }`;
+      const volumes = `${listItem.progressVolumes}/${listItem.volumes || "??"
+        }`;
       listItemWrapper.append(
         ListItem(listType, imgFileName, title, score, chapters, volumes)
       );

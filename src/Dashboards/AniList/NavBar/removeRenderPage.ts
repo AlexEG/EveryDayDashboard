@@ -1,6 +1,6 @@
 import AnimeMangaHeader from "../Header/AnimeMangaHeader/AnimeMangaHeader";
 import HomeBanner from "../Header/HomeBanner";
-import AnimeMangaList from "../Pages/AnimeMangaList/AnimeMangaList";
+import AnimeMangaPage from "../Pages/AnimeMangaList/AnimeMangaPage";
 import Favorites from "../Pages/Favorites/Favorites";
 import Overview from "../Pages/Overview/Overview";
 import Stats from "../Pages/Stats/Stats";
@@ -34,13 +34,13 @@ export default function removeRenderPage(navLinkBtn: HTMLButtonElement): void {
     }
 
     if (pageName === "Anime") {
-      anilistMainContainer.append(AnimeMangaList("ANIME", filterIsOpenByDefault));
+      anilistMainContainer.append(AnimeMangaPage("ANIME", filterIsOpenByDefault));
       header.remove()
       anilistMainContainer.insertBefore(AnimeMangaHeader("ANIME", animeHeaderSettings), anilistMainContainer.firstChild)
     }
 
     if (pageName === "Manga") {
-      anilistMainContainer.append(AnimeMangaList("MANGA", filterIsOpenByDefault));
+      anilistMainContainer.append(AnimeMangaPage("MANGA", filterIsOpenByDefault));
       header.remove()
       anilistMainContainer.insertBefore(AnimeMangaHeader("MANGA", mangaHeaderSettings), anilistMainContainer.firstChild)
     }

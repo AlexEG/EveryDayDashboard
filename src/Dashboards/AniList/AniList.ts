@@ -3,7 +3,7 @@ import AnimeMangaHeader from "./Header/AnimeMangaHeader/AnimeMangaHeader";
 import HomeBanner from "./Header/HomeBanner";
 import NavBar from "./NavBar/NavBar";
 import NotificationsCenter from "./Notifications/NotificationsCenter";
-import AnimeMangaList from "./Pages/AnimeMangaList/AnimeMangaList";
+import AnimeMangaPage from "./Pages/AnimeMangaList/AnimeMangaPage";
 import Favorites from "./Pages/Favorites/Favorites";
 import Overview from "./Pages/Overview/Overview";
 import Stats from "./Pages/Stats/Stats";
@@ -38,13 +38,15 @@ export default function AniList() {
     // Notification
     const notificationSettings = data.notification
 
+    const animeLists = animePage.lists
+    const mangaLists = mangaPage.lists
 
 
     // --------- --------- --------- --------- //
     {
       if (defaultHomePage === "Overview") MainContainer.append(HomeBanner(), Overview());
-      else if (defaultHomePage === "Anime") MainContainer.append(AnimeMangaHeader("ANIME", animeHeaderSettings), AnimeMangaList("ANIME", filterIsOpenByDefault));
-      else if (defaultHomePage === "Manga") MainContainer.append(AnimeMangaHeader("MANGA", mangaHeaderSettings), AnimeMangaList("MANGA", filterIsOpenByDefault));
+      else if (defaultHomePage === "Anime") MainContainer.append(AnimeMangaHeader("ANIME", animeHeaderSettings), AnimeMangaPage("ANIME", animeLists, filterIsOpenByDefault));
+      else if (defaultHomePage === "Manga") MainContainer.append(AnimeMangaHeader("MANGA", mangaHeaderSettings), AnimeMangaPage("MANGA", mangaLists, filterIsOpenByDefault));
       else if (defaultHomePage === "Favorites") MainContainer.append(HomeBanner(), Favorites());
       else if (defaultHomePage === "Stats") MainContainer.append(HomeBanner(), Stats());
       else console.error("DATA/setting/anilist.json  defaultHomePage not found or not selected")
