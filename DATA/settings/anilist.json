@@ -34,8 +34,8 @@
         "header": {
           "isInfoHeaderEnabled": true,
           "autoSwitchBanner": true,
-          "isAutoSwitchBannerRandomly": false,
-          "switchingSpeed": 1500,
+          "isAutoSwitchBannerRandomly": true,
+          "switchingSpeed": 5000,
           "seasonWithYear": true,
           "infoBanner": {
             "popularity": true,

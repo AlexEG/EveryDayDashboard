@@ -1,39 +1,12 @@
 import HTML from "../../components/HTML/HTML";
+import toggleHighlightAndSections from "./toggleHighlightAndSections";
 
-export default function NavBtn(sectionName: string, sectionHTML: any) {
+export default function NavBtn(sectionName: string, sectionHTML: any, isOpendByDefault: boolean) {
   const styles =
-    "hover:bg-neutral-600 text-neutral-100 w-full text-left pl-2 py-0.5 my-0.5 text-sm";
+    `hover:bg-neutral-600 text-neutral-100 w-full text-left pl-2 py-0.5 my-0.5 text-sm ${isOpendByDefault ? "bg-neutral-600" : ""}`
   const btn = HTML("button", styles, "", sectionName);
 
-  btn.onclick = () => {
-    if (
-      !(
-        document.querySelector("#settings > section").getAttribute("id") ==
-        `settings--${sectionName.toLocaleLowerCase()}`
-      )
-    ) {
-      // 1. remove settings section
-      btn.parentElement.parentElement.lastElementChild.remove();
-      // 2. append the new section
-      btn.parentElement.parentElement.append(sectionHTML());
-
-      // 3. remove highlight from all NavBtn
-      btn.parentElement.querySelectorAll("button").forEach((btn) => {
-        if (btn.classList.contains("bg-neutral-600")) {
-          btn.classList.remove("bg-neutral-600");
-        }
-      });
-
-      // 4. add highlight
-      btn.classList.add("bg-neutral-600");
-
-      console.log(
-        ` %c Settings %c OPEN  ${sectionName} `,
-        "background:black; color:#fff;font-weight: 700;",
-        "background:black; color:#0f0;font-weight: 700;"
-      );
-    }
-  };
+  btn.onclick = () => toggleHighlightAndSections(sectionName, btn, sectionHTML)
 
   return btn;
 }

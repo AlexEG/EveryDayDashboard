@@ -2,7 +2,7 @@ const PREF_LOG_START = Date.now();
 import "./index.css";
 import TitleBar from "./components/TitleBar/TitleBar";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Settings from "./Settings";
+import Settings from "./Settings/Settings";
 // import CodeWars from "./Dashboards/CodeWars";
 // import HabitTracker from "./Dashboards/HabitTracker";
 // import MonkeyType from "./Dashboards/MonkeyType/MonkeyType";

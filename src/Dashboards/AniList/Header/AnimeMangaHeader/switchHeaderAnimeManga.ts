@@ -31,8 +31,9 @@ export default function switchHeaderAnimeManga(type: "anime" | "manga", autoSwit
       return randomAnimeManga
     }
 
-    let orderNum = 1
+    let orderNum = 0
     const getNext = () => {
+      if (orderNum === size) orderNum = 0
       const nextAnimeManga = allData[orderNum]
       orderNum++
       return nextAnimeManga
@@ -55,7 +56,7 @@ export default function switchHeaderAnimeManga(type: "anime" | "manga", autoSwit
 
         const headerData = isAutoSwitchBannerRandomly ? getRandom() : getNext()
         // console.log(getRandom())
-        const id: number = headerData.id
+        // const id: number = headerData.id
         const bannerImgFileName: string = headerData.bannerImgFileName
         const coverImgFileName: string = headerData.coverImgFileName
         const popularity: number = headerData.popularity
@@ -80,6 +81,7 @@ export default function switchHeaderAnimeManga(type: "anime" | "manga", autoSwit
         // console.log("startDate: ", startDate);
         // console.log("endDate: ", endDate);
 
+        //todo try extraLarge then large  API Call + updateOfflineFunction + this file
         if (bannerImgFileName) document.querySelector(`img#anilist--header-${type}--banner--image`).setAttribute("src", `/DATA/dashboards/anilist/media/${type}/banner/${bannerImgFileName}`)
         else document.querySelector(`img#anilist--header-${type}--banner--image`).setAttribute("src", `/DATA/dashboards/anilist/media/${type}/cover-image/large/${coverImgFileName}`)
 
