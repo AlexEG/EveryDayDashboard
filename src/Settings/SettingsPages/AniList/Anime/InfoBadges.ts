@@ -3,10 +3,10 @@ import SettingsFieldset from "../../../../components/Settings/SettingsFieldset";
 import HTML from "../../../../components/HTML/HTML";
 
 
-export default function PageHeaderInfoBadges() {
+export default function InfoBadges() {
 
-  const ID = "settings--anilist--page-header-anime-info-badges"
-  const pageHeaderInfoBadges = SettingsFieldset(
+  const ID = "settings--anilist--anime--info-badges"
+  const infoBadges = SettingsFieldset(
     "Page Header Info Badges",
     ID
   );
@@ -30,6 +30,6 @@ export default function PageHeaderInfoBadges() {
 
   wrapper.append(popularity, averageScore, status, episodes, season, source, startDate, endDate, genres)
 
-  pageHeaderInfoBadges.append(wrapper)
-  return pageHeaderInfoBadges
+  infoBadges.append(wrapper)
+  return infoBadges
 }

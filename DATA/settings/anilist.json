@@ -4,6 +4,13 @@
     "userName": "AlexEG",
     "defaultHomePage": "Anime",
     "filterIsOpenByDefault": false,
+    "theme": {
+      "builtInTheme": "blue",
+      "customTheme": {
+        "backgroundColor": "#000000",
+        "scrollbarThumbColor": "#ff0000"
+      }
+    },
     "autoUpdateOfflineData": {
       "checkThenUpdate": {
         "anime": {

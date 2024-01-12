@@ -38,7 +38,7 @@ export default function AnimeMangaPage(type: "ANIME" | "MANGA", animeMangaLists:
       allLists[item.ListName].push(item)
     }
 
-    console.log("allLists: ", allLists)
+    // console.log("allLists: ", allLists)
 
     mainContainer.append(
       Filter(filterIsOpenByDefault),

@@ -8,7 +8,7 @@ import Sidebar from "./SettingsPages/Sidebar";
 
 export default function Settings() {
   const styles =
-    "bg-neutral-900 fixed top-[72px] left-[97px] bottom-10 right-10 z-[999] flex ";
+    "bg-neutral-900 fixed top-[72px] left-[97px] bottom-10 right-10 z-[999] flex invisible";
   // invisible
   const settingsContainer = HTML("section", styles, "settings");
   settingsContainer.dataset.isSettingsOpen = "false";

@@ -5,6 +5,13 @@ export type anilistSettingsDataTypes = {
     readonly userName: string,
     readonly defaultHomePage: string,
     readonly filterIsOpenByDefault: boolean,
+    theme: {
+      builtInTheme: "slate" | "neutral" | "red" | "orange" | "lime" | "green" | "emerald" | "teal" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "pink" | "rose"
+      customTheme: {
+        backgroundColor: string
+        scrollbarThumbColor: string
+      }
+    }
     autoUpdateOfflineData: AutoUpdateOfflineData
     notification: notificationSettingsTypes
     pages: {
@@ -13,6 +20,7 @@ export type anilistSettingsDataTypes = {
     }
   }
 }
+
 
 export type notificationSettingsTypes = {
   readonly isEnabled: boolean
@@ -25,18 +33,18 @@ export type notificationSettingsTypes = {
 export type AutoUpdateOfflineData = {
   checkThenUpdate: {
     anime: {
-      allAnimeDetailsData: boolean
-      animeList: boolean
-      animeBanners: boolean
-      animeCoverImageExtraLargeSize: boolean
-      animeCoverImageLargeSize: boolean
+      readonly allAnimeDetailsData: boolean
+      readonly animeList: boolean
+      readonly animeBanners: boolean
+      readonly animeCoverImageExtraLargeSize: boolean
+      readonly animeCoverImageLargeSize: boolean
     }
     manga: {
-      allMangaDetailsData: boolean
-      mangaList: boolean
-      mangaBanners: boolean
-      mangaCoverImageExtraLargeSize: boolean
-      mangaCoverImageLargeSize: boolean
+      readonly allMangaDetailsData: boolean
+      readonly mangaList: boolean
+      readonly mangaBanners: boolean
+      readonly mangaCoverImageExtraLargeSize: boolean
+      readonly mangaCoverImageLargeSize: boolean
     }
   }
 }
@@ -44,13 +52,13 @@ export type AutoUpdateOfflineData = {
 export type animePageTypes = {
   header: animeHeaderTypes
   lists: {
-    listsOrder: Array<string>
+    readonly listsOrder: Array<string>
   }
 }
 export type mangaPageTypes = {
   header: mangaHeaderTypes
   lists: {
-    listsOrder: Array<string>
+    readonly listsOrder: Array<string>
   }
 }
 
