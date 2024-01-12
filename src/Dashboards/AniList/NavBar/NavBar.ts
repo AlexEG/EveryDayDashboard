@@ -5,14 +5,18 @@ import NavLink from "./NavLink";
 import removeRenderPage from "./removeRenderPage";
 import toggleHighlight from "./toggleHighlight";
 
-export default function NavBar(pageOpened: "Overview" | "Anime" | "Manga" | "Favorites" | "Stats", filterIsOpenByDefault: boolean) {
-  const styles = " w-full max-w-6xl mx-auto my-6 h-12 relative pl-24 pr-32"
-  const navbar = HTML("div", styles)
+export default function NavBar(
+  pageOpened: "Overview" | "Anime" | "Manga" | "Favorites" | "Stats",
+  filterIsOpenByDefault: boolean,
+  NavBarLinks: Array<string>
+) {
+  const styles = "w-full max-w-6xl mx-auto my-6 h-12 relative pl-24 pr-32";
+  const navbar = HTML("div", styles);
 
-  const styles2 =
-    "h-full w-full max-w-lg mx-auto border-2 border-rose-800 rounded-xl flex items-center justify-around overflow-hidden";
+  const styles2 = `h-full w-full max-w-lg mx-auto border-2 rounded-xl flex items-center justify-around overflow-hidden ${
+    NavBarLinks[0] || "border-white"
+  }`;
   const navBarLinksWrapper = HTML("nav", styles2);
-
 
   navBarLinksWrapper.append(
     NavLink("Overview", pageOpened === "Overview"),
@@ -28,8 +32,12 @@ export default function NavBar(pageOpened: "Overview" | "Anime" | "Manga" | "Fav
       e.target.tagName === "BUTTON" &&
       !e.target.classList.contains("text-rose-600") &&
       (toggleHighlight(e.target as HTMLButtonElement, navBarLinksWrapper),
-        removeRenderPage(e.target as HTMLButtonElement))
+      removeRenderPage(e.target as HTMLButtonElement))
   );
-  navbar.append(FilterToggleBtn(filterIsOpenByDefault), navBarLinksWrapper, GridListToggleLayoutBtns())
+  navbar.append(
+    FilterToggleBtn(filterIsOpenByDefault),
+    navBarLinksWrapper,
+    GridListToggleLayoutBtns()
+  );
   return navbar;
 }

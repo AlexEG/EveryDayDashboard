@@ -5,7 +5,7 @@
     "defaultHomePage": "Anime",
     "filterIsOpenByDefault": false,
     "theme": {
-      "builtInTheme": "blue",
+      "selectedBuiltInTheme": "teal",
       "customTheme": {
         "backgroundColor": "#000000",
         "scrollbarThumbColor": "#ff0000"

@@ -6,7 +6,7 @@ export type anilistSettingsDataTypes = {
     readonly defaultHomePage: string,
     readonly filterIsOpenByDefault: boolean,
     theme: {
-      builtInTheme: "slate" | "neutral" | "red" | "orange" | "lime" | "green" | "emerald" | "teal" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "pink" | "rose"
+      selectedBuiltInTheme: "slate" | "neutral" | "red" | "orange" | "lime" | "green" | "emerald" | "teal" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "pink" | "rose"
       customTheme: {
         backgroundColor: string
         scrollbarThumbColor: string
