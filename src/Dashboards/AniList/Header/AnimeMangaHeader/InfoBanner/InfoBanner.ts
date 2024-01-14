@@ -11,15 +11,19 @@ export default function InfoBanner(
   animeMangaHeaderInfoBannerSettings:
     | animeHeaderInfoBannerTypes
     | mangaHeaderInfoBannerTypes,
-  infoBannerTheme: [string, string, string]
+  infoBannerTheme: {
+    titleColor: string;
+    titleDropShadow: string;
+    coverImgDropShadow: string;
+  }
 ) {
   const styles = "h-28 relative pt-8 pl-44";
   const infoBannerID = `anilist--header-${type.toLowerCase()}--info-banner`;
   const infoBanner = HTML("div", styles, infoBannerID);
 
   const styles2 = ` absolute top-4 left-44 font-semibold ${
-    infoBannerTheme[0] || "text-white"
-  } ${infoBannerTheme[1] || "drop-shadow-[0_0_5px_#ffffff]"}`;
+    infoBannerTheme.titleColor || "text-white"
+  } ${infoBannerTheme.titleDropShadow || "drop-shadow-[0_0_5px_#ffffff]"}`;
   const title = HTML("h1", styles2, `${infoBannerID}--title`, "???");
 
   const styles3 = "pr-4 pt-5 h-full w-fit ml-auto";
@@ -79,6 +83,10 @@ export default function InfoBanner(
   }
 
   badgesContainer.append(badgesWrapper, genresWrapper);
-  infoBanner.append(CoverImg(type, infoBannerTheme[2]), title, badgesContainer);
+  infoBanner.append(
+    CoverImg(type, infoBannerTheme.coverImgDropShadow),
+    title,
+    badgesContainer
+  );
   return infoBanner;
 }

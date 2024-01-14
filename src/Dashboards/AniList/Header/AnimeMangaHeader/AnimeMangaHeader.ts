@@ -7,7 +7,11 @@ export default function AnimeMangaHeader(
   type: "ANIME" | "MANGA",
   animeMangaHeaderSettings: animeHeaderTypes | mangaHeaderTypes,
   bannerImageDropShadow: string,
-  infoBannerTheme: [string, string, string]
+  infoBannerTheme: {
+    titleColor: string;
+    titleDropShadow: string;
+    coverImgDropShadow: string;
+  }
 ) {
   const styles = "";
   const headerID = `anilist--header-${type.toLowerCase()}`;

@@ -8,22 +8,28 @@ import toggleHighlight from "./toggleHighlight";
 export default function NavBar(
   pageOpened: "Overview" | "Anime" | "Manga" | "Favorites" | "Stats",
   filterIsOpenByDefault: boolean,
-  NavBarLinks: Array<string>
+  navBarLinksTheme: {
+    containerBorderColor: string;
+    navLinks: {
+      isOpenStyles: string;
+      normal: string;
+    };
+  }
 ) {
   const styles = "w-full max-w-6xl mx-auto my-6 h-12 relative pl-24 pr-32";
   const navbar = HTML("div", styles);
 
   const styles2 = `h-full w-full max-w-lg mx-auto border-2 rounded-xl flex items-center justify-around overflow-hidden ${
-    NavBarLinks[0] || "border-white"
+    navBarLinksTheme.containerBorderColor || "border-white"
   }`;
   const navBarLinksWrapper = HTML("nav", styles2);
 
   navBarLinksWrapper.append(
-    NavLink("Overview", pageOpened === "Overview"),
-    NavLink("Anime", pageOpened === "Anime"),
-    NavLink("Manga", pageOpened === "Manga"),
-    NavLink("Favorites", pageOpened === "Favorites"),
-    NavLink("Stats", pageOpened === "Stats")
+    NavLink("Overview", pageOpened === "Overview", navBarLinksTheme.navLinks),
+    NavLink("Anime", pageOpened === "Anime", navBarLinksTheme.navLinks),
+    NavLink("Manga", pageOpened === "Manga", navBarLinksTheme.navLinks),
+    NavLink("Favorites", pageOpened === "Favorites", navBarLinksTheme.navLinks),
+    NavLink("Stats", pageOpened === "Stats", navBarLinksTheme.navLinks)
   );
 
   navBarLinksWrapper.addEventListener(

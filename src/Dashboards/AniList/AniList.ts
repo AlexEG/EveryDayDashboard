@@ -31,19 +31,29 @@ export default function AniList() {
     const selectedBuiltInTheme = theme.selectedBuiltInTheme;
 
     const builtInThemes = builtInThemesStyles();
-    const themeStyles = builtInThemes[selectedBuiltInTheme] as [
-      string,
-      [string, string, string],
-      [string]
-    ];
 
-    /**
-     * ?  infoBanner  = [title, DropShadow, CoverImgDropShadow]
-     * ?  NavBarLinks = [containerBorder]
-     *
-     */
+    type ThemeStyles = {
+      bannerImageDropShadow: string;
+      infoBanner: {
+        titleColor: string;
+        titleDropShadow: string;
+        coverImgDropShadow: string;
+      };
+      navBarLinks: {
+        containerBorderColor: string;
+        navLinks: {
+          isOpenStyles: string;
+          normal: string;
+        };
+      };
+    };
+    const themeStyles: ThemeStyles = builtInThemes[selectedBuiltInTheme];
 
-    const [bannerImageDropShadow, infoBannerTheme, NavBarLinks] = themeStyles;
+    const {
+      bannerImageDropShadow,
+      infoBanner: infoBannerTheme,
+      navBarLinks: navBarLinksTheme,
+    } = themeStyles;
 
     // console.log("builtInThemes: ", builtInThemes);
     // console.log("themeStyles: ", themeStyles);
@@ -114,7 +124,7 @@ export default function AniList() {
     }
 
     MainContainer.insertBefore(
-      NavBar(defaultHomePage, filterIsOpenByDefault, NavBarLinks),
+      NavBar(defaultHomePage, filterIsOpenByDefault, navBarLinksTheme),
       MainContainer.lastChild
     );
 
