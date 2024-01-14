@@ -47,9 +47,9 @@
           "infoBanner": {
             "popularity": true,
             "averageScore": true,
-            "status": true,
+            "status": false,
             "episodes": true,
-            "season": true,
+            "season": false,
             "source": true,
             "startDate": true,
             "endDate": true,

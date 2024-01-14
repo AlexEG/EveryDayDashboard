@@ -14,6 +14,10 @@ export default function NavBar(
       isOpenStyles: string;
       normal: string;
     };
+  },
+  gridListToggleLayoutTheme: {
+    containerBorderColor: string;
+    isSelectedStyles: string;
   }
 ) {
   const styles = "w-full max-w-6xl mx-auto my-6 h-12 relative pl-24 pr-32";
@@ -43,7 +47,7 @@ export default function NavBar(
   navbar.append(
     FilterToggleBtn(filterIsOpenByDefault),
     navBarLinksWrapper,
-    GridListToggleLayoutBtns()
+    GridListToggleLayoutBtns(gridListToggleLayoutTheme)
   );
   return navbar;
 }

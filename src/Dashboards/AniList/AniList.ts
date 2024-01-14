@@ -33,6 +33,7 @@ export default function AniList() {
     const builtInThemes = builtInThemesStyles();
 
     type ThemeStyles = {
+      scrollBarThumbColor: string;
       bannerImageDropShadow: string;
       infoBanner: {
         titleColor: string;
@@ -46,20 +47,26 @@ export default function AniList() {
           normal: string;
         };
       };
+      gridListToggleLayout: {
+        containerBorderColor: string;
+        isSelectedStyles: string;
+      };
     };
     const themeStyles: ThemeStyles = builtInThemes[selectedBuiltInTheme];
 
     const {
+      scrollBarThumbColor,
       bannerImageDropShadow,
       infoBanner: infoBannerTheme,
       navBarLinks: navBarLinksTheme,
+      gridListToggleLayout: gridListToggleLayoutTheme,
     } = themeStyles;
 
     // console.log("builtInThemes: ", builtInThemes);
     // console.log("themeStyles: ", themeStyles);
 
     // Scrollbar Thumb Color
-    MainContainer.append(ScrollbarStyles("lime"));
+    MainContainer.append(ScrollbarStyles(scrollBarThumbColor));
     //***  Theme [END] ***//
 
     // console.log("AniList Settings Data", data)
@@ -124,7 +131,12 @@ export default function AniList() {
     }
 
     MainContainer.insertBefore(
-      NavBar(defaultHomePage, filterIsOpenByDefault, navBarLinksTheme),
+      NavBar(
+        defaultHomePage,
+        filterIsOpenByDefault,
+        navBarLinksTheme,
+        gridListToggleLayoutTheme
+      ),
       MainContainer.lastChild
     );
 

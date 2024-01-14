@@ -3,10 +3,11 @@ import toggleHighlight from "./toggleHighlight";
 
 export default function ToggleViewBtn(
   iconFileName: string,
-  isSelected: boolean
+  isSelected: boolean,
+  isSelectedStyles: string
 ) {
   const styles = isSelected
-    ? "drop-shadow-[0_0_10px_rgb(225,29,72,1)] opacity-80"
+    ? `opacity-80 ${isSelectedStyles || "drop-shadow-[0_0_10px_#ffffff]"}`
     : "opacity-50";
   const toggleViewBtn = HTML("button", styles) as HTMLButtonElement;
 
