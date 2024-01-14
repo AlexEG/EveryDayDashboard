@@ -18,6 +18,10 @@ export default function NavBar(
   gridListToggleLayoutTheme: {
     containerBorderColor: string;
     isSelectedStyles: string;
+  },
+  filterToggleBtnTheme: {
+    containerBorderColor: string;
+    isOpenStyles: string;
   }
 ) {
   const styles = "w-full max-w-6xl mx-auto my-6 h-12 relative pl-24 pr-32";
@@ -45,7 +49,7 @@ export default function NavBar(
       removeRenderPage(e.target as HTMLButtonElement))
   );
   navbar.append(
-    FilterToggleBtn(filterIsOpenByDefault),
+    FilterToggleBtn(filterIsOpenByDefault, filterToggleBtnTheme),
     navBarLinksWrapper,
     GridListToggleLayoutBtns(gridListToggleLayoutTheme)
   );

@@ -3,9 +3,9 @@
     "userId": 6482446,
     "userName": "AlexEG",
     "defaultHomePage": "Anime",
-    "filterIsOpenByDefault": false,
+    "filterIsOpenByDefault": true,
     "theme": {
-      "selectedBuiltInTheme": "teal",
+      "selectedBuiltInTheme": "cyan",
       "customTheme": {
         "backgroundColor": "#000000",
         "scrollbarThumbColor": "#ff0000"

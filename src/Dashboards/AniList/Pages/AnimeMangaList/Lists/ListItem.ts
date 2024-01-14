@@ -6,10 +6,12 @@ export default function ListItem(
   Title: string,
   Score: string,
   ProgressChapter: string,
-  TypeVolumes: string
+  TypeVolumes: string,
+  itemStylesTheme: string
 ) {
-  const styles =
-    "w-full h-14 hover:bg-rose-600/25 rounded-lg grid grid-cols-[3.5rem_3fr_1fr_1fr_1fr] gap-x-2 font-medium leading-[3.4rem] text-rose-100/80 text-center";
+  const styles = `w-full h-14 rounded-lg grid grid-cols-[3.5rem_1fr_6rem_6rem_6rem] gap-x-2 font-medium leading-[3.4rem]  text-center ${
+    itemStylesTheme || "text-white hover:bg-white/50"
+  }`;
   const listItme = HTML("div", styles);
 
   const coverImg = HTML("div", "h-14");

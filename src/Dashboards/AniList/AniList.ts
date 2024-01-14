@@ -19,13 +19,32 @@ import ScrollbarStyles from "./utils/ScrollbarStyles";
 export default function AniList() {
   const styles =
     "border h-[calc(100vh-31px)] w-[100%-3.5rem] ml-14 bg-black border-t border-l border-neutral-400 py-4 pl-4 pr-3 overflow-y-auto";
-
   const MainContainer = HTML("main", styles, "anilist");
 
   // console.log(getComputedStyle(MainContainer))
 
   anilistSettingsData().then(({ data }: anilistSettingsDataTypes) => {
     //***  Theme ***//
+
+    const styles3 = "";
+    /**               400              700
+     * slate     rgb(148,163,184)   rgb(51,65,85)
+     * neutral   rgb(163,163,163)   rgb(64,64,64)
+     * red       rgb(248,113,113)   rgb(185,28,28)
+     * orange    rgb(251,146,60)    rgb(194,65,12)
+     * lime      rgb(163,230,53)    rgb(77,124,15)
+     * green     rgb(74,222,128)    rgb(21,128,61)
+     * emerald   rgb(52,211,153)    rgb(4,120,87)
+     * teal      rgb(45,212,191)    rgb(15,118,110)
+     * cyan      rgb(34,211,238)    rgb(14,116,144)
+     * sky       rgb(56,189,248)    rgb(3,105,161)
+     * blue      rgb(96,165,250)    rgb(29,78,216)
+     * indigo    rgb(129,140,248)   rgb(67,56,202)
+     * violet    rgb(167,139,250)   rgb(109,40,217)
+     * purple    rgb(192,132,252)   rgb(126,34,206)
+     * pink      rgb(244,114,182)   rgb(190,24,93)
+     * rose      rgb(251,113,133)   rgb(190,18,60)
+     */
 
     const theme = data.theme;
     const selectedBuiltInTheme = theme.selectedBuiltInTheme;
@@ -51,6 +70,24 @@ export default function AniList() {
         containerBorderColor: string;
         isSelectedStyles: string;
       };
+      filter: {
+        toggleBtn: {
+          containerBorderColor: string;
+          isOpenStyles: string;
+        };
+        pageFilter: {
+          containerBorderColor: string;
+        };
+      };
+      lists: {
+        containerBorderColor: string;
+        listTitle: {
+          textColor: string;
+          numberOfItemsCircle: string;
+        };
+        listHeadRowTextColor: string;
+        itemStyles: string;
+      };
     };
     const themeStyles: ThemeStyles = builtInThemes[selectedBuiltInTheme];
 
@@ -60,6 +97,8 @@ export default function AniList() {
       infoBanner: infoBannerTheme,
       navBarLinks: navBarLinksTheme,
       gridListToggleLayout: gridListToggleLayoutTheme,
+      filter: filterTheme,
+      lists: listsTheme,
     } = themeStyles;
 
     // console.log("builtInThemes: ", builtInThemes);
@@ -108,7 +147,13 @@ export default function AniList() {
             bannerImageDropShadow,
             infoBannerTheme
           ),
-          AnimeMangaPage("ANIME", animeLists, filterIsOpenByDefault)
+          AnimeMangaPage(
+            "ANIME",
+            animeLists,
+            filterIsOpenByDefault,
+            filterTheme.pageFilter,
+            listsTheme
+          )
         );
       } else if (defaultHomePage === "Manga") {
         MainContainer.append(
@@ -118,7 +163,13 @@ export default function AniList() {
             bannerImageDropShadow,
             infoBannerTheme
           ),
-          AnimeMangaPage("MANGA", mangaLists, filterIsOpenByDefault)
+          AnimeMangaPage(
+            "MANGA",
+            mangaLists,
+            filterIsOpenByDefault,
+            filterTheme.pageFilter,
+            listsTheme
+          )
         );
       } else if (defaultHomePage === "Favorites")
         MainContainer.append(HomeBanner(), Favorites());
@@ -135,7 +186,8 @@ export default function AniList() {
         defaultHomePage,
         filterIsOpenByDefault,
         navBarLinksTheme,
-        gridListToggleLayoutTheme
+        gridListToggleLayoutTheme,
+        filterTheme.toggleBtn
       ),
       MainContainer.lastChild
     );

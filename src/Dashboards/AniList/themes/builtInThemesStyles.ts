@@ -20,6 +20,24 @@ export default function builtInThemesStyles() {
         containerBorderColor: "border-slate-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(71,85,105,1)]",
       },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-slate-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(71,85,105,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-slate-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-slate-800",
+        listTitle: {
+          textColor: "text-slate-50",
+          numberOfItemsCircle: "border-slate-600",
+        },
+        listHeadRowTextColor: "text-slate-200",
+        itemStyles: "text-slate-100 hover:bg-slate-500/50",
+      },
     },
     neutral: {
       scrollBarThumbColor: "rgb(163,163,163)",
@@ -40,6 +58,24 @@ export default function builtInThemesStyles() {
       gridListToggleLayout: {
         containerBorderColor: "border-neutral-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(82,82,82,1)]",
+      },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-neutral-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(82,82,82,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-neutral-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-neutral-800",
+        listTitle: {
+          textColor: "text-neutral-50",
+          numberOfItemsCircle: "border-neutral-600",
+        },
+        listHeadRowTextColor: "text-neutral-200",
+        itemStyles: "text-neutral-100 hover:bg-neutral-500/50",
       },
     },
     red: {
@@ -62,6 +98,24 @@ export default function builtInThemesStyles() {
         containerBorderColor: "border-red-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(220,38,38,1)]",
       },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-red-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(220,38,38,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-red-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-red-800",
+        listTitle: {
+          textColor: "text-red-50",
+          numberOfItemsCircle: "border-red-600",
+        },
+        listHeadRowTextColor: "text-red-200",
+        itemStyles: "text-red-100 hover:bg-red-500/50",
+      },
     },
     orange: {
       scrollBarThumbColor: "rgb(251,146,60)",
@@ -82,6 +136,24 @@ export default function builtInThemesStyles() {
       gridListToggleLayout: {
         containerBorderColor: "border-orange-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(234,88,12,1)]",
+      },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-orange-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(234,88,12,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-orange-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-orange-800",
+        listTitle: {
+          textColor: "text-orange-50",
+          numberOfItemsCircle: "border-orange-600",
+        },
+        listHeadRowTextColor: "text-orange-200",
+        itemStyles: "text-orange-100 hover:bg-orange-500/50",
       },
     },
     lime: {
@@ -104,6 +176,24 @@ export default function builtInThemesStyles() {
         containerBorderColor: "border-lime-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(101,163,13,1)]",
       },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-lime-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(101,163,13,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-lime-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-lime-800",
+        listTitle: {
+          textColor: "text-lime-50",
+          numberOfItemsCircle: "border-lime-600",
+        },
+        listHeadRowTextColor: "text-lime-200",
+        itemStyles: "text-lime-100 hover:bg-lime-500/50",
+      },
     },
     green: {
       scrollBarThumbColor: "rgb(74,222,128)",
@@ -124,6 +214,24 @@ export default function builtInThemesStyles() {
       gridListToggleLayout: {
         containerBorderColor: "border-green-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(22,163,74,1)]",
+      },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-green-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(22,163,74,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-green-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-green-800",
+        listTitle: {
+          textColor: "text-green-50",
+          numberOfItemsCircle: "border-green-600",
+        },
+        listHeadRowTextColor: "text-green-200",
+        itemStyles: "text-green-100 hover:bg-green-500/50",
       },
     },
     emerald: {
@@ -147,6 +255,24 @@ export default function builtInThemesStyles() {
         containerBorderColor: "border-emerald-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(5,150,0,1)]",
       },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-emerald-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(5,150,0,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-emerald-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-emerald-800",
+        listTitle: {
+          textColor: "text-emerald-50",
+          numberOfItemsCircle: "border-emerald-600",
+        },
+        listHeadRowTextColor: "text-emerald-200",
+        itemStyles: "text-emerald-100 hover:bg-emerald-500/50",
+      },
     },
     teal: {
       scrollBarThumbColor: "rgb(45,212,191)",
@@ -167,6 +293,24 @@ export default function builtInThemesStyles() {
       gridListToggleLayout: {
         containerBorderColor: "border-teal-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(13,148,136,1)]",
+      },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-teal-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(13,148,136,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-teal-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-teal-800",
+        listTitle: {
+          textColor: "text-teal-50",
+          numberOfItemsCircle: "border-teal-600",
+        },
+        listHeadRowTextColor: "text-teal-200",
+        itemStyles: "text-teal-100 hover:bg-teal-500/50",
       },
     },
     cyan: {
@@ -189,6 +333,24 @@ export default function builtInThemesStyles() {
         containerBorderColor: "border-cyan-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(8,145,178,1)]",
       },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-cyan-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(8,145,178,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-cyan-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-cyan-800",
+        listTitle: {
+          textColor: "text-cyan-50",
+          numberOfItemsCircle: "border-cyan-600",
+        },
+        listHeadRowTextColor: "text-cyan-200",
+        itemStyles: "text-cyan-100 hover:bg-cyan-500/50",
+      },
     },
     sky: {
       scrollBarThumbColor: "rgb(56,189,248)",
@@ -209,6 +371,24 @@ export default function builtInThemesStyles() {
       gridListToggleLayout: {
         containerBorderColor: "border-sky-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(2,132,199,1)]",
+      },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-sky-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(2,132,199,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-sky-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-sky-800",
+        listTitle: {
+          textColor: "text-sky-50",
+          numberOfItemsCircle: "border-sky-600",
+        },
+        listHeadRowTextColor: "text-sky-200",
+        itemStyles: "text-sky-100 hover:bg-sky-500/50",
       },
     },
     blue: {
@@ -231,6 +411,24 @@ export default function builtInThemesStyles() {
         containerBorderColor: "border-blue-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(37,99,235,1)]",
       },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-blue-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(37,99,235,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-blue-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-blue-800",
+        listTitle: {
+          textColor: "text-blue-50",
+          numberOfItemsCircle: "border-blue-600",
+        },
+        listHeadRowTextColor: "text-blue-200",
+        itemStyles: "text-blue-100 hover:bg-blue-500/50",
+      },
     },
     indigo: {
       scrollBarThumbColor: "rgb(129,140,248)",
@@ -251,6 +449,24 @@ export default function builtInThemesStyles() {
       gridListToggleLayout: {
         containerBorderColor: "border-indigo-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(79,70,229,1)]",
+      },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-indigo-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(79,70,229,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-indigo-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-indigo-800",
+        listTitle: {
+          textColor: "text-indigo-50",
+          numberOfItemsCircle: "border-indigo-600",
+        },
+        listHeadRowTextColor: "text-indigo-200",
+        itemStyles: "text-indigo-100 hover:bg-indigo-500/50",
       },
     },
     violet: {
@@ -273,6 +489,24 @@ export default function builtInThemesStyles() {
         containerBorderColor: "border-violet-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(124,58,237,1)]",
       },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-violet-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(124,58,237,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-violet-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-violet-800",
+        listTitle: {
+          textColor: "text-violet-50",
+          numberOfItemsCircle: "border-violet-600",
+        },
+        listHeadRowTextColor: "text-violet-200",
+        itemStyles: "text-violet-100 hover:bg-violet-500/50",
+      },
     },
     purple: {
       scrollBarThumbColor: "rgb(192,132,252)",
@@ -293,6 +527,24 @@ export default function builtInThemesStyles() {
       gridListToggleLayout: {
         containerBorderColor: "border-purple-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(147,51,234,1)]",
+      },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-purple-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(147,51,234,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-purple-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-purple-800",
+        listTitle: {
+          textColor: "text-purple-50",
+          numberOfItemsCircle: "border-purple-600",
+        },
+        listHeadRowTextColor: "text-purple-200",
+        itemStyles: "text-purple-100 hover:bg-purple-500/50",
       },
     },
     pink: {
@@ -315,6 +567,24 @@ export default function builtInThemesStyles() {
         containerBorderColor: "border-pink-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(219,39,119,1)]",
       },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-pink-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(219,39,119,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-pink-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-pink-800",
+        listTitle: {
+          textColor: "text-pink-50",
+          numberOfItemsCircle: "border-pink-600",
+        },
+        listHeadRowTextColor: "text-pink-200",
+        itemStyles: "text-pink-100 hover:bg-pink-500/50",
+      },
     },
     rose: {
       scrollBarThumbColor: "rgb(251,113,133)",
@@ -335,6 +605,24 @@ export default function builtInThemesStyles() {
       gridListToggleLayout: {
         containerBorderColor: "border-rose-800",
         isSelectedStyles: "drop-shadow-[0_0_10px_rgb(225,29,72,1)]",
+      },
+      filter: {
+        toggleBtn: {
+          containerBorderColor: "border-rose-800",
+          isOpenStyles: "drop-shadow-[0_0_15px_rgb(225,29,72,1)]",
+        },
+        pageFilter: {
+          containerBorderColor: "border-rose-800",
+        },
+      },
+      lists: {
+        containerBorderColor: "border-rose-800",
+        listTitle: {
+          textColor: "text-rose-50",
+          numberOfItemsCircle: "border-rose-600",
+        },
+        listHeadRowTextColor: "text-rose-200",
+        itemStyles: "text-rose-100 hover:bg-rose-500/50",
       },
     },
   };

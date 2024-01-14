@@ -1,8 +1,12 @@
 import HTML from "../../../../../components/HTML/HTML";
 
-export default function ListHeadRow(listType: "ANIME" | "MANGA") {
-  const styles4 =
-    "w-full h-10 grid grid-cols-[3.5rem_3fr_1fr_1fr_1fr] gap-x-2 leading-9 text-rose-100 text-center font-medium ";
+export default function ListHeadRow(
+  listType: "ANIME" | "MANGA",
+  listHeadRowTextColor: string
+) {
+  const styles4 = `w-full h-10 grid grid-cols-[3.5rem_1fr_6rem_6rem_6rem] gap-x-2 leading-9 text-center font-medium ${
+    listHeadRowTextColor || "text-white"
+  }`;
   const listHeadRow = HTML("div", styles4);
 
   const title = HTML("p", "text-left col-start-2", "", "Title");
