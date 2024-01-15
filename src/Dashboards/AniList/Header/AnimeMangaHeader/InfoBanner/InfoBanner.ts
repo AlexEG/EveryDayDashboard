@@ -38,6 +38,8 @@ export default function InfoBanner(
     const {
       popularity,
       averageScore,
+      meanScore,
+      favourites,
       status,
       episodes,
       season,
@@ -49,6 +51,8 @@ export default function InfoBanner(
 
     if (popularity) badgesWrapper.append(InfoBadge("anime", "Popularity"));
     if (averageScore) badgesWrapper.append(InfoBadge("anime", "Average Score"));
+    if (meanScore) badgesWrapper.append(InfoBadge("anime", "Mean Score"));
+    if (favourites) badgesWrapper.append(InfoBadge("anime", "Favourites"));
     if (status) badgesWrapper.append(InfoBadge("anime", "Status"));
     if (episodes) badgesWrapper.append(InfoBadge("anime", "Episodes"));
     if (season) badgesWrapper.append(InfoBadge("anime", "Season"));
@@ -62,6 +66,8 @@ export default function InfoBanner(
     const {
       popularity,
       averageScore,
+      meanScore,
+      favourites,
       status,
       volumes,
       chapters,
@@ -73,6 +79,8 @@ export default function InfoBanner(
 
     if (popularity) badgesWrapper.append(InfoBadge("manga", "Popularity"));
     if (averageScore) badgesWrapper.append(InfoBadge("manga", "Average Score"));
+    if (meanScore) badgesWrapper.append(InfoBadge("anime", "Mean Score"));
+    if (favourites) badgesWrapper.append(InfoBadge("anime", "Favourites"));
     if (status) badgesWrapper.append(InfoBadge("manga", "Status"));
     if (volumes) badgesWrapper.append(InfoBadge("manga", "Volumes"));
     if (chapters) badgesWrapper.append(InfoBadge("manga", "Chapters"));

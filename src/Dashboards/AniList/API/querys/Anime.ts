@@ -39,8 +39,9 @@ fragment mediaListEntry on MediaList {
     status(version: 2)
     episodes
     duration
-    description
     averageScore
+    meanScore
+    favourites
     popularity
     genres
     source
@@ -62,4 +63,4 @@ fragment mediaListEntry on MediaList {
     }
   }
 }
-`
+`;

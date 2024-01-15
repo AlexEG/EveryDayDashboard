@@ -74,12 +74,15 @@ export default function updateAnimeMangaList(
             // banner image
             const bannerURL = animeMangaData.media.bannerImage;
             const bannerImgFileName =
-              bannerURL && String(bannerURL.match(/(?<=banner\/).*/g));
+              bannerURL && bannerURL.match(/(?<=banner\/).*/);
 
             // cover image  note the large & extraLarge size have the same file name
-            const coverURL = animeMangaData.media.coverImage.large;
-            const coverImgFileName =
-              coverURL && String(coverURL.match(/(?<=medium\/).*/g));
+            const coverURL1 = animeMangaData.media.coverImage.large;
+            const coverURL2 = animeMangaData.media.coverImage.extraLarge;
+            const coverImgFileNameLarge =
+              coverURL1 && coverURL1.match(/(?<=medium\/).*/);
+            const coverImgFileNameExtraLarge =
+              coverURL2 && coverURL2.match(/(?<=large\/).*/);
 
             // title
             const titleUserPreferred = animeMangaData.media.title.userPreferred;
@@ -92,6 +95,8 @@ export default function updateAnimeMangaList(
             const rankings = animeMangaData.media.rankings;
             const popularity = animeMangaData.media.popularity;
             const averageScore = animeMangaData.media.averageScore;
+            const meanScore = animeMangaData.media.meanScore;
+            const favourites = animeMangaData.media.favourites;
             const status = animeMangaData.media.status;
             const genres = animeMangaData.media.genres;
             const startDate = animeMangaData.media.startDate;
@@ -138,14 +143,22 @@ export default function updateAnimeMangaList(
               progress: progress,
               repeat: repeat,
               score: score,
-              bannerImgFileName: bannerImgFileName,
-              coverImgFileName: coverImgFileName,
+              bannerImgFileName: bannerImgFileName && bannerImgFileName[0],
+              coverImgFileNameLarge:
+                coverImgFileNameLarge && coverImgFileNameLarge[0],
+              coverImgFileNameExtraLarge:
+                coverImgFileNameExtraLarge && coverImgFileNameExtraLarge[0],
               title: title,
               popularity: popularity.toLocaleString(),
               averageScore: averageScore,
+              meanScore: meanScore,
+              favourites: favourites.toLocaleString(),
               status: `${status[0]}${status.slice(1).toLowerCase()}`,
               genres: genres,
-              source: source,
+              source: source
+                .split("_")
+                .map((word) => word[0] + word.slice(1).toLowerCase())
+                .join(" "),
               format: format,
               rankings: rankings,
               completedAt: `${completedAtStr[0]} ${+completedAtStr[1] / 1}, ${
@@ -166,6 +179,11 @@ export default function updateAnimeMangaList(
               newData.episodes = episodes;
               newData.season =
                 season && `${season[0]}${season.slice(1).toLowerCase()}`;
+              newData.seasonYear =
+                season &&
+                `${season[0]}${season.slice(1).toLowerCase()} ${
+                  startDate.year
+                }`;
             }
 
             if (type === "MANGA") {

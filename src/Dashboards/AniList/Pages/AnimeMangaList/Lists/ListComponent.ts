@@ -30,7 +30,7 @@ export default function ListComponent(
 
   if (listType === "ANIME") {
     for (const listItem of listData) {
-      const imgFileName = listItem.coverImgFileName;
+      const imgFileName = listItem.coverImgFileNameLarge;
       const title = listItem.title;
       const progress = `${listItem.progress}/${listItem.episodes}`;
       const score = listItem.score;
@@ -50,7 +50,7 @@ export default function ListComponent(
     }
   } else {
     for (const listItem of listData) {
-      const imgFileName = listItem.coverImgFileName;
+      const imgFileName = listItem.coverImgFileNameLarge;
       const title = listItem.title;
       const chapters = `${listItem.progress}/${listItem.chapters || "??"}`;
       const score = listItem.score;

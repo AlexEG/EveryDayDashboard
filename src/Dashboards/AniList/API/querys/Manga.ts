@@ -38,10 +38,10 @@ fragment mediaListEntry on MediaList {
     format
     status(version: 2)
     volumes
-    duration
-    description
     averageScore
     popularity
+    meanScore
+    favourites
     genres
     source
     chapters
@@ -62,4 +62,4 @@ fragment mediaListEntry on MediaList {
     }
   }
 }
-`
+`;

@@ -5,7 +5,7 @@
     "defaultHomePage": "Anime",
     "filterIsOpenByDefault": true,
     "theme": {
-      "selectedBuiltInTheme": "neutral",
+      "selectedBuiltInTheme": "teal",
       "customTheme": {
         "backgroundColor": "#000000",
         "scrollbarThumbColor": "#ff0000"
@@ -22,10 +22,10 @@
         },
         "manga": {
           "allMangaDetailsData": false,
-          "mangaList": true,
-          "mangaBanners": true,
-          "mangaCoverImageExtraLargeSize": true,
-          "mangaCoverImageLargeSize": true
+          "mangaList": false,
+          "mangaBanners": false,
+          "mangaCoverImageExtraLargeSize": false,
+          "mangaCoverImageLargeSize": false
         }
       }
     },
@@ -42,14 +42,16 @@
           "isInfoHeaderEnabled": true,
           "autoSwitchBanner": true,
           "isAutoSwitchBannerRandomly": true,
-          "switchingSpeed": 5000,
+          "switchingSpeed": 7000,
           "seasonWithYear": true,
           "infoBanner": {
             "popularity": true,
             "averageScore": true,
-            "status": false,
+            "meanScore": true,
+            "favourites": true,
+            "status": true,
             "episodes": true,
-            "season": false,
+            "season": true,
             "source": true,
             "startDate": true,
             "endDate": true,
@@ -75,6 +77,8 @@
           "infoBanner": {
             "popularity": false,
             "averageScore": false,
+            "meanScore": true,
+            "favourites": true,
             "status": true,
             "volumes": true,
             "chapters": true,
