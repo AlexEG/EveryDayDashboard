@@ -133,7 +133,7 @@ export default function switchHeaderAnimeManga(
           const popularityBadge = document.querySelector(
             `span#anilist--header-${type}--info-banner--popularity-badge`
           ) as HTMLSpanElement;
-          popularityBadge.innerText = String(popularity);
+          popularityBadge.innerText = `${popularity}`;
         }
 
         if (infoBanner.averageScore) {

@@ -32,9 +32,7 @@
     "notification": {
       "isEnabled": true,
       "isAnimationsEnabled": true,
-      "notificationTotalShowTime": 15000,
-      "animationEnterDurationTime": 600,
-      "animationOutDurationTime": 400
+      "notificationAnimationTime": 5000
     },
     "pages": {
       "anime": {
@@ -42,19 +40,19 @@
           "isInfoHeaderEnabled": true,
           "autoSwitchBanner": true,
           "isAutoSwitchBannerRandomly": true,
-          "switchingSpeed": 7000,
+          "switchingSpeed": 15000,
           "seasonWithYear": true,
           "infoBanner": {
             "popularity": true,
             "averageScore": true,
-            "meanScore": true,
+            "meanScore": false,
             "favourites": true,
             "status": true,
             "episodes": true,
             "season": true,
             "source": true,
-            "startDate": true,
-            "endDate": true,
+            "startDate": false,
+            "endDate": false,
             "genres": true
           }
         },

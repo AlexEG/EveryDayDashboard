@@ -40,9 +40,7 @@ export type anilistSettingsDataTypes = {
 export type notificationSettingsTypes = {
   readonly isEnabled: boolean;
   readonly isAnimationsEnabled: boolean;
-  readonly notificationTotalShowTime: number;
-  readonly animationEnterDurationTime: number;
-  readonly animationOutDurationTime: number;
+  readonly notificationAnimationTime: number;
 };
 
 export type AutoUpdateOfflineData = {
