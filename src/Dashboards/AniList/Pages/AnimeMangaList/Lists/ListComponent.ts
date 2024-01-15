@@ -56,7 +56,15 @@ export default function ListComponent(
       const score = listItem.score;
       const volumes = `${listItem.progressVolumes}/${listItem.volumes || "??"}`;
       listItemWrapper.append(
-        ListItem(listType, imgFileName, title, score, chapters, volumes)
+        ListItem(
+          listType,
+          imgFileName,
+          title,
+          score,
+          chapters,
+          volumes,
+          listsTheme.itemStyles
+        )
       );
     }
   }

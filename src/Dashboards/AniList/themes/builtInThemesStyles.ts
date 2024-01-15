@@ -1,6 +1,7 @@
 export default function builtInThemesStyles() {
   return {
     slate: {
+      backgroundColor: "after:bg-slate-950/[0.01]",
       scrollBarThumbColor: "rgb(148,163,184)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(71,85,105,0.5)]",
       infoBanner: {
@@ -40,6 +41,7 @@ export default function builtInThemesStyles() {
       },
     },
     neutral: {
+      backgroundColor: "after:bg-neutral-950/[0.01]",
       scrollBarThumbColor: "rgb(163,163,163)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(82,82,82,0.5)]",
       infoBanner: {
@@ -79,6 +81,7 @@ export default function builtInThemesStyles() {
       },
     },
     red: {
+      backgroundColor: "after:bg-red-950/[0.01]",
       scrollBarThumbColor: "rgb(248,113,113)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(220,38,38,0.5)]",
       infoBanner: {
@@ -118,6 +121,7 @@ export default function builtInThemesStyles() {
       },
     },
     orange: {
+      backgroundColor: "after:bg-orange-950/[0.01]",
       scrollBarThumbColor: "rgb(251,146,60)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(234,88,12,0.5)]",
       infoBanner: {
@@ -157,6 +161,7 @@ export default function builtInThemesStyles() {
       },
     },
     lime: {
+      backgroundColor: "after:bg-lime-950/[0.01]",
       scrollBarThumbColor: "rgb(163,230,53)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(101,163,13,0.5)]",
       infoBanner: {
@@ -196,6 +201,7 @@ export default function builtInThemesStyles() {
       },
     },
     green: {
+      backgroundColor: "after:bg-green-950/[0.01]",
       scrollBarThumbColor: "rgb(74,222,128)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(22,163,74,0.5)]",
       infoBanner: {
@@ -235,6 +241,7 @@ export default function builtInThemesStyles() {
       },
     },
     emerald: {
+      backgroundColor: "after:bg-emerald-950/[0.01]",
       scrollBarThumbColor: "rgb(52,211,153)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(5,150,105,0.5)]",
       infoBanner: {
@@ -275,6 +282,7 @@ export default function builtInThemesStyles() {
       },
     },
     teal: {
+      backgroundColor: "after:bg-teal-950/[0.01]",
       scrollBarThumbColor: "rgb(45,212,191)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(13,148,136,0.5)]",
       infoBanner: {
@@ -314,6 +322,7 @@ export default function builtInThemesStyles() {
       },
     },
     cyan: {
+      backgroundColor: "after:bg-cyan-950/[0.01]",
       scrollBarThumbColor: "rgb(34,211,238)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(8,145,178,0.5)]",
       infoBanner: {
@@ -353,6 +362,7 @@ export default function builtInThemesStyles() {
       },
     },
     sky: {
+      backgroundColor: "after:bg-sky-950/[0.01]",
       scrollBarThumbColor: "rgb(56,189,248)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(2,132,199,0.5)]",
       infoBanner: {
@@ -392,6 +402,7 @@ export default function builtInThemesStyles() {
       },
     },
     blue: {
+      backgroundColor: "after:bg-blue-950/[0.01]",
       scrollBarThumbColor: "rgb(96,165,250)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(37,99,235,0.5)]",
       infoBanner: {
@@ -431,6 +442,7 @@ export default function builtInThemesStyles() {
       },
     },
     indigo: {
+      backgroundColor: "after:bg-indigo-950/[0.01]",
       scrollBarThumbColor: "rgb(129,140,248)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(79,70,229,0.5)]",
       infoBanner: {
@@ -470,6 +482,7 @@ export default function builtInThemesStyles() {
       },
     },
     violet: {
+      backgroundColor: "after:bg-violet-950/[0.01]",
       scrollBarThumbColor: "rgb(167,139,250)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(124,58,237,0.5)]",
       infoBanner: {
@@ -509,6 +522,7 @@ export default function builtInThemesStyles() {
       },
     },
     purple: {
+      backgroundColor: "after:bg-purple-950/[0.01]",
       scrollBarThumbColor: "rgb(192,132,252)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(147,51,234,0.5)]",
       infoBanner: {
@@ -548,6 +562,7 @@ export default function builtInThemesStyles() {
       },
     },
     pink: {
+      backgroundColor: "after:bg-pink-950/[0.01]",
       scrollBarThumbColor: "rgb(244,114,182)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(219,39,119,0.5)]",
       infoBanner: {
@@ -587,6 +602,7 @@ export default function builtInThemesStyles() {
       },
     },
     rose: {
+      backgroundColor: "after:bg-rose-950/[0.01]",
       scrollBarThumbColor: "rgb(251,113,133)",
       bannerImageDropShadow: "drop-shadow-[0_0_10px_rgb(225,29,72,0.5)]",
       infoBanner: {

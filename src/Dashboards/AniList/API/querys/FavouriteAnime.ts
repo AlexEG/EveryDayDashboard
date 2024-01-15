@@ -10,5 +10,4 @@ export default `query ($id: Int, $name: String) {
       }
     }
   }
-}
-`
+}`;

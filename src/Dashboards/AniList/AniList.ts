@@ -18,7 +18,7 @@ import ScrollbarStyles from "./utils/ScrollbarStyles";
 
 export default function AniList() {
   const styles =
-    "border h-[calc(100vh-31px)] w-[100%-3.5rem] ml-14 bg-black border-t border-l border-neutral-400 py-4 pl-4 pr-3 overflow-y-auto";
+    "border h-[calc(100vh-31px)] w-[100%-3.5rem] ml-14 bg-black border-t border-l border-neutral-400 py-4 pl-4 pr-3 overflow-y-auto relative after:absolute after:inset-0 after:-z-50";
   const MainContainer = HTML("main", styles, "anilist");
 
   // console.log(getComputedStyle(MainContainer))
@@ -26,7 +26,7 @@ export default function AniList() {
   anilistSettingsData().then(({ data }: anilistSettingsDataTypes) => {
     //***  Theme ***//
 
-    const styles3 = "";
+    const styles3 = "bg-cyan-950";
     /**               400              700
      * slate     rgb(148,163,184)   rgb(51,65,85)
      * neutral   rgb(163,163,163)   rgb(64,64,64)
@@ -52,6 +52,7 @@ export default function AniList() {
     const builtInThemes = builtInThemesStyles();
 
     type ThemeStyles = {
+      backgroundColor: string;
       scrollBarThumbColor: string;
       bannerImageDropShadow: string;
       infoBanner: {
@@ -92,6 +93,7 @@ export default function AniList() {
     const themeStyles: ThemeStyles = builtInThemes[selectedBuiltInTheme];
 
     const {
+      backgroundColor: backgroundColorTheme,
       scrollBarThumbColor,
       bannerImageDropShadow,
       infoBanner: infoBannerTheme,
@@ -104,6 +106,8 @@ export default function AniList() {
     // console.log("builtInThemes: ", builtInThemes);
     // console.log("themeStyles: ", themeStyles);
 
+    // MainContainer accent background color
+    MainContainer.classList.add(backgroundColorTheme);
     // Scrollbar Thumb Color
     MainContainer.append(ScrollbarStyles(scrollBarThumbColor));
     //***  Theme [END] ***//
