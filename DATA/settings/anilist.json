@@ -6,6 +6,7 @@
     "filterIsOpenByDefault": true,
     "theme": {
       "selectedBuiltInTheme": "teal",
+      "randomBuiltInThemeOnStartup": true,
       "customTheme": {
         "backgroundColor": "#000000",
         "scrollbarThumbColor": "#ff0000"
@@ -15,10 +16,10 @@
       "checkThenUpdate": {
         "anime": {
           "allAnimeDetailsData": false,
-          "animeList": true,
-          "animeBanners": true,
-          "animeCoverImageExtraLargeSize": true,
-          "animeCoverImageLargeSize": true
+          "animeList": false,
+          "animeBanners": false,
+          "animeCoverImageExtraLargeSize": false,
+          "animeCoverImageLargeSize": false
         },
         "manga": {
           "allMangaDetailsData": false,
@@ -47,7 +48,7 @@
             "averageScore": true,
             "meanScore": false,
             "favourites": true,
-            "status": true,
+            "status": false,
             "episodes": true,
             "season": true,
             "source": true,

@@ -23,6 +23,7 @@ export type anilistSettingsDataTypes = {
         | "purple"
         | "pink"
         | "rose";
+      randomBuiltInThemeOnStartup: boolean;
       customTheme: {
         backgroundColor: string;
         scrollbarThumbColor: string;

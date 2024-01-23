@@ -26,7 +26,8 @@ export default function AniList() {
   anilistSettingsData().then(({ data }: anilistSettingsDataTypes) => {
     //***  Theme ***//
 
-    const styles3 = "bg-cyan-950";
+    const styles3 = "";
+
     /**               400              700
      * slate     rgb(148,163,184)   rgb(51,65,85)
      * neutral   rgb(163,163,163)   rgb(64,64,64)
@@ -48,7 +49,7 @@ export default function AniList() {
 
     const theme = data.theme;
     const selectedBuiltInTheme = theme.selectedBuiltInTheme;
-
+    const randomBuiltInThemeOnStartup = theme.selectedBuiltInTheme;
     const builtInThemes = builtInThemesStyles();
 
     type ThemeStyles = {
@@ -90,8 +91,31 @@ export default function AniList() {
         itemStyles: string;
       };
     };
-    const themeStyles: ThemeStyles = builtInThemes[selectedBuiltInTheme];
-
+    const builtInThemesName = [
+      "slate",
+      "neutral",
+      "red",
+      "orange",
+      "lime",
+      "green",
+      "emerald",
+      "teal",
+      "cyan",
+      "sky",
+      "blue",
+      "indigo",
+      "violet",
+      "purple",
+      "pink",
+      "rose",
+    ] as const;
+    const themeStyles: ThemeStyles = randomBuiltInThemeOnStartup
+      ? builtInThemes[
+          builtInThemesName[
+            Math.floor(Math.random() * builtInThemesName.length)
+          ]
+        ]
+      : builtInThemes[selectedBuiltInTheme];
     const {
       backgroundColor: backgroundColorTheme,
       scrollBarThumbColor,
