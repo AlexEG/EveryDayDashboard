@@ -2,12 +2,15 @@ import NotificationCard from "../../Notifications/NotificationCard";
 import { AnimeList, notificationSettingsTypes } from "../../type";
 import AniList_API from "../AniList_API";
 
-export default function downloadBanners(type: "ANIME" | "MANGA",
+export default function downloadBanners( 
+  userId:number,
+  userName:string,
+  type: "ANIME" | "MANGA",
   notificationsContainer: HTMLElement,
   notificationSettings: notificationSettingsTypes) {
   const variables = {
-    userId: 6482446,
-    userName: "AlexEG",
+    userId: userId,
+    userName: userName, 
     type: type,
   };
   notificationsContainer.append(
@@ -22,6 +25,7 @@ export default function downloadBanners(type: "ANIME" | "MANGA",
         const lists = data.MediaListCollection.lists;
 
 
+        //@ts-ignore-next-line
         const downloadedBannersImages: Array<string> = window.DATA.readDir(`anilist/media/${type.toLowerCase()}/banner`)
 
         let i = 0
@@ -44,9 +48,9 @@ export default function downloadBanners(type: "ANIME" | "MANGA",
                     listItme.media.title.userPreferred;
                   const animeOrMangaTitleEnglish = listItme.media.title.english;
                   const animeOrMangaTitle = `${animeOrMangaTitleEnglish
-                    ? animeOrMangaTitleEnglish
-                    : animeOrMangaTitleUserPreferred
-                    }`;
+? animeOrMangaTitleEnglish
+: animeOrMangaTitleUserPreferred
+}`;
 
 
                   const LOG_CSS = [

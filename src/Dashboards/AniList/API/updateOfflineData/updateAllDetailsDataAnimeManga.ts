@@ -3,13 +3,15 @@ import { AnimeIdList, notificationSettingsTypes } from "../../type";
 import AniList_API from "../AniList_API";
 
 export default function updateAllDetailsDataAnimeManga(
+  userId:number,
+  userName:string, 
   type: "ANIME" | "MANGA",
   notificationsContainer: HTMLElement,
   notificationSettings: notificationSettingsTypes
 ) {
   const variables = {
-    userId: 6482446,
-    userName: "AlexEG",
+    userId: userId,
+    userName: userName,
     type: type,
   };
   notificationsContainer.append(
@@ -34,6 +36,7 @@ export default function updateAllDetailsDataAnimeManga(
       // get the completed files from anilist/details-data/anime
 
       const downloadedDetailsFiles = Array.from(
+        //@ts-ignore-next-line
         window.DATA.readDir(`anilist/details-data/${type.toLowerCase()}`),
         (file: string) => +file.slice(0, -5)
       );
@@ -70,6 +73,7 @@ export default function updateAllDetailsDataAnimeManga(
 
           setTimeout(() => {
             AniList_API("animeDetailsData", variables).then((data) => {
+              //@ts-ignore-next-line
               window.DATA.CreateOrUpdateJSON(
                 `dashboards/anilist/details-data/${type.toLowerCase()}/${id}.json`,
                 data
@@ -81,12 +85,12 @@ export default function updateAllDetailsDataAnimeManga(
           }, 1000 * i);
         }
       } else
-        notificationsContainer.append(
-          NotificationCard(
-            `Your ${type} Offline Data is up-to-date`,
-            notificationSettings
-          )
-        );
+      notificationsContainer.append(
+        NotificationCard(
+          `Your ${type} Offline Data is up-to-date`,
+          notificationSettings
+        )
+      );
     });
   }, 2_000);
 }

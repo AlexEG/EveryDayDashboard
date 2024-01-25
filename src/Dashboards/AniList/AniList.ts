@@ -26,7 +26,7 @@ export default function AniList() {
   anilistSettingsData().then(({ data }: anilistSettingsDataTypes) => {
     //***  Theme ***//
 
-    const styles3 = "";
+    // const styles3 = "";
 
     /**               400              700
      * slate     rgb(148,163,184)   rgb(51,65,85)
@@ -109,6 +109,7 @@ export default function AniList() {
       "pink",
       "rose",
     ] as const;
+
     const themeStyles: ThemeStyles = randomBuiltInThemeOnStartup
       ? builtInThemes[
           builtInThemesName[
@@ -116,6 +117,7 @@ export default function AniList() {
           ]
         ]
       : builtInThemes[selectedBuiltInTheme];
+
     const {
       backgroundColor: backgroundColorTheme,
       scrollBarThumbColor,
@@ -137,6 +139,9 @@ export default function AniList() {
     //***  Theme [END] ***//
 
     // console.log("AniList Settings Data", data)
+    const userName = data.userName
+    const userId = data.userId
+
     const defaultHomePage = data.defaultHomePage as
       | "Overview"
       | "Anime"
@@ -221,9 +226,9 @@ export default function AniList() {
     );
 
     if (notificationSettings.isEnabled)
-      MainContainer.append(
-        NotificationsCenter(notificationSettings, autoUpdateOfflineData)
-      );
+    MainContainer.append(
+      NotificationsCenter(userId, userName,notificationSettings, autoUpdateOfflineData)
+    );
   });
   return MainContainer;
 }

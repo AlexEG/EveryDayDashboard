@@ -8,11 +8,11 @@ export default function Filter(
   }
 ) {
   const styles = `w-60 h-96 border-2 rounded-lg mt-8 p-2 ${
-filterIsOpenByDefault ? "" : "hidden"
-} ${filterTheme.containerBorderColor}`;
+    filterIsOpenByDefault ? "" : "hidden"
+  } ${filterTheme.containerBorderColor}`;
   const filterContainer = HTML("div", styles, "filter-container");
   filterContainer.dataset.isOpen = String(filterIsOpenByDefault);
 
-  filterContainer.append(Search())
+  filterContainer.append(Search(filterTheme.containerBorderColor))
   return filterContainer;
 }

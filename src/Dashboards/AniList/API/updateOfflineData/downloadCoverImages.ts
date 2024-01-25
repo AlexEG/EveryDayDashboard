@@ -3,14 +3,16 @@ import { notificationSettingsTypes } from "../../type";
 import AniList_API from "../AniList_API";
 
 export default function downloadCoverImages(
+  userId:number,
+  userName:string,
   type: "ANIME" | "MANGA",
   size: "extraLarge" | "large",
   notificationsContainer: HTMLElement,
   notificationSettings: notificationSettingsTypes
 ) {
   const variables = {
-    userId: 6482446,
-    userName: "AlexEG",
+    userId: userId,
+    userName: userName,
     type: type,
   };
   notificationsContainer.append(
@@ -59,10 +61,10 @@ export default function downloadCoverImages(
                 listItme.media.title.userPreferred;
               const animeOrMangaTitleEnglish = listItme.media.title.english;
               const animeOrMangaTitle = `${
-                animeOrMangaTitleEnglish
-                  ? animeOrMangaTitleEnglish
-                  : animeOrMangaTitleUserPreferred
-              }`;
+animeOrMangaTitleEnglish
+? animeOrMangaTitleEnglish
+: animeOrMangaTitleUserPreferred
+}`;
 
               const LOG_CSS = [
                 "background:black; color:#0f0 ; font-weight:900",

@@ -7,6 +7,8 @@ import { AutoUpdateOfflineData, notificationSettingsTypes } from "../type";
 // import NotificationCard from "./NotificationCard";
 
 export default function NotificationsCenter(
+  userId:number,
+  userName:string,
   notificationSettings: notificationSettingsTypes,
   autoUpdateOfflineData: AutoUpdateOfflineData
 ) {
@@ -26,87 +28,99 @@ export default function NotificationsCenter(
 
   // ANIME //
   if (updateAnime.allAnimeDetailsData)
-    setTimeout(
-      () =>
-        updateAllDetailsDataAnimeManga(
-          "ANIME",
-          notificationsContainer,
-          notificationSettings
-        ),
-      3000
-    );
+  setTimeout(
+    () =>
+      updateAllDetailsDataAnimeManga(
+        userId,
+        userName,
+        "ANIME",
+        notificationsContainer,
+        notificationSettings
+      ),
+    3000
+  );
 
   if (updateAnime.animeList)
-    setTimeout(
-      () =>
-        updateAnimeMangaList(
-          "ANIME",
-          notificationsContainer,
-          notificationSettings
-        ),
-      4000
-    );
+  setTimeout(
+    () =>
+      updateAnimeMangaList(
+        userId,
+        userName,
+        "ANIME",
+        notificationsContainer,
+        notificationSettings
+      ),
+    4000
+  );
 
   if (updateAnime.animeBanners)
-    setTimeout(
-      () =>
-        downloadBanners("ANIME", notificationsContainer, notificationSettings),
-      5000
-    );
+  setTimeout(
+    () =>
+      downloadBanners(userId, userName,"ANIME", notificationsContainer, notificationSettings),
+    5000
+  );
 
   if (updateAnime.animeCoverImageExtraLargeSize)
-    setTimeout(
-      () =>
-        downloadCoverImages(
-          "ANIME",
-          "extraLarge",
-          notificationsContainer,
-          notificationSettings
-        ),
-      1000
-    );
+  setTimeout(
+    () =>
+      downloadCoverImages(
+        userId,
+        userName,
+        "ANIME",
+        "extraLarge",
+        notificationsContainer,
+        notificationSettings
+      ),
+    1000
+  );
 
   if (updateAnime.animeCoverImageLargeSize)
-    setTimeout(
-      () =>
-        downloadCoverImages(
-          "ANIME",
-          "large",
-          notificationsContainer,
-          notificationSettings
-        ),
-      2000
-    );
+  setTimeout(
+    () =>
+      downloadCoverImages(
+        userId,
+        userName,
+        "ANIME",
+        "large",
+        notificationsContainer,
+        notificationSettings
+      ),
+    2000
+  );
 
   // MANGA //
   if (updateManga.allMangaDetailsData)
-    setTimeout(
-      () =>
-        updateAllDetailsDataAnimeManga(
-          "MANGA",
-          notificationsContainer,
-          notificationSettings
-        ),
-      6000
-    );
+  setTimeout(
+    () =>
+      updateAllDetailsDataAnimeManga(
+        userId,
+        userName,
+        "MANGA",
+        notificationsContainer,
+        notificationSettings
+      ),
+    6000
+  );
 
   if (updateManga.mangaList)
-    setTimeout(
-      () =>
-        updateAnimeMangaList(
-          "MANGA",
-          notificationsContainer,
-          notificationSettings
-        ),
-      7000
-    );
+  setTimeout(
+    () =>
+      updateAnimeMangaList(
+        userId,
+        userName,
+        "MANGA",
+        notificationsContainer,
+        notificationSettings
+      ),
+    7000
+  );
 
   if (updateManga.mangaBanners)
-    setTimeout(
-      () =>
-        downloadBanners("MANGA", notificationsContainer, notificationSettings),
-      8000
-    );
+  setTimeout(
+    () =>
+      downloadBanners(userId, userName, "MANGA", notificationsContainer, notificationSettings),
+    8000
+  );
 
   // -------------  ------------- //
 
