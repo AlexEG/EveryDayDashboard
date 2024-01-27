@@ -12,15 +12,17 @@ export default function Settings() {
   // invisible
   const settingsContainer = HTML("section", styles, "settings");
   settingsContainer.dataset.isSettingsOpen = "false";
-
-  const isOpendByDefault_TabName = "AinList" as string
+  const className = "bg-pink-50 flex flex text-white";
+  const isOpendByDefault_TabName = "AinList" as string;
   let Section: HTMLElement;
 
+  if (isOpendByDefault_TabName === "AinList") Section = AniList();
+  if (isOpendByDefault_TabName === "Sidebar") Section = Sidebar();
 
-  if (isOpendByDefault_TabName === "AinList") Section = AniList()
-  if (isOpendByDefault_TabName === "Sidebar") Section = Sidebar()
-
-
-  settingsContainer.append(CloseSettingBtn(), NavSidebar(isOpendByDefault_TabName), Section);
+  settingsContainer.append(
+    CloseSettingBtn(),
+    NavSidebar(isOpendByDefault_TabName),
+    Section,
+  );
   return settingsContainer;
 }

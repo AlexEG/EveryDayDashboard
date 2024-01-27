@@ -139,8 +139,8 @@ export default function AniList() {
     //***  Theme [END] ***//
 
     // console.log("AniList Settings Data", data)
-    const userName = data.userName
-    const userId = data.userId
+    const userName = data.userName;
+    const userId = data.userId;
 
     const defaultHomePage = data.defaultHomePage as
       | "Overview"
@@ -178,15 +178,15 @@ export default function AniList() {
             "ANIME",
             animeHeaderSettings,
             bannerImageDropShadow,
-            infoBannerTheme
+            infoBannerTheme,
           ),
           AnimeMangaPage(
             "ANIME",
             animeLists,
             filterIsOpenByDefault,
             filterTheme.pageFilter,
-            listsTheme
-          )
+            listsTheme,
+          ),
         );
       } else if (defaultHomePage === "Manga") {
         MainContainer.append(
@@ -194,15 +194,15 @@ export default function AniList() {
             "MANGA",
             mangaHeaderSettings,
             bannerImageDropShadow,
-            infoBannerTheme
+            infoBannerTheme,
           ),
           AnimeMangaPage(
             "MANGA",
             mangaLists,
             filterIsOpenByDefault,
             filterTheme.pageFilter,
-            listsTheme
-          )
+            listsTheme,
+          ),
         );
       } else if (defaultHomePage === "Favorites")
         MainContainer.append(HomeBanner(), Favorites());
@@ -210,7 +210,7 @@ export default function AniList() {
         MainContainer.append(HomeBanner(), Stats());
       else
         console.error(
-          "DATA/setting/anilist.json  defaultHomePage not found or not selected"
+          "DATA/setting/anilist.json  defaultHomePage not found or not selected",
         );
     }
 
@@ -220,15 +220,20 @@ export default function AniList() {
         filterIsOpenByDefault,
         navBarLinksTheme,
         gridListToggleLayoutTheme,
-        filterTheme.toggleBtn
+        filterTheme.toggleBtn,
       ),
-      MainContainer.lastChild
+      MainContainer.lastChild,
     );
 
     if (notificationSettings.isEnabled)
-    MainContainer.append(
-      NotificationsCenter(userId, userName,notificationSettings, autoUpdateOfflineData)
-    );
+      MainContainer.append(
+        NotificationsCenter(
+          userId,
+          userName,
+          notificationSettings,
+          autoUpdateOfflineData,
+        ),
+      );
   });
   return MainContainer;
 }

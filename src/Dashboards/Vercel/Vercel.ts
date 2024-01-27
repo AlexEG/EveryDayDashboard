@@ -7,7 +7,7 @@ export default function Vercel() {
   const MainContainer = HTML("main", styles, "vercel");
 
   const h1 = HTML("h1", "text-center text-neutral-50 font-bold", "", "Vercel");
-
+  const className = "bg-green-300 bg-red-700/5  ";
   MainContainer.append(h1);
   return MainContainer;
 }
