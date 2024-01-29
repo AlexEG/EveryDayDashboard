@@ -6,7 +6,7 @@ export default function FilterToggleBtn(
   filterToggleBtnTheme: {
     containerBorderColor: string;
     isOpenStyles: string;
-  }
+  },
 ) {
   const styles = `w-fit border rounded-lg px-3 ml-auto flex gap-4 justify-around absolute left-0 top-[3px] bottom-[3px] ${filterToggleBtnTheme.containerBorderColor}`;
 
@@ -19,7 +19,7 @@ export default function FilterToggleBtn(
     : "opacity-25";
   const filterBtn = HTML(
     "button",
-    `${styles2} flex gap-x-1 justify-center items-center`
+    `${styles2} flex gap-x-1 justify-center items-center`,
   ) as HTMLButtonElement;
 
   const styles3 = "h-5 w-5 invert";
@@ -33,7 +33,7 @@ export default function FilterToggleBtn(
   filterBtn.onclick = () => {
     toggleHighlight(filterBtn);
     const filterContainer = document.querySelector(
-      "div#filter-container"
+      "div#filter-container",
     ) as HTMLDivElement;
     if (filterContainer.dataset.isOpen === "false") {
       filterContainer.dataset.isOpen = "true";

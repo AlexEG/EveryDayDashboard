@@ -10,7 +10,7 @@ export default function TryHackMe() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "TryHackMe"
+    "TryHackMe",
   );
 
   MainContainer.append(h1);

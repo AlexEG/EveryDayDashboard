@@ -6,7 +6,7 @@ export default function updateUserInfoData() {
 
     window.DATA.CreateOrUpdateJSON(
       "dashboards/anilist/user-info-data.json",
-      data
+      data,
     );
   });
 }

@@ -2,7 +2,7 @@ import HTML from "../../../../components/HTML/HTML";
 
 export default function ProgressNumberInput(
   pageProgress: number,
-  chapterPageNumber: number
+  chapterPageNumber: number,
 ) {
   const styles = "p-1";
   const progressNumberInput = HTML("div", styles);

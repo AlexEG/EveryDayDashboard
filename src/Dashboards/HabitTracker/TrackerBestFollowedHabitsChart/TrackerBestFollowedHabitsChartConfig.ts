@@ -2,7 +2,7 @@ export default function TrackerBestFollowedHabitsChartConfig(
   bestFollowedHabitsData: any[],
   thisYear: number,
   SELECTED_MONTH: string,
-  numberOfDaysInThisMonth?: number
+  numberOfDaysInThisMonth?: number,
 ) {
   const datasets: any = [];
 

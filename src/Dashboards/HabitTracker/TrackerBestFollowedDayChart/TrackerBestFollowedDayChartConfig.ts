@@ -3,7 +3,7 @@ export default function TrackerBestFollowedDayChartConfig(
   monthDataset: number[],
   numberOfHaibts: number,
   thisYear: number,
-  SELECTED_MONTH: string
+  SELECTED_MONTH: string,
 ) {
   const XAaxis = {
     grid: {

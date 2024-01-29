@@ -8,7 +8,7 @@ export default function OverallRank() {
   const chartContainer = HTML(
     "section",
     styles,
-    "codewars--overall-rank--chart"
+    "codewars--overall-rank--chart",
   );
   const chartCanvas = HTML("canvas") as HTMLCanvasElement;
   const div = HTML("div", "w-fit border border-indigo-600/50 relative");

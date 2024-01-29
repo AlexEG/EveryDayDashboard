@@ -7,7 +7,7 @@ export default function CSSBattle() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "CSSBattle"
+    "CSSBattle",
   );
 
   mainContainer.append(h1);

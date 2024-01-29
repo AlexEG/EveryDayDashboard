@@ -22,7 +22,7 @@ type apiCallType =
 
 export default function AniList_API(
   type: apiCallType,
-  variables: Record<string, string | number | boolean>
+  variables: Record<string, string | number | boolean>,
 ) {
   let query;
 

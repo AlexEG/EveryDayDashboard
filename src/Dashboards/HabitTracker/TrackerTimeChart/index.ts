@@ -10,7 +10,7 @@ export default function TrackerTimeChart(year?: number, month?: number) {
   const chartContainer = HTML(
     "section",
     styles,
-    "habit-tracker--tracker-time-chart"
+    "habit-tracker--tracker-time-chart",
   );
 
   const styles2 = "border border-indigo-600/50";
@@ -40,7 +40,7 @@ export default function TrackerTimeChart(year?: number, month?: number) {
   const numberOfDaysInThisMonth = new Date(
     thisYear,
     thisMonthNum - 1,
-    0
+    0,
   ).getDate();
 
   HabitTrackerDATA().then((data) => {
@@ -112,8 +112,8 @@ export default function TrackerTimeChart(year?: number, month?: number) {
           habitsChartColor,
 
           AllHabitsNames,
-          AllHabitsTimeDataset
-        )
+          AllHabitsTimeDataset,
+        ),
       );
     })();
   });

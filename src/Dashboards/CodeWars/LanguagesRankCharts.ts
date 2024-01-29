@@ -25,7 +25,7 @@ export default function LanguagesRankCharts() {
   const chartContainer = HTML(
     "section",
     styles,
-    "codewars--Languages-rank-chart"
+    "codewars--Languages-rank-chart",
   );
 
   // -------------------------
@@ -86,8 +86,8 @@ export default function LanguagesRankCharts() {
             langColor,
             langScore,
             langNextRankRequiredScore,
-            langNextRankName
-          )
+            langNextRankName,
+          ),
         );
       })();
     }

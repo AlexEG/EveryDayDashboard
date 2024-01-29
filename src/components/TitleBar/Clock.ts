@@ -1,7 +1,7 @@
 import HTML from "../HTML/HTML";
 export default function Clock(
   clockTimeColor: string,
-  clock_AM_PMColor: string
+  clock_AM_PMColor: string,
 ) {
   const clock = HTML("div", "flex gap-1", "titlebar--clock");
 

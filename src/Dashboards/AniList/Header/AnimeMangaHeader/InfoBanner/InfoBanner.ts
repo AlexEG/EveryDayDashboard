@@ -15,7 +15,7 @@ export default function InfoBanner(
     titleColor: string;
     titleDropShadow: string;
     coverImgDropShadow: string;
-  }
+  },
 ) {
   const styles = "h-28 relative pt-8 pl-44";
   const infoBannerID = `anilist--header-${type.toLowerCase()}--info-banner`;
@@ -94,7 +94,7 @@ export default function InfoBanner(
   infoBanner.append(
     CoverImg(type, infoBannerTheme.coverImgDropShadow),
     title,
-    badgesContainer
+    badgesContainer,
   );
   return infoBanner;
 }

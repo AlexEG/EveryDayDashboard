@@ -8,7 +8,7 @@ export default function HabitComponent(
   fileName: string,
   habitNum: number,
   numberOfHabits: number,
-  arr: string[]
+  arr: string[],
 ) {
   const container = HTML("div", "flex gap-x-2");
   container.dataset.habitName = fileName;
@@ -17,7 +17,7 @@ export default function HabitComponent(
     OrderBtn(habitNum, numberOfHabits, arr),
     NameInput(fileName),
     RenameBtn(),
-    DeleteBtn()
+    DeleteBtn(),
   );
   return container;
 }

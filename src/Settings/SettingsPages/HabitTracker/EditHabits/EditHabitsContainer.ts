@@ -4,11 +4,11 @@ import HabitComponent from "./HabitComponent";
 
 export default function EditHabitsContainer(
   fileNameArr: string[],
-  fileNumArr: number[]
+  fileNumArr: number[],
 ) {
   const mainContainer = SettingsFieldset(
     "Edit Habits",
-    "settings--habit-tracker--edit-habits"
+    "settings--habit-tracker--edit-habits",
   );
   const styles = "flex flex-col w-full gap-y-4";
   const container = HTML("div", styles);

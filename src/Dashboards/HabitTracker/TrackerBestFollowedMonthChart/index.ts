@@ -9,7 +9,7 @@ export default function TrackerBestFollowedMonthChart(year?: number) {
   const chartContainer = HTML(
     "section",
     styles,
-    "habit-tracker--tracker-best-followed-month-chart"
+    "habit-tracker--tracker-best-followed-month-chart",
   );
 
   const styles2 = "border border-cyan-600/50";
@@ -72,8 +72,8 @@ export default function TrackerBestFollowedMonthChart(year?: number) {
         TrackerBestFollowedMonthChartConfig(
           MONTHS,
           Object.values(yearDataset),
-          thisYear
-        )
+          thisYear,
+        ),
       );
     })();
   });

@@ -20,7 +20,7 @@ interface favoritesDataJSON {
                 };
                 startDate: { year: number };
               };
-            }
+            },
           ];
         };
         manga: any;
@@ -37,8 +37,8 @@ export default function Favorites() {
   const favoritesDataJSON = new Promise((res, rej) => {
     res(
       JSON.parse(
-        window.DATA.getJSONFileData("dashboards/anilist/favourites-data")
-      )
+        window.DATA.getJSONFileData("dashboards/anilist/favourites-data"),
+      ),
     );
   });
 
@@ -48,7 +48,7 @@ export default function Favorites() {
     favorites.append(
       GalleryComponet("Anime", data.data.User.favourites.anime.edges),
       GalleryComponet("Manga", data.data.User.favourites.manga.edges),
-      GalleryComponet("Characters", data.data.User.favourites.characters.edges)
+      GalleryComponet("Characters", data.data.User.favourites.characters.edges),
     );
   });
   return favorites;

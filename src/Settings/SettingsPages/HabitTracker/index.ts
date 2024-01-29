@@ -15,7 +15,7 @@ export default function HabitTracker() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "Habit Tracker"
+    "Habit Tracker",
   );
 
   const themeWrapper = HTML("div", "flex");
@@ -63,7 +63,7 @@ export default function HabitTracker() {
 
     themeWrapper.append(
       HabitGroupColor(fileNameArr, habitNameArr, habitGroupColorArr),
-      HabitChartColor(fileNameArr, habitNameArr, habitChartColorArr)
+      HabitChartColor(fileNameArr, habitNameArr, habitChartColorArr),
     );
 
     mainContainer.append(
@@ -72,7 +72,7 @@ export default function HabitTracker() {
       AutoLockAfterTime(fileNameArr, habitNameArr, HabitsAutoLockAfterTimeArr),
       themeWrapper,
       CreateNewHabit(),
-      EditHabitsContainer(fileNameArr, fileNumArr)
+      EditHabitsContainer(fileNameArr, fileNumArr),
     );
   });
 

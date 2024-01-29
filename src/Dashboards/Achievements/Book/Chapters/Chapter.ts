@@ -8,7 +8,7 @@ export default function Chapter(
   pageProgress: number,
   chapterPageNumber: number,
   progressPercentage: number,
-  i?: number
+  i?: number,
 ) {
   const styles = "w-full h-8 grid grid-cols-[1fr_15rem_4rem_4rem] gap-x-1 mb-1";
   const subCard = HTML("div", styles);
@@ -21,7 +21,7 @@ export default function Chapter(
     p,
     ProgressBar(pageProgress, chapterPageNumber, progressPercentage, i),
     ProgressNumberInput(pageProgress, chapterPageNumber),
-    SaveInputBtn()
+    SaveInputBtn(),
   );
   return subCard;
 }

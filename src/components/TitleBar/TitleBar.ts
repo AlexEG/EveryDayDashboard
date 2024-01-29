@@ -8,12 +8,12 @@ export default function TitleBar() {
   const contanier = HTML(
     "div",
     "h-[31px] bg-slate-950 select-none relative pl-14 flex items-center",
-    "titlebar"
+    "titlebar",
   );
 
   const clockDateWrapperR = HTML(
     "div",
-    "absolute right-40 h-full flex items-center gap-3 text-white/50 font-medium drop-shadow-[0_0_10px_#000]"
+    "absolute right-40 h-full flex items-center gap-3 text-white/50 font-medium drop-shadow-[0_0_10px_#000]",
   );
 
   // ------------
@@ -23,8 +23,8 @@ export default function TitleBar() {
       clockDateWrapperR.append(
         Clock(
           data["theme"]["clockTimeColor"],
-          data["theme"]["clock_AM_PMColor"]
-        )
+          data["theme"]["clock_AM_PMColor"],
+        ),
       );
 
       TitleBarClock();
@@ -32,7 +32,7 @@ export default function TitleBar() {
 
     if (!!data["howOldYouInDays"])
       clockDateWrapperR.append(
-        HowOldAmI(data["birthday"], data["theme"]["ageInDaysColor"])
+        HowOldAmI(data["birthday"], data["theme"]["ageInDaysColor"]),
       );
 
     if (data["theme"]["backgroundColor"])

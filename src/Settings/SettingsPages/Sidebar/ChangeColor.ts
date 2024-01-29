@@ -7,7 +7,7 @@ import HTML from "../../../components/HTML/HTML";
 export default function ChangeColor() {
   const container = SettingsFieldset(
     "Theme",
-    "settings--sidebar--change-color"
+    "settings--sidebar--change-color",
   );
 
   function background(colorPicker: HTMLInputElement) {
@@ -18,14 +18,14 @@ export default function ChangeColor() {
       "settings/sidebar",
       "theme",
       colorPicker.value,
-      "backgroundColor"
+      "backgroundColor",
     );
 
     console.log(
       `%c Change Sidebar background Color => %c  %c\n${colorPicker.value}`,
       "background:black; color:white",
       `background:${colorPicker.value};`,
-      ""
+      "",
     );
   }
 
@@ -38,10 +38,10 @@ export default function ChangeColor() {
         "settings--sidebar--change-color--background",
         "Background Color",
         backgroundColor,
-        background
+        background,
       ),
 
-      resetBtnContainer
+      resetBtnContainer,
     );
   });
 
@@ -58,7 +58,7 @@ export default function ChangeColor() {
     window.DATA.editSettingsJSONFile_Value(
       "settings/sidebar",
       "theme",
-      defaultTheme
+      defaultTheme,
     );
 
     // Reset UI (in real time)
@@ -66,7 +66,7 @@ export default function ChangeColor() {
 
     // Reset color picker (in real time)
     document.querySelector(
-      "#settings--sidebar--change-color--background"
+      "#settings--sidebar--change-color--background",
     ).value = "#020617";
   };
 

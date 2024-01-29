@@ -1,1 +1,23 @@
-{"theme":{"backgroundColor":"#280029"},"DisplayAndOrder":[["anilist","AinList",true],["habit-tracker","Habit Tracker",true],["home","Home",false],["codewars","CodeWars",true],["wakatime","WakaTime",false],["github","GitHub",true],["achievements","Achievements",true],["monkeytype","MonkeyType",true],["tryhackme","TryHackMe",false],["cssbattle","CSSBattle",false],["leetcode","LeetCode",true],["youtube","YouTube",false],["spotify","Spotify",false],["frontendmentor","FrontendMentor",false],["freecodecamp","FreeCodeCamp",false],["devdotto","DEV",true],["firebase","Firebase",false],["vercel","Vercel",false]]}
+{
+  "theme": { "backgroundColor": "#280029" },
+  "DisplayAndOrder": [
+    ["anilist", "AinList", true],
+    ["habit-tracker", "Habit Tracker", true],
+    ["home", "Home", false],
+    ["codewars", "CodeWars", true],
+    ["wakatime", "WakaTime", false],
+    ["github", "GitHub", true],
+    ["achievements", "Achievements", true],
+    ["monkeytype", "MonkeyType", true],
+    ["tryhackme", "TryHackMe", false],
+    ["cssbattle", "CSSBattle", false],
+    ["leetcode", "LeetCode", true],
+    ["youtube", "YouTube", false],
+    ["spotify", "Spotify", false],
+    ["frontendmentor", "FrontendMentor", false],
+    ["freecodecamp", "FreeCodeCamp", false],
+    ["devdotto", "DEV", true],
+    ["firebase", "Firebase", false],
+    ["vercel", "Vercel", false]
+  ]
+}

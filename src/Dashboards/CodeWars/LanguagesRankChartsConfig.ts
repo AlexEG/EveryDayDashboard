@@ -3,7 +3,7 @@ export default function LanguagesRankChartsConfig(
   langColor: string,
   langScore: number,
   langNextRankRequiredScore: number,
-  langNextRankName: string
+  langNextRankName: string,
 ) {
   const plugins = {
     title: {

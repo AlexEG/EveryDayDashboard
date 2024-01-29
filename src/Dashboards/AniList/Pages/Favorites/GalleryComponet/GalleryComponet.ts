@@ -5,7 +5,7 @@ import Character from "./Character";
 
 export default function GalleryComponet(
   type: "Anime" | "Manga" | "Characters",
-  data: any
+  data: any,
 ) {
   const styles = "mb-8 max-w-6xl mx-auto";
   const galleryComponet = HTML("section", styles);
@@ -20,8 +20,8 @@ export default function GalleryComponet(
         AnimeManga(
           anime.node.coverImage.large,
           "anime",
-          anime.node.title.userPreferred
-        )
+          anime.node.title.userPreferred,
+        ),
       );
 
   if (type === "Manga")
@@ -30,14 +30,17 @@ export default function GalleryComponet(
         AnimeManga(
           manga.node.coverImage.large,
           "manga",
-          manga.node.title.userPreferred
-        )
+          manga.node.title.userPreferred,
+        ),
       );
 
   if (type === "Characters")
     for (const character of data)
       listItemWrapper.append(
-        Character(character.node.image.large, character.node.name.userPreferred)
+        Character(
+          character.node.image.large,
+          character.node.name.userPreferred,
+        ),
       );
 
   galleryComponet.append(ListTitle(type, data.length), listItemWrapper);

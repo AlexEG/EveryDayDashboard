@@ -25,7 +25,7 @@ export default function ViewOtherMonth(select: HTMLSelectElement) {
   {
     // delete the old table
     const checkboxGrid = document.querySelector(
-      "#habit-tracker > #habit-tracker--tracker > #habits-checkbox-grid"
+      "#habit-tracker > #habit-tracker--tracker > #habits-checkbox-grid",
     );
 
     if (checkboxGrid) checkboxGrid.remove();
@@ -43,13 +43,13 @@ export default function ViewOtherMonth(select: HTMLSelectElement) {
     // delete the charts
     const chart1 = document.querySelector("#habit-tracker--tracker-time-chart");
     const chart2 = document.querySelector(
-      "#habit-tracker--tracker-best-followed-habits-chart"
+      "#habit-tracker--tracker-best-followed-habits-chart",
     );
     const chart3 = document.querySelector(
-      "#habit-tracker--tracker-best-followed-day-chart"
+      "#habit-tracker--tracker-best-followed-day-chart",
     );
     const chart4 = document.querySelector(
-      "#habit-tracker--tracker-best-followed-month-chart"
+      "#habit-tracker--tracker-best-followed-month-chart",
     );
     if (chart1) chart1.remove();
     if (chart2) chart2.remove();
@@ -62,11 +62,11 @@ export default function ViewOtherMonth(select: HTMLSelectElement) {
     if (mainContainer) {
       mainContainer.append(TrackerTimeChart(SELECTED_YEAR, +selectedNum));
       mainContainer.append(
-        TrackerBestFollowedDayChart(SELECTED_YEAR, +selectedNum)
+        TrackerBestFollowedDayChart(SELECTED_YEAR, +selectedNum),
       );
       mainContainer.append(TrackerBestFollowedMonthChart(SELECTED_YEAR));
       mainContainer.append(
-        TrackerBestFollowedHabitsChart(SELECTED_YEAR, +selectedNum)
+        TrackerBestFollowedHabitsChart(SELECTED_YEAR, +selectedNum),
       );
     }
   }
@@ -91,7 +91,7 @@ export default function ViewOtherMonth(select: HTMLSelectElement) {
     ];
     console.log(
       `%c Home / Table & Chart %c<Change View>  %c${SELECTED_YEAR} ${selectedMonthName} `,
-      ...LOG_CSS
+      ...LOG_CSS,
     );
   }
   // ---------
@@ -104,7 +104,7 @@ export default function ViewOtherMonth(select: HTMLSelectElement) {
     ];
     console.log(
       `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms`,
-      ...PREF_LOG_CSS
+      ...PREF_LOG_CSS,
     );
   }
 }

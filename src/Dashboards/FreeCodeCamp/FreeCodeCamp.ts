@@ -10,7 +10,7 @@ export default function FreeCodeCamp() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "FreeCodeCamp.org"
+    "FreeCodeCamp.org",
   );
 
   MainContainer.append(h1);

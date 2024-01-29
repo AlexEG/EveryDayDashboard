@@ -1,5 +1,5 @@
 export default function toggleExpandCollapseHighlight(
-  expandBtn: HTMLElement
+  expandBtn: HTMLElement,
 ): void {
   // console.log("expandBtn", expandBtn);
   if (expandBtn.dataset.open === "false") {
@@ -10,7 +10,7 @@ export default function toggleExpandCollapseHighlight(
     expandBtn.firstElementChild.classList.remove("invert");
     expandBtn.firstElementChild.setAttribute(
       "src",
-      "/src/assets/chevron-up.svg"
+      "/src/assets/chevron-up.svg",
     );
   } else {
     // expandBtn.dataset.open = "false";
@@ -20,7 +20,7 @@ export default function toggleExpandCollapseHighlight(
     expandBtn.firstElementChild.classList.add("invert");
     expandBtn.firstElementChild.setAttribute(
       "src",
-      "/src/assets/chevron-down.svg"
+      "/src/assets/chevron-down.svg",
     );
   }
 }

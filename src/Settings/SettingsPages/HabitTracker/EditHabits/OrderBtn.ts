@@ -3,7 +3,7 @@ import HTML from "../../../../components/HTML/HTML";
 export default function OrderBtn(
   habitNum: number,
   numberOfHabits: number,
-  arr: string[]
+  arr: string[],
 ) {
   const selectContainer = HTML("div", "text-xs pt-1");
 
@@ -34,7 +34,7 @@ export default function OrderBtn(
     //* change UI
     const container1 = select.parentElement.parentElement;
     const container2 = document.querySelector(
-      `#settings--habit-tracker--edit-habits div[data-habit-name="${fileName2}"]`
+      `#settings--habit-tracker--edit-habits div[data-habit-name="${fileName2}"]`,
     ) as HTMLDivElement;
 
     // console.log(fileName1);
@@ -114,7 +114,7 @@ export default function OrderBtn(
       "color:green",
       "color:red",
       "",
-      "color:green"
+      "color:green",
     );
   };
 

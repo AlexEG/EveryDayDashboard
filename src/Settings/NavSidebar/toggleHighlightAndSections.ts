@@ -1,6 +1,8 @@
-
-
-export default function toggleHighlightAndSections(sectionName: string, btn: HTMLElement, sectionHTML: HTMLElement) {
+export default function toggleHighlightAndSections(
+  sectionName: string,
+  btn: HTMLElement,
+  sectionHTML: HTMLElement,
+) {
   if (
     !(
       document.querySelector("#settings > section").getAttribute("id") ==
@@ -25,7 +27,7 @@ export default function toggleHighlightAndSections(sectionName: string, btn: HTM
     console.log(
       ` %c Settings %c OPEN  ${sectionName} `,
       "background:black; color:#fff;font-weight: 700;",
-      "background:black; color:#0f0;font-weight: 700;"
+      "background:black; color:#0f0;font-weight: 700;",
     );
   }
 }

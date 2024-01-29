@@ -9,7 +9,7 @@ export default function switchHeaderAnimeManga(
   isAutoSwitchBannerRandomly: boolean,
   switchingSpeed: number,
   infoBanner: animeHeaderInfoBannerTypes | mangaHeaderInfoBannerTypes,
-  seasonWithYear?: boolean
+  seasonWithYear?: boolean,
 ) {
   const animeMangaOfflineData = new Promise((res, rej) => {
     res(JSON.parse(window.DATA.getJSONFileData(`dashboards/anilist/${type}`)));
@@ -45,7 +45,7 @@ export default function switchHeaderAnimeManga(
     function changeBannerImgSrc() {
       // to stop setInterval when switching to other tab
       const isAnimeHeaderThere = Boolean(
-        document.querySelector(`header#anilist--header-${type}`)
+        document.querySelector(`header#anilist--header-${type}`),
       );
       if (!isAnimeHeaderThere) clearInterval(animeRandomSwtich);
 
@@ -87,42 +87,42 @@ export default function switchHeaderAnimeManga(
             .querySelector(`img#anilist--header-${type}--banner--image`)
             .setAttribute(
               "src",
-              `/DATA/dashboards/anilist/media/${type}/banner/${bannerImgFileName}`
+              `/DATA/dashboards/anilist/media/${type}/banner/${bannerImgFileName}`,
             );
         else if (coverImgFileNameExtraLarge)
           document
             .querySelector(`img#anilist--header-${type}--banner--image`)
             .setAttribute(
               "src",
-              `/DATA/dashboards/anilist/media/${type}/cover-image/extraLarge/${coverImgFileNameExtraLarge}`
+              `/DATA/dashboards/anilist/media/${type}/cover-image/extraLarge/${coverImgFileNameExtraLarge}`,
             );
         else
           document
             .querySelector(`img#anilist--header-${type}--banner--image`)
             .setAttribute(
               "src",
-              `/DATA/dashboards/anilist/media/${type}/cover-image/large/${coverImgFileNameLarge}`
+              `/DATA/dashboards/anilist/media/${type}/cover-image/large/${coverImgFileNameLarge}`,
             );
 
         // cover
         document
           .querySelector(
-            `img#anilist--header-${type}--info-banner--cover-image`
+            `img#anilist--header-${type}--info-banner--cover-image`,
           )
           .setAttribute(
             "src",
-            `/DATA/dashboards/anilist/media/${type}/cover-image/large/${coverImgFileNameLarge}`
+            `/DATA/dashboards/anilist/media/${type}/cover-image/large/${coverImgFileNameLarge}`,
           );
 
         // title
         const animeMangaTitle = document.querySelector(
-          `h1#anilist--header-${type}--info-banner--title`
+          `h1#anilist--header-${type}--info-banner--title`,
         ) as HTMLHeadingElement;
         animeMangaTitle.innerText = title;
 
         // isFavourite
         const isFavouriteSVG = document.querySelector(
-          `img#anilist--header-${type}--banner--is-favourite`
+          `img#anilist--header-${type}--banner--is-favourite`,
         ) as HTMLImageElement;
         if (isFavourite && isFavouriteSVG.classList.contains("hidden"))
           isFavouriteSVG.classList.remove("hidden");
@@ -131,63 +131,63 @@ export default function switchHeaderAnimeManga(
 
         if (infoBanner.popularity) {
           const popularityBadge = document.querySelector(
-            `span#anilist--header-${type}--info-banner--popularity-badge`
+            `span#anilist--header-${type}--info-banner--popularity-badge`,
           ) as HTMLSpanElement;
           popularityBadge.innerText = `${popularity}`;
         }
 
         if (infoBanner.averageScore) {
           const averageScoreBadge = document.querySelector(
-            `span#anilist--header-${type}--info-banner--average-score-badge`
+            `span#anilist--header-${type}--info-banner--average-score-badge`,
           ) as HTMLSpanElement;
           averageScoreBadge.innerText = `${averageScore}%`;
         }
 
         if (infoBanner.meanScore) {
           const meanScoreBadge = document.querySelector(
-            `span#anilist--header-${type}--info-banner--mean-score-badge`
+            `span#anilist--header-${type}--info-banner--mean-score-badge`,
           ) as HTMLSpanElement;
           meanScoreBadge.innerText = `${meanScore}%`;
         }
 
         if (infoBanner.favourites) {
           const favouritesBadge = document.querySelector(
-            `span#anilist--header-${type}--info-banner--favourites-badge`
+            `span#anilist--header-${type}--info-banner--favourites-badge`,
           ) as HTMLSpanElement;
           favouritesBadge.innerText = `${favourites}`;
         }
 
         if (infoBanner.status) {
           const statusBadge = document.querySelector(
-            `span#anilist--header-${type}--info-banner--status-badge`
+            `span#anilist--header-${type}--info-banner--status-badge`,
           ) as HTMLSpanElement;
           statusBadge.innerText = status;
         }
 
         if (infoBanner.genres) {
           const genresBadge = document.querySelector(
-            `span#anilist--header-${type}--info-banner--genres-badge`
+            `span#anilist--header-${type}--info-banner--genres-badge`,
           ) as HTMLSpanElement;
           genresBadge.innerText = genres.join(" • ");
         }
 
         if (infoBanner.startDate) {
           const startDateBadge = document.querySelector(
-            `span#anilist--header-${type}--info-banner--start-date-badge`
+            `span#anilist--header-${type}--info-banner--start-date-badge`,
           ) as HTMLSpanElement;
           startDateBadge.innerText = startDate;
         }
 
         if (infoBanner.endDate) {
           const endDateBadge = document.querySelector(
-            `span#anilist--header-${type}--info-banner--end-date-badge`
+            `span#anilist--header-${type}--info-banner--end-date-badge`,
           ) as HTMLSpanElement;
           endDateBadge.innerText = endDate;
         }
 
         if (infoBanner.source) {
           const sourceBadge = document.querySelector(
-            `span#anilist--header-${type}--info-banner--source-badge`
+            `span#anilist--header-${type}--info-banner--source-badge`,
           ) as HTMLSpanElement;
           sourceBadge.innerText = source;
         }
@@ -197,14 +197,14 @@ export default function switchHeaderAnimeManga(
             infoBanner as animeHeaderInfoBannerTypes;
           if (Ep) {
             const episodesBadge = document.querySelector(
-              `span#anilist--header-${type}--info-banner--episodes-badge`
+              `span#anilist--header-${type}--info-banner--episodes-badge`,
             ) as HTMLSpanElement;
             episodesBadge.innerText = `\u00a0${episodes}\u00a0`;
           }
 
           if (Se) {
             const seasonBadge = document.querySelector(
-              `span#anilist--header-${type}--info-banner--season-badge`
+              `span#anilist--header-${type}--info-banner--season-badge`,
             ) as HTMLSpanElement;
             if (seasonWithYear) seasonBadge.innerText = seasonYear;
             else seasonBadge.innerText = season;
@@ -217,14 +217,14 @@ export default function switchHeaderAnimeManga(
 
           if (Vol) {
             const volumesBadge = document.querySelector(
-              "span#anilist--header-manga--info-banner--volumes-badge"
+              "span#anilist--header-manga--info-banner--volumes-badge",
             ) as HTMLSpanElement;
             volumesBadge.innerText = `\u00a0${volumes || "??"}\u00a0`;
           }
 
           if (Ch) {
             const chaptersBadge = document.querySelector(
-              "span#anilist--header-manga--info-banner--chapters-badge"
+              "span#anilist--header-manga--info-banner--chapters-badge",
             ) as HTMLSpanElement;
             chaptersBadge.innerText = `\u00a0${chapters || "??"}\u00a0`;
           }
@@ -236,7 +236,7 @@ export default function switchHeaderAnimeManga(
           "background:black; color:#0f0; font-weight:900",
           "background:black; color:white",
           "background:black; color:#c7f; font-weight:700; font-family: Arial",
-          "background:black; color:white"
+          "background:black; color:white",
         );
       }
     }

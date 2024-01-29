@@ -2,7 +2,7 @@ import HTML from "../../../../components/HTML/HTML";
 
 export default function HabitNameNumberWrapper(
   habitNum: number,
-  habitName: string
+  habitName: string,
 ) {
   const styles2 = "bg-white/10 text-white/90 rounded-sm text-center w-6";
   const span1 = HTML("span", styles2, "", String(habitNum));

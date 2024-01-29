@@ -13,7 +13,7 @@ export default function Header(isHabitListDisplayedByDefault: boolean) {
     "p",
     "text-emerald-500 text-xs font-medium self-center mr-auto",
     "",
-    "Check after the task is finished  (Don't do in order, Do when you feel like it)"
+    "Check after the task is finished  (Don't do in order, Do when you feel like it)",
   );
 
   Header.append(
@@ -22,16 +22,16 @@ export default function Header(isHabitListDisplayedByDefault: boolean) {
       "Unlock Edit History",
       "toggle-unlock-edit-history-btn",
       false,
-      toggleUnlockEditHistory
+      toggleUnlockEditHistory,
     ),
     ToggleBtn(
       "Habit List",
       "toggle-habit-list-btn",
       isHabitListDisplayedByDefault,
-      toggleHabitList
+      toggleHabitList,
     ),
     SelectMonthBtn(ViewOtherMonth),
-    SelectYearBtn(ViewOtherMonth)
+    SelectYearBtn(ViewOtherMonth),
   );
   return Header;
 }

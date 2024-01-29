@@ -3,11 +3,11 @@ import { Anime, Manga, notificationSettingsTypes } from "../../type";
 import AniList_API from "../AniList_API";
 
 export default function updateAnimeMangaList(
-  userId:number,
-  userName:string, 
+  userId: number,
+  userName: string,
   type: "ANIME" | "MANGA",
   notificationsContainer: HTMLElement,
-  notificationSettings: notificationSettingsTypes
+  notificationSettings: notificationSettingsTypes,
 ) {
   const variables = {
     userId: userId,
@@ -15,7 +15,7 @@ export default function updateAnimeMangaList(
     type: type,
   };
   notificationsContainer.append(
-    NotificationCard(`Checking for ${type} List`, notificationSettings)
+    NotificationCard(`Checking for ${type} List`, notificationSettings),
   );
 
   // Favourites
@@ -115,27 +115,27 @@ export default function updateAnimeMangaList(
             const completedAtStr = new Date(
               completedAt.year,
               completedAt.month,
-              completedAt.day
+              completedAt.day,
             )
-            .toDateString()
-            .slice(4)
-            .split(" ");
+              .toDateString()
+              .slice(4)
+              .split(" ");
             const startDateStr = new Date(
               startDate.year,
               startDate.month,
-              startDate.day
+              startDate.day,
             )
-            .toDateString()
-            .slice(4)
-            .split(" ");
+              .toDateString()
+              .slice(4)
+              .split(" ");
             const endDateStr = new Date(
               endDate.year,
               endDate.month,
-              endDate.day
+              endDate.day,
             )
-            .toDateString()
-            .slice(4)
-            .split(" ");
+              .toDateString()
+              .slice(4)
+              .split(" ");
 
             const newData: any = {
               ListName: ListName,
@@ -147,9 +147,9 @@ export default function updateAnimeMangaList(
               score: score,
               bannerImgFileName: bannerImgFileName && bannerImgFileName[0],
               coverImgFileNameLarge:
-              coverImgFileNameLarge && coverImgFileNameLarge[0],
+                coverImgFileNameLarge && coverImgFileNameLarge[0],
               coverImgFileNameExtraLarge:
-              coverImgFileNameExtraLarge && coverImgFileNameExtraLarge[0],
+                coverImgFileNameExtraLarge && coverImgFileNameExtraLarge[0],
               title: title,
               popularity: popularity.toLocaleString(),
               averageScore: averageScore,
@@ -158,20 +158,20 @@ export default function updateAnimeMangaList(
               status: `${status[0]}${status.slice(1).toLowerCase()}`,
               genres: genres,
               source: source
-              .split("_")
-              .map((word) => word[0] + word.slice(1).toLowerCase())
-              .join(" "),
+                .split("_")
+                .map((word) => word[0] + word.slice(1).toLowerCase())
+                .join(" "),
               format: format,
               rankings: rankings,
               completedAt: `${completedAtStr[0]} ${+completedAtStr[1] / 1}, ${
-completedAtStr[2]
-}`,
+                completedAtStr[2]
+              }`,
               startDate: `${startDateStr[0]} ${+startDateStr[1] / 1}, ${
-startDateStr[2]
-}`,
+                startDateStr[2]
+              }`,
               endDate: `${endDateStr[0]} ${+endDateStr[1] / 1}, ${
-endDateStr[2]
-}`,
+                endDateStr[2]
+              }`,
             };
 
             if (type === "ANIME") {
@@ -183,9 +183,9 @@ endDateStr[2]
                 season && `${season[0]}${season.slice(1).toLowerCase()}`;
               newData.seasonYear =
                 season &&
-                  `${season[0]}${season.slice(1).toLowerCase()} ${
-startDate.year
-}`;
+                `${season[0]}${season.slice(1).toLowerCase()} ${
+                  startDate.year
+                }`;
             }
 
             if (type === "MANGA") {
@@ -209,8 +209,8 @@ startDate.year
         const offlineData = JSON.parse(
           //@ts-ignore-next-line
           window.DATA.getJSONFileData(
-            `dashboards/anilist/${type.toLowerCase()}`
-          )
+            `dashboards/anilist/${type.toLowerCase()}`,
+          ),
         ).data.data;
 
         // console.log("updatedData: ", updatedData);
@@ -219,28 +219,28 @@ startDate.year
         if (
           !(
             JSON.stringify(offlineData) ===
-              JSON.stringify(updatedData.data.data)
+            JSON.stringify(updatedData.data.data)
           )
         ) {
           console.log("new data has been found");
 
           window.DATA.CreateOrUpdateJSON(
             `dashboards/anilist/${type.toLowerCase()}.json`,
-            updatedData
+            updatedData,
           );
           notificationsContainer.append(
             NotificationCard(
               `${type} Offline Data [Update Complete]`,
-              notificationSettings
-            )
+              notificationSettings,
+            ),
           );
         } else
-        notificationsContainer.append(
-          NotificationCard(
-            `Your ${type} List Offline Data is up-to-date`,
-            notificationSettings
-          )
-        );
+          notificationsContainer.append(
+            NotificationCard(
+              `Your ${type} List Offline Data is up-to-date`,
+              notificationSettings,
+            ),
+          );
       });
     });
 }

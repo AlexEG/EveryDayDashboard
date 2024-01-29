@@ -4,7 +4,7 @@ import notificationAnimation from "./notificationAnimation";
 
 export default function NotificationCard(
   message: string,
-  notificationSettings: notificationSettingsTypes
+  notificationSettings: notificationSettingsTypes,
 ) {
   const styles =
     "bg-neutral-950 w-full p-2 grid place-content-center rounded-lg first-of-type:mb-2";
@@ -17,12 +17,12 @@ export default function NotificationCard(
   if (notificationSettings.isEnabled)
     notificationAnimation(
       notificationCard,
-      notificationSettings.notificationAnimationTime
+      notificationSettings.notificationAnimationTime,
     );
 
   setTimeout(
     () => notificationCard.remove(),
-    notificationSettings.notificationAnimationTime
+    notificationSettings.notificationAnimationTime,
   );
   return notificationCard;
 }

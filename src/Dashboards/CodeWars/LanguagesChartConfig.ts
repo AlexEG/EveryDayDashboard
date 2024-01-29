@@ -1,7 +1,7 @@
 export default function LanguagesChartConfig(
   totalScore: number,
   LanguagesNames: string[],
-  LanguagesScores: number[]
+  LanguagesScores: number[],
 ) {
   const plugins = {
     title: {

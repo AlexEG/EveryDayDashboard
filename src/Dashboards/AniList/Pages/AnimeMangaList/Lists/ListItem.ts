@@ -7,7 +7,7 @@ export default function ListItem(
   Score: string,
   ProgressChapter: string,
   TypeVolumes: string,
-  itemStylesTheme: string
+  itemStylesTheme: string,
 ) {
   const styles = `w-full h-14 rounded-lg grid grid-cols-[3.5rem_1fr_6rem_6rem_6rem] gap-x-2 font-medium leading-[3.4rem] text-center ${
     itemStylesTheme || "text-white hover:bg-white/50"

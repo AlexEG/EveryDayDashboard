@@ -23,7 +23,7 @@ export default function SettingsBtn() {
         if (btns[i].classList.contains("bg-white/90"))
           btns[i].firstElementChild.classList.replace(
             "opacity-100",
-            "opacity-70"
+            "opacity-70",
           );
 
         btns[i].classList.remove("bg-white/90");

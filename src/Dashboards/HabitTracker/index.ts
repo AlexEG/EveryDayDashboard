@@ -43,9 +43,9 @@ export default function HabitTracker() {
         isTimeChart ? TrackerTimeChart() : "",
         isBestFollowedDayChart ? TrackerBestFollowedDayChart() : "",
         isBestFollowedMonthChar ? TrackerBestFollowedMonthChart() : "",
-        isBestFollowedHabitsChart ? TrackerBestFollowedHabitsChart() : ""
+        isBestFollowedHabitsChart ? TrackerBestFollowedHabitsChart() : "",
       );
-    }
+    },
   );
   return MainContainer;
 }

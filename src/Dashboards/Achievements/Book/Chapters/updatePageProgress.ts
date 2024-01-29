@@ -36,8 +36,10 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
     const achievementsDataJSON = new Promise((res, rej) => {
       res(
         JSON.parse(
-          window.DATA.getJSONFileData(`dashboards/achievements/${fileNameJSON}`)
-        )
+          window.DATA.getJSONFileData(
+            `dashboards/achievements/${fileNameJSON}`,
+          ),
+        ),
       );
     });
 
@@ -58,7 +60,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       const oldProgressPages = cardData.progressPages;
       cardData.progressPages = newProgressValue;
       cardData.progressPercentage = Math.round(
-        (newProgressValue / ChapterPages) * 100
+        (newProgressValue / ChapterPages) * 100,
       );
 
       // metadata
@@ -67,7 +69,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
         metadata.progressPages - oldProgressPages + newProgressValue;
 
       const newProgressPercentage = Math.round(
-        (newProgressPages / pages) * 100
+        (newProgressPages / pages) * 100,
       );
       metadata.progressPagesPercentage = newProgressPercentage;
       metadata.progressPages = newProgressPages;
@@ -82,7 +84,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       ) {
         metadata.progressChapter = metadata.progressChapter + 1;
         metadata.progressChapterPercentage = Math.round(
-          (metadata.progressChapter / chapters) * 100
+          (metadata.progressChapter / chapters) * 100,
         );
         cardData.isComplete = true;
       }
@@ -90,7 +92,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       if (cardData.progressPercentage < 100 && cardData.isComplete === true) {
         metadata.progressChapter = metadata.progressChapter - 1;
         metadata.progressChapterPercentage = Math.round(
-          (metadata.progressChapter / chapters) * 100
+          (metadata.progressChapter / chapters) * 100,
         );
         cardData.isComplete = false;
       }
@@ -106,7 +108,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
 
       window.DATA.CreateOrUpdateJSON(
         `dashboards/achievements/${fileNameJSON}.json`,
-        data
+        data,
       );
 
       // change progressBar in realTime
@@ -134,7 +136,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       progressBox.classList.remove(
         "text-red-500",
         "text-yellow-500",
-        "text-green-500"
+        "text-green-500",
       );
       const progressStyles =
         cardData.progressPercentage <= 25
@@ -147,21 +149,24 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
 
       // TODO meatadata isComplete true => false if undo progress
 
-      const containerProgressBars = cardContainer.firstElementChild.firstElementChild.nextElementSibling
+      const containerProgressBars =
+        cardContainer.firstElementChild.firstElementChild.nextElementSibling;
 
-      const pagesProgessBar = containerProgressBars.firstElementChild.firstElementChild.firstElementChild as HTMLDivElement
-      const pagesProgessBox = containerProgressBars.firstElementChild.lastElementChild.firstElementChild as HTMLDivElement
-      const pagesSpan1 = pagesProgessBox.firstElementChild as HTMLSpanElement
-      const pagesSpan2 = pagesProgessBox.lastElementChild as HTMLSpanElement
+      const pagesProgessBar = containerProgressBars.firstElementChild
+        .firstElementChild.firstElementChild as HTMLDivElement;
+      const pagesProgessBox = containerProgressBars.firstElementChild
+        .lastElementChild.firstElementChild as HTMLDivElement;
+      const pagesSpan1 = pagesProgessBox.firstElementChild as HTMLSpanElement;
+      const pagesSpan2 = pagesProgessBox.lastElementChild as HTMLSpanElement;
 
-      pagesProgessBar.style.width = `${metadata.progressPagesPercentage}%`
+      pagesProgessBar.style.width = `${metadata.progressPagesPercentage}%`;
       pagesSpan1.innerText = `${metadata.progressPages}/${pages}`;
-      pagesSpan2.innerText = `${metadata.progressPagesPercentage}%`
+      pagesSpan2.innerText = `${metadata.progressPagesPercentage}%`;
 
       pagesProgessBox.classList.remove(
         "text-red-500",
         "text-yellow-500",
-        "text-green-500"
+        "text-green-500",
       );
       const progressPageStyles =
         metadata.progressPagesPercentage <= 25
@@ -171,19 +176,23 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
             : "text-green-500";
       pagesProgessBox.classList.add(progressPageStyles);
 
-      const chaptersProgessBar = containerProgressBars.lastElementChild.firstElementChild.firstElementChild as HTMLDivElement
-      const chaptersProgessBox = containerProgressBars.lastElementChild.lastElementChild.firstElementChild as HTMLDivElement
-      const chaptersSpan1 = chaptersProgessBox.firstElementChild as HTMLSpanElement
-      const chaptersSpan2 = chaptersProgessBox.lastElementChild as HTMLSpanElement
+      const chaptersProgessBar = containerProgressBars.lastElementChild
+        .firstElementChild.firstElementChild as HTMLDivElement;
+      const chaptersProgessBox = containerProgressBars.lastElementChild
+        .lastElementChild.firstElementChild as HTMLDivElement;
+      const chaptersSpan1 =
+        chaptersProgessBox.firstElementChild as HTMLSpanElement;
+      const chaptersSpan2 =
+        chaptersProgessBox.lastElementChild as HTMLSpanElement;
 
       chaptersProgessBar.style.width = `${metadata.progressChapterPercentage}%`;
       chaptersSpan1.innerText = `${metadata.progressPages}/${chapters}`;
-      chaptersSpan2.innerText = `${metadata.progressChapterPercentage}%`
+      chaptersSpan2.innerText = `${metadata.progressChapterPercentage}%`;
 
       chaptersProgessBox.classList.remove(
         "text-red-500",
         "text-yellow-500",
-        "text-green-500"
+        "text-green-500",
       );
       const progressChaptersStyles =
         metadata.progressChapterPercentage <= 25
@@ -193,18 +202,17 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
             : "text-green-500";
       chaptersProgessBox.classList.add(progressChaptersStyles);
 
+      console.log("containerProgressBars: ", containerProgressBars);
 
-      console.log("containerProgressBars: ", containerProgressBars)
+      console.log("pagesProgessBar: ", pagesProgessBar);
+      console.log("pagesProgessBox: ", pagesProgessBox);
+      console.log("pagesSpan1: ", pagesSpan1);
+      console.log("pagesSpan2: ", pagesSpan2);
 
-      console.log("pagesProgessBar: ", pagesProgessBar)
-      console.log("pagesProgessBox: ", pagesProgessBox)
-      console.log("pagesSpan1: ", pagesSpan1)
-      console.log("pagesSpan2: ", pagesSpan2)
-
-      console.log("chaptersProgessBar: ", chaptersProgessBar)
-      console.log("chaptersProgessBox: ", chaptersProgessBox)
-      console.log("chaptersSpan1: ", chaptersSpan1)
-      console.log("chaptersSpan2: ", chaptersSpan2)
+      console.log("chaptersProgessBar: ", chaptersProgessBar);
+      console.log("chaptersProgessBox: ", chaptersProgessBox);
+      console.log("chaptersSpan1: ", chaptersSpan1);
+      console.log("chaptersSpan2: ", chaptersSpan2);
     });
     // --------------------- //
   } else {

@@ -37,21 +37,21 @@ export default function removeRenderPage(navLinkBtn: HTMLButtonElement): void {
 
     if (pageName === "Anime") {
       anilistMainContainer.append(
-        AnimeMangaPage("ANIME", filterIsOpenByDefault)
+        AnimeMangaPage("ANIME", filterIsOpenByDefault),
       );
       header.remove();
       anilistMainContainer.prepend(
-        AnimeMangaHeader("ANIME", animeHeaderSettings)
+        AnimeMangaHeader("ANIME", animeHeaderSettings),
       );
     }
 
     if (pageName === "Manga") {
       anilistMainContainer.append(
-        AnimeMangaPage("MANGA", filterIsOpenByDefault)
+        AnimeMangaPage("MANGA", filterIsOpenByDefault),
       );
       header.remove();
       anilistMainContainer.prepend(
-        AnimeMangaHeader("MANGA", mangaHeaderSettings)
+        AnimeMangaHeader("MANGA", mangaHeaderSettings),
       );
     }
 

@@ -16,7 +16,7 @@ export default function ListComponent(
     };
     listHeadRowTextColor: string;
     itemStyles: string;
-  }
+  },
 ) {
   const styles = "mb-8";
   const ListComponent = HTML("div", styles);
@@ -25,7 +25,7 @@ export default function ListComponent(
   const listItemWrapper = HTML("div", styles2);
 
   listItemWrapper.append(
-    ListHeadRow(listType, listsTheme.listHeadRowTextColor)
+    ListHeadRow(listType, listsTheme.listHeadRowTextColor),
   );
 
   if (listType === "ANIME") {
@@ -44,8 +44,8 @@ export default function ListComponent(
           score,
           progress,
           type,
-          listsTheme.itemStyles
-        )
+          listsTheme.itemStyles,
+        ),
       );
     }
   } else {
@@ -63,15 +63,15 @@ export default function ListComponent(
           score,
           chapters,
           volumes,
-          listsTheme.itemStyles
-        )
+          listsTheme.itemStyles,
+        ),
       );
     }
   }
 
   ListComponent.append(
     ListTitle(listName, listData.length, listsTheme.listTitle),
-    listItemWrapper
+    listItemWrapper,
   );
   return ListComponent;
 }

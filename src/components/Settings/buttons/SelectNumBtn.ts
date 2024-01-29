@@ -3,7 +3,7 @@ import HTML from "../../HTML/HTML";
 export default function SelectNumBtn(
   maxOptionNum: number,
   SelectedOption: number,
-  callback: any
+  callback: any,
 ) {
   const styles = "w-fit h-10 flex items-center justify-center px-4";
   const selectContainer = HTML("div", styles);

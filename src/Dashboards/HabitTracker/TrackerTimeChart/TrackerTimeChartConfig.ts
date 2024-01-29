@@ -2,7 +2,7 @@ export default function TrackerTimeChartConfig(
   labelsDays: string[],
   habitsChartColor: string[],
   AllHabitsNames: string[],
-  AllHabitsTimeDataset: number[]
+  AllHabitsTimeDataset: number[],
 ) {
   // console.log(honorDataset, scoreDataset);
 

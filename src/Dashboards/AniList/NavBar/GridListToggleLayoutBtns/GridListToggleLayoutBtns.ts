@@ -12,10 +12,10 @@ export default function GridListToggleLayoutBtns(gridListToggleLayoutTheme: {
     ToggleViewBtn(
       "list-with-img",
       true,
-      gridListToggleLayoutTheme.isSelectedStyles
+      gridListToggleLayoutTheme.isSelectedStyles,
     ),
     ToggleViewBtn("list", false, gridListToggleLayoutTheme.isSelectedStyles),
-    ToggleViewBtn("grid", false, gridListToggleLayoutTheme.isSelectedStyles)
+    ToggleViewBtn("grid", false, gridListToggleLayoutTheme.isSelectedStyles),
   );
   return btnsContainer;
 }

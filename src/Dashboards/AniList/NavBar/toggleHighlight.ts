@@ -1,6 +1,6 @@
 export default function toggleHighlight(
   navLinkBtn: HTMLButtonElement,
-  navBar: HTMLElement
+  navBar: HTMLElement,
 ): void {
   // console.log(navLinkBtn.tagName);
 
@@ -25,6 +25,6 @@ export default function toggleHighlight(
     "background:black; color:#0f0; font-weight:900",
     "background:black; color:white",
     "background:black; color:#c7f; font-weight:700; font-family: Arial",
-    "background:black; color:white"
+    "background:black; color:white",
   );
 }

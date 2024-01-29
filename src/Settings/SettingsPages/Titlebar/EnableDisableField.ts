@@ -5,13 +5,13 @@ import TitleBarDATA from "./TitleBarDATA";
 export default function EnableDisableField() {
   const container = SettingsFieldset(
     "Enable/Disable Features",
-    "settings--titlebar--enable-disable-features"
+    "settings--titlebar--enable-disable-features",
   );
 
   TitleBarDATA().then((data) => {
     container.append(
       ToggleBtn("Clock", "titlebar-clock-on-off", !!data["clock"], () =>
-        window.DATA.editSettingsJSONFile_ON_OFF("settings/titlebar", "clock")
+        window.DATA.editSettingsJSONFile_ON_OFF("settings/titlebar", "clock"),
       ),
       ToggleBtn(
         "Age in Days",
@@ -20,9 +20,9 @@ export default function EnableDisableField() {
         () =>
           window.DATA.editSettingsJSONFile_ON_OFF(
             "settings/titlebar",
-            "howOldYouInDays"
-          )
-      )
+            "howOldYouInDays",
+          ),
+      ),
     );
   });
 

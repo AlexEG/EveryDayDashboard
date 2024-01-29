@@ -1,5 +1,5 @@
 export default function toggleAutoLockForHaibt(
-  checkbox: HTMLInputElement
+  checkbox: HTMLInputElement,
 ): void {
   const container =
     checkbox.parentElement.parentElement.parentElement.parentElement;
@@ -20,7 +20,7 @@ export default function toggleAutoLockForHaibt(
       "data",
       "",
       "metadata",
-      "autoLockAfterTime"
+      "autoLockAfterTime",
     );
 
     // reset time input
@@ -34,7 +34,7 @@ export default function toggleAutoLockForHaibt(
       "background:black; color:#f00 ; font-weight:900",
       "background:black; color:white",
       "background:black; color:#c7f",
-      "background:black; color:white"
+      "background:black; color:white",
     );
   } else {
     const fileName = container.dataset.fileName;
@@ -46,7 +46,7 @@ export default function toggleAutoLockForHaibt(
       "background:black; color:#0f0 ; font-weight:900",
       "background:black; color:white",
       "background:black; color:#c7f",
-      "background:black; color:white"
+      "background:black; color:white",
     );
   }
 }

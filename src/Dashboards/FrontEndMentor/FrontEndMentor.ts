@@ -10,7 +10,7 @@ export default function FrontendMentor() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "FrontendMentor"
+    "FrontendMentor",
   );
 
   MainContainer.append(h1);

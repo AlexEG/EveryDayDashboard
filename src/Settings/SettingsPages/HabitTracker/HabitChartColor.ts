@@ -4,11 +4,11 @@ import ColorInput from "../../../components/Settings/inputs/ColorInput";
 export default function HabitChartColor(
   fileNameArr: string[],
   habitNameArr: string[],
-  habitChartColorArr: string[]
+  habitChartColorArr: string[],
 ) {
   const container = SettingsFieldset(
     "Habit Chart Color",
-    "settings--habit-tracker--habit-chart-color"
+    "settings--habit-tracker--habit-chart-color",
   );
 
   function changeColor(colorPicker: HTMLInputElement) {
@@ -20,14 +20,14 @@ export default function HabitChartColor(
       "data",
       colorPicker.value,
       "metadata",
-      "chartColor"
+      "chartColor",
     );
 
     console.log(
       `%c Settings HabitTracker <Change> Habit Chart Color => %c  %c\n${colorPicker.value}`,
       "background:black; color:white",
       `background:${colorPicker.value};`,
-      ""
+      "",
     );
   }
 
@@ -36,7 +36,7 @@ export default function HabitChartColor(
       `settings--habit-tracker--habit-chart-color,${fileNameArr[i]}`,
       habitNameArr[i],
       habitChartColorArr[i] || "#ffffff",
-      changeColor
+      changeColor,
     );
     colorPicker.style.width = "100%";
     container.append(colorPicker);

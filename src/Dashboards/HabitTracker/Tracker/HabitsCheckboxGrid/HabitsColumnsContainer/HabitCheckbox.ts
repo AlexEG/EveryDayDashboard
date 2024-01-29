@@ -6,7 +6,7 @@ export default function HabitCheckbox(
   habitName: string,
   dayNum: number,
   habitGroupColor: string,
-  autoLockAfterTime: string
+  autoLockAfterTime: string,
 ) {
   const highlight =
     highlightToday &&
@@ -71,7 +71,7 @@ export default function HabitCheckbox(
         lockCheckbox();
         console.log(
           "%c AutoLock This Haibt cuz You're lazy ",
-          "background:#000;color:#f00;font-weight:900"
+          "background:#000;color:#f00;font-weight:900",
         );
       }, timeUntilAutoLock);
     }
@@ -126,7 +126,7 @@ export default function HabitCheckbox(
     const habitNum = cell.parentElement.dataset.habitNum;
     const habitFileName = `dashboards/habit-tracker/habit_${habitNum}_${habitName.replace(
       /\s+/g,
-      "_"
+      "_",
     )}`;
     // console.log(habitFileName);
 
@@ -175,7 +175,7 @@ export default function HabitCheckbox(
       window.DATA.editSettingsJSONFile_Value(
         habitFileName,
         "data",
-        data["data"]
+        data["data"],
       );
     });
     //--- change the DailyProgressColumn text ---//
@@ -196,12 +196,12 @@ export default function HabitCheckbox(
 
     if (checkbox.hasAttribute("checked")) {
       newPercentage = Math.round(
-        ((+howManyCheckedInThisDay - 1) / +numOfHabits) * 100
+        ((+howManyCheckedInThisDay - 1) / +numOfHabits) * 100,
       );
       newHowManyCheckedInThisDay--;
     } else {
       newPercentage = Math.round(
-        ((+howManyCheckedInThisDay + 1) / +numOfHabits) * 100
+        ((+howManyCheckedInThisDay + 1) / +numOfHabits) * 100,
       );
       newHowManyCheckedInThisDay++;
     }
@@ -214,13 +214,13 @@ export default function HabitCheckbox(
       newPercentage <= 25
         ? "text-red-500"
         : newPercentage <= 75
-        ? "text-yellow-500"
-        : "text-green-500";
+          ? "text-yellow-500"
+          : "text-green-500";
 
     thisDay.classList.remove(
       "text-red-500",
       "text-yellow-500",
-      "text-green-500"
+      "text-green-500",
     );
     thisDay.classList.add(progressStyles);
 
@@ -239,13 +239,13 @@ export default function HabitCheckbox(
           `%c Uncheck %c ${habitName} %c ${month} ${day}, ${year} `,
           "background:black; color:#f00; font-weight:900",
           "background:black; color:#ffd269",
-          "background:black; color:white"
+          "background:black; color:white",
         )
       : console.log(
           `%c Check %c ${habitName} %c ${month} ${day}, ${year} `,
           "background:black; color:#0f0; font-weight:900",
           "background:black; color:#ffd269",
-          "background:black; color:white"
+          "background:black; color:white",
         );
     // } // editHabitHistory if() END
   }; // onclick end

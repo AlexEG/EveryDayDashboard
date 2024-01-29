@@ -6,7 +6,7 @@ import DisplayAndOrderComponent from "./DisplayAndOrderComponent";
 
 export default function DashboardChangeOrder(
   maxOptionNum: number,
-  SelectedOption: number
+  SelectedOption: number,
 ) {
   return SelectNumBtn(maxOptionNum, SelectedOption, (e: Event) => {
     const select = e.target as HTMLSelectElement;
@@ -26,13 +26,13 @@ export default function DashboardChangeOrder(
       window.DATA.editSettingsJSONFile_Value(
         "settings/sidebar",
         "DisplayAndOrder",
-        newAllData
+        newAllData,
       );
 
       console.log(
         `%c Sidebar Dashboard < ${arr1[1]} > Change Order => %c ${Value2 + 1} `,
         "background:black; color:white",
-        `background:black; color:#0f0; font-weight: 900;`
+        `background:black; color:#0f0; font-weight: 900;`,
       );
       // --------------------------------
       //* Refresh  Display & Order *//
@@ -40,14 +40,14 @@ export default function DashboardChangeOrder(
 
       const container = SettingsFieldset(
         "Display & Order",
-        "settings--sidebar--display-order"
+        "settings--sidebar--display-order",
       );
 
       for (let i = 0; i < DashboardsData.length; i++) {
         const [svgName, dashboardName, isDisplayed] = newAllData[i] as [
           string,
           string,
-          boolean
+          boolean,
         ];
 
         container.append(
@@ -56,8 +56,8 @@ export default function DashboardChangeOrder(
             dashboardName,
             DashboardsData.length,
             i,
-            isDisplayed
-          )
+            isDisplayed,
+          ),
         );
       }
       document.querySelector("#settings--sidebar").append(container);

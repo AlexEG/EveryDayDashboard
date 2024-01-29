@@ -13,8 +13,8 @@ export default function ChapterContainer(data: any) {
         values.progressPages,
         values.pages,
         values.progressPercentage,
-        i
-      )
+        i,
+      ),
     );
     i++;
   }

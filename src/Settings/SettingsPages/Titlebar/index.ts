@@ -11,14 +11,14 @@ export default function Titlebar() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "Titlebar"
+    "Titlebar",
   );
 
   mainContainer.append(
     h1,
     ChangeBirthday(),
     EnableDisableField(),
-    ChangeColor()
+    ChangeColor(),
   );
   return mainContainer;
 }

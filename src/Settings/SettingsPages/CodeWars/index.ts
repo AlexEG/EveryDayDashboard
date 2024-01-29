@@ -7,7 +7,7 @@ export default function CodeWars() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "CodeWars"
+    "CodeWars",
   );
 
   mainContainer.append(h1);

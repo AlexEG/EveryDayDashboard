@@ -15,7 +15,7 @@ export default function InfoBadge(
     | "Chapters"
     | "Source"
     | "Mean Score"
-    | "Favourites"
+    | "Favourites",
 ) {
   let badgeStyles: string[];
 
@@ -82,7 +82,7 @@ export default function InfoBadge(
     `anilist--header-${type}--info-banner--${badgeText
       .toLowerCase()
       .replaceAll(" ", "-")}-badge`,
-    "???"
+    "???",
   );
 
   const styles3 = `pr-1 pl-0.5 py-1 ${badgeStyles[2]}`;

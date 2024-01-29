@@ -31,7 +31,7 @@ const createWindow = () => {
     mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
   } else {
     mainWindow.loadFile(
-      path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`)
+      path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
     );
   }
 
@@ -68,6 +68,6 @@ app.on("activate", () => {
   const PREF_LOG_END = Date.now();
 
   console.log(
-    ` Preformance / main.ts  { ${PREF_LOG_END - PREF_LOG_START}ms } `
+    ` Preformance / main.ts  { ${PREF_LOG_END - PREF_LOG_START}ms } `,
   );
 }

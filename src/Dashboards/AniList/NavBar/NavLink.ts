@@ -6,7 +6,7 @@ export default function NavLink(
   navLinksTheme: {
     isOpenStyles: string;
     normal: string;
-  }
+  },
 ) {
   const highlight = isOpen
     ? navLinksTheme.isOpenStyles || "text-black border-white bg-white"

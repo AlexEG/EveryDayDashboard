@@ -10,7 +10,7 @@ export default function MonkeyType() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "MonkeyType"
+    "MonkeyType",
   );
 
   MainContainer.append(h1);

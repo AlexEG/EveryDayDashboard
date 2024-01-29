@@ -5,7 +5,7 @@ export default function TextInput(
   placeholder: string,
   label: string,
   maxlength: string,
-  value: string
+  value: string,
 ) {
   const inputStyles =
     "bg-transparent border-indigo-600 border-2 rounded-md py-px px-1 focus-within:outline-none placeholder:opacity-30 focus-within:border-indigo-400 transition-colors text-indigo-50 duration-300 w-16 text-center text-base";

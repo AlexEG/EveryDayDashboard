@@ -46,38 +46,38 @@ export default function Sidebar() {
           svgName === "home"
             ? Home
             : svgName === "habit-tracker"
-            ? HabitTracker
-            : svgName === "github"
-            ? GitHub
-            : svgName === "wakatime"
-            ? WakaTime
-            : svgName === "codewars"
-            ? CodeWars
-            : svgName === "leetcode"
-            ? LeetCode
-            : svgName === "cssbattle"
-            ? CSSBattle
-            : svgName === "tryhackme"
-            ? TryHackMe
-            : svgName === "monkeytype"
-            ? MonkeyType
-            : svgName === "youtube"
-            ? YouTube
-            : svgName === "spotify"
-            ? Spotify
-            : svgName === "anilist"
-            ? AinList
-            : svgName === "achievements"
-            ? Achievements
-            : svgName === "frontendmentor"
-            ? FrontendMentor
-            : svgName === "freecodecamp"
-            ? FreeCodeCamp
-            : svgName === "devdotto"
-            ? DEV
-            : svgName === "firebase"
-            ? Firebase
-            : Vercel;
+              ? HabitTracker
+              : svgName === "github"
+                ? GitHub
+                : svgName === "wakatime"
+                  ? WakaTime
+                  : svgName === "codewars"
+                    ? CodeWars
+                    : svgName === "leetcode"
+                      ? LeetCode
+                      : svgName === "cssbattle"
+                        ? CSSBattle
+                        : svgName === "tryhackme"
+                          ? TryHackMe
+                          : svgName === "monkeytype"
+                            ? MonkeyType
+                            : svgName === "youtube"
+                              ? YouTube
+                              : svgName === "spotify"
+                                ? Spotify
+                                : svgName === "anilist"
+                                  ? AinList
+                                  : svgName === "achievements"
+                                    ? Achievements
+                                    : svgName === "frontendmentor"
+                                      ? FrontendMentor
+                                      : svgName === "freecodecamp"
+                                        ? FreeCodeCamp
+                                        : svgName === "devdotto"
+                                          ? DEV
+                                          : svgName === "firebase"
+                                            ? Firebase
+                                            : Vercel;
 
         innerDiv.append(SectionBtn(svgName, func));
       }
@@ -87,7 +87,7 @@ export default function Sidebar() {
     innerDiv.children[0].children[0].classList.remove("invert");
     innerDiv.children[0].children[0].classList.replace(
       "opacity-70",
-      "opacity-100"
+      "opacity-100",
     );
   });
 

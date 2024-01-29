@@ -8,7 +8,7 @@ export default function HabitsCheckboxGrid(year?: number, month?: number) {
   const HabitsCheckboxGridContainer = HTML(
     "div",
     styles,
-    "habits-checkbox-grid"
+    "habits-checkbox-grid",
   );
 
   const MONTHS = [
@@ -34,7 +34,7 @@ export default function HabitsCheckboxGrid(year?: number, month?: number) {
   const numberOfDaysInThisMonth = new Date(
     thisYear,
     thisMonthNum - 1,
-    0
+    0,
   ).getDate();
 
   HabitsCheckboxGridContainer.append(
@@ -43,14 +43,14 @@ export default function HabitsCheckboxGrid(year?: number, month?: number) {
       numberOfDaysInThisMonth,
       thisMonthName,
       todayNum,
-      thisYear
+      thisYear,
     ),
     DailyProgressColumn(
       numberOfDaysInThisMonth,
       thisMonthName,
       todayNum,
-      thisYear
-    )
+      thisYear,
+    ),
   );
   return HabitsCheckboxGridContainer;
 }

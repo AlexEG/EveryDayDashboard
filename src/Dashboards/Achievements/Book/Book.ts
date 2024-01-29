@@ -13,7 +13,7 @@ export default function Book(
   progressPages: number,
   progressChapterPercentage: number,
   progressPagesPercentage: number,
-  data: any
+  data: any,
 ) {
   const styles =
     "max-w-5xl mx-auto my-4 border odd:border-rose-600 even:border-blue-600 p-2 group";
@@ -35,19 +35,19 @@ export default function Book(
 
   const progressBarWrapper = HTML(
     "div",
-    "h-full grid place-content-center gap-y-1"
+    "h-full grid place-content-center gap-y-1",
   );
   // console.log(chapters);
 
   progressBarWrapper.append(
     ProgressBar(progressPages, pages, progressPagesPercentage),
-    ProgressBar(progressChapter, chapters, progressChapterPercentage)
+    ProgressBar(progressChapter, chapters, progressChapterPercentage),
   );
   const cardInfoWrapper = HTML("div", styles4);
   cardInfoWrapper.append(
     titleDescriptionWrapper,
     progressBarWrapper,
-    ExpandCollapseBtn()
+    ExpandCollapseBtn(),
   );
 
   bookContainer.append(cardInfoWrapper, ChaptersContainer(data));

@@ -6,7 +6,7 @@ export default function updateFavourites() {
 
     window.DATA.CreateOrUpdateJSON(
       "dashboards/anilist/favourites-data.json",
-      data
+      data,
     );
   });
 }

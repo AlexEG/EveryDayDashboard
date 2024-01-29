@@ -3,15 +3,12 @@ import { AnimeIdList, notificationSettingsTypes } from "../../type";
 import AniList_API from "../AniList_API";
 
 export default function updateAllDetailsDataAnimeManga(
-  userId:number,
-  userName:string, 
+  userId: number,
+  userName: string,
   type: "ANIME" | "MANGA",
   notificationsContainer: HTMLElement,
-  notificationSettings: notificationSettingsTypes
+  notificationSettings: notificationSettingsTypes,
 ) {
-
-
-
   const variables = {
     userId: userId,
     userName: userName,
@@ -20,8 +17,8 @@ export default function updateAllDetailsDataAnimeManga(
   notificationsContainer.append(
     NotificationCard(
       `Checking for All ${type} Details Data`,
-      notificationSettings
-    )
+      notificationSettings,
+    ),
   );
   setTimeout(() => {
     AniList_API("AnimeIdList", variables).then((data: AnimeIdList) => {
@@ -38,16 +35,13 @@ export default function updateAllDetailsDataAnimeManga(
       // console.log("AllAnimeId: ", AllAnimeId);
       // get the completed files from anilist/details-data/anime
 
-   
-      
       const downloadedDetailsFiles = Array.from(
-   
         window.DATA.readDir(`anilist/details-data/${type.toLowerCase()}`),
-        (file: string) => +file.slice(0, -5)
+        (file: string) => +file.slice(0, -5),
       );
 
       const needToDownload = AllAnimeId.filter(
-        (id) => !downloadedDetailsFiles.includes(id)
+        (id) => !downloadedDetailsFiles.includes(id),
       );
 
       // console.log("downloadedDetailsFiles: ", downloadedDetailsFiles);
@@ -57,14 +51,14 @@ export default function updateAllDetailsDataAnimeManga(
         notificationsContainer.append(
           NotificationCard(
             `Offline Data ${needToDownload.length}/${AllAnimeId.length}`,
-            notificationSettings
-          )
+            notificationSettings,
+          ),
         );
         notificationsContainer.append(
           NotificationCard(
             `Start downloading ${needToDownload.length} Anime Details File `,
-            notificationSettings
-          )
+            notificationSettings,
+          ),
         );
 
         let i = 1;
@@ -81,21 +75,21 @@ export default function updateAllDetailsDataAnimeManga(
               //@ts-ignore-next-line
               window.DATA.CreateOrUpdateJSON(
                 `dashboards/anilist/details-data/${type.toLowerCase()}/${id}.json`,
-                data
+                data,
               );
             });
             notificationsContainer.append(
-              NotificationCard(`Complete ${type} ${id}`, notificationSettings)
+              NotificationCard(`Complete ${type} ${id}`, notificationSettings),
             );
           }, 1000 * i);
         }
       } else
-      notificationsContainer.append(
-        NotificationCard(
-          `Your ${type} Offline Data is up-to-date`,
-          notificationSettings
-        )
-      );
+        notificationsContainer.append(
+          NotificationCard(
+            `Your ${type} Offline Data is up-to-date`,
+            notificationSettings,
+          ),
+        );
     });
   }, 2_000);
 }

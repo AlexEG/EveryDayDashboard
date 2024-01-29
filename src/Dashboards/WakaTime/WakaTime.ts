@@ -12,7 +12,7 @@ export default function WakaTime() {
   const img1 = HTML("img");
   img1.setAttribute(
     "src",
-    "https://wakatime.com/badge/user/fbdfdc0f-d449-43dc-8090-ced03a22fe8c.svg"
+    "https://wakatime.com/badge/user/fbdfdc0f-d449-43dc-8090-ced03a22fe8c.svg",
   );
   div1.append(img1);
 
@@ -75,7 +75,7 @@ export default function WakaTime() {
         btn.dataset.expand = "false";
 
         btn.parentElement.parentElement.classList.remove(
-          ...expandShrinkChartStyles
+          ...expandShrinkChartStyles,
         );
         btn.parentElement.classList.remove("w-[1000px]");
       } else {
@@ -83,7 +83,7 @@ export default function WakaTime() {
         btn.dataset.expand = "true";
 
         btn.parentElement.parentElement.classList.add(
-          ...expandShrinkChartStyles
+          ...expandShrinkChartStyles,
         );
         btn.parentElement.classList.add("w-[1000px]");
       }

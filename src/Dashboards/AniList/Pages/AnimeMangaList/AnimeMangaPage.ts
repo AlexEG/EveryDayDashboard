@@ -20,7 +20,7 @@ export default function AnimeMangaPage(
     };
     listHeadRowTextColor: string;
     itemStyles: string;
-  }
+  },
 ) {
   const styles = "w-full flex select-none";
 
@@ -29,7 +29,7 @@ export default function AnimeMangaPage(
 
   const offlineData = async () => {
     const rawData = await window.DATA.getJSONFileData(
-      `dashboards/anilist/${type.toLowerCase()}`
+      `dashboards/anilist/${type.toLowerCase()}`,
     );
     const data = await JSON.parse(rawData);
     return data;
@@ -53,7 +53,7 @@ export default function AnimeMangaPage(
 
     mainContainer.append(
       Filter(filterIsOpenByDefault, filterTheme),
-      Lists(type, allLists, listsTheme)
+      Lists(type, allLists, listsTheme),
     );
   });
 

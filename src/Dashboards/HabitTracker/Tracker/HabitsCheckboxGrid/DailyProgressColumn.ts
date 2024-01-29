@@ -6,7 +6,7 @@ export default function DailyProgressColumn(
   numberOfDaysInThisMonth: number,
   thisMonthName: string,
   todayNum: number,
-  thisYear: number
+  thisYear: number,
 ) {
   const styles = "w-fit flex flex-col border border-blue-800 select-none ";
   const container = HTML("div", styles);
@@ -15,7 +15,7 @@ export default function DailyProgressColumn(
     "div",
     "w-10 h-10 text-center text-blue-50 flex justify-center items-center border-b border-b-blue-800",
     "",
-    "P"
+    "P",
   );
   container.append(colHead);
 
@@ -48,7 +48,7 @@ export default function DailyProgressColumn(
       // console.log(howManyCheckedInThisDay);
       // ------------
       const percentage = Math.round(
-        (howManyCheckedInThisDay / numOfHabits) * 100
+        (howManyCheckedInThisDay / numOfHabits) * 100,
       );
 
       // console.log(percentage);
@@ -57,8 +57,8 @@ export default function DailyProgressColumn(
         percentage <= 25
           ? " text-red-500"
           : percentage <= 75
-          ? " text-yellow-500"
-          : " text-green-500";
+            ? " text-yellow-500"
+            : " text-green-500";
 
       const text =
         howManyCheckedInThisDay === null

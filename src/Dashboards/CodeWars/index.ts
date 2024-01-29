@@ -16,7 +16,7 @@ export default function CodeWars() {
     Header(),
     HonorScoreChart(),
     LanguagesRankCharts(),
-    LanguagesChart()
+    LanguagesChart(),
     // OverallRank()
   );
   return MainContainer;

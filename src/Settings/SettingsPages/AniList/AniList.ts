@@ -7,7 +7,6 @@ export default function AniList() {
   const mainContainer = HTML("section", styles, "settings--aniList");
   const h1 = HTML("h1", "text-neutral-50 font-bold mb-2", "", "AniList");
 
-
   mainContainer.append(h1, Anime());
 
   return mainContainer;

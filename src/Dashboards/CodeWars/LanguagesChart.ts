@@ -26,7 +26,7 @@ export default function LanguagesChart() {
         `${key} (${data["data"]["Languages"][key]["name"]} | ${+(
           (langScore / totalScore) *
           100
-        ).toFixed(1)}%)`
+        ).toFixed(1)}%)`,
       );
       LanguagesScores.push(langScore);
     }
@@ -34,7 +34,7 @@ export default function LanguagesChart() {
     (async function () {
       new Chart(
         chartCanvas,
-        LanguagesChartConfig(totalScore, LanguagesNames, LanguagesScores)
+        LanguagesChartConfig(totalScore, LanguagesNames, LanguagesScores),
       );
     })();
     // ----------------

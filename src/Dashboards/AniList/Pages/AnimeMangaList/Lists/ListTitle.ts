@@ -6,7 +6,7 @@ export default function ListTitle(
   listTitleTheme: {
     textColor: string;
     numberOfItemsCircle: string;
-  }
+  },
 ) {
   const styles = `flex gap-x-1 ${listTitleTheme.textColor || "text-while"}`;
   const listTitle = HTML("div", styles);

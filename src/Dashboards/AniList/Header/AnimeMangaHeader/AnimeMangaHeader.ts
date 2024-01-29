@@ -11,7 +11,7 @@ export default function AnimeMangaHeader(
     titleColor: string;
     titleDropShadow: string;
     coverImgDropShadow: string;
-  }
+  },
 ) {
   const styles = "";
   const headerID = `anilist--header-${type.toLowerCase()}`;
@@ -29,13 +29,13 @@ export default function AnimeMangaHeader(
     styles3,
     `${headerID}--banner--is-favourite`,
     "",
-    { src: "/src/assets/heart.svg" }
+    { src: "/src/assets/heart.svg" },
   );
 
   const bannerImg = HTML(
     "img",
     "object-cover object-center w-full h-full",
-    `${headerID}--banner--image`
+    `${headerID}--banner--image`,
   );
 
   if (type === "ANIME") {
@@ -52,7 +52,7 @@ export default function AnimeMangaHeader(
       isAutoSwitchBannerRandomly,
       switchingSpeed,
       infoBanner,
-      seasonWithYear
+      seasonWithYear,
     );
   }
 
@@ -68,7 +68,7 @@ export default function AnimeMangaHeader(
       autoSwitchBanner,
       isAutoSwitchBannerRandomly,
       switchingSpeed,
-      infoBanner
+      infoBanner,
     );
   }
 
@@ -76,7 +76,7 @@ export default function AnimeMangaHeader(
   header.append(banner);
   if (animeMangaHeaderSettings.isInfoHeaderEnabled)
     header.append(
-      InfoBanner(type, animeMangaHeaderSettings.infoBanner, infoBannerTheme)
+      InfoBanner(type, animeMangaHeaderSettings.infoBanner, infoBannerTheme),
     );
   return header;
 }

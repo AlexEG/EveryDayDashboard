@@ -36,8 +36,10 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
     const achievementsDataJSON = new Promise((res, rej) => {
       res(
         JSON.parse(
-          window.DATA.getJSONFileData(`dashboards/achievements/${fileNameJSON}`)
-        )
+          window.DATA.getJSONFileData(
+            `dashboards/achievements/${fileNameJSON}`,
+          ),
+        ),
       );
     });
 
@@ -58,7 +60,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       const oldProgressPages = cardData.progressPages;
       cardData.progressPages = newProgressValue;
       cardData.progressPercentage = Math.round(
-        (newProgressValue / ChapterPages) * 100
+        (newProgressValue / ChapterPages) * 100,
       );
 
       // metadata
@@ -67,7 +69,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
         metadata.progressPages - oldProgressPages + newProgressValue;
 
       const newProgressPercentage = Math.round(
-        (newProgressPages / pages) * 100
+        (newProgressPages / pages) * 100,
       );
       metadata.progressPagesPercentage = newProgressPercentage;
       metadata.progressPages = newProgressPages;
@@ -82,7 +84,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       ) {
         metadata.progressChapter = metadata.progressChapter + 1;
         metadata.progressChapterPercentage = Math.round(
-          (metadata.progressChapter / chapters) * 100
+          (metadata.progressChapter / chapters) * 100,
         );
         cardData.isComplete = true;
       }
@@ -90,7 +92,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       if (cardData.progressPercentage < 100 && cardData.isComplete === true) {
         metadata.progressChapter = metadata.progressChapter - 1;
         metadata.progressChapterPercentage = Math.round(
-          (metadata.progressChapter / chapters) * 100
+          (metadata.progressChapter / chapters) * 100,
         );
         cardData.isComplete = false;
       }
@@ -106,7 +108,7 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
 
       window.DATA.CreateOrUpdateJSON(
         `dashboards/achievements/${fileNameJSON}.json`,
-        data
+        data,
       );
 
       // change progressBar in realTime
@@ -134,14 +136,14 @@ export default function updatePageProgress(saveBtn: HTMLElement): void {
       progressBox.classList.remove(
         "text-red-500",
         "text-yellow-500",
-        "text-green-500"
+        "text-green-500",
       );
       const progressStyles =
         cardData.progressPercentage <= 25
           ? "text-red-500"
           : cardData.progressPercentage <= 75
-          ? "text-yellow-500"
-          : "text-green-500";
+            ? "text-yellow-500"
+            : "text-green-500";
       progressBox.classList.add(progressStyles);
       console.log("progressBarContainer", progressBarContainer);
     });

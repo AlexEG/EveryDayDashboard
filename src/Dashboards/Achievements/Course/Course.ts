@@ -11,7 +11,7 @@ export default function Course(
   lessons: number,
   progressLessons: number,
   progressLessonsPercentage: number,
-  data: any
+  data: any,
 ) {
   console.log("data", data);
   const styles = "max-w-5xl mx-auto my-4 border border-blue-600 p-2 ";
@@ -32,18 +32,18 @@ export default function Course(
 
   const progressBarWrapper = HTML(
     "div",
-    "h-full grid place-content-center gap-y-1"
+    "h-full grid place-content-center gap-y-1",
   );
   // console.log(chapters);
 
   progressBarWrapper.append(
-    ProgressBar(progressLessons, lessons, progressLessonsPercentage)
+    ProgressBar(progressLessons, lessons, progressLessonsPercentage),
   );
   const cardInfoWrapper = HTML("div", styles4);
   cardInfoWrapper.append(
     titleDescriptionWrapper,
     progressBarWrapper,
-    ExpandCollapseBtn()
+    ExpandCollapseBtn(),
   );
 
   courseContainer.append(cardInfoWrapper, LessonsContainer(data));

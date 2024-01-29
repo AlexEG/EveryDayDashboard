@@ -51,7 +51,7 @@ function createJSONHaFileHabit(FileName: string) {
       +file
         .split("_")
         .slice(1, 2)
-        .sort((a, b) => +a - +b)
+        .sort((a, b) => +a - +b),
   );
   const bigestHabitNum =
     excitingFilesNumbersArr[excitingFilesNumbersArr.length - 1];
@@ -75,7 +75,7 @@ function createJSONHaFileHabit(FileName: string) {
     JSON.stringify(emptyDataHabit),
     (err) => {
       if (err) console.error(err);
-    }
+    },
   );
 }
 
@@ -107,7 +107,7 @@ function editCalenderFileJSON(
   fileName: string,
   month: string,
   day: string,
-  time: string[]
+  time: string[],
 ) {
   fs.readFile(`./DATA/habits/${fileName}.json`, "utf-8", (err, data) => {
     if (err) {
@@ -123,7 +123,7 @@ function editCalenderFileJSON(
       JSON.stringify(jsonData),
       function (err) {
         if (err) throw err;
-      }
+      },
     );
   });
 }
@@ -136,8 +136,7 @@ contextBridge.exposeInMainWorld("DATA", {
   getFilesTitles: () => fs.readdirSync("./DATA/habits"),
   getHabitTrackerFileNames: () =>
     fs.readdirSync("./DATA/dashboards/habit-tracker"),
-  readDir: (path: string) =>
-    fs.readdirSync(`./DATA/dashboards/${path}`),
+  readDir: (path: string) => fs.readdirSync(`./DATA/dashboards/${path}`),
   getAchievementsFileNames: () =>
     fs.readdirSync("./DATA/dashboards/achievements"),
   createJSONHaFileHabit,
@@ -170,7 +169,7 @@ function renameJSONFile(oldFilePaht: string, newFilePaht: string) {
       if (err) {
         throw err;
       }
-    }
+    },
   );
 }
 
@@ -178,7 +177,7 @@ function editSettingsJSONFile_ON_OFF(
   path: string,
   key: string,
   key2?: string,
-  key3?: string
+  key3?: string,
 ) {
   fs.readFile(`./DATA/${path}.json`, "utf-8", (err, data) => {
     if (err) {
@@ -199,7 +198,7 @@ function editSettingsJSONFile_ON_OFF(
       JSON.stringify(jsonData),
       function (err) {
         if (err) throw err;
-      }
+      },
     );
   });
 }
@@ -208,7 +207,7 @@ function editSettingsJSONFile_Value(
   key: string,
   value: any,
   key2?: string,
-  key3?: string
+  key3?: string,
 ) {
   fs.readFile(`./DATA/${path}.json`, "utf-8", (err, data) => {
     if (err) {
@@ -228,7 +227,7 @@ function editSettingsJSONFile_Value(
       JSON.stringify(jsonData),
       function (err) {
         if (err) throw err;
-      }
+      },
     );
   });
 }
@@ -237,7 +236,7 @@ function downloadImg(
   imgURL: string,
   imgFileName: string,
   pathToSave: string,
-  logMessage: string
+  logMessage: string,
 ) {
   const file = fs.createWriteStream(`DATA/${pathToSave}/${imgFileName}`);
 

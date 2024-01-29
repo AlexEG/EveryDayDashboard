@@ -2,7 +2,7 @@ import HTML from "../../HTML/HTML";
 
 export default function MultiInputColor(
   dashboardName: string,
-  [svgColor, backgroundColor, svgColorHover, backgroundColorHover]: string[]
+  [svgColor, backgroundColor, svgColorHover, backgroundColorHover]: string[],
 ) {
   const styles = "w-7 h-7 bg-transparent cursor-pointer";
 
@@ -21,23 +21,23 @@ export default function MultiInputColor(
     inputColor(
       `settings--sidebar--theme-display-order--${dashboardName}--svg-color`,
       svgColor,
-      "SVG color"
+      "SVG color",
     ),
     inputColor(
       `settings--sidebar--theme-display-order--${dashboardName}--background-color`,
       backgroundColor,
-      "background color"
+      "background color",
     ),
     inputColor(
       `settings--sidebar--theme-display-order--${dashboardName}--svg-color-hover`,
       svgColorHover,
-      "SVG color (hover)"
+      "SVG color (hover)",
     ),
     inputColor(
       `settings--sidebar--theme-display-order--${dashboardName}--background-color-hover`,
       backgroundColorHover,
-      "background color (hover)"
-    )
+      "background color (hover)",
+    ),
   );
 
   return colorPickerContainer;

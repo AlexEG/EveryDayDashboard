@@ -1,6 +1,6 @@
 export default function OverallRankConfig(
   myScore: number,
-  nextRankScore: number
+  nextRankScore: number,
 ) {
   const plugins = {
     title: {

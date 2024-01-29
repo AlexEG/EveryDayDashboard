@@ -2,7 +2,7 @@ import HTML from "../../../../components/HTML/HTML";
 
 export default function DaysColumn(
   numberOfDaysInThisMonth: number,
-  todayNum: number
+  todayNum: number,
 ) {
   const styles = "w-fit flex flex-col border border-blue-800";
   const container = HTML("div", styles);
@@ -11,7 +11,7 @@ export default function DaysColumn(
     "div",
     "w-10 h-10 text-center text-blue-50 flex justify-center items-center border-b border-b-blue-800",
     "",
-    "Days"
+    "Days",
   );
   container.append(colHead);
 

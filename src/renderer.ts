@@ -30,6 +30,6 @@ if (ROOT) {
   ];
   console.log(
     `%c Preformance / renderer.ts  {%c ${PREF_LOG_END - PREF_LOG_START}ms %c} `,
-    ...PREF_LOG_CSS
+    ...PREF_LOG_CSS,
   );
 }

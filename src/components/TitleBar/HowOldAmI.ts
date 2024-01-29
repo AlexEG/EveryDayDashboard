@@ -14,7 +14,7 @@ export default function HowOldAmI(birthday: number[], ageInDaysColor: string) {
     "span",
     "text-white/95",
     "title-bar-how-old-am-i",
-    ageInDays
+    ageInDays,
   );
   dateWrapper.append(days);
 

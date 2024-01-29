@@ -4,11 +4,11 @@ import ColorInput from "../../../components/Settings/inputs/ColorInput";
 export default function HabitGroupColor(
   fileNameArr: string[],
   habitNameArr: string[],
-  habitGroupColorArr: string[]
+  habitGroupColorArr: string[],
 ) {
   const container = SettingsFieldset(
     "Tracker / Habit Group Color",
-    "settings--habit-tracker--habit-group-color"
+    "settings--habit-tracker--habit-group-color",
   );
 
   function changeColor(colorPicker: HTMLInputElement) {
@@ -19,14 +19,14 @@ export default function HabitGroupColor(
       "data",
       colorPicker.value,
       "metadata",
-      "groupColor"
+      "groupColor",
     );
 
     console.log(
       `%c Settings HabitTracker <Change> Habit Group Color => %c  %c\n${colorPicker.value}`,
       "background:black; color:white",
       `background:${colorPicker.value};`,
-      ""
+      "",
     );
   }
 
@@ -35,7 +35,7 @@ export default function HabitGroupColor(
       `settings--habit-tracker--habit-group-color,${fileNameArr[i]}`,
       habitNameArr[i],
       habitGroupColorArr[i] || "#ffffff",
-      changeColor
+      changeColor,
     );
     colorPicker.style.width = "100%";
     container.append(colorPicker);

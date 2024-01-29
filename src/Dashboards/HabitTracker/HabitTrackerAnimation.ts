@@ -1,6 +1,6 @@
 export function dailyProgressColumnAnimation(
   dayProgressBox: HTMLElement,
-  additionalTime: number
+  additionalTime: number,
 ) {
   dayProgressBox.animate(
     [
@@ -22,6 +22,6 @@ export function dailyProgressColumnAnimation(
       duration: 20_000,
       iterations: Infinity,
       easing: "ease-in-out",
-    }
+    },
   );
 }

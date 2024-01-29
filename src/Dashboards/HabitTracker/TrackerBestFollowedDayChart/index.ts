@@ -6,14 +6,14 @@ import ChartLabelDays from "../TrackerTimeChart/ChartLabelDays";
 
 export default function TrackerBestFollowedDayChart(
   year?: number,
-  month?: number
+  month?: number,
 ) {
   const styles =
     "w-full h-[700px] flex justify-center p-4 mt-4 bg-indigo-800/5";
   const chartContainer = HTML(
     "section",
     styles,
-    "habit-tracker--tracker-best-followed-day-chart"
+    "habit-tracker--tracker-best-followed-day-chart",
   );
 
   const styles2 = "border border-rose-600/50";
@@ -71,8 +71,8 @@ export default function TrackerBestFollowedDayChart(
           Object.values(monthDataset),
           numberOfHaibts,
           thisYear,
-          SELECTED_MONTH
-        )
+          SELECTED_MONTH,
+        ),
       );
     })();
   });

@@ -22,7 +22,7 @@ export default function NavBar(
   filterToggleBtnTheme: {
     containerBorderColor: string;
     isOpenStyles: string;
-  }
+  },
 ) {
   const styles = "w-full max-w-6xl mx-auto my-8 h-12 relative pl-24 pr-32";
   const navbar = HTML("div", styles);
@@ -37,7 +37,7 @@ export default function NavBar(
     NavLink("Anime", pageOpened === "Anime", navBarLinksTheme.navLinks),
     NavLink("Manga", pageOpened === "Manga", navBarLinksTheme.navLinks),
     NavLink("Favorites", pageOpened === "Favorites", navBarLinksTheme.navLinks),
-    NavLink("Stats", pageOpened === "Stats", navBarLinksTheme.navLinks)
+    NavLink("Stats", pageOpened === "Stats", navBarLinksTheme.navLinks),
   );
 
   navBarLinksWrapper.addEventListener(
@@ -46,12 +46,12 @@ export default function NavBar(
       e.target.tagName === "BUTTON" &&
       !e.target.classList.contains("text-rose-600") &&
       (toggleHighlight(e.target as HTMLButtonElement, navBarLinksWrapper),
-      removeRenderPage(e.target as HTMLButtonElement))
+      removeRenderPage(e.target as HTMLButtonElement)),
   );
   navbar.append(
     FilterToggleBtn(filterIsOpenByDefault, filterToggleBtnTheme),
     navBarLinksWrapper,
-    GridListToggleLayoutBtns(gridListToggleLayoutTheme)
+    GridListToggleLayoutBtns(gridListToggleLayoutTheme),
   );
   return navbar;
 }

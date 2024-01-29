@@ -19,7 +19,7 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
     if (!(document.querySelector("main").getAttribute("id") == sectionName)) {
       console.log(
         ` %c OPEN  ${sectionName} `,
-        "background:black; color:#0f0;font-weight: 700;"
+        "background:black; color:#0f0;font-weight: 700;",
       );
 
       img.classList.replace("opacity-70", "opacity-100");
@@ -32,7 +32,7 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
         if (btns[i].classList.contains("bg-white/90"))
           btns[i].firstElementChild.classList.replace(
             "opacity-100",
-            "opacity-70"
+            "opacity-70",
           );
 
         btns[i].classList.remove("bg-white/90");
@@ -62,7 +62,7 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
       settingsBtn.firstElementChild.classList.add("invert");
       settingsBtn.firstElementChild.classList.replace(
         "opacity-100",
-        "opacity-70"
+        "opacity-70",
       );
       settingsBtn.dataset.isSettingsOpen = "false";
     }
@@ -77,7 +77,7 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
       `%c Preformance / ${sectionName}  { %c${
         PREF_LOG_END - PREF_LOG_START
       }m%c } `,
-      ...PREF_LOG_CSS
+      ...PREF_LOG_CSS,
     );
   };
 

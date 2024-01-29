@@ -19,7 +19,7 @@ export default function downloadUserAvatarBanner() {
     const bannerURL = data.data.User.bannerImage;
 
     const avatarImgFileName = String(
-      avatarURL.match(/(?<=avatar\/large\/).*/g)
+      avatarURL.match(/(?<=avatar\/large\/).*/g),
     );
     const bannerImgFileName = String(bannerURL.match(/(?<=banner\/).*/g));
 
@@ -35,14 +35,14 @@ export default function downloadUserAvatarBanner() {
       avatarURL,
       avatarImgFileName,
       `dashboards/anilist/media/user`,
-      logMessage1
+      logMessage1,
     );
 
     window.DATA.downloadImg(
       bannerURL,
       bannerImgFileName,
       `dashboards/anilist/media/user`,
-      logMessage2
+      logMessage2,
     );
   });
 }

@@ -28,7 +28,7 @@ export default function HonorScoreChart(year?: number, month?: number) {
   const numberOfDaysInThisMonth = new Date(
     SELECTED_YEAR,
     thisMonthNum - 1,
-    0
+    0,
   ).getDate();
 
   // ---------------
@@ -51,7 +51,7 @@ export default function HonorScoreChart(year?: number, month?: number) {
       console.log(
         `%c CodeWars  Honor/Score Chart \n%c There is NO DATA for ${SELECTED_YEAR}`,
         "background:black; color:white",
-        "background:black; color:#f00; font-weight:900;"
+        "background:black; color:#f00; font-weight:900;",
       );
       return;
     }
@@ -59,7 +59,7 @@ export default function HonorScoreChart(year?: number, month?: number) {
       console.log(
         `%c CodeWars  Honor/Score Chart \n%c There is NO DATA for ${SELECTED_MONTH}`,
         "background:black; color:white",
-        "background:black; color:#f00; font-weight:900;"
+        "background:black; color:#f00; font-weight:900;",
       );
       return;
     }
@@ -144,7 +144,7 @@ export default function HonorScoreChart(year?: number, month?: number) {
 
     // now all I need to do is just convert the big arr (have objects in it) to array of array  then store then in array
     const LanguagesScoreBigArray = Object.values(
-      LanguagesMonthlyDailyLangScore
+      LanguagesMonthlyDailyLangScore,
     );
     // console.log(LanguagesScoreBigArray);
     //* Languages Score END *//
@@ -159,8 +159,8 @@ export default function HonorScoreChart(year?: number, month?: number) {
           labelsDays,
           honorDataset,
           LanguagesNames,
-          LanguagesScoreBigArray
-        )
+          LanguagesScoreBigArray,
+        ),
       );
     })();
 

@@ -10,7 +10,7 @@ export default function Firebase() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "Firebase"
+    "Firebase",
   );
 
   MainContainer.append(h1);

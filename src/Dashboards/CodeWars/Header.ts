@@ -20,7 +20,7 @@ export default function Header() {
 
     codewarsContainer.insertBefore(
       HonorScoreChart(SELECTED_YEAR, +selectedNum),
-      codewarsContainer.querySelector("#codewars--Languages-rank-chart")
+      codewarsContainer.querySelector("#codewars--Languages-rank-chart"),
     );
 
     const LOG_CSS = [
@@ -30,7 +30,7 @@ export default function Header() {
     ];
     console.log(
       `%c Home / HonorScore Chart %c<Change View>  %c${SELECTED_YEAR} ${selectedMonthName} `,
-      ...LOG_CSS
+      ...LOG_CSS,
     );
 
     // ---------
@@ -41,7 +41,7 @@ export default function Header() {
     ];
     console.log(
       `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms`,
-      ...PREF_LOG_CSS
+      ...PREF_LOG_CSS,
     );
   }
 
@@ -61,11 +61,11 @@ export default function Header() {
     const Rank = Badge(`Rank: ${-rank} kyu`);
     const Honor = Badge(`Honor: ${honor}`);
     const LeaderboardPosition = Badge(
-      `Leaderboard Position:#${leaderboardPositionor.toLocaleString()}`
+      `Leaderboard Position:#${leaderboardPositionor.toLocaleString()}`,
     );
     // 600_000 is not
     const HonorPercentile = Badge(
-      `Top ${((leaderboardPositionor / 600_000) * 100).toFixed(3)}%`
+      `Top ${((leaderboardPositionor / 600_000) * 100).toFixed(3)}%`,
     );
     const TotalCompletedKata = Badge(`Completed Kata: ${CompletedKata}`);
 
@@ -74,7 +74,7 @@ export default function Header() {
       Honor,
       LeaderboardPosition,
       HonorPercentile,
-      TotalCompletedKata
+      TotalCompletedKata,
     );
   });
   // ----------------------------------

@@ -1,1 +1,11 @@
-{"data":{"isHabitListDisplayedByDefault":true,"charts":{"isTrackerTimeChartDisplayed":true,"isTrackerBestFollowedDayChartDisplayed":true,"isTrackerBestFollowedMonthChartDisplayed":true,"isTrackerBestFollowedHabitsChartDisplayed":true}}}
+{
+  "data": {
+    "isHabitListDisplayedByDefault": true,
+    "charts": {
+      "isTrackerTimeChartDisplayed": true,
+      "isTrackerBestFollowedDayChartDisplayed": true,
+      "isTrackerBestFollowedMonthChartDisplayed": true,
+      "isTrackerBestFollowedHabitsChartDisplayed": true
+    }
+  }
+}

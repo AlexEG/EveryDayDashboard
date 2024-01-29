@@ -39,7 +39,7 @@ export default function downloadFavouriteCharacteresAvatars() {
         imgURL,
         imgFileName,
         `dashboards/anilist/media/characters`,
-        logMessage
+        logMessage,
       );
     }
   });

@@ -2,7 +2,7 @@ import HTML from "../../../../../components/HTML/HTML";
 
 export default function CoverImg(
   type: "ANIME" | "MANGA",
-  CoverImgDropShadow: string
+  CoverImgDropShadow: string,
 ) {
   const styles = "absolute -top-16 left-5 h-44";
   const coverImg = HTML("div", styles);
@@ -13,7 +13,7 @@ export default function CoverImg(
   const img = HTML(
     "img",
     styles2,
-    `anilist--header-${type.toLowerCase()}--info-banner--cover-image`
+    `anilist--header-${type.toLowerCase()}--info-banner--cover-image`,
   );
   coverImg.append(img);
 

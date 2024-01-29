@@ -1,7 +1,7 @@
 export default function TrackerBestFollowedMonthChartConfig(
   MONTHS: string[],
   monthDataset: number[],
-  thisYear: number
+  thisYear: number,
 ) {
   // console.log("thisYear", thisYear);
   const XAaxis = {

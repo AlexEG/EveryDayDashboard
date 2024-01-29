@@ -13,7 +13,7 @@ declare global {
         fileName: string,
         month: string,
         day: string,
-        time: string[]
+        time: string[],
       ) => void;
       deleteJSONFile: (filePath: string) => void;
       renameJSONFile: (oldFilePaht: string, newFilePaht: string) => void;
@@ -21,20 +21,20 @@ declare global {
         path: string,
         key: string,
         key2?: string,
-        key3?: string
+        key3?: string,
       ) => void;
       editSettingsJSONFile_Value: (
         path: string,
         key: string,
         value: any,
         key2?: string,
-        key3?: string
+        key3?: string,
       ) => void;
       downloadImg: (
         imgURL: string,
         imgFileName: string,
         pathToSave: string,
-        logMessage: string
+        logMessage: string,
       ) => void;
       CreateOrUpdateJSON: (filePath: string, data: any) => void;
     };

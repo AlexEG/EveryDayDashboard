@@ -8,7 +8,7 @@ export default function AutoLockComponent(
   habitNum: number,
   habitName: string,
   habitAutoLockAfterTime: string | undefined,
-  fileName: string
+  fileName: string,
 ) {
   const highlight = habitAutoLockAfterTime ? "" : " opacity-50 ";
 
@@ -19,7 +19,7 @@ export default function AutoLockComponent(
   container.dataset.fileName = fileName;
 
   function changeAutoLockAfterTimePropertyInHabitJSON(
-    timeInput: HTMLInputElement
+    timeInput: HTMLInputElement,
   ) {
     const timeValue = timeInput.value;
     timeInput.setAttribute("value", timeValue);
@@ -29,7 +29,7 @@ export default function AutoLockComponent(
       "data",
       timeValue,
       "metadata",
-      "autoLockAfterTime"
+      "autoLockAfterTime",
     );
 
     console.log(
@@ -39,7 +39,7 @@ export default function AutoLockComponent(
       "background:black; color:#0f0 ; font-weight:900",
       "background:black; color:white",
       "background:black; color:#c7f",
-      "background:black; color:white"
+      "background:black; color:white",
     );
 
     // console.log("fileName", fileName);
@@ -50,14 +50,14 @@ export default function AutoLockComponent(
     HabitNameNumberWrapper(habitNum, habitName),
     TimeInput(
       habitAutoLockAfterTime,
-      changeAutoLockAfterTimePropertyInHabitJSON
+      changeAutoLockAfterTimePropertyInHabitJSON,
     ),
     ToggleBtn(
       "Enable/Disable",
       `toggle-auto-lock-${habitName.toLowerCase().split(" ").join("-")}`,
       Boolean(habitAutoLockAfterTime),
-      toggleAutoLockForHaibt
-    )
+      toggleAutoLockForHaibt,
+    ),
   );
   return container;
 }

@@ -10,7 +10,7 @@ export default function LeetCode() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "LeetCode"
+    "LeetCode",
   );
 
   MainContainer.append(h1);

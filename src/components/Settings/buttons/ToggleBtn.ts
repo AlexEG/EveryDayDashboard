@@ -4,7 +4,7 @@ export default function ToggleBtn(
   labelTitle: string,
   inputID: string,
   isOn: boolean,
-  callback: any
+  callback: any,
 ) {
   const wrapper = HTML("div", "flex items-center px-2");
 
@@ -22,7 +22,7 @@ export default function ToggleBtn(
 
   const circle = HTML(
     "div",
-    "bg-indigo-50 rounded-full w-5 h-5 flex items-center"
+    "bg-indigo-50 rounded-full w-5 h-5 flex items-center",
   );
   circle.append(checkbox);
   toggle.append(circle);

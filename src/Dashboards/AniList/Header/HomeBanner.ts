@@ -19,8 +19,8 @@ export default function HomeBanner() {
   const userInfoJSON = new Promise((res, rej) => {
     res(
       JSON.parse(
-        window.DATA.getJSONFileData("dashboards/anilist/user-info-data")
-      )
+        window.DATA.getJSONFileData("dashboards/anilist/user-info-data"),
+      ),
     );
   });
 
@@ -31,7 +31,7 @@ export default function HomeBanner() {
     const bannerURL = data.data.User.bannerImage;
 
     const avatarImgFileName = String(
-      avatarURL.match(/(?<=avatar\/large\/).*/g)
+      avatarURL.match(/(?<=avatar\/large\/).*/g),
     );
     const bannerImgFileName = String(bannerURL.match(/(?<=banner\/).*/g));
 
@@ -47,7 +47,7 @@ export default function HomeBanner() {
       "",
       {
         src: `/DATA/dashboards/anilist/media/user/${bannerImgFileName}`,
-      }
+      },
     );
     const styles2 =
       "w-full max-w-7xl h-20 absolute bottom-1 left-1/2 -translate-x-1/2 flex gap-x-2 pl-2";
@@ -59,7 +59,7 @@ export default function HomeBanner() {
       "",
       {
         src: `/DATA/dashboards/anilist/media/user/${avatarImgFileName}`,
-      }
+      },
     );
     const styles3 =
       "text-white font-extrabold text-lg text-center flex items-center drop-shadow-[0_0_10px_rgb(0,0,0,1)]";

@@ -1,6 +1,6 @@
 export function ProgressBoxAnimation(
   dayProgressBox: HTMLElement,
-  additionalTime: number
+  additionalTime: number,
 ) {
   dayProgressBox.animate(
     [
@@ -22,6 +22,6 @@ export function ProgressBoxAnimation(
       duration: 20_000,
       iterations: Infinity,
       easing: "ease-in-out",
-    }
+    },
   );
 }

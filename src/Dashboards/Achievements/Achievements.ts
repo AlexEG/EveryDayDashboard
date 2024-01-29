@@ -13,7 +13,7 @@ export default function Achievements() {
     "h1",
     "text-center text-neutral-50 font-bold",
     "",
-    "Achievements"
+    "Achievements",
   );
 
   MainContainer.append(h1, Header());
@@ -49,8 +49,8 @@ export default function Achievements() {
             progressPages,
             progressChapterPercentage,
             progressPagesPercentage,
-            data
-          )
+            data,
+          ),
         );
       }
       // if (type === "course") {

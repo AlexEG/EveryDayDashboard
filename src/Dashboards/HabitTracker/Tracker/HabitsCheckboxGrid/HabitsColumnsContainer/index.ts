@@ -6,13 +6,13 @@ export default function HabitsColumnsContainer(
   numberOfDaysInThisMonth: number,
   thisMonthName: string,
   todayNum: number,
-  thisYear: number
+  thisYear: number,
 ) {
   const styles = "flex";
   const HabitsColumnsContainer = HTML(
     "div",
     styles,
-    "habit-tracker--tracker--habits-checkbox-grid---habits-column-container"
+    "habit-tracker--tracker--habits-checkbox-grid---habits-column-container",
   );
   HabitsColumnsContainer.dataset.month = thisMonthName;
   HabitsColumnsContainer.dataset.year = String(thisYear);
@@ -50,8 +50,8 @@ export default function HabitsColumnsContainer(
           habitName,
           habitGroupColor,
           thisMonthData,
-          autoLockAfterTime
-        )
+          autoLockAfterTime,
+        ),
       );
     }
   });

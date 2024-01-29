@@ -10,7 +10,7 @@ export default function HabitsNameList(isHabitListDisplayedByDefault: boolean) {
   const HabitsNameListContainer = HTML(
     "div",
     styles,
-    "habit-tracker--tracker--habit-list"
+    "habit-tracker--tracker--habit-list",
   );
 
   HabitTrackerDATA().then((data) => {
@@ -29,7 +29,7 @@ export default function HabitsNameList(isHabitListDisplayedByDefault: boolean) {
         "span",
         `bg-white/10 text-white/90 rounded-sm text-center`,
         "",
-        habitNum
+        habitNum,
       );
 
       const span2 = HTML("span", "whitespace-nowrap", "", habitName);

@@ -2,7 +2,7 @@ import HTML from "../../../../../components/HTML/HTML";
 
 export default function ListHeadRow(
   listType: "ANIME" | "MANGA",
-  listHeadRowTextColor: string
+  listHeadRowTextColor: string,
 ) {
   const styles4 = `w-full h-10 grid grid-cols-[3.5rem_1fr_6rem_6rem_6rem] gap-x-2 leading-9 text-center font-medium ${
     listHeadRowTextColor || "text-white"

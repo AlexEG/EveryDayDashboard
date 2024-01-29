@@ -3,7 +3,7 @@ export default function HTML(
   classList?: string,
   id?: string,
   text?: string,
-  setAttributes?: any
+  setAttributes?: any,
 ) {
   const element = document.createElement(tag);
 

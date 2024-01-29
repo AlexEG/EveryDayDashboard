@@ -7,7 +7,7 @@ import TitleBarDATA from "./TitleBarDATA";
 export default function ChangeBirthday() {
   const container = SettingsFieldset(
     "Change Birthday",
-    "settings--titlebar--change-birthday"
+    "settings--titlebar--change-birthday",
   );
 
   const inputsWrapper = HTML("div", "flex gap-x-4");
@@ -17,7 +17,7 @@ export default function ChangeBirthday() {
     inputsWrapper.append(
       TextInput("birthday-input-year", "YYYY", "Year", "4", y),
       TextInput("birthday-input-month", "MM", "Month", "2", m),
-      TextInput("birthday-input-day", "DD", "Day", "2", d)
+      TextInput("birthday-input-day", "DD", "Day", "2", d),
     );
   });
 
@@ -38,13 +38,13 @@ export default function ChangeBirthday() {
     window.DATA.editSettingsJSONFile_Value(
       "settings/titlebar",
       "birthday",
-      newBirthday
+      newBirthday,
     );
 
     console.log(
       `%c Change Birthday => %c${newBirthday.join("-")} `,
       "background:black; color:white",
-      "background:black; color:#0f0"
+      "background:black; color:#0f0",
     );
   };
   container.append(inputsWrapper, saveBtn);

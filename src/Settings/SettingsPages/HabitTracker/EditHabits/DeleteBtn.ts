@@ -17,7 +17,7 @@ export default function DeleteBtn() {
     console.log(
       `%c DELETE %c ${Name} `,
       "background:black; color:white",
-      "background:black; color:#f00"
+      "background:black; color:#f00",
     );
   };
 

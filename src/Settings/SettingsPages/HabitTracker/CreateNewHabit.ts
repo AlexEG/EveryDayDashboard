@@ -5,7 +5,7 @@ import { closeSettings } from "../helper";
 export default function CreateNewHabit() {
   const mainContainer = SettingsFieldset(
     "Create New Habit",
-    "settings--habit-tracker--create-new-habit"
+    "settings--habit-tracker--create-new-habit",
   );
   const styles = "flex w-full gap-x-4";
   const container = HTML("div", styles);
@@ -41,7 +41,7 @@ export default function CreateNewHabit() {
     ];
     console.log(
       `%c Create New Habit File  <%c${newHabitFileName}%c> `,
-      ...LOG_CSS
+      ...LOG_CSS,
     );
   };
 

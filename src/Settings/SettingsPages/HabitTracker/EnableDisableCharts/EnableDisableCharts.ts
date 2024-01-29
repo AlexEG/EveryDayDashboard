@@ -6,7 +6,7 @@ import HabitTrackerSettingsDATA from "../../../../Dashboards/HabitTracker/HabitT
 export default function EnableDisableCharts() {
   const container = SettingsFieldset(
     "Enable Disable Charts",
-    "settings--habit-tracker--enable-disable-charts"
+    "settings--habit-tracker--enable-disable-charts",
   );
 
   HabitTrackerSettingsDATA().then(
@@ -34,12 +34,12 @@ export default function EnableDisableCharts() {
             chartName.match(/(?<=isTracker).*(?=Displayed)/),
             ``,
             isDisplayed,
-            () => enableDisableChartJSON(chartName)
-          )
+            () => enableDisableChartJSON(chartName),
+          ),
         );
         container.append(chart);
       }
-    }
+    },
   );
 
   function enableDisableChartJSON(chartPropertyName: string) {
@@ -47,7 +47,7 @@ export default function EnableDisableCharts() {
       "settings/habit-tracker",
       "data",
       "charts",
-      chartPropertyName
+      chartPropertyName,
     );
   }
 

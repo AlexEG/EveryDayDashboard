@@ -3,10 +3,10 @@ export default async function codewarsAPI_update() {
   console.log(
     `%c Update %c CodeWars JSON `,
     "background:black; color:white",
-    "background:black; color:#0f0; font-weight:900;"
+    "background:black; color:#0f0; font-weight:900;",
   );
   const response = await fetch(
-    "https://www.codewars.com/api/v1/users/6403ffa5f4a0b7ff71299207"
+    "https://www.codewars.com/api/v1/users/6403ffa5f4a0b7ff71299207",
   );
   const data = await response.json();
 
@@ -74,7 +74,7 @@ export default async function codewarsAPI_update() {
     console.log(
       `%c Today Honor / Score  %c ${Honor - LastHonor}  ${Score - LasScore} `,
       "background:black; color:white",
-      "background:black; color:#0f0; font-weight:900;"
+      "background:black; color:#0f0; font-weight:900;",
     );
 
     // get the last honor & score
@@ -160,7 +160,7 @@ export default async function codewarsAPI_update() {
     window.DATA.editSettingsJSONFile_Value(
       "dashboards/codewars",
       "data",
-      newCodewarsData
+      newCodewarsData,
     );
 
     // --- console log --- //
@@ -170,12 +170,12 @@ export default async function codewarsAPI_update() {
   const profile = `\n-----------------------------------\n+ Rank/Score:  ${
     data.ranks.overall.name
   } / ${Score} / ${((Score / 229) * 100).toFixed(
-    1
+    1,
   )}%\n+ Honor/Kata:  ${Honor} / ${
     data.codeChallenges.totalCompleted
   }\n+ Leaderboard: #${LeaderboardPosition.toString().slice(
     0,
-    3
+    3,
   )}_${LeaderboardPosition.toString().slice(3)} / ${(
     (LeaderboardPosition / 575_000) *
     100
@@ -188,6 +188,6 @@ export default async function codewarsAPI_update() {
   ];
   console.log(
     `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms`,
-    ...PREF_LOG_CSS
+    ...PREF_LOG_CSS,
   );
 }

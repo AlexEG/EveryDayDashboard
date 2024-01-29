@@ -2,7 +2,7 @@ export default function HonorScoreChartConfig(
   labelsDays: string[],
   honorDataset: number[],
   LanguagesNames: string[],
-  LanguagesScoreBigArray: any
+  LanguagesScoreBigArray: any,
 ) {
   // console.log(honorDataset);
 

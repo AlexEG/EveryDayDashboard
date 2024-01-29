@@ -5,14 +5,14 @@ import HTML from "../../../components/HTML/HTML";
 export default function ProgressBox(
   percentage: number,
   progress: number,
-  max: number
+  max: number,
 ) {
   const progressStyles =
     percentage <= 25
       ? "text-red-500"
       : percentage <= 75
-      ? "text-yellow-500"
-      : "text-green-500";
+        ? "text-yellow-500"
+        : "text-green-500";
 
   const styles = "h-5 w-16 text-xs overflow-hidden " + progressStyles;
   const progressBox = HTML("div", styles);
@@ -22,7 +22,7 @@ export default function ProgressBox(
     "span",
     styles3,
     "",
-    `${Number(progress).toLocaleString()}/${Number(max).toLocaleString()}`
+    `${Number(progress).toLocaleString()}/${Number(max).toLocaleString()}`,
   );
   const span2 = HTML("span", styles3, "", `${percentage}%`);
 

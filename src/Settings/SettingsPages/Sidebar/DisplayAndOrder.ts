@@ -6,7 +6,7 @@ import SidebarrDATA from "./SidebarDATA";
 export default function DisplayAndOrder() {
   const container = SettingsFieldset(
     "Display & Order",
-    "settings--sidebar--display-order"
+    "settings--sidebar--display-order",
   );
 
   // ------------------
@@ -22,8 +22,8 @@ export default function DisplayAndOrder() {
           dashboardName,
           DashboardsData.length,
           i,
-          isDisplayed
-        )
+          isDisplayed,
+        ),
       );
     }
   });

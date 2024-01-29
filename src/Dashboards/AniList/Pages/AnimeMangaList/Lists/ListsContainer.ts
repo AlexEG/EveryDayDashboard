@@ -12,7 +12,7 @@ export default function ListsContainer(
     };
     listHeadRowTextColor: string;
     itemStyles: string;
-  }
+  },
 ) {
   const styles =
     "w-full max-w-5xl h-full mx-auto col-start-2 col-end-3 row-span-full px-6";
@@ -21,7 +21,7 @@ export default function ListsContainer(
   // listName => Completed | Dropped | Watching | Reading
   for (const [listName, listData] of Object.entries(allLists)) {
     listsContainer.append(
-      ListComponent(listType, listName, listData, listsTheme)
+      ListComponent(listType, listName, listData, listsTheme),
     );
   }
 

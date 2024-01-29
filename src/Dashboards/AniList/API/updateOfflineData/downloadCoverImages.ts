@@ -3,12 +3,12 @@ import { notificationSettingsTypes } from "../../type";
 import AniList_API from "../AniList_API";
 
 export default function downloadCoverImages(
-  userId:number,
-  userName:string,
+  userId: number,
+  userName: string,
   type: "ANIME" | "MANGA",
   size: "extraLarge" | "large",
   notificationsContainer: HTMLElement,
-  notificationSettings: notificationSettingsTypes
+  notificationSettings: notificationSettingsTypes,
 ) {
   const variables = {
     userId: userId,
@@ -18,12 +18,12 @@ export default function downloadCoverImages(
   notificationsContainer.append(
     NotificationCard(
       `Check & Update All ${type} ${size} Cover Image`,
-      notificationSettings
-    )
+      notificationSettings,
+    ),
   );
   console.log(
     `%c Check & Update All ${type} Cover Image `,
-    "background:black; color:#0f0 ; font-weight:900"
+    "background:black; color:#0f0 ; font-weight:900",
   );
 
   const coverSize =
@@ -34,7 +34,7 @@ export default function downloadCoverImages(
     const lists = data.MediaListCollection.lists;
 
     const downloadedCoverImages: Array<string> = window.DATA.readDir(
-      `anilist/media/${type.toLowerCase()}/cover-image/${size}`
+      `anilist/media/${type.toLowerCase()}/cover-image/${size}`,
     );
     // console.log("downloadedCoverImages: ", downloadedCoverImages)
     let i = 0;
@@ -61,10 +61,10 @@ export default function downloadCoverImages(
                 listItme.media.title.userPreferred;
               const animeOrMangaTitleEnglish = listItme.media.title.english;
               const animeOrMangaTitle = `${
-animeOrMangaTitleEnglish
-? animeOrMangaTitleEnglish
-: animeOrMangaTitleUserPreferred
-}`;
+                animeOrMangaTitleEnglish
+                  ? animeOrMangaTitleEnglish
+                  : animeOrMangaTitleUserPreferred
+              }`;
 
               const LOG_CSS = [
                 "background:black; color:#0f0 ; font-weight:900",
@@ -81,13 +81,13 @@ animeOrMangaTitleEnglish
                 imgURL,
                 imgFileName,
                 `dashboards/anilist/media/${type.toLowerCase()}/cover-image/${size}`,
-                logMessage
+                logMessage,
               );
               notificationsContainer.append(
                 NotificationCard(
                   `Download Complete ${type} ${size} size Cover\n${animeOrMangaTitle}`,
-                  notificationSettings
-                )
+                  notificationSettings,
+                ),
               );
             }, 1000 * i);
           }

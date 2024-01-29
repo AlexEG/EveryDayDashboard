@@ -15,4 +15,4 @@ fragment mediaListEntry on MediaList {
     }
     bannerImage
   }
-}`
+}`;

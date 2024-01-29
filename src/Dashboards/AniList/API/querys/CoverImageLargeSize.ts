@@ -17,4 +17,4 @@ fragment mediaListEntry on MediaList {
       large
     }
   }
-}`
+}`;

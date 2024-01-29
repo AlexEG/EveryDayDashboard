@@ -3,7 +3,7 @@ import HTML from "../../../../../components/HTML/HTML";
 export default function AnimeManga(
   imgURL: string,
   type: "anime" | "manga",
-  characterName: string
+  characterName: string,
 ) {
   const styles = "w-[200px] h-[320px] relative";
   const div = HTML("div", styles);

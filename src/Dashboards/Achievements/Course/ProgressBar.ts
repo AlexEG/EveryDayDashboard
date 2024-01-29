@@ -4,7 +4,7 @@ import ProgressBox from "./ProgressBox";
 export default function ProgressBar(
   progress: number,
   max: number,
-  progressPercentage: number
+  progressPercentage: number,
 ) {
   const percentage = progressPercentage || Math.round((progress / max) * 100);
 
@@ -20,7 +20,7 @@ export default function ProgressBar(
     "div",
     styles3,
     "",
-    percentage === 100 ? "Complete" : ""
+    percentage === 100 ? "Complete" : "",
   );
 
   YourProgress.style.width = `${String(percentage)}%`;

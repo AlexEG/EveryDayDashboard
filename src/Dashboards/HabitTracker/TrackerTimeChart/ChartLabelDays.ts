@@ -24,7 +24,7 @@ export default function ChartLabelDays(year?: number, month?: number) {
   const numberOfDaysInThisMonth = new Date(
     thisYear,
     thisMonthNum - 1,
-    0
+    0,
   ).getDate();
 
   const labelsDays: string[] = [];

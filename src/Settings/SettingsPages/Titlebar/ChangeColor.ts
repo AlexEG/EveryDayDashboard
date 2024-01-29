@@ -7,7 +7,7 @@ import HTML from "../../../components/HTML/HTML";
 export default function ChangeColor() {
   const container = SettingsFieldset(
     "Theme",
-    "settings--titlebar--change-color"
+    "settings--titlebar--change-color",
   );
 
   function background(colorPicker: HTMLInputElement) {
@@ -18,20 +18,20 @@ export default function ChangeColor() {
       "settings/titlebar",
       "theme",
       colorPicker.value,
-      "backgroundColor"
+      "backgroundColor",
     );
 
     console.log(
       `%c Change Titlebar background Color => %c  %c\n${colorPicker.value}`,
       "background:black; color:white",
       `background:${colorPicker.value};`,
-      ""
+      "",
     );
   }
 
   function clockTime(colorPicker: HTMLInputElement) {
     const clock = document.querySelector(
-      "div#titlebar #titlebar--clock time"
+      "div#titlebar #titlebar--clock time",
     ) as HTMLDivElement;
 
     if (clock) {
@@ -41,20 +41,20 @@ export default function ChangeColor() {
         "settings/titlebar",
         "theme",
         colorPicker.value,
-        "clockTimeColor"
+        "clockTimeColor",
       );
 
       console.log(
         `%c Change Titlebar Clock (Time) Color => %c  %c\n${colorPicker.value}`,
         "background:black; color:white",
         `background:${colorPicker.value};`,
-        ""
+        "",
       );
     }
   }
   function clock_AM_PM(colorPicker: HTMLInputElement) {
     const clock = document.querySelector(
-      "div#titlebar #titlebar--clock span"
+      "div#titlebar #titlebar--clock span",
     ) as HTMLDivElement;
 
     if (clock) {
@@ -64,21 +64,21 @@ export default function ChangeColor() {
         "settings/titlebar",
         "theme",
         colorPicker.value,
-        "clock_AM_PMColor"
+        "clock_AM_PMColor",
       );
 
       console.log(
         `%c Change Titlebar Clock (AM/PM) Color => %c  %c\n${colorPicker.value}`,
         "background:black; color:white",
         `background:${colorPicker.value};`,
-        ""
+        "",
       );
     }
   }
 
   function ageInDays(colorPicker: HTMLInputElement) {
     const ageInDays = document.querySelector(
-      "div#titlebar #titlebar--age-in-days span"
+      "div#titlebar #titlebar--age-in-days span",
     ) as HTMLDivElement;
 
     if (ageInDays) {
@@ -88,14 +88,14 @@ export default function ChangeColor() {
         "settings/titlebar",
         "theme",
         colorPicker.value,
-        "ageInDaysColor"
+        "ageInDaysColor",
       );
 
       console.log(
         `%c Change Titlebar AgeInDays Color => %c  %c\n${colorPicker.value}`,
         "background:black; color:white",
         `background:${colorPicker.value};`,
-        ""
+        "",
       );
     }
   }
@@ -113,27 +113,27 @@ export default function ChangeColor() {
         "settings--titlebar--change-color--background",
         "Background Color",
         backgroundColor,
-        background
+        background,
       ),
       ColorInput(
         "settings--titlebar--change-color--clock-time",
         "Clock Time",
         clockTimeColor,
-        clockTime
+        clockTime,
       ),
       ColorInput(
         "settings--titlebar--change-color--clock-am-pm",
         "Clock AM/PM",
         clock_AM_PMColor,
-        clock_AM_PM
+        clock_AM_PM,
       ),
       ColorInput(
         "settings--titlebar--change-color--age-in-days",
         "Age in Days Color",
         ageInDaysColor,
-        ageInDays
+        ageInDays,
       ),
-      resetBtnContainer
+      resetBtnContainer,
     );
   });
 
@@ -153,7 +153,7 @@ export default function ChangeColor() {
     window.DATA.editSettingsJSONFile_Value(
       "settings/titlebar",
       "theme",
-      defaultTheme
+      defaultTheme,
     );
 
     // Reset UI (in real time)
@@ -163,21 +163,21 @@ export default function ChangeColor() {
     document.querySelector("div#titlebar #titlebar--clock span").style.color =
       "";
     document.querySelector(
-      "div#titlebar #titlebar--age-in-days span"
+      "div#titlebar #titlebar--age-in-days span",
     ).style.color = "";
 
     // Reset color picker (in real time)
     document.querySelector(
-      "#settings--titlebar--change-color--background"
+      "#settings--titlebar--change-color--background",
     ).value = "#020617";
     document.querySelector(
-      "#settings--titlebar--change-color--clock-time"
+      "#settings--titlebar--change-color--clock-time",
     ).value = "#ffffff";
     document.querySelector(
-      "#settings--titlebar--change-color--clock-am-pm"
+      "#settings--titlebar--change-color--clock-am-pm",
     ).value = "#ffffff";
     document.querySelector(
-      "#settings--titlebar--change-color--age-in-days"
+      "#settings--titlebar--change-color--age-in-days",
     ).value = "#ffffff";
   };
 

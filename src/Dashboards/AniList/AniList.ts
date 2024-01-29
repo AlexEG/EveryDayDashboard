@@ -21,7 +21,9 @@ export default function AniList() {
     "border h-[calc(100vh-31px)] w-[100%-3.5rem] ml-14 bg-black border-t border-l border-neutral-400 py-4 pl-4 pr-3 overflow-y-auto relative after:absolute after:inset-0 after:-z-50";
   const MainContainer = HTML("main", styles, "anilist");
 
+  const className = "mx-1 text-white my-2 p-2 text-center bg-black flex";
   // console.log(getComputedStyle(MainContainer))
+  console.log(className);
 
   anilistSettingsData().then(({ data }: anilistSettingsDataTypes) => {
     //***  Theme ***//
@@ -175,15 +177,15 @@ export default function AniList() {
             "ANIME",
             animeHeaderSettings,
             bannerImageDropShadow,
-            infoBannerTheme
+            infoBannerTheme,
           ),
           AnimeMangaPage(
             "ANIME",
             animeLists,
             filterIsOpenByDefault,
             filterTheme.pageFilter,
-            listsTheme
-          )
+            listsTheme,
+          ),
         );
       } else if (defaultHomePage === "Manga") {
         MainContainer.append(
@@ -191,15 +193,15 @@ export default function AniList() {
             "MANGA",
             mangaHeaderSettings,
             bannerImageDropShadow,
-            infoBannerTheme
+            infoBannerTheme,
           ),
           AnimeMangaPage(
             "MANGA",
             mangaLists,
             filterIsOpenByDefault,
             filterTheme.pageFilter,
-            listsTheme
-          )
+            listsTheme,
+          ),
         );
       } else if (defaultHomePage === "Favorites")
         MainContainer.append(HomeBanner(), Favorites());
@@ -207,7 +209,7 @@ export default function AniList() {
         MainContainer.append(HomeBanner(), Stats());
       else
         console.error(
-          "DATA/setting/anilist.json  defaultHomePage not found or not selected"
+          "DATA/setting/anilist.json  defaultHomePage not found or not selected",
         );
     }
 
@@ -217,14 +219,14 @@ export default function AniList() {
         filterIsOpenByDefault,
         navBarLinksTheme,
         gridListToggleLayoutTheme,
-        filterTheme.toggleBtn
+        filterTheme.toggleBtn,
       ),
-      MainContainer.lastChild
+      MainContainer.lastChild,
     );
 
     if (notificationSettings.isEnabled)
       MainContainer.append(
-        NotificationsCenter(notificationSettings, autoUpdateOfflineData)
+        NotificationsCenter(notificationSettings, autoUpdateOfflineData),
       );
   });
   return MainContainer;

@@ -231,4 +231,4 @@ query media($id: Int, $type: MediaType, $isAdult: Boolean) {
   }
 }
 
-`
+`;

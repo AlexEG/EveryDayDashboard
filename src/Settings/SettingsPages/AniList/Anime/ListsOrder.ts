@@ -17,7 +17,7 @@ export default function ListsOrder() {
     listName("PLANNING"),
     listName("PAUSED"),
     listName("COMPLETED"),
-    listName("DROPPED")
+    listName("DROPPED"),
   );
   listsOrder.append(listsColumn);
   return listsOrder;

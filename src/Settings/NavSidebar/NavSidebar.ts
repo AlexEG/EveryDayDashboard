@@ -18,18 +18,45 @@ export default function NavSidebar(isOpendByDefault_TabName: string) {
 
   nav.append(
     BlockTitle("General"),
-    NavBtn("Sidebar", Sidebar(), Boolean("Sidebar" === isOpendByDefault_TabName)),
-    NavBtn("Titlebar", Titlebar(), Boolean("Titlebar" === isOpendByDefault_TabName)),
+    NavBtn(
+      "Sidebar",
+      Sidebar(),
+      Boolean("Sidebar" === isOpendByDefault_TabName),
+    ),
+    NavBtn(
+      "Titlebar",
+      Titlebar(),
+      Boolean("Titlebar" === isOpendByDefault_TabName),
+    ),
     // NavBtn("Backup/Restore"),
     BlockTitle("Dashboards"),
-    NavBtn("Habit Tracker", HabitTracker(), Boolean("Habit Tracker" === isOpendByDefault_TabName)),
+    NavBtn(
+      "Habit Tracker",
+      HabitTracker(),
+      Boolean("Habit Tracker" === isOpendByDefault_TabName),
+    ),
     NavBtn("GitHub", GitHub(), Boolean("GitHub" === isOpendByDefault_TabName)),
-    NavBtn("CodeWars", CodeWars(), Boolean("CodeWars" === isOpendByDefault_TabName)),
-    NavBtn("CSS Battle", CSSBattle(), Boolean("CSS Battle" === isOpendByDefault_TabName)),
-    NavBtn("AinList", AniList(), Boolean("AinList" === isOpendByDefault_TabName)),
+    NavBtn(
+      "CodeWars",
+      CodeWars(),
+      Boolean("CodeWars" === isOpendByDefault_TabName),
+    ),
+    NavBtn(
+      "CSS Battle",
+      CSSBattle(),
+      Boolean("CSS Battle" === isOpendByDefault_TabName),
+    ),
+    NavBtn(
+      "AinList",
+      AniList(),
+      Boolean("AinList" === isOpendByDefault_TabName),
+    ),
     NavBtn("DEV", DEV(), Boolean("DEV" === isOpendByDefault_TabName)),
-    NavBtn("Firebase", Firebase(), Boolean("Firebase" === isOpendByDefault_TabName))
-
+    NavBtn(
+      "Firebase",
+      Firebase(),
+      Boolean("Firebase" === isOpendByDefault_TabName),
+    ),
   );
   return nav;
 }

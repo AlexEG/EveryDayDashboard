@@ -3,7 +3,7 @@ export async function openSettingsAnimation() {
   if (settings.dataset.isSettingsOpen === "false") {
     console.log(
       " %c OPEN  Settings ",
-      "background:black; color:#0f0;font-weight: 700;"
+      "background:black; color:#0f0;font-weight: 700;",
     );
     const openAnimation = settings.animate(
       {
@@ -15,7 +15,7 @@ export async function openSettingsAnimation() {
         duration: 500,
         iterations: 1,
         easing: "ease-in-out",
-      }
+      },
     );
     settings.dataset.isSettingsOpen = "true";
 
@@ -31,7 +31,7 @@ export async function closeSettingsAnimation() {
   if (settings.dataset.isSettingsOpen === "true") {
     console.log(
       " %c CLOSE  Settings ",
-      "background:black; color:#f00;font-weight: 700;"
+      "background:black; color:#f00;font-weight: 700;",
     );
     const closeAnimation = settings.animate(
       {
@@ -43,7 +43,7 @@ export async function closeSettingsAnimation() {
         duration: 500,
         iterations: 1,
         easing: "ease-in-out",
-      }
+      },
     );
     settings.dataset.isSettingsOpen = "false";
 

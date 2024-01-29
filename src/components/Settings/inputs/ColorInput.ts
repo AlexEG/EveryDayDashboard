@@ -4,7 +4,7 @@ export default function ColorInput(
   name: string,
   label: string,
   value: string,
-  callback: any
+  callback: any,
 ) {
   const styles = "w-7 h-7 bg-transparent cursor-pointer ml-auto";
 

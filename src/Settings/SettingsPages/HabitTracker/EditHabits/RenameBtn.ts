@@ -37,7 +37,7 @@ export default function RenameBtn() {
         "background:black; color:white",
         "color:red",
         "",
-        "color:green"
+        "color:green",
       );
 
       // change habit name in settings/home
@@ -60,7 +60,7 @@ export default function RenameBtn() {
     ];
     console.log(
       `%c Preformance / Time  %c${PREF_LOG_END - PREF_LOG_START}ms`,
-      ...PREF_LOG_CSS
+      ...PREF_LOG_CSS,
     );
   };
 
