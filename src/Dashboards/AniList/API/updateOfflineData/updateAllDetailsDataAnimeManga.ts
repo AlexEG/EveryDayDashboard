@@ -9,6 +9,9 @@ export default function updateAllDetailsDataAnimeManga(
   notificationsContainer: HTMLElement,
   notificationSettings: notificationSettingsTypes
 ) {
+
+
+
   const variables = {
     userId: userId,
     userName: userName,
@@ -35,8 +38,10 @@ export default function updateAllDetailsDataAnimeManga(
       // console.log("AllAnimeId: ", AllAnimeId);
       // get the completed files from anilist/details-data/anime
 
+   
+      
       const downloadedDetailsFiles = Array.from(
-        //@ts-ignore-next-line
+   
         window.DATA.readDir(`anilist/details-data/${type.toLowerCase()}`),
         (file: string) => +file.slice(0, -5)
       );

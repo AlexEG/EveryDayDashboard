@@ -17,12 +17,12 @@ export default function NotificationsCenter(
   const updateManga = checkThenUpdate.manga;
 
   const styles =
-    "flex flex-col-reverse gap-y-2 w-80 h-fit fixed right-1 -bottom-1 text-neutral-200";
+    "flex-col-reverse flex gap-y-2 w-80 h-fit fixed right-1 -bottom-1 text-neutral-200";
   const notificationsContainer = HTML(
     "div",
     styles,
     "anilist-notifications-container"
-  );
+  )
 
   // -------------  ------------- //
 
@@ -38,7 +38,7 @@ export default function NotificationsCenter(
         notificationSettings
       ),
     3000
-  );
+  )
 
   if (updateAnime.animeList)
   setTimeout(
