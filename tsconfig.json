@@ -11,7 +11,13 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ],
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "electron"
+  ],
 }

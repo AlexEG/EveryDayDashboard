@@ -164,6 +164,10 @@ export default function AniList() {
     // Notification
     const notificationSettings = data.notification;
 
+    // userId userName
+    const userId = data.userId;
+    const userName = data.userName;
+    // pages settings
     const animeLists = animePage.lists;
     const mangaLists = mangaPage.lists;
 
@@ -226,7 +230,12 @@ export default function AniList() {
 
     if (notificationSettings.isEnabled)
       MainContainer.append(
-        NotificationsCenter(notificationSettings, autoUpdateOfflineData),
+        NotificationsCenter(
+          userId,
+          userName,
+          notificationSettings,
+          autoUpdateOfflineData,
+        ),
       );
   });
   return MainContainer;

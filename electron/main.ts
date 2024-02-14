@@ -1,4 +1,4 @@
-const PREF_LOG_START = Date.now();
+// const PREF_LOG_START = Date.now();
 
 import { app, BrowserWindow } from "electron";
 import path from "path";
@@ -64,10 +64,10 @@ app.on("activate", () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 
-{
-  const PREF_LOG_END = Date.now();
+// {
+//   const PREF_LOG_END = Date.now();
 
-  console.log(
-    ` Preformance / main.ts  { ${PREF_LOG_END - PREF_LOG_START}ms } `,
-  );
-}
+//   console.log(
+//     ` Performance / main.ts  { ${PREF_LOG_END - PREF_LOG_START}ms } `,
+//   );
+// }
