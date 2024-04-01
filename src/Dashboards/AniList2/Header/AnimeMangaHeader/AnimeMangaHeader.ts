@@ -13,31 +13,24 @@ export default function AnimeMangaHeader(
     coverImgDropShadow: string;
   },
 ) {
-  // const styles = "border";
+  const styles = "";
   const headerID = `anilist--header-${type.toLowerCase()}`;
-  // const header = HTML("header", styles, headerID);
+  const header = HTML("header", styles, headerID);
 
-  const header = document.createElement("header");
-  {
-    const className = "border";
-    header.setAttribute("class", className);
-    header.setAttribute("id", headerID);
-  }
+  const styles2 = `w-full h-56 relative rounded-lg overflow-hidden ${
+    bannerImageDropShadow || "drop-shadow-[0_0_10px_#ffffff]"
+  }`;
+  const banner = HTML("div", styles2, `${headerID}--banner`);
 
-  const banner = document.createElement("div");
-  {
-    const className = `w-full h-56 relative rounded-lg overflow-hidden ${bannerImageDropShadow || "drop-shadow-[0_0_10px_#ffffff]"}`;
-    banner.setAttribute("class", className);
-    banner.setAttribute("id", `${headerID}--banner`);
-  }
-
-  const isFavourite = document.createElement("img");
-  {
-    const className =
-      "absolute top-2 right-2 w-6 h-6 z-10 brightness-125 drop-shadow-[0_0_6px_rgb(0,0,0,0.3)] hidden";
-    isFavourite.setAttribute("id", `${headerID}--banner--is-favourite`);
-    isFavourite.setAttribute("scr", "/src/assets/heart.svg");
-  }
+  const styles3 =
+    "absolute top-2 right-2 w-6 h-6 z-10 brightness-125 drop-shadow-[0_0_6px_rgb(0,0,0,0.3)] hidden";
+  const isFavourite = HTML(
+    "img",
+    styles3,
+    `${headerID}--banner--is-favourite`,
+    "",
+    { src: "/src/assets/heart.svg" },
+  );
 
   const bannerImg = HTML(
     "img",

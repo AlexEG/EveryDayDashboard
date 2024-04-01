@@ -13,9 +13,7 @@ interface API_UserInfo {
 export default function HomeBanner() {
   const styles =
     "w-full h-72 relative rounded-lg overflow-hidden drop-shadow-[0_0_10px_rgb(225,29,72,0.5)]";
-  // const header = HTML("header", styles);
-  const header = document.createElement("header");
-  header.setAttribute("class", styles);
+  const header = HTML("header", styles);
 
   // --------------- //
   const userInfoJSON = new Promise((res, rej) => {

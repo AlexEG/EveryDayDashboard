@@ -4,7 +4,7 @@ import TitleBar from "../src/components/TitleBar/TitleBar";
 import Sidebar from "../src/components/Sidebar/Sidebar";
 import Settings from "../src/Settings/Settings";
 // import CodeWars from "../src/Dashboards/CodeWars";
-// import HabitTracker from "../src/Dashboards/HabitTracker";
+import HabitTracker from "../src/Dashboards/HabitTracker";
 // import MonkeyType from "../src/Dashboards/MonkeyType/MonkeyType";
 import AniList from "../src/Dashboards/AniList/AniList";
 // import Achievements from "../src/Dashboards/Achievements/Achievements";
@@ -16,8 +16,8 @@ if (ROOT) {
   ROOT.append(Sidebar());
   ROOT.append(Settings());
   // ROOT.append(MonkeyType());
-  // ROOT.append(HabitTracker());
-  ROOT.append(AniList());
+  ROOT.append(HabitTracker());
+  // ROOT.append(AniList());
   // ROOT.append(Achievements());
 }
 
