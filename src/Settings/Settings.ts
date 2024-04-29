@@ -12,7 +12,7 @@ export default function Settings() {
   // invisible
   const settingsContainer = HTML("section", styles, "settings");
   settingsContainer.dataset.isSettingsOpen = "false";
-  const className = "bg-pink-50 flex flex text-white";
+  const className = "bg-pink-50 flex text-white";
   const isOpendByDefault_TabName = "AinList" as string;
   let Section: HTMLElement;
 

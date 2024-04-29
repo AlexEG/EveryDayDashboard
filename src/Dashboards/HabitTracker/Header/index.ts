@@ -7,11 +7,11 @@ import toggleUnlockEditHistory from "./toggleUnlockEditHistory";
 import toggleHabitList from "./toggleHabitList";
 
 export default function Header(isHabitListDisplayedByDefault: boolean) {
-  const styles = "py-1 px-2 relative flex justify-end gap-2";
+  const styles = "py-1 px-2 relative flex justify-end gap-2 overflow-hidden";
   const Header = HTML("header", styles);
   const p = HTML(
     "p",
-    "text-emerald-500 text-xs font-medium self-center mr-auto",
+    "text-emerald-500 text-xs font-medium self-center mr-auto hidden md:block",
     "",
     "Check after the task is finished  (Don't do in order, Do when you feel like it)",
   );

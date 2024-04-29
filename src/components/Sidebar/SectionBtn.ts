@@ -8,8 +8,9 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
 
   const styles2 =
     "h-6 w-6 invert group-hover:invert-0 opacity-70 group-hover:opacity-100 transition duration-200";
+
   const img = HTML("img", styles2, "", "", {
-    src: `/src/assets/${sectionName}.svg`,
+    src: `../../../src/assets/${sectionName}.svg`,
   });
 
   div.append(img);

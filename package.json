@@ -44,7 +44,6 @@
   },
   "dependencies": {
     "chart.js": "^4.4.0",
-    "electron-squirrel-startup": "^1.0.0",
-    "sqlite3": "^5.1.7"
+    "electron-squirrel-startup": "^1.0.0"
   }
 }
