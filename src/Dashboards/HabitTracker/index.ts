@@ -40,10 +40,10 @@ export default function HabitTracker() {
       MainContainer.append(
         Header(isHabitListDisplayedByDefault),
         Tracker(isHabitListDisplayedByDefault),
-        isTimeChart ? TrackerTimeChart() : "",
-        isBestFollowedDayChart ? TrackerBestFollowedDayChart() : "",
-        isBestFollowedMonthChar ? TrackerBestFollowedMonthChart() : "",
-        isBestFollowedHabitsChart ? TrackerBestFollowedHabitsChart() : "",
+        isTimeChart ? TrackerTimeChart(2024) : "",
+        isBestFollowedDayChart ? TrackerBestFollowedDayChart(2024) : "",
+        isBestFollowedMonthChar ? TrackerBestFollowedMonthChart(2024) : "",
+        isBestFollowedHabitsChart ? TrackerBestFollowedHabitsChart(2024) : "",
       );
     },
   );

@@ -8,7 +8,7 @@ export default function Tracker(isHabitListDisplayedByDefault: boolean) {
 
   trackerContainer.append(
     HabitsNameList(isHabitListDisplayedByDefault),
-    HabitsCheckboxGrid(),
+    HabitsCheckboxGrid(2024),
   );
 
   return trackerContainer;

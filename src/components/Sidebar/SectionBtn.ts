@@ -1,4 +1,5 @@
 import HTML from "../HTML/HTML";
+// import HabitTrackerSVG from "./svgs/HabitTrackerSvg";
 import { closeSettingsAnimation } from "./settingsAnimation";
 
 export default function SectionBtn(sectionName: string, sectionHTML: any) {
@@ -12,6 +13,16 @@ export default function SectionBtn(sectionName: string, sectionHTML: any) {
   const img = HTML("img", styles2, "", "", {
     src: `../../../src/assets/${sectionName}.svg`,
   });
+
+  // let img: SVGSVGElement;
+  // switch (sectionName) {
+  //   case "habit-tracker":
+  //     img = HabitTrackerSVG();
+  //     break;
+
+  //   default:
+  //     break;
+  // }
 
   div.append(img);
 

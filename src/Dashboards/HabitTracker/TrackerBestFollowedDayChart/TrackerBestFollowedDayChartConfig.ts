@@ -5,6 +5,12 @@ export default function TrackerBestFollowedDayChartConfig(
   thisYear: number,
   SELECTED_MONTH: string,
 ) {
+  console.log("labelsDays:", labelsDays);
+  console.log("monthDataset:", monthDataset);
+  console.log("numberOfHaibts:", numberOfHaibts);
+  console.log("thisYear:", thisYear);
+  console.log("SELECTED_MONTH:", SELECTED_MONTH);
+
   const XAaxis = {
     grid: {
       color: "#ffffff09",

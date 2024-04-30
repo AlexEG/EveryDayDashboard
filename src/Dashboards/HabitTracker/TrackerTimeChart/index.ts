@@ -37,11 +37,8 @@ export default function TrackerTimeChart(year?: number, month?: number) {
 
   const SELECTED_MONTH = MONTHS[thisMonthNum];
 
-  const numberOfDaysInThisMonth = new Date(
-    thisYear,
-    thisMonthNum - 1,
-    0,
-  ).getDate();
+  const numberOfDaysInThisMonth =
+    new Date(thisYear, thisMonthNum - 1, 0).getDate() + 1;
 
   HabitTrackerDATA().then((data) => {
     // console.log(data);

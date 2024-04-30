@@ -40,7 +40,7 @@ export default function TrackerBestFollowedHabitsChart(
   const SELECTED_MONTH = MONTHS[thisMonthNum];
 
   const numberOfDaysInThisMonth =
-    month && year && new Date(thisYear, thisMonthNum - 1, 0).getDate();
+    month && year && new Date(thisYear, thisMonthNum + 1, 0).getDate();
 
   HabitTrackerDATA().then((data) => {
     // console.log(data);

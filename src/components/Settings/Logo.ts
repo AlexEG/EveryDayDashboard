@@ -6,7 +6,7 @@ export default function Logo(svgName: string) {
 
   const styles2 = "w-7 invert";
   const img = HTML("img", styles2, "", "", {
-    src: `/src/assets/${svgName}.svg`,
+    src: `../../../src/assets/${svgName}.svg`,
   });
   Logo.append(img);
 

@@ -23,7 +23,7 @@ export default function ChartLabelDays(year?: number, month?: number) {
 
   const numberOfDaysInThisMonth = new Date(
     thisYear,
-    thisMonthNum - 1,
+    thisMonthNum + 1,
     0,
   ).getDate();
 

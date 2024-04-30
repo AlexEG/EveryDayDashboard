@@ -37,6 +37,8 @@ export default function TrackerBestFollowedDayChart(
 
   const thisMonthNum = month || DATE.getMonth();
   const thisYear = year || DATE.getFullYear();
+  const numberOfDaysInThisMonth =
+    new Date(thisYear, thisMonthNum - 1, 0).getDate() + 1;
 
   const SELECTED_MONTH = MONTHS[thisMonthNum];
 
@@ -45,6 +47,9 @@ export default function TrackerBestFollowedDayChart(
     // ------------
     const numberOfHaibts = Object.keys(data).length;
     const monthDataset = {};
+    for (let i = 1; i <= numberOfDaysInThisMonth; i++) {
+      monthDataset[i] = 0;
+    }
     // ------------
 
     for (const [, value] of Object.entries(data)) {
@@ -60,7 +65,7 @@ export default function TrackerBestFollowedDayChart(
       }
     }
 
-    // console.log("monthDataset", monthDataset);
+    console.log("monthDataset", monthDataset);
 
     // -------------------
     (async function () {

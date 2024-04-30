@@ -33,7 +33,7 @@ export default function HabitsCheckboxGrid(year?: number, month?: number) {
   const todayNum = DATE.getDate();
   const numberOfDaysInThisMonth = new Date(
     thisYear,
-    thisMonthNum - 1,
+    thisMonthNum + 1,
     0,
   ).getDate();
 

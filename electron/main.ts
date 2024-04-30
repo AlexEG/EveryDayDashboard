@@ -13,6 +13,7 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     // transparent: true,
     // frame: false,
+    icon: "/EveryDayDashboardIcon.png",
     titleBarStyle: "hidden",
     titleBarOverlay: {
       color: "#00000000",
